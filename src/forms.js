@@ -137,7 +137,7 @@ export default function Forms() {
     }
    const handleClick=()=>{
         if(VALIDITE && (membre.Mot===membre.Confirmer)){
-            Poster('https://tnserver.onrender.com/api/membres/newMembre',nouveauMembre)
+            Poster('https://teamniintcheft.onrender.com/api/membres/newMembre',nouveauMembre)
             // console.log(nouveauMembre)
         }else{alert("Impossible d'envoyer le formulaire; il y'a des DONNEES NON CONFORMES !Veuillez ien vérifier les données saisies.")}
     }
@@ -209,7 +209,7 @@ export  function InputString(props){
         let label=event.target.value===""?"":<>{name} {star}</>
         setState({...state,label:label})
         if(name==="Pseudo"){
-            fetch('https://tnserver.onrender.com/api/membres/allmembres/pseudos/'+val)
+            fetch('https://teamniintcheft.onrender.com/api/membres/allmembres/pseudos/'+val)
                 .then(response => response.json())
                 .then(bool=> {
                     // console.log({...state,bool:bool})

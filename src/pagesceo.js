@@ -61,7 +61,7 @@ export default function  Pagesceo(){
       setTitre('Mise à jour rubrique')
       ajouterChantierStyle.display='none'
     }
-    fetch('https://tnserver.onrender.com/api/'+ selections+'/all'+selections)
+    fetch('https://teamniintcheft.onrender.com/api/'+ selections+'/all'+selections)
       .then(response => response.json())
       .then(selections => setSelections(selections))
       .catch(error => setError(error.message)); // Stocke uniquement le message de l'erreur
@@ -254,7 +254,7 @@ function RowOfItem(props) {
       local=selection.telephoneNumber
     }
   // const dispatch=props.dispatch
-  const handleDelete=()=>{UpdateProps('https://tnserver.onrender.com/api/majmembres/'+pseudo,{delete:'suppession'});alert('Membre bien supprimé !')}
+  const handleDelete=()=>{UpdateProps('https://teamniintcheft.onrender.com/api/majmembres/'+pseudo,{delete:'suppession'});alert('Membre bien supprimé !')}
   function handleEdit(item){props.render(true,item)}
   const backgrndColor =(selection.statu==='x' && type==='membres')?'rgba(255,0,0,.16)':''
   const style={backgroundColor:backgrndColor,width:"100%",height:"25px",fontSize:"14px",margin:"0",padding:"0"}
