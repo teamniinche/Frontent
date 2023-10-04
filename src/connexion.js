@@ -52,7 +52,7 @@ const Connexion = () =>  {
         alerte.innerText='NI Identifiant ni Mot de passe ne doit etre NULL !)'
         alerte.style.display="block";
       }else{
-        fetch('/api/membres/'+pseudo)
+        fetch('https://tnserver.onrender.com/api/membres/'+pseudo)
           .then(response => response.json())
           .then(membre => {
           if(membre.passWord===pW){

@@ -96,12 +96,12 @@ class Chantier extends React.Component{
         }
       function inputChange(val){
           if (val===""){
-            fetch('/api/chantiers/allchantiers')
+            fetch('https://tnserver.onrender.com/api/chantiers/allchantiers')
           .then(response => response.json())
           .then(chantiers => {setChantiers({...chantiers,chantiers:chantiers})})
           .catch(error => setError(error.message)); // Stocke uniquement le message de l'erreur
           }else{
-          fetch('/api/chantiers/allchantiers/'+val)
+          fetch('https://tnserver.onrender.com/api/chantiers/allchantiers/'+val)
             .then(response => response.json())
             .then(chantiers => setChantiers({...chantiers,chantiers:chantiers}))
             .catch(error => setError(error.message)); // Stocke uniquement le message de l'erreur
@@ -109,7 +109,7 @@ class Chantier extends React.Component{
           }
 
       useEffect(() => {
-        fetch('/api/chantiers/allchantiers')
+        fetch('https://tnserver.onrender.com/api/chantiers/allchantiers')
           .then(response => response.json())
           .then(chantiers => {
                   dispatch(chantiersCounter(chantiers.length));

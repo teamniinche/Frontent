@@ -8,7 +8,7 @@ const [error, setError] = useState('');
 
 useEffect(() => {
   document.getElementsByClassName('header')[0].style.height="0px"; //"0px" doit etre dynamisé
-  fetch('/api/rubriques/allrubriques')
+  fetch('https://tnserver.onrender.com/api/rubriques/allrubriques')
     .then(response => response.json())
     .then(rubriques => setRubriques(rubriques))
     .catch(error => setError(error.message)); // Stocke uniquement le message de l'erreur

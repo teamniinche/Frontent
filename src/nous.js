@@ -35,7 +35,7 @@ export function Nous (props){
 
   useEffect(() => {
     document.getElementsByClassName('header')[0].style.height="0px"; //"0px" doit etre dynamisé
-    fetch('/api/membres/allmembres')
+    fetch('https://tnserver.onrender.com/api/membres/allmembres')
       .then(response => response.json())
       .then(membres => {setMembres(membres)})
       .catch(error => setError(error.message)); // Stocke uniquement le message de l'erreur
@@ -46,7 +46,7 @@ export function Nous (props){
 
   function inputChange(val){
     if (val===""){
-      fetch('/api/membres/allmembres')
+      fetch('https://tnserver.onrender.com/api/membres/allmembres')
       .then(response => response.json())
       .then(membres => setMembres(membres))
       .catch(error => setError(error.message)); // Stocke uniquement le message de l'erreur
@@ -54,7 +54,7 @@ export function Nous (props){
         return <div>Une erreur s'est produite : {error}</div>;
       }
     }else{
-      fetch('/api/membres/allmembres/'+val)
+      fetch('https://tnserver.onrender.com/api/membres/allmembres/'+val)
       .then(response => response.json())
       .then(membres => setMembres(membres))
       .catch(error => setError(error.message)); // Stocke uniquement le message de l'erreur

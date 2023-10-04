@@ -14,7 +14,7 @@ export function EditRubrique(props){
     }
     const handleRegister=()=>{
         let title=item.titre
-        UpdateProps('/api/rubriques/'+title,item)
+        UpdateProps('https://tnserver.onrender.com/api/rubriques/'+title,item)
     }
     // const itemContext=useContext(props.EditContext)
     return <form style={{width:"91%",minHeight:"80%",padding:"1em",margin:"0px"}}>
@@ -193,7 +193,7 @@ export function EditMembreAdmin(props) {
     }
     function handleClick(){
         const pseudo=item.pseudo;
-        UpdateProps('/api/membres/admin/'+pseudo,state);
+        UpdateProps('https://tnserver.onrender.com/api/membres/admin/'+pseudo,state);
 
     }
     const nomComplet=item.firstName + ' ' + item.lastName
@@ -287,7 +287,7 @@ export function EditMembre(props){
     const pseudo = props.item.pseudo
     const handleValide=()=>{
         if(VALIDITE){
-            UpdateProps('/api/membres/'+pseudo,item)
+            UpdateProps('https://tnserver.onrender.com/api/membres/'+pseudo,item)
         }else{
             const alert=document.getElementById('zoneAlert')
             alert.style.display='block';
