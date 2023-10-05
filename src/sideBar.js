@@ -5,6 +5,8 @@ import {useDispatch} from 'react-redux' ;
 import {chantiersCounter,localisation,setIndex} from './stoore.js';
 import './sideBar.css';
 
+const hostUrl='https://tnserver.onrender.com/'
+
 class Chantier extends React.Component{
     constructor(props){
         super(props);
@@ -96,12 +98,12 @@ class Chantier extends React.Component{
         }
       function inputChange(val){
           if (val===""){
-            fetch('https://teamniintcheft.onrender.com/api/chantiers/allchantiers')
+            fetch(hostUrl+'api/chantiers/allchantiers')
           .then(response => response.json())
           .then(chantiers => {setChantiers({...chantiers,chantiers:chantiers})})
           .catch(error => setError(error.message)); // Stocke uniquement le message de l'erreur
           }else{
-          fetch('https://teamniintcheft.onrender.com/api/chantiers/allchantiers/'+val)
+          fetch(hostUrl+'api/chantiers/allchantiers/'+val)
             .then(response => response.json())
             .then(chantiers => setChantiers({...chantiers,chantiers:chantiers}))
             .catch(error => setError(error.message)); // Stocke uniquement le message de l'erreur
@@ -109,7 +111,7 @@ class Chantier extends React.Component{
           }
 
       useEffect(() => {
-        fetch('https://teamniintcheft.onrender.com/api/chantiers/allchantiers')
+        fetch(hostUrl+'api/chantiers/allchantiers')
           .then(response => response.json())
           .then(chantiers => {
                   dispatch(chantiersCounter(chantiers.length));

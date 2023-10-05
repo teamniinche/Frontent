@@ -7,6 +7,7 @@ import InputString from './forms.js';
 import MetaData from './nousContacter';
 import Slider from './slider.js'
 
+const hostUrl='https://tnserver.onrender.com/'
 const membreDefault={   
   "id":0, 
   "firstName":"Moustapha",
@@ -35,7 +36,7 @@ export function Nous (props){
 
   useEffect(() => {
     document.getElementsByClassName('header')[0].style.height="0px"; //"0px" doit etre dynamisé
-    fetch('https://teamniintcheft.onrender.com/api/membres/allmembres')
+    fetch(hostUrl+'api/membres/allmembres')
       .then(response => response.json())
       .then(membres => {setMembres(membres)})
       .catch(error => setError(error.message)); // Stocke uniquement le message de l'erreur
@@ -46,7 +47,7 @@ export function Nous (props){
 
   function inputChange(val){
     if (val===""){
-      fetch('https://teamniintcheft.onrender.com/api/membres/allmembres')
+      fetch(hostUrl+'api/membres/allmembres')
       .then(response => response.json())
       .then(membres => setMembres(membres))
       .catch(error => setError(error.message)); // Stocke uniquement le message de l'erreur
@@ -54,7 +55,7 @@ export function Nous (props){
         return <div>Une erreur s'est produite : {error}</div>;
       }
     }else{
-      fetch('https://teamniintcheft.onrender.com/api/membres/allmembres/'+val)
+      fetch(hostUrl+'api/membres/allmembres/'+val)
       .then(response => response.json())
       .then(membres => setMembres(membres))
       .catch(error => setError(error.message)); // Stocke uniquement le message de l'erreur

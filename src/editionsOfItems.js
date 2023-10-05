@@ -4,7 +4,7 @@ import {UpdateProps} from './requetesFetch.js';
 import {dateValidator,phoneValidator,nameValidator,lastNameValidator} from './regExpressions.js';
 
 // {useContext}
-
+const hostUrl='https://tnserver.onrender.com/'
 export function EditRubrique(props){
     const [item,setItem]=useState({titre:props.item.titre,redaction:props.item.redaction})
 
@@ -14,7 +14,7 @@ export function EditRubrique(props){
     }
     const handleRegister=()=>{
         let title=item.titre
-        UpdateProps('https://tnserver.onrender.com/api/rubriques/'+title,item)
+        UpdateProps(hostUrl+title,item)
     }
     // const itemContext=useContext(props.EditContext)
     return <form style={{width:"91%",minHeight:"80%",padding:"1em",margin:"0px"}}>
@@ -193,7 +193,7 @@ export function EditMembreAdmin(props) {
     }
     function handleClick(){
         const pseudo=item.pseudo;
-        UpdateProps('https://tnserver.onrender.com/api/membres/admin/'+pseudo,state);
+        UpdateProps(hostUrl+pseudo,state);
 
     }
     const nomComplet=item.firstName + ' ' + item.lastName
@@ -287,7 +287,7 @@ export function EditMembre(props){
     const pseudo = props.item.pseudo
     const handleValide=()=>{
         if(VALIDITE){
-            UpdateProps('https://tnserver.onrender.com/api/membres/'+pseudo,item)
+            UpdateProps(hostUrl+'api/membres/'+pseudo,item)
         }else{
             const alert=document.getElementById('zoneAlert')
             alert.style.display='block';
