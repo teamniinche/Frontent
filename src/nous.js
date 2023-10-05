@@ -218,7 +218,7 @@ export class SecondeBar extends React.Component{
 export function Niintche() {
   return (
     <div>
-    <InputString for="joliNom" render={(objet)=>{} }/>
+    Pages reservées aux activités de junior Niintche individuellement.
     </div>
   )
 }

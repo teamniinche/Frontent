@@ -19,6 +19,7 @@ import Connexion from './connexion.js'
 // import PresentationEtablissement from './local.js'
 // import ImageCompressee from './imageCompressor.js'
 // import {ImageUploader} from './traitementImages.js'
+import {Niintche} from './nous.js'
 import Session,{FieldsetCompte} from './session.js';
 import Slider from './slider.js';
 import {images} from './icons.js';
@@ -36,7 +37,8 @@ export default function Teamniintche() {
             <Route>
                 <Route path="/quisommesnous" element= <SecondeBar />>
                       <Route path="/quisommesnous/lesmembres" element=<Nous />/>
-                      <Route path="/quisommesnous/niintche" element=<Slider images={images} classe='sliderEtat' classe1='sliderNavPrec1' classe2='sliderNavSuiv1'/>/>
+                      <Route path="/quisommesnous/niintche" element=<Niintche/>/> 
+                      {/* //<Slider images={images} classe='sliderEtat' classe1='sliderNavPrec1' classe2='sliderNavSuiv1'/> */}
                       <Route path="/quisommesnous/" element=<LaTeam/>/>
                 </Route>
                 {/* <Route path="/newChantier" element=<NewChantier />/>
