@@ -9,6 +9,8 @@ import Connexion from './connexion.js'
 import './session.css';
 import {compressImage,convertToBase64,dataURLtoFile} from './traitementImages.js';
 
+
+const hostUrl='https://tnserver.onrender.com/'
 const logo=require('./images/logo_niintche_blanc.ico')
 const Cession=()=>{
     const loggedInUser=useSelector((state)=>{ return state.userNewCh.loggedInUser})
@@ -45,7 +47,7 @@ const Session=()=>{
     // Données à utiliser à l'enregistrement(la requete fetch aux trois parametres sur les membres à utiliser)
         // const pseudo=props.pseudo
     const fileName={nameToSave:'membre'+id+'imgPublic.jpg'}
-    let Url='/api/membres/'+pseudo+'/galeriePrive/imgPublic'
+    let Url=hostUrl+'api/membres/'+pseudo+'/galeriePrive/imgPublic'
     let image=galeriePrive.imgPublic
     let src=image!==''?require('./images/'+image):require('./images/logo_niintche.webp') // =à l'ouverture de l'appli || au click de l'icone
     // Switch ON du Modal (le switch OFF est mis INLINE)
@@ -79,7 +81,7 @@ const Session=()=>{
         const formData = new FormData();
         formData.append('images', compressedFile);
         const img=image.split('.')[0]
-        fetch('/uploadimage/'+img+'/images', {
+        fetch(hostUrl+'uploadimage/'+img+'/images', {
             method: 'POST',
             body: formData,
             })
@@ -208,7 +210,7 @@ export function CompteBody(props) {
     let placeholder2="Insformations et vos suggestions ici ..."
     const UpdateMembre=(prop)=>{
         let pseudo=props.pseudo
-        fetch('/api/membres/galerie/'+pseudo+'/'+prop, {
+        fetch(hostUrl+'api/membres/galerie/'+pseudo+'/'+prop, {
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json'
@@ -497,7 +499,7 @@ export function Img(props) {
         const pseudo=image.pseudo
         const sProp=modalDisplay.imgKey
         const fileName={nameToSave:imgName.imgName+'.'+imgName.fileExt}
-        let Url='/api/membres/galerie/'+pseudo+'/'+sProp //'/api/membres/'+pseudo+'/'+prop+'/'+sProp
+        let Url=hostUrl+'api/membres/galerie/'+pseudo+'/'+sProp //'/api/membres/'+pseudo+'/'+prop+'/'+sProp
     // 
     let src=image.image!==''?require('./images/'+image.image):require('./images/logo_niintche.webp') // =à l'ouverture de l'appli || au click de l'icone
     // Switch ON du Modal (le switch OFF est mis INLINE)
@@ -549,7 +551,7 @@ export function Img(props) {
 const handleModalClick=()=>{
     const formData = new FormData();
     formData.append('images', compressedFile); 
-    fetch('/uploadimage/'+imgName.imgName+'/images', {
+    fetch(hostUrl+'uploadimage/'+imgName.imgName+'/images', {
         method: 'POST',
         body: formData,
         })

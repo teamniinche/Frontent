@@ -7,6 +7,9 @@ import './pagesceo.css';
 import {editer,supprimer,ajouter} from './icons.js';
 import {EditRubrique,EditMembreAdmin} from './editionsOfItems.js';
 import {UpdateProps} from './requetesFetch.js';
+
+const hostUrl='https://tnserver.onrender.com/'
+
 export default function  Pagesceo(){
   const [selections,setSelections]=useState([])
   const [type,setType]=useState("")
@@ -15,7 +18,8 @@ export default function  Pagesceo(){
   const [modalDisplay,setModalDisplay]=useState({showModal:false})
   const [item,setItem]=useState({})
   const Navigate=useNavigate()   //Au HOOK SETTER pour le cas de @redux/toolkit
-   const dispatch=useDispatch()  //LE HOOK SETTER pour le cas de @redux/toolkit
+  const dispatch=useDispatch()  //LE HOOK SETTER pour le cas de @redux/toolkit
+
   // useEffect(() => {
   //   disableEditItems();
   // },);
@@ -61,7 +65,7 @@ export default function  Pagesceo(){
       setTitre('Mise à jour rubrique')
       ajouterChantierStyle.display='none'
     }
-    fetch('/api/'+ selections+'/all'+selections)
+    fetch(hostUrl+'api/'+ selections+'/all'+selections)
       .then(response => response.json())
       .then(selections => setSelections(selections))
       .catch(error => setError(error.message)); // Stocke uniquement le message de l'erreur
@@ -254,7 +258,7 @@ function RowOfItem(props) {
       local=selection.telephoneNumber
     }
   // const dispatch=props.dispatch
-  const handleDelete=()=>{UpdateProps('/api/majmembres/'+pseudo,{delete:'suppession'});alert('Membre bien supprimé !')}
+  const handleDelete=()=>{UpdateProps(hostUrl+'api/majmembres/'+pseudo,{delete:'suppession'});alert('Membre bien supprimé !')}
   function handleEdit(item){props.render(true,item)}
   const backgrndColor =(selection.statu==='x' && type==='membres')?'rgba(255,0,0,.16)':''
   const style={backgroundColor:backgrndColor,width:"100%",height:"25px",fontSize:"14px",margin:"0",padding:"0"}

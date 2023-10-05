@@ -6,6 +6,7 @@ import {EditChantier} from './editionsOfItems.js';
 import {convertToBase64,compressImage,dataURLtoFile} from './traitementImages.js';
 import {UpdateProps,Poster} from './requetesFetch.js'
 
+const hostUrl='https://tnserver.onrender.com/'
 const NouveauChantier=()=> {
   // const item={name:"props.item.name",departement:"props.item.departement",dateAv:"props.item.dateAV",
   //             dateAp:"props.item.dateAp",imagesAv:"props.item.imagesAV",imagesAp:"props.item.imagesAp",redaction:"props.item.redaction"}
@@ -198,8 +199,8 @@ const handleModalClick=(e,actionneur)=>{
   if(e!==null && e!==undefined){e.preventDefault()}
   //actionneur pour identifier le bouton responsable(validateur ou enregistreur)
   if (actionneur==='Registrer'|| true){
-    UpdateProps('/api/chantiers/majProps/'+ID,item) //Mise à jour des autres props (non nested props): id à determiner
-    UpdateProps('/api/chantiers/'+ID,item.dates) //Mise à jour des dates(props nested)
+    UpdateProps(hostUrl+'api/chantiers/majProps/'+ID,item) //Mise à jour des autres props (non nested props): id à determiner
+    UpdateProps(hostUrl+'api/chantiers/'+ID,item.dates) //Mise à jour des dates(props nested)
     for(let i=0;i<9;i++){
       let file=indexArray[i][0]
       // let stitre=indexArray[i][1]
@@ -211,7 +212,7 @@ const handleModalClick=(e,actionneur)=>{
             let nomFichier=nImg['image'+i].nomImg
             let sousTitre=nImg['image'+i].sousTitre
             // majTextImgNChantier(prop(i),nomFichier,sousTitre)
-            fetch('/api/chantiers/nouveauChantier/'+ID+'/'+prop(i), { //Mise à jour des props nested (etat,rendu et programme) :id à determiner
+            fetch(hostUrl+'api/chantiers/nouveauChantier/'+ID+'/'+prop(i), { //Mise à jour des props nested (etat,rendu et programme) :id à determiner
               method: 'PUT',
               headers: {
                 'Content-Type': 'application/json'
@@ -234,7 +235,7 @@ const handleModalClick=(e,actionneur)=>{
             // console.log(nameInForm)
             // console.log(images)
             formData.append(nameInForm, file); //images=nom dans le formulaire: a determiner
-            fetch('/uploadimage/'+stringFichier+'/'+nameInForm, {
+            fetch(hostUrl+'uploadimage/'+stringFichier+'/'+nameInForm, {
                 method: 'POST',
                 body: formData,
                 })
@@ -246,13 +247,13 @@ const handleModalClick=(e,actionneur)=>{
         }else{
           if(file!==null || file!==''){
               const imageData={nImage:'',sousTitre:''}
-              UpdateProps('/api/chantiers/nouveauChantier/'+ID+'/'+prop(i),imageData)
+              UpdateProps(hostUrl+'api/chantiers/nouveauChantier/'+ID+'/'+prop(i),imageData)
           }
           
         }}
       if(actionneur==='Valider' && Valid){
-        Poster('/api/chantiers/newChantier',{...item,id:idC})
-        UpdateProps('/api/chantiers/nouveauChantier',chantierAVide)
+        Poster(hostUrl+'api/chantiers/newChantier',{...item,id:idC})
+        UpdateProps(hostUrl+'api/chantiers/nouveauChantier',chantierAVide)
       }
   }else{alert("VALIDATION REFUSEE : Des données essentielles sont manquantes !")}
 }
@@ -307,13 +308,13 @@ const handleModalClick=(e,actionneur)=>{
   useLayoutEffect(()=>{
   document.getElementById("id2").style.display="none";
  if(name===null){
-    fetch('/api/chantiers/getNewChantier/64ea4cd959615516c76ae0b2') 
+    fetch(hostUrl+'api/chantiers/getNewChantier/64ea4cd959615516c76ae0b2') 
       .then(response => response.json())
       //chantier={chantier:...,nombreDeChantiers:...} i.e chantier is in a object here
       .then(data => {setItem(data.chantier);setNombreDeChantiers({nbreCh:data.nbreChantiers,ID:'64ea4cd959615516c76ae0b2'})}) //chantier.nombreDeChantiers
       .catch(error => console.log(error)); // Stocke uniquement le message de l'erreur
   }else{
-    fetch('/api/chantiers/'+name) //+ID)
+    fetch(hostUrl+'api/chantiers/'+name) //+ID)
     .then(response => response.json())
     //chantier=chantier i.e chantier is the object
     .then(data => {setItem(data.chantier);setNombreDeChantiers({nbreCh:data.chantier.id,ID:data.ID})})
