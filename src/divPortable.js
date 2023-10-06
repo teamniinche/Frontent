@@ -12,7 +12,7 @@ export default function TitreRealisations(props) {
   return (
     <div id='divPortable' style={{textOverflow: "ellipsis",}} onClick={handleClick}>
         <img src={menu} id="imgReal" alt=""/>
-        <span id="spanReal" style={{textOverflow: "no-wrap",}}> 25 Réalisatisations  <span style={{color:"blue",fontWeight:"bold"}}>{' >>>'}</span> {props.ChFocus}
+        <span id="spanReal" style={{textOverflow: "no-wrap",}}>25 Réalisatisations  <span style={{color:"blue",fontWeight:"bold"}}>{' >>>'}</span> {props.ChFocus}
         {/*----------------------------------------------- {props.nombre} */}
         </span>
     </div>
