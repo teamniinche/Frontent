@@ -128,7 +128,8 @@ class Chantier extends React.Component{
           <Tronc chantier={state.chantier} nombre={nombre} />
           <div className='sideBar'>
               <div className="chantiers" id="chantiers_title">
-                  <p>{Chantiers.length} Chantiers trouvé(s)</p>
+                  {/* <p>{Chantiers.length} Chantiers trouvé(s)</p> */}
+                  <p>25 Chantier(s) trouvé(s)</p>
                    <hr/>
               </div>
               <div className='listChantiers'>
