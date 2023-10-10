@@ -135,8 +135,8 @@ export default function Forms() {
         // console.log(nouveauMembre)
         // console.log(validite)
     }
-   const handleClick=(e)=>{
-        e.preventDefault();
+   const handleClick=()=>{
+        // e.preventDefault();
         if(VALIDITE && (membre.Mot===membre.Confirmer)){
             Poster(hostUrl+'api/membres/newmembre',nouveauMembre)
             // console.log(nouveauMembre)
@@ -161,7 +161,7 @@ export default function Forms() {
                 <InputString type="text" for="Pseudo" icon={user} render={(obj)=>{handleChange(obj)}}/>
                 <InputString type="text" for="Mot de passe" icon={securite} render={(obj)=>{handleChange(obj)}}/>
                 <InputString type="text" for="Confirmer Mot de passe" icon={securite} render={(obj)=>{handleChange(obj)}}/>
-                <button  id='buttonValider' onClick={(e)=>handleClick(e)}>Valider</button>
+                <button  id='buttonValider' onClick={handleClick}>Valider</button>
                 {/* <button onClick={()=>{onClick()}}>Enregistrer les modifs</button> */}
             </form>
         </div>
