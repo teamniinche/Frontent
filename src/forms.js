@@ -138,7 +138,7 @@ export default function Forms() {
    const handleClick=()=>{
         // e.preventDefault();
         if(VALIDITE && (membre.Mot===membre.Confirmer)){
-            Poster(hostUrl+'api/membres/newmembre',nouveauMembre)
+            Poster(hostUrl+'api/membres/newMembre',nouveauMembre)
             // console.log(nouveauMembre)
         }else{alert("Impossible d'envoyer le formulaire; il y'a des DONNEES NON CONFORMES !Veuillez ien vérifier les données saisies.")}
     }
