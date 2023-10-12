@@ -16,6 +16,7 @@ export function EditRubrique(props){
         e.preventDefault()
         let title=item.titre
         UpdateProps(hostUrl+title,item)
+        props.render(false)
     }
     // const itemContext=useContext(props.EditContext)
     return <form style={{width:"91%",minHeight:"80%",padding:"1em",margin:"0px"}}>
@@ -25,7 +26,7 @@ export function EditRubrique(props){
         <textarea name="redaction" value={item.redaction} style={{width:"95%",height:"250px",backgroundColor:"rgba(0,0,0,.6)",color:"white",fontWeight:"bold",padding:"1em",fontSize:"20px",}} onChange={handleChange}></textarea>
         <div style={{width:"100%",display:"flex",flexDirection:"row",justifyContent:"flex-start"}}>
             <button className="succesButton" onClick={(e)=>handleRegister(e)}>Valider</button>
-            <button className="dangerButton" onClick={()=>props.render()}>Abandonner</button>
+            <button className="dangerButton" onClick={()=>props.render(false)}>Abandonner</button>
         </div>
     </form>
 }
@@ -292,6 +293,7 @@ export function EditMembre(props){
         e.preventDefault();
         if(VALIDITE){
             UpdateProps(hostUrl+'api/membres/'+pseudo,item)
+            props.render(false)
         }else{
             const alert=document.getElementById('zoneAlert')
             alert.style.display='block';

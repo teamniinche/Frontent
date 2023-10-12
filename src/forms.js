@@ -136,7 +136,6 @@ export default function Forms() {
         // console.log(validite)
     }
    const handleClick=()=>{
-        // e.preventDefault();
         if(VALIDITE && (membre.Mot===membre.Confirmer)){
             Poster(hostUrl+'api/membres/newMembre',nouveauMembre)
             // console.log(nouveauMembre)
