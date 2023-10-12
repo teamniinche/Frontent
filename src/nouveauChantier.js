@@ -374,7 +374,7 @@ const handleModalClick=(e,actionneur)=>{
             </div>
             <div style={{width:"100%",display:"flex",flexDirection:"row",justifyContent:"flex-start"}}>
                 <button className="succesButton"  onClick={(e)=>handleModalClick(e,'Valider')}>Valider</button>
-                <button className="dangerButton" onClick={()=>dispatch(modifyChantier(null))}>Abandonner</button>
+                <button className="dangerButton" onClick={(e)=>{e.preventDefault();dispatch(modifyChantier(null))}}>Abandonner</button>
             </div>
         </EditChantier>
     </div>
