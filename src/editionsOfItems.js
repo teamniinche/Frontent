@@ -285,7 +285,8 @@ export function EditMembre(props){
     }
     //
     const pseudo = props.item.pseudo
-    const handleValide=()=>{
+    const handleValide=(e)=>{
+        e.preventDefault();
         if(VALIDITE){
             UpdateProps(hostUrl+'api/membres/'+pseudo,item)
         }else{
@@ -315,7 +316,7 @@ export function EditMembre(props){
             <div style={{width:"100%",display:"flex",flexDirection:"row",justifyContent:"flex-start"}}>
                 <DataListDepartements/>
                 <DataListEquipes/>
-                <button className="succesButton" onClick={handleValide}>Valider</button>
+                <button className="succesButton" onClick={(e)=>handleValide(e)}>Valider</button>
                 <button className="dangerButton" onClick={()=>props.render(false)}>Abandonner</button>
             </div>
         </div>
