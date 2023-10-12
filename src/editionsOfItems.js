@@ -16,6 +16,7 @@ export function EditRubrique(props){
         e.preventDefault()
         let title=item.titre
         UpdateProps(hostUrl+title,item)
+        props.render(false)
     }
     // const itemContext=useContext(props.EditContext)
     return <form style={{width:"91%",minHeight:"80%",padding:"1em",margin:"0px"}}>
@@ -193,9 +194,9 @@ export function EditMembreAdmin(props) {
         setState({...state,[element]:obj.toggled})
     }
     function handleClick(e){
-        e.preventDefault();
+        e.preventDefault()
         const pseudo=item.pseudo;
-        UpdateProps(hostUrl+pseudo,state);
+        UpdateProps(hostUrl+'api/membres/admin/'+pseudo,state);
         props.render(false)
 
     }
