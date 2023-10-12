@@ -12,7 +12,8 @@ export function EditRubrique(props){
         let nom=event.target.name
         setItem({...item,[nom]:event.target.value})
     }
-    const handleRegister=()=>{
+    const handleRegister=(e)=>{
+        e.preventDefault()
         let title=item.titre
         UpdateProps(hostUrl+title,item)
     }
@@ -23,8 +24,8 @@ export function EditRubrique(props){
         <input name="titre" type="text" style={{width:"80%",height:"1.5em",padding:"1em",margin:"1em"}} value={item.titre} onChange={handleChange} />
         <textarea name="redaction" value={item.redaction} style={{width:"95%",height:"250px",backgroundColor:"rgba(0,0,0,.6)",color:"white",fontWeight:"bold",padding:"1em",fontSize:"20px",}} onChange={handleChange}></textarea>
         <div style={{width:"100%",display:"flex",flexDirection:"row",justifyContent:"flex-start"}}>
-            <button className="succesButton" onClick={handleRegister}>Valider</button>
-            <button className="dangerButton" onClick={()=>{}}>Abandonner</button>
+            <button className="succesButton" onClick={(e)=>handleRegister(e)}>Valider</button>
+            <button className="dangerButton" onClick={()=>props.render(false)}>Abandonner</button>
         </div>
     </form>
 }
@@ -191,9 +192,11 @@ export function EditMembreAdmin(props) {
         const element=obj.index;
         setState({...state,[element]:obj.toggled})
     }
-    function handleClick(){
+    function handleClick(e){
+        e.preventDefault();
         const pseudo=item.pseudo;
         UpdateProps(hostUrl+pseudo,state);
+        props.render(false)
 
     }
     const nomComplet=item.firstName + ' ' + item.lastName
@@ -218,7 +221,7 @@ export function EditMembreAdmin(props) {
             <ToggleButton render={(obj)=>handleChange(obj)} item={item} prop='chef'/>
         </div>
         <div id="buttons" style={{borderTop:"0.5px dotted #111",width:"100%",flexDirection:"row",justifyContent:"flex-start"}}>
-            <button className="succesButton" onClick={handleClick}>Valider</button>
+            <button className="succesButton" onClick={(e)=>handleClick(e)}>Valider</button>
             <button className="dangerButton" onClick={()=>props.render(false)}>Abandonner</button>
         </div>
 
@@ -289,6 +292,7 @@ export function EditMembre(props){
         e.preventDefault();
         if(VALIDITE){
             UpdateProps(hostUrl+'api/membres/'+pseudo,item)
+            props.render(false)
         }else{
             const alert=document.getElementById('zoneAlert')
             alert.style.display='block';
