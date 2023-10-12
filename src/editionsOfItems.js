@@ -15,7 +15,7 @@ export function EditRubrique(props){
     const handleRegister=(e)=>{
         e.preventDefault()
         let title=item.titre
-        UpdateProps(hostUrl+title,item)
+        UpdateProps(hostUrl+'/api/rubriques'+title,item)
         props.render(false)
     }
     // const itemContext=useContext(props.EditContext)
