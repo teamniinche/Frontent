@@ -473,6 +473,14 @@ function Galerie() {//{loggedInUser}
     let img2=require('./images/'+image2)
     let img3=require('./images/'+image3)
     let img4=require('./images/'+image4)
+    
+    // Remplacez ces variables par les informations de votre compte Cloudinary
+    const cloudName = "dapkl1ien";
+    const publicId = 'signed_upload_demo_form/membres/'+image1; // ou chemin complet de votre fichier
+    // Générez l'URL de téléchargement
+    const cloudinaryBaseUrl = 'https://res.cloudinary.com/'+cloudName+'/image/upload';
+    const downloadUrl = cloudinaryBaseUrl+'/'+publicId;
+
   return (
     <div id="galerie" style={{margin:"0px",padding:"10px 0px",width:"90%",height:"fit-content",border:"0px",display:"grid",gridTemplateColumns:"50% 50%"}}>
         <Img Key='imgPublic' Id={id} params={{lien:imgPublic,pseudo:pseudo}}src={img1}/>
@@ -584,7 +592,7 @@ const handleCloudinaryModalClick=async () => {
             formData.append("timestamp", signData.timestamp);
             formData.append("signature", signData.signature);
             formData.append("eager", "c_pad,h_200,w_200|c_crop,h_200,w_200");
-            formData.append("public_id", "signed_upload_demo_form/membres/"+fileName.nameToSave);
+            formData.append("public_id", "logo_niintche_blanc.ico"); //fileName.nameToSave);
             formData.append("folder", "signed_upload_demo_form/membres");
     
             fetch(url, {
@@ -595,7 +603,8 @@ const handleCloudinaryModalClick=async () => {
                 return response.text();
             })
             .then((data) => {
-                console.log(JSON.parse(data))
+                const object=JSON.parse(data)
+                console.log(object.public_id)
                 // var str = JSON.stringify(JSON.parse(data), null, 4);
                 // document.getElementById("formdata").innerHTML += str;
             });
