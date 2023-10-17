@@ -600,6 +600,7 @@ const handleCloudinaryModalClick=async () => {
                 // document.getElementById("formdata").innerHTML += str;
             });
         // };
+        setModalDisplay({showModal:false,imgKey:''});
 
 }
 
