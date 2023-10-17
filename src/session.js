@@ -479,10 +479,10 @@ function Galerie() {//{loggedInUser}
     // const publicId = 'signed_upload_demo_form/membres/'+image1; // ou chemin complet de votre fichier
     // Générez l'URL de téléchargement
     const cloudinaryBaseUrl = 'https://res.cloudinary.com/'+cloudName+'/image/upload';
-    let img1 = cloudinaryBaseUrl+'/signed_upload_demo_form/membres/'+image1;
-    let img2 = cloudinaryBaseUrl+'/signed_upload_demo_form/membres/'+image2;
-    let img3 = cloudinaryBaseUrl+'/signed_upload_demo_form/membres/'+image3;
-    let img4 = cloudinaryBaseUrl+'/signed_upload_demo_form/membres/'+image4;
+    let img1 = cloudinaryBaseUrl+'/'+image1;
+    let img2 = cloudinaryBaseUrl+'/'+image2;
+    let img3 = cloudinaryBaseUrl+'/'+image3;
+    let img4 = cloudinaryBaseUrl+'/'+image4;
 
 
   return (
