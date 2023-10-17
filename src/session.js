@@ -469,17 +469,21 @@ function Galerie() {//{loggedInUser}
     let image2=imgPrive!==''?imgPrive:imageLogo;
     let image3=imgPublic1!==''?imgPublic1:imageLogo;
     let image4=imgPublic2!==''?imgPublic2:imageLogo;
-    let img1=require('./images/'+image1)
-    let img2=require('./images/'+image2)
-    let img3=require('./images/'+image3)
-    let img4=require('./images/'+image4)
+    const cloudName = "dapkl1ien";
+    // let img1=require('./images/'+image1)
+    // let img2=require('./images/'+image2)
+    // let img3=require('./images/'+image3)
+    // let img4=require('./images/'+image4)
     
     // Remplacez ces variables par les informations de votre compte Cloudinary
-    const cloudName = "dapkl1ien";
-    const publicId = 'signed_upload_demo_form/membres/'+image1; // ou chemin complet de votre fichier
+    // const publicId = 'signed_upload_demo_form/membres/'+image1; // ou chemin complet de votre fichier
     // Générez l'URL de téléchargement
     const cloudinaryBaseUrl = 'https://res.cloudinary.com/'+cloudName+'/image/upload';
-    const downloadUrl = cloudinaryBaseUrl+'/'+publicId;
+    let img1 = cloudinaryBaseUrl+'/signed_upload_demo_form/membres/'+image1;
+    let img2 = cloudinaryBaseUrl+'/signed_upload_demo_form/membres/'+image2;
+    let img3 = cloudinaryBaseUrl+'/signed_upload_demo_form/membres/'+image3;
+    let img4 = cloudinaryBaseUrl+'/signed_upload_demo_form/membres/'+image4;
+
 
   return (
     <div id="galerie" style={{margin:"0px",padding:"10px 0px",width:"90%",height:"fit-content",border:"0px",display:"grid",gridTemplateColumns:"50% 50%"}}>
@@ -592,7 +596,7 @@ const handleCloudinaryModalClick=async () => {
             formData.append("timestamp", signData.timestamp);
             formData.append("signature", signData.signature);
             formData.append("eager", "c_pad,h_200,w_200|c_crop,h_200,w_200");
-            formData.append("public_id", "logo_niintche_blanc.ico"); //fileName.nameToSave);
+            formData.append("public_id", fileName.nameToSave);
             formData.append("folder", "signed_upload_demo_form/membres");
     
             fetch(url, {
