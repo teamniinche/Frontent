@@ -478,7 +478,7 @@ function Galerie() {//{loggedInUser}
     // Remplacez ces variables par les informations de votre compte Cloudinary
     // const publicId = 'signed_upload_demo_form/membres/'+image1; // ou chemin complet de votre fichier
     // Générez l'URL de téléchargement
-    const cloudinaryBaseUrl = 'https://res.cloudinary.com/'+cloudName+'/image/upload/';
+    const cloudinaryBaseUrl = 'https://res.cloudinary.com/'+cloudName+'/image/upload';
     let img1 = cloudinaryBaseUrl+'/'+image1;
     let img2 = cloudinaryBaseUrl+'/'+image2;
     let img3 = cloudinaryBaseUrl+'/'+image3;
