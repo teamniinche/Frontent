@@ -55,7 +55,7 @@ const Session=()=>{
     //let src=image!==''?require('./images/'+image):require('./images/logo_niintche.webp') // =à l'ouverture de l'appli || au click de l'icone
 
     //Image à l'initialisation
-    let img=image!==''?image:logo_niintche.webp // =à l'ouverture de l'appli || au click de l'icone
+    let img=image!==''?image:'logo_niintche.webp' // =à l'ouverture de l'appli || au click de l'icone
     //const cloudName = "dapkl1ien";
     //const cloudinaryBaseUrl = 'https://res.cloudinary.com/'+cloudName+'/image/upload/signed_upload_demo_form/membres';
     let src = cloudinaryBaseUrl+'/'+img;
@@ -589,7 +589,7 @@ export function Img(props) {
     //let src=image.image!==''?require('./images/'+image.image):require('./images/logo_niintche.webp') // =à l'ouverture de l'appli || au click de l'icone
 
     //Chargement de l'image à l'initiation
-    let img=image.image!==''?image.image:logo_niintche.webp // =à l'ouverture de l'appli || au click de l'icone
+    let img=image.image!==''?image.image:'logo_niintche.webp' // =à l'ouverture de l'appli || au click de l'icone
     const cloudName = "dapkl1ien";
     const cloudinaryBaseUrl = 'https://res.cloudinary.com/'+cloudName+'/image/upload/signed_upload_demo_form/membres';
     let src = cloudinaryBaseUrl+'/'+img;
