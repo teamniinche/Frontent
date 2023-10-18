@@ -613,6 +613,7 @@ const handleCloudinaryModalClick=async () => {
                 // document.getElementById("formdata").innerHTML += str;
             });
         // };
+        UpdateProps(Url,fileName)
         setModalDisplay({showModal:false,imgKey:''});
 
 }
