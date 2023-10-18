@@ -464,7 +464,7 @@ function Galerie() {//{loggedInUser}
     const loggedInUser=useSelector(state=>state.userNewCh.loggedInUser) //le HOOK GETTER dans le cas du @redux/toolkit
     const {imgPublic,imgPrive,imgPublic1,imgPublic2}=loggedInUser.galeriePrive
     const {id,pseudo}=loggedInUser
-    const imageLogo='logo_niintche_blanc.ico.ico'
+    const imageLogo='logo_niintche_blanc.ico'
     let image1=imgPublic!==''?imgPublic:imageLogo;
     let image2=imgPrive!==''?imgPrive:imageLogo;
     let image3=imgPublic1!==''?imgPublic1:imageLogo;
@@ -596,7 +596,7 @@ const handleCloudinaryModalClick=async () => {
             formData.append("timestamp", signData.timestamp);
             formData.append("signature", signData.signature);
             formData.append("eager", "c_pad,h_200,w_200|c_crop,h_200,w_200");
-            formData.append("public_id", fileName.nameToSave);
+            formData.append("public_id", fileName.nameToSave.split(".")[0];
             formData.append("folder", "signed_upload_demo_form/membres");
     
             fetch(url, {
