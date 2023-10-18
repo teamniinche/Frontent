@@ -29,7 +29,10 @@ const Session=()=>{
     const {id,pseudo,firstName, galeriePrive,profil,chef}=loggedInUser
     const avatar='avatar.webp';
     let imageProfil=galeriePrive.imgPublic!==''?galeriePrive.imgPublic:avatar;
-    let imgProfil=require('./images/'+imageProfil);
+    // let imgProfil=require('./images/'+imageProfil);
+    const cloudName = "dapkl1ien";
+    const cloudinaryBaseUrl = 'https://res.cloudinary.com/'+cloudName+'/image/upload/signed_upload_demo_form/membres';
+    let imgProfil= cloudinaryBaseUrl+'/'+imageProfil;
     useLayoutEffect(()=>{
             document.getElementsByClassName('header')[0].style.display="none";
             if(profil==='administrateur' || chef==="oui"){
