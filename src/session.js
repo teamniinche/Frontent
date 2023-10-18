@@ -56,7 +56,7 @@ const Session=()=>{
 
     //Image à l'initialisation
     let img=image!==''?image:logo_niintche.webp // =à l'ouverture de l'appli || au click de l'icone
-    const cloudName = "dapkl1ien";
+    //const cloudName = "dapkl1ien";
     const cloudinaryBaseUrl = 'https://res.cloudinary.com/'+cloudName+'/image/upload/signed_upload_demo_form/membres';
     let src = cloudinaryBaseUrl+'/'+img;
     
