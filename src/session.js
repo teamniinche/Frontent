@@ -46,7 +46,7 @@ const Session=()=>{
     const [compressedFile,setCompressedFile]=useState(null)
     // Données à utiliser à l'enregistrement(la requete fetch aux trois parametres sur les membres à utiliser)
         // const pseudo=props.pseudo
-    const fileName={nameToSave:'membre'+id+'imgPublic.jpg'}
+    const fileName={nameToSave:'membre'+id+'imgPublic.jpg'} //{nameToSave:'membre'+id+'imgPublic.jpg'}
     let Url=hostUrl+'api/membres/'+pseudo+'/galeriePrive/imgPublic'
     let image=galeriePrive.imgPublic
     let src=image!==''?require('./images/'+image):require('./images/logo_niintche.webp') // =à l'ouverture de l'appli || au click de l'icone
@@ -575,7 +575,7 @@ const handleModalClick=()=>{
 }
 const handleCloudinaryModalClick=async () => {
     //     e.preventDefault();
-    const signResponse = await fetch(hostUrl+'api/mycloudinary/signuploadform/'+fileName.nameToSave);
+    const signResponse = await fetch(hostUrl+'api/mycloudinary/signuploadform/'+fileName.nameToSave.split(".")[0]);
     const signData = await signResponse.json();
 
     const url = "https://api.cloudinary.com/v1_1/" + signData.cloudname + "/auto/upload";
