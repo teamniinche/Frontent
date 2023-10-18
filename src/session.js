@@ -464,7 +464,7 @@ function Galerie() {//{loggedInUser}
     const loggedInUser=useSelector(state=>state.userNewCh.loggedInUser) //le HOOK GETTER dans le cas du @redux/toolkit
     const {imgPublic,imgPrive,imgPublic1,imgPublic2}=loggedInUser.galeriePrive
     const {id,pseudo}=loggedInUser
-    const imageLogo='logo_niintche_blanc.ico'
+    const imageLogo='logo_niintche_blanc'
     let image1=imgPublic!==''?imgPublic:imageLogo;
     let image2=imgPrive!==''?imgPrive:imageLogo;
     let image3=imgPublic1!==''?imgPublic1:imageLogo;
