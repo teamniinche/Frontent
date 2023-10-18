@@ -52,8 +52,15 @@ const Session=()=>{
     const fileName={nameToSave:'membre'+id+'imgPublic.jpg'} //{nameToSave:'membre'+id+'imgPublic.jpg'}
     let Url=hostUrl+'api/membres/'+pseudo+'/galeriePrive/imgPublic'
     let image=galeriePrive.imgPublic
-    let src=image!==''?require('./images/'+image):require('./images/logo_niintche.webp') // =à l'ouverture de l'appli || au click de l'icone
-    // Switch ON du Modal (le switch OFF est mis INLINE)
+    //let src=image!==''?require('./images/'+image):require('./images/logo_niintche.webp') // =à l'ouverture de l'appli || au click de l'icone
+
+    //Image à l'initialisation
+    let img=image!==''?image:logo_niintche.webp // =à l'ouverture de l'appli || au click de l'icone
+    const cloudName = "dapkl1ien";
+    const cloudinaryBaseUrl = 'https://res.cloudinary.com/'+cloudName+'/image/upload/signed_upload_demo_form/membres';
+    let src = cloudinaryBaseUrl+'/'+img;
+    
+    // Switch ON du Modal (le switch OFF est mis INLINEl' initialisation 
     const handleInputChange=async (e)=>{
         const input =e.target;
         if (input.files && input.files[0]) {
@@ -159,7 +166,7 @@ const Session=()=>{
                 });
             // };
             UpdateProps(Url,fileName)
-            setModalDisplay({showModal:false,imgKey:''});
+            setModalDisplaye({showModal:false,imgKey:''});
     }
 // const imgProfilWidth=document.getElementById("imgProfil").style.maxWidth
 const imgProfilStyle={
@@ -579,7 +586,14 @@ export function Img(props) {
         const fileName={nameToSave:imgName.imgName+'.'+imgName.fileExt}
         let Url=hostUrl+'api/membres/galerie/'+pseudo+'/'+sProp //'/api/membres/'+pseudo+'/'+prop+'/'+sProp
     // 
-    let src=image.image!==''?require('./images/'+image.image):require('./images/logo_niintche.webp') // =à l'ouverture de l'appli || au click de l'icone
+    //let src=image.image!==''?require('./images/'+image.image):require('./images/logo_niintche.webp') // =à l'ouverture de l'appli || au click de l'icone
+
+    //Chargement de l'image à l'initiation
+    let img=image.image!==''?image.image:logo_niintche.webp // =à l'ouverture de l'appli || au click de l'icone
+    const cloudName = "dapkl1ien";
+    const cloudinaryBaseUrl = 'https://res.cloudinary.com/'+cloudName+'/image/upload/signed_upload_demo_form/membres';
+    let src = cloudinaryBaseUrl+'/'+img;
+    
     // Switch ON du Modal (le switch OFF est mis INLINE)
     const handleModalShow=()=>{
         setImage({...image,image:props.params.lien})
