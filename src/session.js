@@ -464,7 +464,7 @@ function Galerie() {//{loggedInUser}
     const loggedInUser=useSelector(state=>state.userNewCh.loggedInUser) //le HOOK GETTER dans le cas du @redux/toolkit
     const {imgPublic,imgPrive,imgPublic1,imgPublic2}=loggedInUser.galeriePrive
     const {id,pseudo}=loggedInUser
-    const imageLogo='logo_niintche_blanc'
+    const imageLogo='logo_niintche_blanc.ico.ico'
     let image1=imgPublic!==''?imgPublic:imageLogo;
     let image2=imgPrive!==''?imgPrive:imageLogo;
     let image3=imgPublic1!==''?imgPublic1:imageLogo;
@@ -478,7 +478,7 @@ function Galerie() {//{loggedInUser}
     // Remplacez ces variables par les informations de votre compte Cloudinary
     // const publicId = 'signed_upload_demo_form/membres/'+image1; // ou chemin complet de votre fichier
     // Générez l'URL de téléchargement
-    const cloudinaryBaseUrl = 'https://res.cloudinary.com/'+cloudName+'/image/upload/fl_attachment';
+    const cloudinaryBaseUrl = 'https://res.cloudinary.com/'+cloudName+'/image/upload/';
     let img1 = cloudinaryBaseUrl+'/'+image1;
     let img2 = cloudinaryBaseUrl+'/'+image2;
     let img3 = cloudinaryBaseUrl+'/'+image3;
