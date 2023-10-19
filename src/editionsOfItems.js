@@ -118,7 +118,7 @@ function ToggleButton(props) {
     let sToggled;
         switch (prop){
             case "chef":
-                sToggled=membreChef;
+                sToggled=membreStatu===false?membreChef:false;
                 break
             case "statu":
                 sToggled=membreStatu;
