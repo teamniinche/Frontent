@@ -66,7 +66,7 @@ const Session=()=>{
         if (input.files && input.files[0]) {
             let file=input.files[0]
             const base64Image = await convertToBase64(file);
-            const compressedImage = await compressImage(base64Image,1);
+            const compressedImage = await compressImage(base64Image,1,300);
             // setCompressedImage(compressedImage)                            //commentée:derniere touche
             const compressedFile=dataURLtoFile(compressedImage,file.name)
             setCompressedFile(compressedFile)
@@ -630,9 +630,9 @@ export function Img(props) {
             setImgName({imgName:nomImage,fileExt:'jpg'})
             //qualité des images fonction de l'image
             let n=null,wH=null
-            if(props.Key==='imgPublic'){n=1;wH=300;}else{n=0.5;wH=150}
+           // if(props.Key==='imgPublic'){n=1;wH=300;}else{n=0.5;wH=150}//Pour calibrer la qualité en fonction de l'image en question
         const base64Image = await convertToBase64(file);
-        const compressedImage = await compressImage(base64Image,n,wH);
+        const compressedImage = await compressImage(base64Image,1,300); //await compressImage(base64Image,n,vH);
         // const compressedFile=dataURLtoFile(compressedImage,file.name)
         // setCompressedFile(compressedFile)
         const reader = new FileReader();
@@ -669,7 +669,7 @@ const handleCloudinaryModalClick=async () => {
         // const files = document.querySelector("#modal_galerie_membre").files; //identifie l'input de type file du modal actif
         const file = document.querySelector("#modal_galerie_membre").files[0]; //identifie l'input de type file du modal actif
         const base64Image = await convertToBase64(file);
-        const compressedImage = await compressImage(base64Image,1,200);                         //commentée:derniere touche
+        const compressedImage = await compressImage(base64Image,1,300);                         //commentée:derniere touche
         const compressedFile=dataURLtoFile(compressedImage,file.name)
         const formData = new FormData();
     
