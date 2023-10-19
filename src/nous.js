@@ -211,7 +211,7 @@ export class SecondeBar extends React.Component{
         <ul>
           <li onClick={this.onClickMembres}><Link to="/quisommesnous/lesmembres">LES MEMBRES</Link></li>
           <li ><Link to="/quisommesnous">LA TEAM</Link></li>
-          <li ><Link to="/quisommesnous/niintche">NIINTCHE</Link></li>
+          <li ><Link to="/quisommesnous/niintche">GALÉRIE</Link></li>
         </ul>
       </div>
       <Outlet/>
