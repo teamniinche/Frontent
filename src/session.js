@@ -138,7 +138,7 @@ const Session=()=>{
             // const files = document.querySelector("#modal_galerie_membre").files; //identifie l'input de type file du modal actif
             const file = document.querySelector("#modal_imgeProfil").files[0]; //identifie l'input de type file du modal actif
             const base64Image = await convertToBase64(file);
-            const compressedImage = await compressImage(base64Image,1);                         //commentée:derniere touche
+            const compressedImage = await compressImage(base64Image,1,200);                         //commentée:derniere touche
             const compressedFile=dataURLtoFile(compressedImage,file.name)
             const formData = new FormData();
         
@@ -669,7 +669,7 @@ const handleCloudinaryModalClick=async () => {
         // const files = document.querySelector("#modal_galerie_membre").files; //identifie l'input de type file du modal actif
         const file = document.querySelector("#modal_galerie_membre").files[0]; //identifie l'input de type file du modal actif
         const base64Image = await convertToBase64(file);
-        const compressedImage = await compressImage(base64Image,1);                         //commentée:derniere touche
+        const compressedImage = await compressImage(base64Image,1,200);                         //commentée:derniere touche
         const compressedFile=dataURLtoFile(compressedImage,file.name)
         const formData = new FormData();
     
