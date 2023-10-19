@@ -136,7 +136,7 @@ const Session=()=>{
         // form.addEventListener("submit", (e) => {
         
             // const files = document.querySelector("#modal_galerie_membre").files; //identifie l'input de type file du modal actif
-            const file = document.querySelector("#modal_imgeProfil").files[0]; //identifie l'input de type file du modal actif
+            const file = compressedFile //document.querySelector("#modal_imgeProfil").files[0]; //identifie l'input de type file du modal actif
             const formData = new FormData();
         
             // Append parameters to the form data. The parameters that are signed using 
@@ -664,7 +664,7 @@ const handleCloudinaryModalClick=async () => {
     // form.addEventListener("submit", (e) => {
     
         // const files = document.querySelector("#modal_galerie_membre").files; //identifie l'input de type file du modal actif
-        const file = document.querySelector("#modal_galerie_membre").files[0]; //identifie l'input de type file du modal actif
+        const file = compressedFile //document.querySelector("#modal_galerie_membre").files[0]; //identifie l'input de type file du modal actif
         const formData = new FormData();
     
         // Append parameters to the form data. The parameters that are signed using 
