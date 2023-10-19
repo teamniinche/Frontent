@@ -143,7 +143,7 @@ const Session=()=>{
                 formData.append("eager", "c_pad,h_200,w_200|c_crop,h_200,w_200");
                 formData.append("public_id", fileName.nameToSave.split(".")[0]);
                 formData.append("folder", "signed_upload_demo_form/membres");
-        
+                delete(signData.apikey,signData.apiSecret,fileName.nameToSave)
                 fetch(url, {
                     method: "POST",
                     body: formData
