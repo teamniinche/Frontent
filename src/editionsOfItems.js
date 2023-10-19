@@ -203,7 +203,10 @@ export function EditMembreAdmin(props) {
     const nomComplet=item.firstName + ' ' + item.lastName
     const image=item.galeriePrive.imgPublic
     const root=image===''?'avatar.webp':image;
-    const src=require('./images/'+root)
+    //const src=require('./images/'+root)
+    const cloudName='dapkl1ien'
+    const cloudinaryBaseUrl = 'https://res.cloudinary.com/'+cloudName+'/image/upload/signed_upload_demo_form/membres';
+    let src = cloudinaryBaseUrl+'/'+root;
     return <div style={{display:"flex",flexDirection:"column",alignItems:"flex-start"}}>
         <div style={{margin:"20px 0px",padding:"0px 20%",width:"60%"}}>
             <img src={src} alt='membre courant' style={{width:"100%",height:"200px"}}/>
