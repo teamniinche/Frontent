@@ -72,7 +72,9 @@ export function Nous (props){
       <div className='noustronc'>
         <div className='noussidebar'>
           <ResearchBar typ="MEMBRE" number={membres.length} render={iptValue=>inputChange(iptValue)} />
-          {membres.map((item)=><Membre key={item.id} membre={item} render={membre=>handlaRender(membre)} />)}
+          <div className='noussidebar-membres'>
+            {membres.map((item)=><Membre key={item.id} membre={item} render={membre=>handlaRender(membre)} />)}
+          </div>
         </div>
         <DetailsMembre/>
       </div>
