@@ -162,7 +162,7 @@ class Membre extends React.Component{
   let imageProfil=imgProfilLink!==''?imgProfilLink:avatar;
     
   //let membreImg=require('./images/'+ imageProfil);
-  const cloudName='dakpllien'
+  const cloudName='dapkl1ien'
   const cloudinaryBaseUrl = 'https://res.cloudinary.com/'+cloudName+'/image/upload/signed_upload_demo_form/membres';
   let membreImg = cloudinaryBaseUrl+'/'+imageProfil;
     
