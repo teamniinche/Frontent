@@ -160,7 +160,12 @@ class Membre extends React.Component{
   const avatar='avatar1.jpg'
   const imgProfilLink=this.membre.galeriePrive.imgPublic
   let imageProfil=imgProfilLink!==''?imgProfilLink:avatar;
-  let membreImg=require('./images/'+ imageProfil);
+    
+  //let membreImg=require('./images/'+ imageProfil);
+  const cloudName='dakpllien'
+  const cloudinaryBaseUrl = 'https://res.cloudinary.com/'+cloudName+'/image/upload/signed_upload_demo_form/membres';
+  let membreImg = cloudinaryBaseUrl+'/'+imageProfil;
+    
   const twitter=require('./images/RS_logos/twitter.webp');
   const style={
     backgroundColor:this.membre.sexe==='Homme'?'rgba(0,0,250,.1)':'rgba(255,0,150,.1)',
