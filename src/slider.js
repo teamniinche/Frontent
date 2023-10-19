@@ -39,7 +39,6 @@ export default function Slider(props) {
         }
     }
     const cloudinaryBaseUrl = 'https://res.cloudinary.com/dapkl1ien/image/upload/signed_upload_demo_form/membres';
-    let membreImg = cloudinaryBaseUrl+'/'+imageProfil;
     const img=(url,sTitre)=>{
         let img=cloudinaryBaseUrl+'/'+ url;
         return <div className="sliderContentItem">
