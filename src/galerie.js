@@ -1,4 +1,4 @@
-import React, {useEffect,useState} from 'react';
+import React, {useEffect,useLayoutEffect,useState} from 'react';
 import {Link,Outlet} from 'react-router-dom';
 import ReactModal from 'react-modal';
 import {Poster} from './requetesFetch.js';
