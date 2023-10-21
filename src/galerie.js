@@ -71,7 +71,7 @@ export function NouvelAlbum(props) {
                     });
                 // };
                 const Url=hostUrl+'/api/images/post/'+fileName+'.jpg'
-                Poster(Url,{numeroEnvoi:j,ordreEnvoi:k,album:nomAlbum});
+                Poster(Url,{numeroEnvoi:j,ordreEnvoi:k,imgName:fileName+'.jpg',album:nomAlbum});
                 if (modalDisplaye.last===false){
                     const Url=hostUrl+'/api/images/album/'+fileName+'.jpg'
                     Poster(Url,{album:nomAlbum}); 
