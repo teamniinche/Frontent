@@ -15,7 +15,7 @@ export function NouvelAlbum(props) {
     //const Albums=albums.length===0?{name:"Aucun album"}:albums
     const Albums=[{name:'Aucun album'}]
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         fetch(hostUrl+'api/images/albums/getAll')
           .then(response => response.json())
           .then(albums => {
@@ -29,6 +29,7 @@ export function NouvelAlbum(props) {
                     setLastImage(picture)
                 })
           .catch(error => setError(error.message));
+        setModalDisplaye({showModal:true,albumName:'Aucun album',last:false})
         },[]);
         const handleCloudinaryModalClick=async () => {
             let input=document.querySelector('#filesInput')
