@@ -6,9 +6,9 @@ import {compressImage,convertToBase64,dataURLtoFile} from './traitementImages.js
 const hostUrl='https://tnserver.onrender.com/'
 const cloudinaryBaseUrl = 'https://res.cloudinary.com/dapkl1ien/image/upload/signed_upload_demo_form/galerie';
 
-export function NouvelAlbum(props) {
-    const [albums,setAlbums]=useState([])
-    const [lastImage,setLastImage]=useState([])
+export function NouvelAlbum(props) 
+    const [albums,setAlbums]=useState([{name:"Aucun album"}])
+    const [lastImage,setLastImage]=useState({numeroEnvoi:0,ordreEnvoi:0,imgName:null,album:null})
     // Pour afficher et/ou fermer la fenetre modale et identifiant de l'image selectionnée(=imgKey)
     const [modalDisplaye,setModalDisplaye]=useState({showModal:false,albumName:null,last:false})
     const [error,setError]=useState(null)
