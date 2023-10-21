@@ -101,6 +101,7 @@ export function NouvelAlbum(props) {
                           right: 0,
                           bottom: 0,
                           backgroundColor: 'rgba(0, 0, 0, 0.7)'
+                            zIndex:15000,
                         },content: {
                       position: 'absolute',
                       top: '15vh',
@@ -118,7 +119,7 @@ export function NouvelAlbum(props) {
                       outline: 'none',
                       padding: '2vw',
                       paddingTop:"0px",
-                    zIndex:10000,
+                    zIndex:30000,
                     }}}
               >
               <ul style={{listStyle:"none",display:"flex",flexDirection:"column",padding:"2%",margin:"0px"}} >
