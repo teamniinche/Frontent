@@ -220,13 +220,13 @@ export default function Galerie() {
 
 export function PhotosGrid({images}) {
     const cloudinaryBaseUrl = 'https://res.cloudinary.com/dapkl1ien/image/upload/signed_upload_demo_form/membres';
-    const vue=images.length===0?<h6>Any pictures to display.</h6>:images.map(image=>
-        <div>
-            <img src={cloudinaryBaseUrl+'/avatar1.png'} alt=''/>
-        </div>)
+    //const vue=images.length===0?<h6>Any pictures to display.</h6>:images.map(image=>
+        //<div>
+           // <img src={cloudinaryBaseUrl+'/avatar1.png'} alt=''/>
+        //</div>)
   return (
     <div>
-        {vue}
+       <h6>Vue</h6> 
     </div>
   )
 }
