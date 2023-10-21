@@ -121,7 +121,7 @@ export function NouvelAlbum(props) {
               <ul style={{display:"flex",flexDirection:"column",padding:"2%",margin:"0px"}} >
                 <h4 style={{margin:"0px",padding:"0px",paddingLeft:"5px",textDecoration:"underline"}} > Albums existants</h4>
                 {Albums.map((album,key)=><li key={album.index} onClick={()=>{setModalDisplaye({showModal:false,albumName:album.name,last:true});props.render(true)}}>{'⭐ ' + album.name}</li>)}
-                <li key="last" onClick={()=>{setModalDisplaye({showModal:false,albumName:null,last:false});props.render(false)}}>⭐ Nouvel album</li>
+                <li key="last" onClick={()=>setModalDisplaye({showModal:false,albumName:null,last:false})}>⭐ Nouvel album</li>
               </ul>
                     </ReactModal>
 
