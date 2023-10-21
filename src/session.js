@@ -68,7 +68,7 @@ const Session=()=>{
             const base64Image = await convertToBase64(file);
             const compressedImage = await compressImage(base64Image,1);
             // setCompressedImage(compressedImage)                            //commentée:derniere touche
-            const compressedFile=dataURLtoFile(compressedImage,file.name)
+            const compressedFile= await dataURLtoFile(compressedImage,file.name)
             setCompressedFile(compressedFile)
             const reader = new FileReader();
               reader.onload = function (e) {
@@ -136,7 +136,7 @@ const Session=()=>{
         // form.addEventListener("submit", (e) => {
         
             // const files = document.querySelector("#modal_galerie_membre").files; //identifie l'input de type file du modal actif
-            const file = document.querySelector("#modal_imgeProfil").files[0]; //identifie l'input de type file du modal actif
+            const file =compressedFile // document.querySelector("#modal_imgeProfil").files[0]; //identifie l'input de type file du modal actif
             const formData = new FormData();
         
             // Append parameters to the form data. The parameters that are signed using 
@@ -150,7 +150,7 @@ const Session=()=>{
                 formData.append("eager", "c_pad,h_200,w_200|c_crop,h_200,w_200");
                 formData.append("public_id", fileName.nameToSave.split(".")[0]);
                 formData.append("folder", "signed_upload_demo_form/membres");
-                delete(signData.apikey,signData.apiSecret,fileName.nameToSave)
+                deleteImg(signData.apikey,signData.apiSecret,fileName.nameToSave)
                 fetch(url, {
                     method: "POST",
                     body: formData
