@@ -85,11 +85,11 @@ export function NouvelAlbum(props) {
     <div style={{display:"flex",flexDirection:"column",paddingTop:"50px",margin:"0px",height:"fit-content"}} >
         <div style={{display:"flex",flexDirection:"row",justifyContent:"flex-start"}}>
             <h6>Nom album</h6>
-            <input type="text" value={modalDisplaye.albumName} onChange={(e)=>setModalDisplaye({...modalDisplaye,albumName:e.target.value})}  style={{width:"30%",}}/>
+            <input type="text" value={modalDisplaye.albumName} style={{height:"1.5em",}} onChange={(e)=>setModalDisplaye({...modalDisplaye,albumName:e.target.value})}  style={{width:"30%",}}/>
         </div>
-        <div style={{display:"flex",flexDirection:"row",justifyContent:"flex-start"}}>
-            <input type="file" multiple style={{width:"70%",}} id="filesInput"/>
-            <button onClick={(e) =>handleCloudinaryModalClick(e)} style={{width:"30%",}}>Uploader les images</button>
+        <div style={{display:"flex",flexDirection:"row",justifyContent:"flex-start",lineHeight:"2.5em",padding:"1em",backgroundColor:"rgba(0,0,0,0.2)"}}>
+            <input type="file" multiple style={{width:"70%",}} id="filesInput" style={{padding:"1em"}}/>
+            <button onClick={(e) =>handleCloudinaryModalClick(e)} style={{width:"30%",backgroundColor:"ragb(0,0,60)",padding:"1em"}}>Uploader les images</button>
         </div>
     <ReactModal
               isOpen={modalDisplaye.showModal}
