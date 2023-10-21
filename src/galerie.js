@@ -102,6 +102,7 @@ export function NouvelAlbum(props) {
                           bottom: 0,
                           backgroundColor: 'rgba(0, 0, 0, 0.7)',
                             zIndex:15000,
+                            alignContent:"center",
                         },content: {
                       position: 'absolute',
                       top: '15vh',
