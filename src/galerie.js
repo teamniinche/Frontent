@@ -89,7 +89,7 @@ export function NouvelAlbum(props) {
         </div>
         <div style={{display:"flex",flexDirection:"row",justifyContent:"flex-start",lineHeight:"2em",padding:"1em",backgroundColor:"rgba(0,0,0,0.1)"}}>
             <input type="file" multiple style={{width:"70%",}} id="filesInput" style={{padding:"1em"}}/>
-            <button onClick={(e) =>handleCloudinaryModalClick(e)} style={{width:"30%",backgroundColor:"rgb(0,0,200)",fontWeight:"bold",color:"white",padding:"1em",border:"none"}}>Uploader les images</button>
+            <button onClick={(e) =>handleCloudinaryModalClick(e)} style={{borderRadius:"10px",width:"30%",backgroundColor:"rgb(0,0,200)",fontWeight:"bold",color:"white",padding:"1em",border:"1px dotted rgb(0,0,200)"}}>Uploader les images</button>
         </div>
     <ReactModal
               isOpen={modalDisplaye.showModal}
