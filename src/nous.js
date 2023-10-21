@@ -3,7 +3,7 @@ import {useContext} from 'react';
 import './nous.css';
 import {ResearchBar} from './sideBar.js';
 import {Link, Outlet} from 'react-router-dom';
-import InputString from './forms.js';
+// import InputString from './forms.js';
 import MetaData from './nousContacter';
 import Slider from './slider.js'
 
@@ -213,7 +213,7 @@ export class SecondeBar extends React.Component{
         <ul>
           <li onClick={this.onClickMembres}><Link to="/quisommesnous/lesmembres">LES MEMBRES</Link></li>
           <li ><Link to="/quisommesnous">LA TEAM</Link></li>
-          <li ><Link to="/quisommesnous/niintche">GALÉRIE</Link></li>
+          <li ><Link to="/quisommesnous/galerie">GALÉRIE</Link></li>
         </ul>
       </div>
       <Outlet/>

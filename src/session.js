@@ -68,7 +68,7 @@ const Session=()=>{
             const base64Image = await convertToBase64(file);
             const compressedImage = await compressImage(base64Image,1,300);
             // setCompressedImage(compressedImage)                            //commentée:derniere touche
-            const compressedFile=dataURLtoFile(compressedImage,file.name)
+            const compressedFile= await dataURLtoFile(compressedImage,file.name)
             setCompressedFile(compressedFile)
             const reader = new FileReader();
               reader.onload = function (e) {
