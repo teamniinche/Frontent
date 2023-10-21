@@ -120,7 +120,7 @@ export function NouvelAlbum(props) {
               >
               <ul style={{display:"flex",flexDirection:"column",padding:"2%",margin:"0px"}} >
                 <h4 style={{margin:"0px",padding:"0px",paddingLeft:"5px",textDecoration:"underline"}} > Albums existants</h4>
-                {Albums.map((album,key)=><li key={album.index} onClick={()=>setModalDisplaye({showModal:false,albumName:album.name,last:true})}>{'⭐ ' + album.name}</li>)}
+                {Albums.map((album,key)=><li key={album.index} onClick={(album)=>setModalDisplaye({showModal:false,albumName:album.name,last:true})}>{'⭐ ' + album.name}</li>)}
                 <li key="last" onClick={()=>setModalDisplaye({showModal:false,albumName:null,last:false})}>⭐ Nouvel album</li>
               </ul>
                     </ReactModal>
@@ -191,7 +191,7 @@ export default function Galerie() {
 
   return <>
     <div style={{display:"flex",flexDirection:"row",justifyContent:"flex-start",width:"95vw"}}>
-        <Link to="/quisommesnous/galerie/" style={{width:"70%",}}>{'🖼 '+ albums.length + ' Albums ( '+images.length+ ' photos)' }</Link>
+        <Link to="/quisommesnous/galerie/" style={{width:"70%",}}>{'🖼 '+ albums.length + ' Albums ( ' + images.length + ' photos)' }</Link>
         <Link to="/quisommesnous/galerie/addPictures" style={{width:"20%",}}>Ajouter photos</Link>
     </div>
     <Outlet/>
