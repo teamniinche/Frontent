@@ -118,12 +118,13 @@ export function NouvelAlbum(props) {
                       outline: 'none',
                       padding: '2vw',
                       paddingTop:"0px",
+                    zIndex:10000,
                     }}}
               >
-              <ul style={{display:"flex",flexDirection:"column",padding:"2%",margin:"0px"}} >
+              <ul style={{listStyle:"none",display:"flex",flexDirection:"column",padding:"2%",margin:"0px"}} >
                 <h4 style={{margin:"0px",padding:"0px",paddingLeft:"5px",textDecoration:"underline"}} > Albums existants</h4>
-                {Albums.map((album,key)=><li key={album.index} onClick={(album)=>setModalDisplaye({showModal:false,albumName:album.name,last:true})}>{'⭐ ' + album.name}</li>)}
-                <li key="last" onClick={()=>setModalDisplaye({showModal:false,albumName:null,last:false})}>⭐ Nouvel album</li>
+                {Albums.map((album,key)=><li key={album.index} onClick={(album)=>setModalDisplaye({showModal:false,albumName:album.name,last:true})} style={{mouse:"pointer"}}>{'⭐ ' + album.name}</li>)}
+                <li key="last" onClick={()=>setModalDisplaye({showModal:false,albumName:null,last:false})} style:{{mouse:"pointer"}}>⭐ Nouvel album</li>
               </ul>
                     </ReactModal>
 
@@ -192,7 +193,7 @@ export default function Galerie() {
     //   }
 
   return <>
-    <div style={{display:"flex",flexDirection:"row",justifyContent:"flex-start",width:"95vw"}}>
+    <div style={{display:"flex",flexDirection:"row",justifyContent:"flex-start",width:"95vw",marginTop:"100px"}}>
         <Link to="/quisommesnous/galerie/" style={{width:"70%",}}>{'🖼 '+ albums.length + ' Albums ( ' + images.length + ' photos)' }</Link>
         <Link to="/quisommesnous/galerie/addPictures" style={{width:"20%",}}>Ajouter photos</Link>
     </div>
