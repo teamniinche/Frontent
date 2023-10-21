@@ -63,10 +63,19 @@
     flex-direction: column;
     align-items: center;
     width:30%;
-    max-height: 500px;
+    max-height: 550px;
     margin-left:10px;
-    overflow-x: scroll;
     }
+    .noussidebar-membres{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width:100%;
+        height: fit-content;
+        margin:0px;
+        padding:0px;
+        overflow-x: scroll;
+        }
     .detailsmembre{
         width:70% ;
         background-color: white;

@@ -72,7 +72,9 @@ export function Nous (props){
       <div className='noustronc'>
         <div className='noussidebar'>
           <ResearchBar typ="MEMBRE" number={membres.length} render={iptValue=>inputChange(iptValue)} />
-          {membres.map((item)=><Membre key={item.id} membre={item} render={membre=>handlaRender(membre)} />)}
+          <div className='noussidebar-membres'>
+            {membres.map((item)=><Membre key={item.id} membre={item} render={membre=>handlaRender(membre)} />)}
+          </div>
         </div>
         <DetailsMembre/>
       </div>
@@ -160,7 +162,12 @@ class Membre extends React.Component{
   const avatar='avatar1.jpg'
   const imgProfilLink=this.membre.galeriePrive.imgPublic
   let imageProfil=imgProfilLink!==''?imgProfilLink:avatar;
-  let membreImg=require('./images/'+ imageProfil);
+    
+  //let membreImg=require('./images/'+ imageProfil);
+  const cloudName='dapkl1ien'
+  const cloudinaryBaseUrl = 'https://res.cloudinary.com/'+cloudName+'/image/upload/signed_upload_demo_form/membres';
+  let membreImg = cloudinaryBaseUrl+'/'+imageProfil;
+    
   const twitter=require('./images/RS_logos/twitter.webp');
   const style={
     backgroundColor:this.membre.sexe==='Homme'?'rgba(0,0,250,.1)':'rgba(255,0,150,.1)',

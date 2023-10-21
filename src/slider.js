@@ -38,9 +38,9 @@ export default function Slider(props) {
             setImgSousTitre({number:Number,rapport:Rapport});
         }
     }
-
+    const cloudinaryBaseUrl = 'https://res.cloudinary.com/dapkl1ien/image/upload/signed_upload_demo_form/membres';
     const img=(url,sTitre)=>{
-        let img=require('./images/'+ url);
+        let img=cloudinaryBaseUrl+'/'+ url;
         return <div className="sliderContentItem">
                     <img src={img} alt="imageSlider" className="imageSlider"/>
                     <span className="spanBottom">{sTitre}</span>

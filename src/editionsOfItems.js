@@ -118,7 +118,7 @@ function ToggleButton(props) {
     let sToggled;
         switch (prop){
             case "chef":
-                sToggled=membreChef;
+                sToggled=membreStatu===false?membreChef:false;
                 break
             case "statu":
                 sToggled=membreStatu;
@@ -203,7 +203,10 @@ export function EditMembreAdmin(props) {
     const nomComplet=item.firstName + ' ' + item.lastName
     const image=item.galeriePrive.imgPublic
     const root=image===''?'avatar.webp':image;
-    const src=require('./images/'+root)
+    //const src=require('./images/'+root)
+    const cloudName='dapkl1ien'
+    const cloudinaryBaseUrl = 'https://res.cloudinary.com/'+cloudName+'/image/upload/signed_upload_demo_form/membres';
+    let src = cloudinaryBaseUrl+'/'+root;
     return <div style={{display:"flex",flexDirection:"column",alignItems:"flex-start"}}>
         <div style={{margin:"20px 0px",padding:"0px 20%",width:"60%"}}>
             <img src={src} alt='membre courant' style={{width:"100%",height:"200px"}}/>
@@ -237,6 +240,7 @@ export function EditMembre(props){
                                     Téléphone:props.item.telephoneNumber,
                                     Formation1:props.item.formation1,
                                     Formation2:props.item.formation2,
+                                    Qualification:props.item.qualification,
                                     Equipe:props.item.tngroupe
                                 })
     
@@ -249,9 +253,10 @@ export function EditMembre(props){
                                     Téléphone:true,
                                     Formation1:true,
                                     Formation2:true,
-                                    Equipe:true,
+                                    Qualification:true,
+                                    Equipe:true
                                 })
-    const VALIDITE=validite.Prénom && validite.Nom && validite.Surnom && validite.Département && validite.Date&& validite.Téléphone && validite.Formation1 && validite.Formation2 && validite.Equipe
+    const VALIDITE=validite.Prénom && validite.Nom && validite.Surnom && validite.Département && validite.Date&& validite.Téléphone && validite.Formation1 && validite.Formation2 && validite.Qualification && validite.Equipe
 
     //
     function validatorSwitch(propriete){
@@ -271,7 +276,7 @@ export function EditMembre(props){
         let para=document.getElementById(id);
 
         if(!validatorSwitch(element).test(valeur)){ // Controle de l'ENTREE pour les champs autres que "Sexe"
-            if((element==="Date" || element==="Formation1" || element==="Formation2" || element==="Equipe" || element==="Surnom") && valeur===''){
+            if((element==="Date" || element==="Formation1" || element==="Formation2" || element==="Equipe" || element==="Surnom" || element==="Qualification") && valeur===''){
                 setItem({...item,[element]:valeur})
                 setValidite({...validite,[element]:true});
                 para.innerText='';
@@ -316,6 +321,7 @@ export function EditMembre(props){
             <InputMembre value={item.Formation1} name="Formation1 initiale" width="60%" margin="1em .5em" type="text" item={item} render={(elem,val)=>handleChange(elem,val)}/>
             {/* </div> */}
             <InputMembre value={item.Formation2} name="Formation2 qualifiante"  width="80%" margin=".5em 0px" type="text" item={item} render={(elem,val)=>handleChange(elem,val)}/>
+            <InputMembre value={item.Qualification} name="Qualification"  width="80%" margin=".5em 0px" type="text" item={item} render={(elem,val)=>handleChange(elem,val)}/>
             <InputMembre value={item.Equipe} list name="Equipe TN" width="80%"  margin=".5em 0px" type="text" item={item} render={(elem,val)=>handleChange(elem,val)}/>
             <p id='zoneAlert'  style={{height:"fit-content",color:"white",backgroundColor:'red',display:"none",width:"fitContent",fontWeight:'bold',fontSize:'.8em',margin:'0px 12%',marginBottom:'10px',padding:'0px'}}></p>
             <div style={{width:"100%",display:"flex",flexDirection:"row",justifyContent:"flex-start"}}>

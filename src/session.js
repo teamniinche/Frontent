@@ -66,7 +66,7 @@ const Session=()=>{
         if (input.files && input.files[0]) {
             let file=input.files[0]
             const base64Image = await convertToBase64(file);
-            const compressedImage = await compressImage(base64Image,1);
+            const compressedImage = await compressImage(base64Image,1,300);
             // setCompressedImage(compressedImage)                            //commentée:derniere touche
             const compressedFile= await dataURLtoFile(compressedImage,file.name)
             setCompressedFile(compressedFile)
@@ -136,14 +136,17 @@ const Session=()=>{
         // form.addEventListener("submit", (e) => {
         
             // const files = document.querySelector("#modal_galerie_membre").files; //identifie l'input de type file du modal actif
-            const file =compressedFile // document.querySelector("#modal_imgeProfil").files[0]; //identifie l'input de type file du modal actif
+            const file = document.querySelector("#modal_imgeProfil").files[0]; //identifie l'input de type file du modal actif
+            const base64Image = await convertToBase64(file);
+            const compressedImage = await compressImage(base64Image,1,200);                         //commentée:derniere touche
+            const compressedFile=dataURLtoFile(compressedImage,file.name)
             const formData = new FormData();
         
             // Append parameters to the form data. The parameters that are signed using 
             // the signing function (signuploadform) need to match these.
             // for (let i = 0; i < files.length; i++) {
             //     let file = files[i];
-                formData.append("file", file);
+                formData.append("file", compressedFile);
                 formData.append("api_key", signData.apikey);
                 formData.append("timestamp", signData.timestamp);
                 formData.append("signature", signData.signature);
@@ -627,9 +630,9 @@ export function Img(props) {
             setImgName({imgName:nomImage,fileExt:'jpg'})
             //qualité des images fonction de l'image
             let n=null,wH=null
-            if(props.Key==='imgPublic'){n=1;wH=300;}else{n=0.5;wH=150}
+           // if(props.Key==='imgPublic'){n=1;wH=300;}else{n=0.5;wH=150}//Pour calibrer la qualité en fonction de l'image en question
         const base64Image = await convertToBase64(file);
-        const compressedImage = await compressImage(base64Image,n,wH);
+        const compressedImage = await compressImage(base64Image,1,300); //await compressImage(base64Image,n,vH);
         // const compressedFile=dataURLtoFile(compressedImage,file.name)
         // setCompressedFile(compressedFile)
         const reader = new FileReader();
@@ -665,13 +668,16 @@ const handleCloudinaryModalClick=async () => {
     
         // const files = document.querySelector("#modal_galerie_membre").files; //identifie l'input de type file du modal actif
         const file = document.querySelector("#modal_galerie_membre").files[0]; //identifie l'input de type file du modal actif
+        const base64Image = await convertToBase64(file);
+        const compressedImage = await compressImage(base64Image,1,300);                         //commentée:derniere touche
+        const compressedFile=dataURLtoFile(compressedImage,file.name)
         const formData = new FormData();
     
         // Append parameters to the form data. The parameters that are signed using 
         // the signing function (signuploadform) need to match these.
         // for (let i = 0; i < files.length; i++) {
         //     let file = files[i];
-            formData.append("file", file);
+            formData.append("file", compressedFile);
             formData.append("api_key", signData.apikey);
             formData.append("timestamp", signData.timestamp);
             formData.append("signature", signData.signature);
