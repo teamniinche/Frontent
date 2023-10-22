@@ -123,7 +123,7 @@ export function NouvelAlbum(props) {
                     zIndex:30000,
                     }}}
               >
-              <ul style={{listStyle:"none",display:"flex",flexDirection:"column",padding:"2%",margin:"0px",borderBottom:"1px dotted rgb(240,240,240)"}} >
+              <ul style={{listStyle:"none",display:"flex",flexDirection:"column",padding:"2%",margin:"0px",borderBottom:"3px solid rgb(240,240,240)"}} >
                 <h4 style={{margin:"0px",padding:"0px",paddingLeft:"5px",textDecoration:"underline"}} > Albums existants</h4>
                 {Albums.map((album,key)=><li key={album.index} onClick={(album)=>setModalDisplaye({showModal:false,albumName:album.name,last:true})} style={{mouse:"pointer"}}>{'⭐ ' + album.name}</li>)}
                 <li key="last" onClick={()=>setModalDisplaye({showModal:false,albumName:null,last:false})} style={{mouse:"pointer",listStyle:"none"}}>⭐ Nouvel album</li>
