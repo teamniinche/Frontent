@@ -83,7 +83,7 @@ export function NouvelAlbum(props) {
   return (
 
     <div style={{display:"flex",flexDirection:"column",paddingTop:"1.5em",width:"100%",margin:"0px",height:"fit-content"}} >
-        <div style={{display:"flex",flexDirection:"row",width:"100%",padding:"0.5em 0px",justifyContent:"flex-start",alignItems:"center",margin:".5em 0px"}}>
+        <div style={{display:"flex",flexDirection:"row",width:"100%",padding:"0.5em 0px",justifyContent:"center",alignItems:"center",margin:".5em 0px"}}>
             <h6 style={{margin:"0px"}}>Nom album</h6>
             <input type="text" value={modalDisplaye.albumName} style={{width:"60%",height:"2em",padding:"0.4em 1em",marginLeft:".5em"}} onChange={(e)=>setModalDisplaye({...modalDisplaye,albumName:e.target.value})}/>
         </div>
@@ -195,7 +195,7 @@ export default function Galerie() {
     //   }
 
   return <>
-    <div style={{display:"flex",flexDirection:"row",alignItems:"space-between",width:"95vw",marginTop:"100px",padding:"1em 0px"}}>
+    <div style={{display:"flex",flexDirection:"row",justifyContent:"space-between",width:"95vw",marginTop:"100px",padding:"1em 0px"}}>
         <Link to="/quisommesnous/galerie/" style={{width:"fit-content",marginTop:"10px"}}>{'🖼 '+ albums.length + ' Albums ( ' + images.length + ' photos)' }</Link>
         <Link to="/quisommesnous/galerie/addPictures" style={{borderRadius:"10px",textDecoration:"none",width:"fit-content",backgroundColor:"rgb(0,0,150)",fontWeight:"bold",color:"white",padding:".5em",border:"1px dotted rgb(0,0,200)"}}>Ajouter photos</Link>
     </div>
