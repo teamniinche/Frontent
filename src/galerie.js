@@ -244,9 +244,10 @@ export function PhotosGrid() {
     <div style={{paddingTop:"20px",display:"flex",flexFlow:"row wrap",alignItems:"start",justifyContent:"space-around"}}>
       {
         images.map(image=>
-        //<div style={{position:"relative",width:"47vw",height:"47vw",padding:"2vw",margin:"0px"__position:"absolute",top:"0px",left:"0px",bottom:"0px",right:"0px"}}>
-        <img src={cloudinaryBaseUrl+'/'+ image.imgName} alt='Delagalerie' style={{width:"44vw",height:"44vw",margin:"0.40vw",padding:"2vw",borderRadius:"4px",border:"1px solid grey"}}/>)
-      } 
+        <div style={{position:"relative",width:"44vw",height:"44vw",padding:"2vw",margin:"0.40vw",borderRadius:"4px",border:"1px solid grey"}}>
+        <img src={cloudinaryBaseUrl+'/'+ image.imgName} alt='Delagalerie' style={{width:"100%",height:"100%",margin:"0px",padding:"0px"}}/>)
+        </div>
+        } 
     </div>
   )
 }
