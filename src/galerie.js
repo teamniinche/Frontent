@@ -16,10 +16,10 @@ export function NouvelAlbum(props) {
     const Albums=[{name:'Aucun album'}]
 
     useLayoutEffect(() => {
-        if(document.querySelector('#overlay-div')){
-            const overlay=document.querySelector('#overlay-div')
-            overlay.style.display="inline-block"
-        }
+        //if(document.querySelector('#overlay-div')){
+            //const overlay=document.querySelector('#overlay-div')
+            //overlay.style.display="inline-block"
+        //}
         fetch(hostUrl+'api/images/albums/getAll')
           .then(response => response.json())
           .then(albums => {
@@ -147,10 +147,10 @@ export default function Galerie() {
     const [error,setError]=useState(null)
 
     useLayoutEffect(() => {
-        if(document.querySelector('#overlay-div')){
-            const overlay=document.querySelector('#overlay-div')
-            overlay.style.display="none"
-        }
+        //if(document.querySelector('#overlay-div')){
+            //const overlay=document.querySelector('#overlay-div')
+            //overlay.style.display="none"
+        //}
         fetch(hostUrl+'api/images/getAll')
           .then(response => response.json())
           .then(images => {
@@ -203,12 +203,12 @@ export default function Galerie() {
     //   }
 
   return <>
-    <div style={{position:"relative",width:"100%",marginTop:"100px",padding:"1em 0px",borderBottom:"3px solid rgb(240,240,240)"}}>
-       <div style={{position:"absolute",margin:"0px",padding:"0px 2.5%",width:"95%",height:"100%",zIndex:"0",display:"flex",flexDirection:"row",justifyContent:"space-around"}}>
+    <div style={{position:"relative",width:"100%",marginTop:"80px",padding:"1em 0px",borderBottom:"3px solid rgb(240,240,240)"}}>
+       <div style={{position:"absolute",margin:"0px",padding:"0px 2.5%",width:"95%",height:"100%",zIndex:"1",display:"flex",flexDirection:"row",justifyContent:"space-around"}}>
             <Link to="/quisommesnous/galerie/" style={{width:"fit-content",marginTop:"10px"}}>{'🖼 '+ albums.length + ' Albums ( ' + images.length + ' photos)' }</Link>
             <Link to="/quisommesnous/galerie/addPictures" style={{borderRadius:"10px",textDecoration:"none",width:"fit-content",backgroundColor:"rgb(0,0,150)",fontWeight:"bold",color:"white",padding:".5em",border:"1px dotted rgb(0,0,200)"}}>Ajouter photos</Link>
         </div>
-        <div id="overlay-div" style={{position:"absolute",display:"inline-block",margin:"0px",padding:"0px",padding:"0px",width:"100%",height:"100%",float:"left",zIndex:"1",backgroundColor:"rgba(0,0,0,0.1)"}}>'</div>
+        <div id="overlay-div" style={{position:"absolute",display:"inline-block",margin:"0px",padding:"0px",padding:"0px",width:"100%",height:"100%",float:"left",zIndex:"0",backgroundColor:"rgba(0,0,0,0.1)"}}>'</div>
     </div>
     <Outlet/>
     <div>
@@ -235,12 +235,12 @@ export default function Galerie() {
 }
 
 export function PhotosGrid({images}) {
-    useLayoutEffect(()=>{
-        if(document.querySelector('#overlay-div')){
-            const overlay=document.querySelector('#overlay-div')
-            overlay.style.display="none"
-        }
-     ,[]})
+    //useLayoutEffect(()=>{
+        //if(document.querySelector('#overlay-div')){
+            //const overlay=document.querySelector('#overlay-div')
+            //overlay.style.display="none"
+        //}
+     //,[]})
     const cloudinaryBaseUrl = 'https://res.cloudinary.com/dapkl1ien/image/upload/signed_upload_demo_form/membres';
     //const vue=images.length===0?<h6>Any pictures to display.</h6>:images.map(image=>
         //<div>
