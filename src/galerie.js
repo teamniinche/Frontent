@@ -47,7 +47,7 @@ export function NouvelAlbum(props) {
                 // the signing function (signuploadform) need to match these.
                 for (let i = 0; i < files.length && i<10; i++) {
                     let fileName='galerie_'+j+'_'+k
-                    const signResponse = await fetch(hostUrl+'api/mycloudinary/signuploadform/galerie/'+fileName);
+                    const signResponse = await fetch(hostUrl+'api/mycloudinary/signuploadform/'+fileName);
                     const signData = await signResponse.json();
                     const url = "https://api.cloudinary.com/v1_1/" + signData.cloudname + "/auto/upload";
                     let file = files[i];
