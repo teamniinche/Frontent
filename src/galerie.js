@@ -123,7 +123,7 @@ export function NouvelAlbum(props) {
                     zIndex:30000,
                     }}}
               >
-              <ul style={{listStyle:"none",display:"flex",flexDirection:"column",padding:"2%",margin:"0px",borderBottom:"3px solid rgb(240,240,240)"}} >
+              <ul style={{listStyle:"none",display:"flex",flexDirection:"column",padding:"2%",margin:"0px"}} >
                 <h4 style={{margin:"0px",padding:"0px",paddingLeft:"5px",textDecoration:"underline"}} > Albums existants</h4>
                 {Albums.map((album,key)=><li key={album.index} onClick={(album)=>setModalDisplaye({showModal:false,albumName:album.name,last:true})} style={{mouse:"pointer"}}>{'⭐ ' + album.name}</li>)}
                 <li key="last" onClick={()=>setModalDisplaye({showModal:false,albumName:null,last:false})} style={{mouse:"pointer",listStyle:"none"}}>⭐ Nouvel album</li>
@@ -195,12 +195,12 @@ export default function Galerie() {
     //   }
 
   return <>
-    <div style={{position:"relative",width:"95vw",marginTop:"100px",padding:"1em 0px"}}>
+    <div style={{position:"relative",width:"95vw",marginTop:"100px",padding:"1em 0px",borderBottom:"3px solid rgb(240,240,240)"}}>
        <div style={{margin:"0px",padding:"0px",width:"100%",height:"100%",float:"left",zIndex:"0",display:"flex",flexDirection:"row",justifyContent:"space-around"}}>
             <Link to="/quisommesnous/galerie/" style={{width:"fit-content",marginTop:"10px"}}>{'🖼 '+ albums.length + ' Albums ( ' + images.length + ' photos)' }</Link>
             <Link to="/quisommesnous/galerie/addPictures" style={{borderRadius:"10px",textDecoration:"none",width:"fit-content",backgroundColor:"rgb(0,0,150)",fontWeight:"bold",color:"white",padding:".5em",border:"1px dotted rgb(0,0,200)"}}>Ajouter photos</Link>
         </div>
-        <div id="overlay-div" style={{margin:"0px",padding:"0px",width:"100%",height:"100%",float:"left",zIndex:"1"}}>'</div>
+        <div id="overlay-div" style={{margin:"0px",padding:"0px",width:"100%",height:"100%",float:"left",zIndex:"1",backgroundColor:"rgba(0,0,0,0.06)"}}>'</div>
     </div>
     <Outlet/>
     <div>
