@@ -13,7 +13,7 @@ export function NouvelAlbum(props) {
     const [modalDisplaye,setModalDisplaye]=useState({showModal:false,albumName:null,last:false})
     const [error,setError]=useState(null)
     //const Albums=albums.length===0?{name:"Aucun album"}:albums
-    const Albums=[{name:'Aucun album'}]
+    //const Albums=[{name:'Aucun album'}]
 
     useLayoutEffect(() => {
         //if(document.querySelector('#overlay-div')){
