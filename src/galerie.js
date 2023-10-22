@@ -245,11 +245,11 @@ export function PhotosGrid() {
      ,[])
     const cloudinaryBaseUrl = 'https://res.cloudinary.com/dapkl1ien/image/upload/signed_upload_demo_form/galerie'
   return (
-    <div style={{paddingTop:"20px",display:"flex",flexFlow:"row wrap",alignItems:"start",overflowX:"scroll"}}>
+    <div style={{paddingTop:"20px",display:"flex",flexFlow:"row wrap",alignItems:"start"}}>
       {
         images.map(image=>
         //<div style={{position:"relative",width:"47vw",height:"47vw",padding:"2vw",margin:"0px"__position:"absolute",top:"0px",left:"0px",bottom:"0px",right:"0px"}}>
-        <img src={cloudinaryBaseUrl+'/'+ image.imgName} alt='Delagalerie' style={{width:"43vw",height:"43vw",padding:"2vw",borderRadius:"4px",border:"1px solid grey"}}/>)
+        <img src={cloudinaryBaseUrl+'/'+ image.imgName} alt='Delagalerie' style={{width:"42vw",height:"42vw",margin:"0.5vw",padding:"2vw",borderRadius:"4px",border:"1px solid grey"}}/>)
       } 
     </div>
   )
