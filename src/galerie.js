@@ -231,7 +231,7 @@ export default function Galerie() {
 }
 
 export function PhotosGrid() {
-    const [images,setImages]=useState(null)
+    const [images,setImages]=useState([{imgName:"Aucun"}])
     useLayoutEffect(()=>{
         //if(document.querySelector('#overlay-div')){
             //const overlay=document.querySelector('#overlay-div')
@@ -242,13 +242,13 @@ export function PhotosGrid() {
           .then(pictures => setImages(pictures))
           .catch(error => setError(error.message))}
      ,[])
-    const cloudinaryBaseUrl = 'https://res.cloudinary.com/dapkl1ien/image/upload/signed_upload_demo_form/membres';
+    const cloudinaryBaseUrl = 'https://res.cloudinary.com/dapkl1ien/image/upload/signed_upload_demo_form/membres'
   return (
     <div style={{display:"flex",flexFlow:"row wrap",alignItems:"start"}}>
       {
         images.map(image=>
         <div style={{position:"relative",width:"296px",height:"296px",padding:"2px",margin:"0px"}}>
-        <img src={cloudinaryBaseUrl+'/'+ image.imgName} alt='De la galerie' style={{position:"absolute",top:"0px",left:"0px",bottom:"0px",right:"0px"}}/></div>)
+        <img src={cloudinaryBaseUrl+'/'+ image.imgName} alt='Delagalerie' style={{position:"absolute",top:"0px",left:"0px",bottom:"0px",right:"0px"}}/></div>)
       } 
     </div>
   )
