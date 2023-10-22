@@ -240,6 +240,8 @@ export function PhotosGrid() {
           .then(pictures => setImages(pictures))
           .catch(error => setError(error.message))}
      ,[])
+    const handleAdd=()=>{}
+    const handleDelete=()=>{}
     const cloudinaryBaseUrl = 'https://res.cloudinary.com/dapkl1ien/image/upload/signed_upload_demo_form/galerie'
   return (
     <div style={{paddingTop:"20px",display:"flex",flexFlow:"row wrap",alignItems:"start",justifyContent:"space-around"}}>
