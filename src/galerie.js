@@ -200,7 +200,7 @@ export default function Galerie() {
             <Link to="/quisommesnous/galerie/" style={{width:"fit-content",marginTop:"10px"}}>{'🖼 '+ albums.length + ' Albums ( ' + images.length + ' photos)' }</Link>
             <Link to="/quisommesnous/galerie/addPictures" style={{borderRadius:"10px",textDecoration:"none",width:"fit-content",backgroundColor:"rgb(0,0,150)",fontWeight:"bold",color:"white",padding:".5em",border:"1px dotted rgb(0,0,200)"}}>Ajouter photos</Link>
         </div>
-        <div id="overlay-div" style={{margin:"0px",padding:"0px",width:"100%",height:"100%",float:"left",zIndex:"1",backgroundColor:"rgba(0,0,0,0.06)"}}>'</div>
+        <div id="overlay-div" style={{margin:"0px",padding:"0px",width:"100%",height:"100%",float:"left",zIndex:"1",backgroundColor:"rgba(0,0,0,0.06)",clear:"both"}}>'</div>
     </div>
     <Outlet/>
     <div>
