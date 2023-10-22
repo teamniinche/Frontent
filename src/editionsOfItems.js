@@ -209,7 +209,7 @@ export function EditMembreAdmin(props) {
     let src = cloudinaryBaseUrl+'/'+root;
     return <div style={{display:"flex",flexDirection:"column",alignItems:"flex-start"}}>
         <div style={{margin:"20px 0px",padding:"0px 20%",width:"60%"}}>
-            <img src={src} alt='membre courant' style={{width:"92%",height:"200px",padding:"4%",borderRadius:"6px",border:"2px solid rgba(0,0,0,0.05)"}}/>
+            <img src={src} alt='membre courant' style={{width:"92%",height:"200px",padding:"4%",borderRadius:"6px",border:"2px solid rgba(0,0,0,0.08)"}}/>
             <span style={{fontSize:'1em',fontWeight:'bold'}}>{nomComplet}</span>
         </div>
         <div style={{borderTop:"0.5px solid #111",height:'3em',padding:'1em',margin:'2em 0px',marginBottom:'.5em',display:"flex",flexDirection:"row",alignItems:"flex-start",justifyContent:'center'}}>
