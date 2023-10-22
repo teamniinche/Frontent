@@ -1,20 +1,26 @@
-import React, {useEffect,useState} from 'react';
+import React, {useEffect,useLayoutEffect,useState} from 'react';
 import {Link,Outlet} from 'react-router-dom';
 import ReactModal from 'react-modal';
 import {Poster} from './requetesFetch.js';
+import {ajouter,supprimer} from './icons.js';
 import {compressImage,convertToBase64,dataURLtoFile} from './traitementImages.js';
 const hostUrl='https://tnserver.onrender.com/'
 const cloudinaryBaseUrl = 'https://res.cloudinary.com/dapkl1ien/image/upload/signed_upload_demo_form/galerie';
 
 export function NouvelAlbum(props) {
-    const [albums,setAlbums]=useState([])
-    const [lastImage,setLastImage]=useState([])
+    const [albums,setAlbums]=useState([{name:'Aucun album'}])
+    const [lastImage,setLastImage]=useState({numeroEnvoi:0,ordreEnvoi:0,imgName:null,album:null})
     // Pour afficher et/ou fermer la fenetre modale et identifiant de l'image selectionnée(=imgKey)
     const [modalDisplaye,setModalDisplaye]=useState({showModal:false,albumName:null,last:false})
     const [error,setError]=useState(null)
-    const Albums=albums.length===0?{name:"Aucun album"}:albums
+    //const Albums=albums.length===0?{name:"Aucun album"}:albums
+    //const Albums=[{name:'Aucun album'}]
 
-    useEffect(() => {
+    useLayoutEffect(() => {
+        //if(document.querySelector('#overlay-div')){
+            //const overlay=document.querySelector('#overlay-div')
+            //overlay.style.display="inline-block"
+        //}
         fetch(hostUrl+'api/images/albums/getAll')
           .then(response => response.json())
           .then(albums => {
@@ -28,6 +34,7 @@ export function NouvelAlbum(props) {
                     setLastImage(picture)
                 })
           .catch(error => setError(error.message));
+        setModalDisplaye({showModal:true,albumName:'Aucun album',last:false})
         },[]);
         const handleCloudinaryModalClick=async () => {
             let input=document.querySelector('#filesInput')
@@ -41,7 +48,7 @@ export function NouvelAlbum(props) {
                 // the signing function (signuploadform) need to match these.
                 for (let i = 0; i < files.length && i<10; i++) {
                     let fileName='galerie_'+j+'_'+k
-                    const signResponse = await fetch(hostUrl+'api/mycloudinary/signuploadform/galerie/'+fileName);
+                    const signResponse = await fetch(hostUrl+'api/mycloudinary/signuploadAlbum/'+fileName);
                     const signData = await signResponse.json();
                     const url = "https://api.cloudinary.com/v1_1/" + signData.cloudname + "/auto/upload";
                     let file = files[i];
@@ -70,24 +77,24 @@ export function NouvelAlbum(props) {
                         // document.getElementById("formdata").innerHTML += str;
                     });
                 // };
-                const Url=hostUrl+'/api/images/post/'+fileName+'.jpg'
-                Poster(Url,{numeroEnvoi:j,ordreEnvoi:k,album:nomAlbum});
+                const Url=hostUrl+'api/images/post/'+fileName+'.jpg'
+                Poster(Url,{numeroEnvoi:j,ordreEnvoi:k,imgName:fileName+'.jpg',album:nomAlbum});
                 if (modalDisplaye.last===false){
-                    const Url=hostUrl+'/api/images/album/'+fileName+'.jpg'
+                    const Url=hostUrl+'api/images/add/album'
                     Poster(Url,{album:nomAlbum}); 
                 }
         }}  
             
   return (
 
-    <div style={{display:"flex",flexDirection:"column",paddingTop:"50px",margin:"0px",height:"fit-content"}} >
-        <div style={{display:"flex",flexDirection:"row",justifyContent:"flex-start"}}>
-            <h6>Nom album</h6>
-            <input type="text" value={modalDisplaye.albumName} onChange={(e)=>setModalDisplaye({...modalDisplaye,albumName:e.target.value})}  style={{width:"30%",}}/>
+    <div style={{display:"flex",flexDirection:"column",paddingTop:"1.5em",width:"100%",margin:"0px",height:"fit-content"}} >
+        <div style={{display:"flex",flexDirection:"row",width:"100%",padding:"0.5em 0px",justifyContent:"center",alignItems:"center",margin:".5em 0px"}}>
+            <h6 style={{margin:"0px"}}>Nom album</h6>
+            <input type="text" value={modalDisplaye.albumName} style={{width:"60%",height:"2em",padding:"0.4em 1em",marginLeft:".5em"}} onChange={(e)=>setModalDisplaye({...modalDisplaye,albumName:e.target.value})}/>
         </div>
-        <div style={{display:"flex",flexDirection:"row",justifyContent:"flex-start"}}>
-            <input type="file" multiple style={{width:"70%",}} id="filesInput"/>
-            <button onClick={(e) =>handleCloudinaryModalClick(e)} style={{width:"30%",}}>Uploader les images</button>
+        <div style={{display:"flex",flexDirection:"row",justifyContent:"space-around",lineHeight:"2em",padding:"1em",backgroundColor:"rgba(0,0,0,0.1)"}}>
+            <input type="file" multiple style={{width:"70%",height:"2em",backgroundColor:"rgb(253,253,253)"}} id="filesInput" style={{padding:"1em"}}/>
+            <button onClick={(e) =>handleCloudinaryModalClick(e)} style={{borderRadius:"10px",width:"30%",backgroundColor:"rgb(0,0,200)",fontWeight:"bold",color:"white",padding:"1em",border:"1px dotted rgb(0,0,200)"}}>Uploader les images</button>
         </div>
     <ReactModal
               isOpen={modalDisplaye.showModal}
@@ -98,7 +105,9 @@ export function NouvelAlbum(props) {
                           left: 0,
                           right: 0,
                           bottom: 0,
-                          backgroundColor: 'rgba(0, 0, 0, 0.7)'
+                          backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                            zIndex:15000,
+                            alignContent:"center",
                         },content: {
                       position: 'absolute',
                       top: '15vh',
@@ -116,13 +125,14 @@ export function NouvelAlbum(props) {
                       outline: 'none',
                       padding: '2vw',
                       paddingTop:"0px",
+                    zIndex:30000,
                     }}}
               >
-              <ul style={{display:"flex",flexDirection:"column",padding:"2%",margin:"0px"}} >
+              <ul style={{listStyle:"none",display:"flex",flexDirection:"column",padding:"2%",margin:"0px"}} >
                 <h4 style={{margin:"0px",padding:"0px",paddingLeft:"5px",textDecoration:"underline"}} > Albums existants</h4>
-                {Albums.map((album,key)=><li key={album.index} onClick={()=>{setModalDisplaye({showModal:false,albumName:album.name,last:true});props.render(true)}}>{'⭐ ' + album.name}</li>)}
-                <li key="last" onClick={()=>{setModalDisplaye({showModal:false,albumName:null,last:false});props.render(false)}}>⭐ Nouvel album</li>
-              </ul>
+                {albums.map((album,key)=><li key={album.index} onClick={(album)=>setModalDisplaye({showModal:false,albumName:album.name,last:true})} style={{mouse:"pointer"}}>{'⭐ ' + album.name}</li>)}
+                <li key="last" onClick={()=>setModalDisplaye({showModal:false,albumName:null,last:false})} style={{mouse:"pointer",listStyle:"none"}}>⭐ Nouvel album</li>
+            </ul>
                     </ReactModal>
 
     </div>
@@ -137,18 +147,14 @@ export default function Galerie() {
     //  const [last,setLast]=useState(null)
     const [error,setError]=useState(null)
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         fetch(hostUrl+'api/images/getAll')
           .then(response => response.json())
-          .then(images => {
-                  setImages(images)
-                })
+          .then(images => setImages(images))
           .catch(error => setError(error.message));
         fetch(hostUrl+'api/images/albums/getAll')
           .then(response => response.json())
-          .then(albums => {
-                  setAlbums(albums)
-                })
+          .then(albums => setAlbums(albums))
           .catch(error => setError(error.message)); // Stocke uniquement le message de l'erreur
         },[]);
         // const deleteImg=async (apiKey,apiSecret,filename) =>{
@@ -190,9 +196,12 @@ export default function Galerie() {
     //   }
 
   return <>
-    <div style={{display:"flex",flexDirection:"row",justifyContent:"flex-start",width:"95vw"}}>
-        <Link to="/quisommesnous/galerie/" style={{width:"70%",}}>{'🖼 '+ albums.length + ' Albums ( '+images.length+ ' photos)' }</Link>
-        <Link to="/quisommesnous/galerie/addPictures" style={{width:"20%",}}>Ajouter photos</Link>
+    <div style={{position:"relative",width:"100%",marginTop:"80px",padding:"1em 0px",borderBottom:"3px solid rgb(240,240,240)"}}>
+       <div style={{position:"absolute",margin:"0px",padding:"0px 2.5%",width:"95%",height:"100%",zIndex:"1",display:"flex",flexDirection:"row",justifyContent:"space-around"}}>
+            <Link to="/quisommesnous/galerie/" style={{width:"fit-content",marginTop:"10px"}}>{'🖼 '+ albums.length + ' Albums ( ' + images.length + ' photos)' }</Link>
+            <Link to="/quisommesnous/galerie/addPictures" style={{borderRadius:"10px",textDecoration:"none",width:"fit-content",backgroundColor:"rgb(0,0,150)",fontWeight:"bold",color:"white",padding:".5em",border:"1px dotted rgb(0,0,200)"}}>Ajouter photos</Link>
+        </div>
+        <div id="overlay-div" style={{position:"absolute",display:"inline-block",margin:"0px",padding:"0px",width:"100%",height:"100%",float:"left",zIndex:"0",backgroundColor:"rgba(0,0,0,0.1)"}}>'</div>
     </div>
     <Outlet/>
     <div>
@@ -218,15 +227,35 @@ export default function Galerie() {
   )
 }
 
-export function PhotosGrid({images}) {
-    const cloudinaryBaseUrl = 'https://res.cloudinary.com/dapkl1ien/image/upload/signed_upload_demo_form/membres';
-    const vue=images.length===0?<h6>Any pictures to display.</h6>:images.map(image=>
-        <div>
-            <img src={cloudinaryBaseUrl+'/avatar1.png'} alt=''/>
-        </div>)
+export function PhotosGrid() {
+    const [images,setImages]=useState([{imgName:"Aucun"}])
+    const [error,setError]=useState(null)
+    useLayoutEffect(()=>{
+        //if(document.querySelector('#overlay-div')){
+            //const overlay=document.querySelector('#overlay-div')
+            //overlay.style.display="none"
+        //}
+        fetch(hostUrl+'api/images/getAll')
+          .then(response => response.json())
+          .then(pictures => setImages(pictures))
+          .catch(error => setError(error.message))}
+     ,[])
+    const handleAdd=()=>{}
+    const handleDelete=()=>{}
+    
+    const cloudinaryBaseUrl = 'https://res.cloudinary.com/dapkl1ien/image/upload/signed_upload_demo_form/galerie'
   return (
-    <div>
-        {vue}
+    <div style={{paddingTop:"20px",display:"flex",flexFlow:"row wrap",alignItems:"start",justifyContent:"space-around"}}>
+      {
+        images.map(image=>
+        <div style={{position:"relative",width:"44vw",height:"44vw",padding:"2vw",margin:"0.40vw",borderRadius:"4px",border:"1px solid grey"}}>
+            <img src={cloudinaryBaseUrl+'/'+ image.imgName} alt='Delagalerie' style={{position:"absolute",zIndex:"0",width:"98%",height:"98%",margin:"0px",padding:"0px"}}/>
+            <div style={{position:"absolute",float:"left",zIndex:"1",display:"flex",flexFlow:"row wrap",width:"100%",height:"fit-content"}}>
+                <button style={{backgroundColor:"rgba(0,0,0,0)",border:"1px solid black",color:"grey",width:"fit-content",margin:"0px 1em"}} onClick={handleAdd}>{ajouter}</button>
+                <button style={{backgroundColor:"rgba(0,0,0,0)",border:"1px solid black",color:"red",width:"fit-content",margin:"0px 1em"}} onClick={handleDelete}>{supprimer}</button>
+            </div>
+        </div>)
+         }
     </div>
   )
 }
