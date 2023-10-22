@@ -83,7 +83,7 @@ export function NouvelAlbum(props) {
   return (
 
     <div style={{display:"flex",flexDirection:"column",paddingTop:"1.5em",margin:"0px",height:"fit-content"}} >
-        <div style={{display:"flex",flexDirection:"row",alignItems:"space-between",margin:".5em 0px"}}>
+        <div style={{display:"flex",flexDirection:"row",justifyContent:"space-around",margin:".5em 0px"}}>
             <h6 >Nom album</h6>
             <input type="text" value={modalDisplaye.albumName} style={{width:"60%",height:"1em",padding:"0.4em 1em"}} onChange={(e)=>setModalDisplaye({...modalDisplaye,albumName:e.target.value})}/>
         </div>
