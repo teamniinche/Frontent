@@ -16,6 +16,10 @@ export function NouvelAlbum(props) {
     const Albums=[{name:'Aucun album'}]
 
     useLayoutEffect(() => {
+        if(document.querySelector('#overlay-div')){
+            const overlay=document.querySelector('#overlay-div')
+            overlay.style.display="inline-block"
+        }
         fetch(hostUrl+'api/images/albums/getAll')
           .then(response => response.json())
           .then(albums => {
@@ -143,8 +147,10 @@ export default function Galerie() {
     const [error,setError]=useState(null)
 
     useLayoutEffect(() => {
-        const overlay=document.querySelector('#overlay-div')
-        overlay.style.display="none"
+        if(document.querySelector('#overlay-div')){
+            const overlay=document.querySelector('#overlay-div')
+            overlay.style.display="none"
+        }
         fetch(hostUrl+'api/images/getAll')
           .then(response => response.json())
           .then(images => {
@@ -230,8 +236,10 @@ export default function Galerie() {
 
 export function PhotosGrid({images}) {
     useLayoutEffect(()=>{
+        if(document.querySelector('#overlay-div')){
             const overlay=document.querySelector('#overlay-div')
             overlay.style.display="none"
+        }
      ,[]})
     const cloudinaryBaseUrl = 'https://res.cloudinary.com/dapkl1ien/image/upload/signed_upload_demo_form/membres';
     //const vue=images.length===0?<h6>Any pictures to display.</h6>:images.map(image=>
