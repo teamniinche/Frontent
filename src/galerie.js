@@ -76,10 +76,10 @@ export function NouvelAlbum(props) {
                         // document.getElementById("formdata").innerHTML += str;
                     });
                 // };
-                const Url=hostUrl+'/api/images/post/'+fileName+'.jpg'
+                const Url=hostUrl+'api/images/post/'+fileName+'.jpg'
                 Poster(Url,{numeroEnvoi:j,ordreEnvoi:k,imgName:fileName+'.jpg',album:nomAlbum});
                 if (modalDisplaye.last===false){
-                    const Url=hostUrl+'/api/images/album/'+fileName+'.jpg'
+                    const Url=hostUrl+'api/images/album/'+fileName+'.jpg'
                     Poster(Url,{album:nomAlbum}); 
                 }
         }}  
