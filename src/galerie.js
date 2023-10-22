@@ -149,15 +149,11 @@ export default function Galerie() {
     useLayoutEffect(() => {
         fetch(hostUrl+'api/images/getAll')
           .then(response => response.json())
-          .then(images => {
-                  setImages(images)
-                })
+          .then(images => setImages(images))
           .catch(error => setError(error.message));
         fetch(hostUrl+'api/images/albums/getAll')
           .then(response => response.json())
-          .then(albums => {
-                  setAlbums(albums)
-                })
+          .then(albums => setAlbums(albums))
           .catch(error => setError(error.message)); // Stocke uniquement le message de l'erreur
         },[]);
         // const deleteImg=async (apiKey,apiSecret,filename) =>{
@@ -249,7 +245,7 @@ export function PhotosGrid() {
       {
         images.map(image=>
         //<div style={{position:"relative",width:"47vw",height:"47vw",padding:"2vw",margin:"0px"__position:"absolute",top:"0px",left:"0px",bottom:"0px",right:"0px"}}>
-        <img src={cloudinaryBaseUrl+'/'+ image.imgName} alt='Delagalerie' style={{width:"46vw",height:"46vw",margin:"0.5vw",padding:"2vw",borderRadius:"4px",border:"1px solid grey"}}/>)
+        <img src={cloudinaryBaseUrl+'/'+ image.imgName} alt='Delagalerie' style={{width:"45vw",height:"45vw",margin:"0.5vw",padding:"2vw",borderRadius:"4px",border:"1px solid grey"}}/>)
       } 
     </div>
   )
