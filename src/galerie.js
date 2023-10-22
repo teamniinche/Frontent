@@ -231,6 +231,7 @@ export default function Galerie() {
 }
 
 export function PhotosGrid() {
+    const [images,setImages]=useState(null)
     useLayoutEffect(()=>{
         //if(document.querySelector('#overlay-div')){
             //const overlay=document.querySelector('#overlay-div')
@@ -238,28 +239,16 @@ export function PhotosGrid() {
         //}
         fetch(hostUrl+'api/images/getAll')
           .then(response => response.json())
-          .then(images => {
-                  setImages(images)
-                })
-          .catch(error => setError(error.message));
-        fetch(hostUrl+'api/images/albums/getAll')
-          .then(response => response.json())
-          .then(albums => {
-                  setAlbums(albums)
-                })
-          .catch(error => setError(error.message)); // Stocke uniquement le message de l'erreur
-     ,[]})
+          .then(pictures => setImages(pictures))
+          .catch(error => setError(error.message))}
+     ,[])
     const cloudinaryBaseUrl = 'https://res.cloudinary.com/dapkl1ien/image/upload/signed_upload_demo_form/membres';
-    //const vue=images.length===0?<h6>Any pictures to display.</h6>:images.map(image=>
-        <div>
-           <img src={cloudinaryBaseUrl+'/avatar1.png'} alt=''/>
-        </div>)
   return (
-    <div style={{display:"flex",flexFlow:"row wrap",alignItems:"flex-start"}}>
+    <div style={{display:"flex",flexFlow:"row wrap",alignItems:"start"}}>
       {
         images.map(image=>
         <div style={{position "relative",width:"296px",height:"296px",padding:"2px",margin:"0px"}}>
-        <img src={cloudinaryBaseUrl+'/'+image.imgName} alt='De la galerie' style={{position:"absolute",top:"0px",left:"0px",bottom:"0px",right:"0px"}}/></div>)
+        <img src={cloudinaryBaseUrl+'/'+ image.imgName} alt='De la galerie' style={{position:"absolute",top:"0px",left:"0px",bottom:"0px",right:"0px"}}/></div>)
       } 
     </div>
   )
