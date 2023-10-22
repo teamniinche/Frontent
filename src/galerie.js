@@ -127,7 +127,7 @@ export function NouvelAlbum(props) {
                 <h4 style={{margin:"0px",padding:"0px",paddingLeft:"5px",textDecoration:"underline"}} > Albums existants</h4>
                 {Albums.map((album,key)=><li key={album.index} onClick={(album)=>setModalDisplaye({showModal:false,albumName:album.name,last:true})} style={{mouse:"pointer"}}>{'⭐ ' + album.name}</li>)}
                 <li key="last" onClick={()=>setModalDisplaye({showModal:false,albumName:null,last:false})} style={{mouse:"pointer",listStyle:"none"}}>⭐ Nouvel album</li>
-              </ul>
+                </ul>
                     </ReactModal>
 
     </div>
@@ -142,7 +142,9 @@ export default function Galerie() {
     //  const [last,setLast]=useState(null)
     const [error,setError]=useState(null)
 
-    useEffect(() => {
+    useLayoutEffect(() => {
+        const overlay=document.querySelector('#overlay-div')
+        overlay.style.display="none"
         fetch(hostUrl+'api/images/getAll')
           .then(response => response.json())
           .then(images => {
@@ -200,7 +202,7 @@ export default function Galerie() {
             <Link to="/quisommesnous/galerie/" style={{width:"fit-content",marginTop:"10px"}}>{'🖼 '+ albums.length + ' Albums ( ' + images.length + ' photos)' }</Link>
             <Link to="/quisommesnous/galerie/addPictures" style={{borderRadius:"10px",textDecoration:"none",width:"fit-content",backgroundColor:"rgb(0,0,150)",fontWeight:"bold",color:"white",padding:".5em",border:"1px dotted rgb(0,0,200)"}}>Ajouter photos</Link>
         </div>
-        <div id="overlay-div" style={{position:"absolute",display:"inline-block",margin:"0px",padding:"0px",padding:"48%",width:"100%",height:"100%",float:"left",zIndex:"1",backgroundColor:"rgba(0,0,0,0.06)"}}>'</div>
+        <div id="overlay-div" style={{position:"absolute",display:"inline-block",margin:"0px",padding:"0px",padding:"48%",width:"100%",height:"100%",float:"left",zIndex:"1",backgroundColor:"rgba(0,0,0,0.1)"}}>'</div>
     </div>
     <Outlet/>
     <div>
@@ -227,6 +229,10 @@ export default function Galerie() {
 }
 
 export function PhotosGrid({images}) {
+    useLayoutEffect(()=>{
+            const overlay=document.querySelector('#overlay-div')
+            overlay.style.display="none"
+     ,[]})
     const cloudinaryBaseUrl = 'https://res.cloudinary.com/dapkl1ien/image/upload/signed_upload_demo_form/membres';
     //const vue=images.length===0?<h6>Any pictures to display.</h6>:images.map(image=>
         //<div>
