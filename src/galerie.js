@@ -83,9 +83,9 @@ export function NouvelAlbum(props) {
   return (
 
     <div style={{display:"flex",flexDirection:"column",paddingTop:"1.5em",width:"100%",margin:"0px",height:"fit-content"}} >
-        <div style={{display:"flex",flexDirection:"row",width:"100%",padding:"0.5em 0px",justifyContent:"flex-start",margin:".5em 0px"}}>
+        <div style={{display:"flex",flexDirection:"row",width:"100%",padding:"0.5em 0px",justifyContent:"flex-start",alignItems:"center",margin:".5em 0px"}}>
             <h6 style={{margin:"0px"}}>Nom album</h6>
-            <input type="text" value={modalDisplaye.albumName} style={{width:"60%",height:"2em",padding:"0.4em 1em"}} onChange={(e)=>setModalDisplaye({...modalDisplaye,albumName:e.target.value})}/>
+            <input type="text" value={modalDisplaye.albumName} style={{width:"60%",height:"2em",padding:"0.4em 1em",marginLeft:".5em"}} onChange={(e)=>setModalDisplaye({...modalDisplaye,albumName:e.target.value})}/>
         </div>
         <div style={{display:"flex",flexDirection:"row",justifyContent:"space-around",lineHeight:"2em",padding:"1em",backgroundColor:"rgba(0,0,0,0.1)"}}>
             <input type="file" multiple style={{width:"70%",height:"2em",backgroundColor:"rgb(253,253,253)"}} id="filesInput" style={{padding:"1em"}}/>
