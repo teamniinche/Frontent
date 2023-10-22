@@ -82,10 +82,10 @@ export function NouvelAlbum(props) {
             
   return (
 
-    <div style={{display:"flex",flexDirection:"column",paddingTop:"50px",margin:"0px",height:"fit-content"}} >
+    <div style={{display:"flex",flexDirection:"column",paddingTop:"1.5em",margin:"0px",height:"fit-content"}} >
         <div style={{display:"flex",flexDirection:"row",alignItems:"space-between",margin:".5em 0px"}}>
-            <h6>Nom album</h6>
-            <input type="text" value={modalDisplaye.albumName} style={{height:"1rem",}} onChange={(e)=>setModalDisplaye({...modalDisplaye,albumName:e.target.value})}  style={{width:"30%",}}/>
+            <h6 >Nom album</h6>
+            <input type="text" value={modalDisplaye.albumName} style={{width:"60%",height:"1em",padding:"0.4em 1em"}} onChange={(e)=>setModalDisplaye({...modalDisplaye,albumName:e.target.value})}/>
         </div>
         <div style={{display:"flex",flexDirection:"row",justifyContent:"flex-start",lineHeight:"2em",padding:"1em",backgroundColor:"rgba(0,0,0,0.1)"}}>
             <input type="file" multiple style={{width:"70%",height:"2em",backgroundColor:"rgb(253,253,253)"}} id="filesInput" style={{padding:"1em"}}/>
@@ -123,7 +123,7 @@ export function NouvelAlbum(props) {
                     zIndex:30000,
                     }}}
               >
-              <ul style={{listStyle:"none",display:"flex",flexDirection:"column",padding:"2%",margin:"0px"}} >
+              <ul style={{listStyle:"none",display:"flex",flexDirection:"column",padding:"2%",margin:"0px",borderBottom:"1px dotted rgb(240,240,240)"}} >
                 <h4 style={{margin:"0px",padding:"0px",paddingLeft:"5px",textDecoration:"underline"}} > Albums existants</h4>
                 {Albums.map((album,key)=><li key={album.index} onClick={(album)=>setModalDisplaye({showModal:false,albumName:album.name,last:true})} style={{mouse:"pointer"}}>{'⭐ ' + album.name}</li>)}
                 <li key="last" onClick={()=>setModalDisplaye({showModal:false,albumName:null,last:false})} style={{mouse:"pointer",listStyle:"none"}}>⭐ Nouvel album</li>
@@ -195,9 +195,9 @@ export default function Galerie() {
     //   }
 
   return <>
-    <div style={{display:"flex",flexDirection:"row",justifyContent:"space-around",width:"95vw",marginTop:"100px",padding:"1em 0px"}}>
+    <div style={{display:"flex",flexDirection:"row",alignItems:"space-between",width:"95vw",marginTop:"100px",padding:"1em 0px"}}>
         <Link to="/quisommesnous/galerie/" style={{width:"fit-content",marginTop:"10px"}}>{'🖼 '+ albums.length + ' Albums ( ' + images.length + ' photos)' }</Link>
-        <Link to="/quisommesnous/galerie/addPictures" style={{borderRadius:"10px",textDecoration:"none",width:"fit-content",backgroundColor:"rgb(0,0,150)",fontWeight:"bold",color:"white",padding:"1em",border:"1px dotted rgb(0,0,200)"}}>Ajouter photos</Link>
+        <Link to="/quisommesnous/galerie/addPictures" style={{borderRadius:"10px",textDecoration:"none",width:"fit-content",backgroundColor:"rgb(0,0,150)",fontWeight:"bold",color:"white",padding:".5em",border:"1px dotted rgb(0,0,200)"}}>Ajouter photos</Link>
     </div>
     <Outlet/>
     <div>
