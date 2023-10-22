@@ -195,8 +195,8 @@ export default function Galerie() {
     //   }
 
   return <>
-    <div style={{display:"flex",flexDirection:"row",justifyContent:"space-betweeen",width:"95vw",marginTop:"100px",padding:"1em 0px"}}>
-        <Link to="/quisommesnous/galerie/" style={{width:"fit-content",}}>{'🖼 '+ albums.length + ' Albums ( ' + images.length + ' photos)' }</Link>
+    <div style={{display:"flex",flexDirection:"row",justifyContent:"space-around",width:"95vw",marginTop:"100px",padding:"1em 0px"}}>
+        <Link to="/quisommesnous/galerie/" style={{width:"fit-content",marginTop:"10px"}}>{'🖼 '+ albums.length + ' Albums ( ' + images.length + ' photos)' }</Link>
         <Link to="/quisommesnous/galerie/addPictures" style={{borderRadius:"10px",width:"fit-content",backgroundColor:"rgb(0,0,150)",fontWeight:"bold",color:"white",padding:"1em",border:"1px dotted rgb(0,0,200)"}}>Ajouter photos</Link>
     </div>
     <Outlet/>
