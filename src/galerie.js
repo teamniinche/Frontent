@@ -147,10 +147,6 @@ export default function Galerie() {
     const [error,setError]=useState(null)
 
     useLayoutEffect(() => {
-        //if(document.querySelector('#overlay-div')){
-            //const overlay=document.querySelector('#overlay-div')
-            //overlay.style.display="none"
-        //}
         fetch(hostUrl+'api/images/getAll')
           .then(response => response.json())
           .then(images => {
@@ -234,21 +230,37 @@ export default function Galerie() {
   )
 }
 
-export function PhotosGrid({images}) {
-    //useLayoutEffect(()=>{
+export function PhotosGrid() {
+    useLayoutEffect(()=>{
         //if(document.querySelector('#overlay-div')){
             //const overlay=document.querySelector('#overlay-div')
             //overlay.style.display="none"
         //}
-     //,[]})
+        fetch(hostUrl+'api/images/getAll')
+          .then(response => response.json())
+          .then(images => {
+                  setImages(images)
+                })
+          .catch(error => setError(error.message));
+        fetch(hostUrl+'api/images/albums/getAll')
+          .then(response => response.json())
+          .then(albums => {
+                  setAlbums(albums)
+                })
+          .catch(error => setError(error.message)); // Stocke uniquement le message de l'erreur
+     ,[]})
     const cloudinaryBaseUrl = 'https://res.cloudinary.com/dapkl1ien/image/upload/signed_upload_demo_form/membres';
     //const vue=images.length===0?<h6>Any pictures to display.</h6>:images.map(image=>
-        //<div>
-           // <img src={cloudinaryBaseUrl+'/avatar1.png'} alt=''/>
-        //</div>)
+        <div>
+           <img src={cloudinaryBaseUrl+'/avatar1.png'} alt=''/>
+        </div>)
   return (
-    <div>
-       <h6>Vue</h6> 
+    <div style={{display:"flex",flexFlow:"row wrap",alignItems:"flex-start"}}>
+      {
+        images.map(image=>
+        <div style={{position "relative",width:"296px",height:"296px",padding:"2px",margin:"0px"}}>
+        <img src={cloudinaryBaseUrl+'/'+image.imgName} alt='De la galerie' style={{position:"absolute",top:"0px",left:"0px",bottom:"0px",right:"0px"}}/></div>)
+      } 
     </div>
   )
 }
