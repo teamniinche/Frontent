@@ -195,12 +195,12 @@ export default function Galerie() {
     //   }
 
   return <>
-    <div style={{position:"relative",width:"95vw",marginTop:"100px",padding:"1em 0px",borderBottom:"3px solid rgb(240,240,240)"}}>
+    <div style={{position:"relative",width:"95vw",marginTop:"100px",padding:"1em 2.5vw",borderBottom:"3px solid rgb(240,240,240)"}}>
        <div style={{margin:"0px",padding:"0px",width:"100%",height:"100%",zIndex:"0",display:"flex",flexDirection:"row",justifyContent:"space-around"}}>
             <Link to="/quisommesnous/galerie/" style={{width:"fit-content",marginTop:"10px"}}>{'🖼 '+ albums.length + ' Albums ( ' + images.length + ' photos)' }</Link>
             <Link to="/quisommesnous/galerie/addPictures" style={{borderRadius:"10px",textDecoration:"none",width:"fit-content",backgroundColor:"rgb(0,0,150)",fontWeight:"bold",color:"white",padding:".5em",border:"1px dotted rgb(0,0,200)"}}>Ajouter photos</Link>
         </div>
-        <div id="overlay-div" style={{margin:"0px",padding:"0px",width:"100%",height:"100%",float:"left",zIndex:"1",backgroundColor:"rgba(0,0,0,0.06)",clear:"both"}}>'</div>
+        <div id="overlay-div" style={{margin:"0px",padding:"0px",width:"100%",height:"100%",float:"left",zIndex:"1",backgroundColor:"rgba(0,0,0,0.06)"}}>'</div>
     </div>
     <Outlet/>
     <div>
