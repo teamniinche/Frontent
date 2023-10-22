@@ -232,6 +232,7 @@ export default function Galerie() {
 
 export function PhotosGrid() {
     const [images,setImages]=useState([{imgName:"Aucun"}])
+    const [error,setError]=useState(null)
     useLayoutEffect(()=>{
         //if(document.querySelector('#overlay-div')){
             //const overlay=document.querySelector('#overlay-div')
