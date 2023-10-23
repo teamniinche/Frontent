@@ -241,9 +241,9 @@ export function PhotosGrid() {
           .then(pictures => setImages(pictures))
           .catch(error => setError(error.message))}
      ,[])
-    const handleAdd=(nom)=>alert(image.numeroEnvoi) // +'_'+ image.ordreEnvoi) //{"Ajouter l'image "+ nom +" à votre galerie"})
-    const handleRetirer=(nom)=>alert(image.numeroEnvoi) // +'_'+ image.ordreEnvoi) //{"Retirer l'image " + nom + " de votre galerie"})
-    const handleDelete=(nom)=>alert(image.numeroEnvoi) // +'_'+ image.ordreEnvoi //{"Supprimer l'image " + nom + " de la galerie"})
+    const handleAdd=(image)=>alert(image.numeroEnvoi) // +'_'+ image.ordreEnvoi) //{"Ajouter l'image "+ nom +" à votre galerie"})
+    const handleRetirer=(image)=>alert(image.numeroEnvoi) // +'_'+ image.ordreEnvoi) //{"Retirer l'image " + nom + " de votre galerie"})
+    const handleDelete=(image)=>alert(image.numeroEnvoi) // +'_'+ image.ordreEnvoi //{"Supprimer l'image " + nom + " de la galerie"})
     
     const cloudinaryBaseUrl = 'https://res.cloudinary.com/dapkl1ien/image/upload/signed_upload_demo_form/galerie'
   return (
