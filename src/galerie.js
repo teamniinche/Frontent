@@ -241,8 +241,8 @@ export function PhotosGrid() {
           .then(pictures => setImages(pictures))
           .catch(error => setError(error.message))}
      ,[])
-    const handleAdd=()=>{alert('Ajouter à votre galerie')}
-    const handleDelete=()=>{alert('Supprimer de la galerie')}
+    const handleAdd=()=>alert('Ajouter à votre galerie')
+    const handleDelete=()=>alert('Supprimer de la galerie')
     
     const cloudinaryBaseUrl = 'https://res.cloudinary.com/dapkl1ien/image/upload/signed_upload_demo_form/galerie'
   return (
