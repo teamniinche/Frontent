@@ -249,8 +249,7 @@ export function PhotosGrid() {
   return (
     <div style={{paddingTop:"20px",display:"flex",flexFlow:"row wrap",alignItems:"start",justifyContent:"space-around"}}>
       {
-        images.map((image)=>
-            function(){
+        images.map((image)=>{
                 const publicName=image.imgName.split('.')[0]
                 return <div key={publicName} style={{position:"relative",width:"44vw",height:"50vw",padding:"0.5vw",paddingTop:"0px",margin:"0.4vw",borderRadius:"4px",border:"1px solid rgba(0,0,0,0.4)"}}>
                     <img src={cloudinaryBaseUrl+'/'+ image.imgName} alt='Delagalerie' style={{position:"absolute",zIndex:"0",bottom:"0.5vw",width:"44vw",height:"45.5vw",margin:"0px",padding:"0px"}}/>
