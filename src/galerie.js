@@ -3,6 +3,7 @@ import {Link,Outlet} from 'react-router-dom';
 import ReactModal from 'react-modal';
 import {Poster} from './requetesFetch.js';
 import {ajouter,supprimer} from './icons.js';
+import './galerie.css';
 import {compressImage,convertToBase64,dataURLtoFile} from './traitementImages.js';
 const hostUrl='https://tnserver.onrender.com/'
 const cloudinaryBaseUrl = 'https://res.cloudinary.com/dapkl1ien/image/upload/signed_upload_demo_form/galerie';
