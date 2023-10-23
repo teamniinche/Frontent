@@ -1,5 +1,6 @@
 import React, {useEffect,useLayoutEffect,useState} from 'react';
 import {Link,Outlet} from 'react-router-dom';
+import {useSelector} from 'react-redux';  //Le HOOK GETTER POUR LE CAS DE @REDUX/TOOLKIT
 import ReactModal from 'react-modal';
 import {Poster} from './requetesFetch.js';
 import {ajouter,supprimer} from './icons.js';
