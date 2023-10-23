@@ -252,8 +252,8 @@ export function PhotosGrid() {
             <img src={cloudinaryBaseUrl+'/'+ image.imgName} alt='Delagalerie' style={{position:"absolute",zIndex:"0",bottom:"0.5vw",width:"44vw",height:"45.5vw",margin:"0px",padding:"0px"}}/>
             <div style={{position:"absolute",float:"right",zIndex:"1",display:"flex",flexFlow:"row wrap",justifyContent:"space-between",alignItems:"center",width:"44vw",height:"5.5vw"}}>
                 <button style={{display:"none",backgroundColor:"rgba(0,0,0,0)",border:"1px solid black",color:"red",width:"fit-content",margin:"0px 1em"}} onClick={handleAdd}>{ajouter}</button>
-                <button style={{backgroundColor:"rgba(0,0,0,0)",border:"1px solid black",color:"blue",width:"fit-content",margin:"0px 1em"}} onClick={handleAdd}>{ajouter}</button>
-                <button style={{backgroundColor:"rgba(0,0,0,0)",border:"1px solid black",color:"red",width:"fit-content",margin:"0px 1em"}} onClick={handleDelete}>{supprimer}</button>
+                <button style={{backgroundColor:"rgba(0,0,0,0)",border:"1px solid black",color:"blue",width:"40px",margin:"0px 1em"}} onClick={handleAdd}>{ajouter}</button>
+                <button style={{backgroundColor:"rgba(0,0,0,0)",border:"1px solid black",color:"red",width:"40px",margin:"0px 1em"}} onClick={handleDelete}>{supprimer}</button>
             </div>
         </div>)
          }
