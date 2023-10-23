@@ -241,21 +241,21 @@ export function PhotosGrid() {
           .then(pictures => setImages(pictures))
           .catch(error => setError(error.message))}
      ,[])
-    const handleAdd=(nom)=>alert(nom) //{"Ajouter l'image "+ nom +" à votre galerie"})
-    const handleRetirer=(nom)=>alert(nom) //{"Retirer l'image " + nom + " de votre galerie"})
-    const handleDelete=(nom)=>alert(nom) //{"Supprimer l'image " + nom + " de la galerie"})
+    const handleAdd=(nom)=>alert(image.numeroEnvoi) // +'_'+ image.ordreEnvoi) //{"Ajouter l'image "+ nom +" à votre galerie"})
+    const handleRetirer=(nom)=>alert(image.numeroEnvoi) // +'_'+ image.ordreEnvoi) //{"Retirer l'image " + nom + " de votre galerie"})
+    const handleDelete=(nom)=>alert(image.numeroEnvoi) // +'_'+ image.ordreEnvoi //{"Supprimer l'image " + nom + " de la galerie"})
     
     const cloudinaryBaseUrl = 'https://res.cloudinary.com/dapkl1ien/image/upload/signed_upload_demo_form/galerie'
   return (
     <div style={{paddingTop:"20px",display:"flex",flexFlow:"row wrap",alignItems:"start",justifyContent:"space-around"}}>
       {
-        images.map(image=>
-        <div style={{position:"relative",width:"44vw",height:"50vw",padding:"0.5vw",paddingTop:"0px",margin:"0.40vw",borderRadius:"4px",border:"1px solid rgba(0,0,0,0.4)"}}>
+        images.map((image,key)=>
+        <div key={image.numeroEnvoi +'_'+ image.ordreEnvoi} style={{position:"relative",width:"44vw",height:"50vw",padding:"0.5vw",paddingTop:"0px",margin:"0.40vw",borderRadius:"4px",border:"1px solid rgba(0,0,0,0.4)"}}>
             <img src={cloudinaryBaseUrl+'/'+ image.imgName} alt='Delagalerie' style={{position:"absolute",zIndex:"0",bottom:"0.5vw",width:"44vw",height:"45.5vw",margin:"0px",padding:"0px"}}/>
             <div style={{position:"absolute",float:"right",zIndex:"1",display:"flex",flexFlow:"row wrap",justifyContent:"space-between",alignItems:"center",width:"44vw",paddingBottom:"0.25vw",height:"5.75vw"}}>
-                <button style={{display:"none",backgroundColor:"rgba(0,0,0,0)",border:"none",color:"red",padding:"0px",width:"40px",margin:"0px 1em"}} onClick={(image)=>handleRetirer(image.imgName)}>{ajouter}</button>
-                <button style={{backgroundColor:"rgba(0,0,0,0)",border:"none",color:"blue",padding:"0px",width:"40px",margin:"0px 1em"}} onClick={(image)=>handleAdd(image.imgName)}>{ajouter}</button>
-                <button style={{backgroundColor:"rgba(0,0,0,0)",border:"none",color:"red",padding:"0px",width:"40px",margin:"0px 1em"}} onClick={(image)=>handleDelete(image.imgName)}>{supprimer}</button>
+                <button style={{display:"none",backgroundColor:"rgba(0,0,0,0)",border:"none",color:"red",padding:"0px",width:"40px",margin:"0px 1em"}} onClick={(image)=>handleRetirer(image)}>{ajouter}</button>
+                <button style={{backgroundColor:"rgba(0,0,0,0)",border:"none",color:"blue",padding:"0px",width:"40px",margin:"0px 1em"}} onClick={(image)=>handleAdd(image)}>{ajouter}</button>
+                <button style={{backgroundColor:"rgba(0,0,0,0)",border:"none",color:"red",padding:"0px",width:"40px",margin:"0px 1em"}} onClick={(image)=>handleDelete(image)}>{supprimer}</button>
             </div>
         </div>)
          }
