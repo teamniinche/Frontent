@@ -10,7 +10,7 @@
   width:14px;
   height:100%;
 }
-#publicName{
+.publicName_icons{
   display:none;
   flex-flow:row wrap;
   justify-content:space-between;
