@@ -52,20 +52,45 @@ const Connexion = () =>  {
         alerte.innerText='NI Identifiant ni Mot de passe ne doit etre NULL !)'
         alerte.style.display="block";
       }else{
-        fetch('https://tnserver.onrender.com/api/membres/'+pseudo)
-          .then(response => response.json())
-          .then(membre => {
-          if(membre.passWord===pW){
-            // dispatch(loginSuccess(membre));
-            dispatch(loggedAccess(membre))  //le HOOK SETTER dans le cas de @redux/toolkit
-            Navigate("/compte")
-          }else{
-            alerte.innerText='Identifiant et/ou Mot de passe INVALIDE.S !'
-            alerte.style.display="block";
-          }
-        })
-        .catch(error => alert("Identifiant invalide !" + error.message)); // Stocke uniquement le message de l'erreur
-      }}
+        // fetch('https://tnserver.onrender.com/api/membres/'+pseudo)
+        // // fetch('https://tnserver.onrender.com/api/membres/login')
+
+        //   .then(response => response.json())
+        //   .then(membre => {
+        //   if(membre.passWord===pW){
+        //     // dispatch(loginSuccess(membre));
+        //     dispatch(loggedAccess(membre))  //le HOOK SETTER dans le cas de @redux/toolkit
+        //     Navigate("/compte")
+        //   }else{
+        //     alerte.innerText='Identifiant et/ou Mot de passe INVALIDE.S !'
+        //     alerte.style.display="block";
+        //   }
+        // })
+        // .catch(error => alert("Identifiant invalide !" + error.message)); // Stocke uniquement le message de l'erreur
+        fetch('https://tnserver.onrender.com/api/membres/login',
+          {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({pseudo:pseudo,passWord:pW})
+          })
+          .then(response => {
+            if (response.ok) {return response.json();} 
+            else {throw new Error('Erreur lors de la tentative de CONNEXION.');}
+          })
+          .then(data => {if (data && data.pseudo){
+                          dispatch(loggedAccess(data))  //le HOOK SETTER dans le cas de @redux/toolkit
+                          Navigate("/compte")
+                          //alert('Bienvenue '+ data.firstName + ' 👌🏻!') // Vous étes bien inscrit. Veuillez bien patienter pour la validatiion de votre inscription 🙏🏻🙏🏻🙏🏻')
+                        }else{
+                          alerte.innerText = data.erreur
+                          alerte.style.display="block";
+                        }
+                      })
+      }
+
+    }
     const imgLg=require('./images/logo_niintche.webp')
   return (
     <div className="divTech">

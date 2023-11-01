@@ -4,6 +4,7 @@ import React from "react";
 import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
 // import { PersistGate } from 'redux-persist/integration/react';
 // import { persistor } from './store';
+// import Loader from './loaderHtml.js'
 import Heade from "./heade.js";
 // import NewChantier from "./newChantier.js";
 import Sections from './sections.js';
@@ -19,7 +20,7 @@ import Connexion from './connexion.js'
 // import PresentationEtablissement from './local.js'
 // import ImageCompressee from './imageCompressor.js'
 // import {ImageUploader} from './traitementImages.js'
-import Galerie,{PhotosGrid,NouvelAlbum} from './galerie.js'
+import Galerie,{PhotosGrid,NouvelAlbum,ImagesGrid} from './galerie.js'
 import Session,{FieldsetCompte} from './session.js';
 // import Slider from './slider.js';
 // import {images} from './icons.js';
@@ -37,17 +38,14 @@ export default function Teamniintche() {
             <Route>
                 <Route path="/quisommesnous" element= <SecondeBar />>
                       <Route path="/quisommesnous/lesmembres" element=<Nous />/>
-                      <Route path="/quisommesnous/galerie" element=<Galerie/>>
+                      <Route path="/quisommesnous/galerie" element= <Galerie/>>
                           <Route path="/quisommesnous/galerie/addPictures" element=<NouvelAlbum/>/>
+                          <Route path="/quisommesnous/galerie/displayPhotos" element=<ImagesGrid/>/>
                           <Route path="/quisommesnous/galerie/" element=<PhotosGrid/>/>
                       </Route>
-                      {/* //<Slider images={images} classe='sliderEtat' classe1='sliderNavPrec1' classe2='sliderNavSuiv1'/> */}
                       <Route path="/quisommesnous/" element=<LaTeam/>/>
                 </Route>
-                {/* <Route path="/newChantier" element=<NewChantier />/>
-                <Route path="/discussion" element=<Discussion/>/> */}
                 <Route path="/nouscontacter" element=<MetaData/>/>
-                {/* MetaData */}
                 <Route path="/connexion" element=<Connexion/>/>
                 <Route path="/compte" element=<Session/>>
                     <Route path="/compte/pagesceo" element=<Pagesceo/>/>
@@ -61,7 +59,6 @@ export default function Teamniintche() {
                         <Route path="/compte/personnel/" element=<FieldsetCompte/>/>
                     </Route> */}
                 </Route>
-                {/* <Route path="/compte/pagesceo" element=<Pagesceo/>/> */}
                 <Route path="/connexion/inscription" element=<Forms/>/> 
                 <Route path="/" element=<Sections />/>
                 <Route path="*" element=<Sections />/>

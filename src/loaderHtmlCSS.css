@@ -1,0 +1,35 @@
+*{
+    box-sizing:border-box;
+}
+  .demo {
+    position:relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .demo img {
+    position:absolute;
+    width:"40px";
+    height:"20px";
+    float:left;
+    z-index: -1;
+  }
+  .demo > *:first-child {
+    width: 65%;
+  }
+  .demo pre {
+    background: #f2f7fc;
+    border: 1px solid #cbd5e0;
+    padding: 10px 5px;
+    width: 100%;
+    overflow: hidden;
+    font-family: monospace;
+  }
+  @media only screen and (max-width: 860px) {
+    .demo {
+      display: block;
+    }
+    .demo > *:first-child {
+      width: 100%;
+    }
+  }

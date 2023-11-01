@@ -1,23 +1,27 @@
 import React,{useEffect,useState} from 'react';
 import { Link } from 'react-router-dom';
 import './lateam.css';
+import {Error} from './nous.js'
+import {serverUrl} from './root.js'
 
-const hostUrl='https://tnserver.onrender.com/'
+const hostUrl=serverUrl
 export default function LaTeam() {
   const [rubriques, setRubriques] = useState([]);
-const [error, setError] = useState('');
+// const [error, setError] = useState('');
 
 useEffect(() => {
   document.getElementsByClassName('header')[0].style.height="0px"; //"0px" doit etre dynamisé
   fetch(hostUrl+'api/rubriques/allrubriques')
     .then(response => response.json())
     .then(rubriques => setRubriques(rubriques))
-    .catch(error => setError(error.message)); // Stocke uniquement le message de l'erreur
+    .catch(error => <Error error={error.message}/>); // Stocke uniquement le message de l'erreur
 }, []);
 
-if (error) {
-  return <div>Une erreur s'est produite : {error}</div>;
-}
+// if (error) {
+//   return <Error error={error.message}/>;
+// }
+// const Rubriques=['Motivations','Missions','Historique','Réalisations','Histoires']
+
   return (
     <>
     <h6 id="tec" style={{height:'0px',margin:'0px'}}>'</h6>
@@ -30,8 +34,9 @@ if (error) {
         <li><a href='#4'>Histoires</a></li>
       </ul>
       <div>
-        {rubriques.map(item => (
-          <Lateam key={item.titre} rubrique={item} />
+        { 
+          rubriques.map(item => (
+          <Lateam key={item.titre} rubrique={item} /> 
         ))}
       </div>
     </div>

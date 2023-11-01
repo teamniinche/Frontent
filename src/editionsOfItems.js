@@ -2,9 +2,9 @@ import React,{useState,useEffect} from 'react';
 import {DataListEquipes,DataListDepartements} from './dataListes.js';
 import {UpdateProps} from './requetesFetch.js';
 import {dateValidator,phoneValidator,nameValidator,lastNameValidator} from './regExpressions.js';
+import {serverUrl} from './root.js'
 
-// {useContext}
-const hostUrl='https://tnserver.onrender.com/'
+const hostUrl=serverUrl
 export function EditRubrique(props){
     const [item,setItem]=useState({titre:props.item.titre,redaction:props.item.redaction})
 

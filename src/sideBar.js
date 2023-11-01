@@ -4,9 +4,10 @@ import Tronc from './tronc.js';
 import {useDispatch} from 'react-redux' ;
 import {chantiersCounter,localisation,setIndex} from './stoore.js';
 import './sideBar.css';
+import {Error} from './nous.js'
+import {serverUrl} from './root.js'
 
-const hostUrl='https://tnserver.onrender.com/'
-
+const hostUrl=serverUrl
 class Chantier extends React.Component{
     constructor(props){
         super(props);
@@ -102,11 +103,13 @@ class Chantier extends React.Component{
           .then(response => response.json())
           .then(chantiers => {setChantiers({...chantiers,chantiers:chantiers})})
           .catch(error => setError(error.message)); // Stocke uniquement le message de l'erreur
+          if (error) {return <Error error={error}/>}
           }else{
           fetch(hostUrl+'api/chantiers/allchantiers/'+val)
             .then(response => response.json())
             .then(chantiers => setChantiers({...chantiers,chantiers:chantiers}))
             .catch(error => setError(error.message)); // Stocke uniquement le message de l'erreur
+            if (error) {return <Error error={error}/>}
           }
           }
 
@@ -118,11 +121,8 @@ class Chantier extends React.Component{
                   setChantiers({chantiers:chantiers,nombre:chantiers.length})
                 })
           .catch(error => setError(error.message)); // Stocke uniquement le message de l'erreur
-        },[dispatch]);
-    
-      if (error) {
-        return <div>Une erreur s'est produite : {error}</div>;
-      }
+          if (error) {return <Error error={error}/>}
+        },[dispatch,error]);
       return (
         <div className="Tablette_pc">
           <Tronc chantier={state.chantier} nombre={nombre} />

@@ -13,7 +13,17 @@ const persistConfig = {
 
 const counterSlice = createSlice({
     name: 'userNewChant',
-    initialState:{loggedInUser: null,chantierToModifyName:null,nbreDeChantiers:null,local:{pos:[14.698230, -17.437130],index:0},index:0,chantier:null},
+    initialState:{loggedInUser: null,
+                  chantierToModifyName:null,
+                  nbreDeChantiers:null,
+                  membres:{all:[],newMembres:[],blockedMembres:[]},
+                  local:{pos:[14.698230, -17.437130],index:0},
+                  index:0,
+                  chantier:null,
+                  images:null,
+                  albums:{imgName:"galerie_0_0.jpg",album:"Flyers"},
+                  album:{name:"Flyers"}
+                },
     reducers: {
       loggedAccess:(state, action) => {
         return {loggedInUser: action.payload,chantierToModifyName:null,local: {pos:[14.698230, -17.437130],index:0},}
@@ -39,11 +49,27 @@ const counterSlice = createSlice({
         return {...state, index: action.payload}
         // return stat
       },
+      setIges:(state, action) => {
+        return {...state, images: action.payload}
+        // return stat
+      },
+      setAlbms:(state, action) => {
+        return {...state, albums: action.payload}
+        // return stat
+      },
+      setAlbum:(state, action) => {
+        return {...state, album: action.payload}
+        // return stat
+      },
+      setMembres:(state, action) => {
+        return {...state, membres: action.payload}
+        // return stat
+      }
     },
   });
 
   // Exporter les actions générées automatiquement
-export const { loggedAccess, modifyChantier,chantiersCounter,mapOpened,localisation,setChantier,setIndex} = counterSlice.actions;
+export const { loggedAccess, modifyChantier,chantiersCounter,mapOpened,setMembres,localisation,setChantier,setIndex,setIges,setAlbms,setAlbum} = counterSlice.actions;
 
 //mon reduer
 const reducer=counterSlice.reducer;

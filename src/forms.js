@@ -4,8 +4,9 @@ import { identifiant,user,securite,calendrier,formation,telephone,mail,localisat
 import * as validate from './regExpressions.js';
 import {Poster} from './requetesFetch.js';
 import {DataListDepartements} from './dataListes.js';
+import {serverUrl} from './root.js'
 
-const hostUrl='https://tnserver.onrender.com/'
+const hostUrl=serverUrl
 let types={
     text:"text",
     submit:"submit",

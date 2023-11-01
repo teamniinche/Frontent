@@ -1,14 +1,15 @@
-import React,{useState} from 'react';
-import {useDispatch} from 'react-redux'  //LE HOOK SETTER pour le cas de @redux/toolkit
-import {modifyChantier} from './stoore.js'  // ACTION Pour le HOOK SETTER pour le cas de @redux/toolkit
+import React,{useEffect,useState} from 'react';
+import {useSelector,useDispatch} from 'react-redux'  //LE HOOK SETTER pour le cas de @redux/toolkit
+import {modifyChantier,setMembres} from './stoore.js'  // ACTION Pour le HOOK SETTER pour le cas de @redux/toolkit
 import {Link,useNavigate} from 'react-router-dom';
 import ReactModal from 'react-modal'
 import './pagesceo.css';
 import {editer,supprimer,ajouter} from './icons.js';
 import {EditRubrique,EditMembreAdmin} from './editionsOfItems.js';
 import {UpdateProps} from './requetesFetch.js';
+import {serverUrl} from './root.js'
 
-const hostUrl='https://tnserver.onrender.com/'
+const hostUrl=serverUrl
 
 export default function  Pagesceo(){
   const [selections,setSelections]=useState([])
@@ -19,10 +20,19 @@ export default function  Pagesceo(){
   const [item,setItem]=useState({})
   const Navigate=useNavigate()   //Au HOOK SETTER pour le cas de @redux/toolkit
   const dispatch=useDispatch()  //LE HOOK SETTER pour le cas de @redux/toolkit
+  // const [newMembres,setNewMembres]=useState([])
 
-  // useEffect(() => {
-  //   disableEditItems();
-  // },);
+  useEffect(() => {
+    fetch(hostUrl+'api/membres/allmembres')
+      .then(response => response.json())
+      .then(membres => {
+                        const NewSubcribed=membres.filter(membre=>membre.IValidation==='false')
+                        const blockedMembres=membres.filter(membre=>membre.statu==='x')
+                        dispatch(setMembres({all:membres,newMembres:NewSubcribed,blockedMembres:blockedMembres}))
+                        // setNewMembres(NewSubcribed)
+                      })
+      .catch(error => setError(error.message));
+  },);
 
   // const disableEditItems = () => {
   //   const editItems = document.getElementsByClassName('editItem');
@@ -70,7 +80,7 @@ export default function  Pagesceo(){
       .then(selections => setSelections(selections))
       .catch(error => setError(error.message)); // Stocke uniquement le message de l'erreur
       if (error) {
-        return <div>Une erreur s'est produite : {error}</div>;
+        return <div style={{width:"100%",height:"40vw",padding:"5% 29%",margin:"0px",display:"flex",flexDrection:"column",justifyContent:"center",alignItems:"center"}}>Une erreur s'est produite : {error}</div>;
       }
     }
 
@@ -89,7 +99,24 @@ export default function  Pagesceo(){
     }
 
     // function handleItemChange(item){setItem(item)}
+    const membreStore=useSelector(state=>state.userNewCh.membres)
+    const membres=membreStore.all
+    const blockedMembres=membreStore.blockedMembres
+    const unValidatedMembres=membreStore.newMembres
+    const Switch=(val)=>{
+      switch (val){
+        case 'Tous':
+          setSelections(membres)
+          break
+        case 'Suspendus':
+          setSelections(blockedMembres)
+          break
+        default:
+          setSelections(unValidatedMembres)
+      }}
     let labelListe=type==="team"?"Rubriques":type; //gestion du titre du tableau pour "Team"
+    let thereAre=unValidatedMembres.length!==0?<span style={{color:"rgb(0,100,0)",fontWeight:"bold"}}>{'(+'+unValidatedMembres.length+')'}</span>:''
+    let rubriqueMembres='Membres'
   return (
     <div id="pagesceo">
         <div id="navbar">
@@ -99,14 +126,19 @@ export default function  Pagesceo(){
             </div>
             <ul className="navbarItems" id="navUl">
                 <li onClick={()=>handleSelectionsClick("chantiers")}>Chantiers</li>
-                <li onClick={()=>handleSelectionsClick("membres")}>Membres</li>
+                <li onClick={()=>handleSelectionsClick("membres")}>{rubriqueMembres}{thereAre}</li>
                 <li onClick={()=>handleSelectionsClick("rubriques")}>Team</li>
             </ul>
         </div>
         {/* <EditContext.Provider value={{item:item,setItem:()=>handleItemChange()}}> */}
         <div className="divtech" id="divTechPceo">
           <div className="displaySection" style={{width:"100%",margin:"0",padding:"0"}}>
-          <p style={{width:"80%",height:"50px",margin:"0",padding:"0px 10%",display:"flex",flexDirection:"row",justifyContent:"space-between",alignItems:"center",textAlign:"center",marginTop:"90px",backgroundColor:"rgba(0,0,0,.1)",color:"rgba(0,0,0,.7)",fontWeight:"bold"}}>Liste des {labelListe.toUpperCase()} <span id="ajouterChantier" style={{width:"40px",height:"40px",color:"rgb(0,0,220)",backgroundColor:"rgba(150,150,150,.6)",fontWeight:"bold",fontSize:"20px"}}><Link to='/compte/nouveauChantier'>{ajouter}</Link></span></p>
+          <div style={{width:"80%",height:"50px",margin:"0",padding:"0px 10%",display:"flex",flexDirection:"row",justifyContent:"space-between",alignItems:"center",textAlign:"center",marginTop:"90px",backgroundColor:"rgba(0,0,0,.1)",color:"rgba(0,0,0,.7)",fontWeight:"bold"}}>Liste des {labelListe.toUpperCase()} 
+              <MembreSwitch render={(val)=>Switch(val)}/>
+              <span id="ajouterChantier" style={{width:"40px",height:"40px",color:"rgb(0,0,220)",backgroundColor:"rgba(150,150,150,.6)",fontWeight:"bold",fontSize:"20px"}}>
+                  <Link to='/compte/nouveauChantier'>{ajouter}</Link>
+              </span>
+          </div>
           <table style={{width:"100%",margin:"0",padding:"0"}}>
             <tbody style={{width:"100%",margin:"0",padding:"0"}}>
               <tr style={{height:"40px"}}>
@@ -274,6 +306,18 @@ function RowOfItem(props) {
     </tr>
   )
 }
+
+
+function MembreSwitch(props) {
+  return (
+    <div style={{display:"flex",flexDirection:"row",width:"fit-content",height:"90%",margin:"0px",padding:"0px",justifyContent:"space-around",alignItems:"center"}}>
+        <p style={{display:"flex",flexDirection:"column",margin:"0px 5px",padding:"Opx",justifyContent:"space-between",alignItems:"center"}}><h6 style={{margin:"0px",padding:"0px"}}>Tous</h6><input onFocus={()=>props.render('Tous')} type="radio" name="membres-group" style={{margin:"0px",padding:"0px"}}/></p>
+        <p style={{display:"flex",flexDirection:"column",margin:"0px 5px",padding:"Opx",justifyContent:"space-between",alignItems:"center"}}><h6 style={{margin:"0px",padding:"0px"}}>Suspendus</h6><input onFocus={()=>props.render('Suspendus')} type="radio" name="membres-group" style={{margin:"0px",padding:"0px"}}/></p>
+        <p style={{display:"flex",flexDirection:"column",margin:"0px 5px",padding:"Opx",justifyContent:"space-between",alignItems:"center"}}><h6 style={{margin:"0px",padding:"0px"}}>En attente</h6><input onFocus={()=>props.render('blocked')} type="radio" name="membres-group" style={{margin:"0px",padding:"0px"}}/></p>
+    </div>
+  )
+}
+
 
 // export default connect()(Pagesceo);
 
