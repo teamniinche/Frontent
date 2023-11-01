@@ -8,9 +8,9 @@ import {DataListEquipes} from './dataListes.js';
 import Connexion from './connexion.js'
 import './session.css';
 import {compressImage,convertToBase64,dataURLtoFile} from './traitementImages.js';
+import {serverUrl} from './root.js'
 
-
-const hostUrl='https://tnserver.onrender.com/'
+const hostUrl=serverUrl
 const logo=require('./images/logo_niintche_blanc.ico')
 const Cession=()=>{
     const loggedInUser=useSelector((state)=>{ return state.userNewCh.loggedInUser})
@@ -46,7 +46,7 @@ const Session=()=>{
     // Pour stocker le nom (lien=imgName) de l'image selectionée et l'extention de la nouvelle image(=fileExt)
     // const [imgName,setImgName]=useState({fileExt:''})
     // {images} pour dire le fichier image(j'eprouve une peine de pouvoir l'exprimer dans un format objet avec prop: ça ne satifait pas mes besoins )
-    const [compressedFile,setCompressedFile]=useState(null)
+    // const [compressedFile,setCompressedFile]=useState(null)
     // Données à utiliser à l'enregistrement(la requete fetch aux trois parametres sur les membres à utiliser)
         // const pseudo=props.pseudo
     const fileName={nameToSave:'membre'+id+'imgPublic.jpg'} //{nameToSave:'membre'+id+'imgPublic.jpg'}
@@ -68,8 +68,8 @@ const Session=()=>{
             const base64Image = await convertToBase64(file);
             const compressedImage = await compressImage(base64Image,1,300);
             // setCompressedImage(compressedImage)                            //commentée:derniere touche
-            const compressedFile= await dataURLtoFile(compressedImage,file.name)
-            setCompressedFile(compressedFile)
+            // const compressedFile= await dataURLtoFile(compressedImage,file.name)
+            // setCompressedFile(compressedFile)
             const reader = new FileReader();
               reader.onload = function (e) {
                 const image = document.getElementById('inputChangeImg');
@@ -87,27 +87,27 @@ const Session=()=>{
             reader.readAsDataURL(input.files[0]);
         }
     }
-    const handleModalClick=()=>{
-        const formData = new FormData();
-        formData.append('images', compressedFile);
-        const img=image.split('.')[0]
-        fetch(hostUrl+'uploadimage/'+img+'/images', {
-            method: 'POST',
-            body: formData,
-            })
-            .then(response => response.json())
-            .then(data => {
-            console.log(data); // Réponse JSON du serveur
-            })
-            .catch(error => {
-            console.error(error);
-            });
-        UpdateProps(Url,fileName)
-        setModalDisplaye({showModal:false,imgKey:''});
-    }
+    // const handleModalClick=()=>{
+    //     const formData = new FormData();
+    //     formData.append('images', compressedFile);
+    //     const img=image.split('.')[0]
+    //     fetch(hostUrl+'uploadimage/'+img+'/images', {
+    //         method: 'POST',
+    //         body: formData,
+    //         })
+    //         .then(response => response.json())
+    //         .then(data => {
+    //         console.log(data); // Réponse JSON du serveur
+    //         })
+    //         .catch(error => {
+    //         console.error(error);
+    //         });
+    //     UpdateProps(Url,fileName)
+    //     setModalDisplaye({showModal:false,imgKey:''});
+    // }
+
     const deleteImg=async (apiKey,apiSecret,filename) =>{
         const url = hostUrl+'api/mycloudinary/delete/'+filename;
-
         fetch(url, {
                 method: "POST",
                 headers: {
@@ -125,6 +125,7 @@ const Session=()=>{
             console.error("Une erreur s'est produite lors de la demande de suppression.", error);
         });
     }
+    
     const handleCloudinaryModalClick=async () => {
         //     e.preventDefault();
         const signResponse = await fetch(hostUrl+'api/mycloudinary/signuploadform/'+fileName.nameToSave.split(".")[0]);
@@ -629,7 +630,7 @@ export function Img(props) {
             let nomImage='membre'+props.Id+props.Key
             setImgName({imgName:nomImage,fileExt:'jpg'})
             //qualité des images fonction de l'image
-            let n=null,wH=null
+            // let n=null,wH=null
            // if(props.Key==='imgPublic'){n=1;wH=300;}else{n=0.5;wH=150}//Pour calibrer la qualité en fonction de l'image en question
         const base64Image = await convertToBase64(file);
         const compressedImage = await compressImage(base64Image,1,300); //await compressImage(base64Image,n,vH);

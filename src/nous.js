@@ -6,8 +6,30 @@ import {Link, Outlet} from 'react-router-dom';
 // import InputString from './forms.js';
 import MetaData from './nousContacter';
 import Slider from './slider.js'
+import {serverUrl} from './root.js'
 
-const hostUrl='https://tnserver.onrender.com/'
+const hostUrl=serverUrl
+
+export function Error(props) {
+  const error=props.error
+  const typ=()=>{
+    if(error.includes('JSON.parse: unexpected character at line')){
+        return <h3 style={{margin:"0px",padding:"0px",width:"80%",textAlign:"center"}}>Erreur serveur, Veuillez contacter l'administrateur !</h3>
+    }else if(error.includes(' fetch ')){
+        return <h3 style={{margin:"0px",padding:"0px",width:"80%",textAlign:"center"}}>Veuillez vérifier votre connexion !</h3>
+    }else{
+    return ''
+  }}
+  
+  return (
+    <div style={{backgroundColor:"rgb(240,240,240)",width:"70%",height:"fit-content",padding:"20px 5%",margin:"3em 10%",display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"}}>
+        <h1 style={{margin:"0px",padding:"0px",width:"80%",textAlign:"center",color:"grey"}}>Oups ❗ 🙇🏻‍♀️</h1>
+        <div style={{margin:"0px",padding:"0px",width:"80%",textAlign:"center",lineHeight:"1.5em"}}>Une erreur s'est produite : {error}</div>
+        {typ()}
+    </div>
+  )
+}
+
 const membreDefault={   
   "id":0, 
   "firstName":"Moustapha",
@@ -38,12 +60,13 @@ export function Nous (props){
     document.getElementsByClassName('header')[0].style.height="0px"; //"0px" doit etre dynamisé
     fetch(hostUrl+'api/membres/allmembres')
       .then(response => response.json())
-      .then(membres => {setMembres(membres)})
+      .then(membres => {
+                        const unblockedMembres=membres.filter(membre=>membre.statu==="v")
+                        setMembres(unblockedMembres)
+                      })
       .catch(error => setError(error.message)); // Stocke uniquement le message de l'erreur
   }, []);
-  if (error) {
-    return <div>Une erreur s'est produite : {error}</div>;
-  }
+  if (error) {return <Error error={error}/>}
 
   function inputChange(val){
     if (val===""){
@@ -51,17 +74,13 @@ export function Nous (props){
       .then(response => response.json())
       .then(membres => setMembres(membres))
       .catch(error => setError(error.message)); // Stocke uniquement le message de l'erreur
-      if (error) {
-        return <div>Une erreur s'est produite : {error}</div>;
-      }
+      if (error) {return <Error error={error}/>}
     }else{
       fetch(hostUrl+'api/membres/allmembres/'+val)
       .then(response => response.json())
-      .then(membres => setMembres(membres))
+      .then(membres =>setMembres(membres))
       .catch(error => setError(error.message)); // Stocke uniquement le message de l'erreur
-      if (error) {
-        return <div>Une erreur s'est produite : {error}</div>;
-      }
+      if (error) {return <Error error={error}/>}
     }
     }
     
