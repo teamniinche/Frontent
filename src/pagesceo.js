@@ -1,6 +1,8 @@
 import React,{useEffect,useState} from 'react';
-import {useSelector,useDispatch} from 'react-redux'  //LE HOOK SETTER pour le cas de @redux/toolkit
-import {modifyChantier,setMembres} from './stoore.js'  // ACTION Pour le HOOK SETTER pour le cas de @redux/toolkit
+import {useDispatch} from 'react-redux'  //LE HOOK SETTER pour le cas de @redux/toolkit
+import {modifyChantier} from './stoore.js'  // ACTION Pour le HOOK SETTER pour le cas de @redux/toolkit
+// useSelector,
+// ,setMembres,setNewMembres,setBlockedMembres
 import {Link,useNavigate} from 'react-router-dom';
 import ReactModal from 'react-modal'
 import './pagesceo.css';
@@ -20,16 +22,19 @@ export default function  Pagesceo(){
   const [item,setItem]=useState({})
   const Navigate=useNavigate()   //Au HOOK SETTER pour le cas de @redux/toolkit
   const dispatch=useDispatch()  //LE HOOK SETTER pour le cas de @redux/toolkit
-  // const [newMembres,setNewMembres]=useState([])
+  const [membres,setMembres]=useState([])
+  const [newMembres,setNewMembres]=useState([])
+  const [blockedMembres,setBlockedMembres]=useState([])
 
   useEffect(() => {
     fetch(hostUrl+'api/membres/allmembres')
       .then(response => response.json())
-      .then(membres => {
-                        const NewSubcribed=membres.filter(membre=>membre.IValidation==='false')
-                        const blockedMembres=membres.filter(membre=>membre.statu==='x')
-                        dispatch(setMembres({all:membres,newMembres:NewSubcribed,blockedMembres:blockedMembres}))
-                        // setNewMembres(NewSubcribed)
+      .then(meembres => {
+                        const NewSubcribed=meembres.filter(membre=>membre.IValidation==='false')
+                        const blockeedMembres=meembres.filter(membre=>membre.statu==='x')
+                        setMembres(meembres)
+                        setNewMembres(NewSubcribed)
+                        setBlockedMembres(blockeedMembres)
                       })
       .catch(error => setError(error.message));
   },);
@@ -62,15 +67,20 @@ export default function  Pagesceo(){
   
   function handleSelectionsClick(selections) {
     let ajouterChantierStyle=document.querySelector('#ajouterChantier').style
+    let switchMembresStyle=document.querySelector('#switchMembres').style
+    
     if(selections==="membres"){
+      switchMembresStyle.display="flex"
       setType("membres")
       setTitre('Gestion de profil')
       ajouterChantierStyle.display='none'
     }else if(selections==="chantiers"){
+      switchMembresStyle.display="none"
       setType("chantiers")
       setTitre('Mise à jour chantier')
       ajouterChantierStyle.display='inline-block'
     }else{
+      switchMembresStyle.display="none"
       setType("team")
       setTitre('Mise à jour rubrique')
       ajouterChantierStyle.display='none'
@@ -99,10 +109,10 @@ export default function  Pagesceo(){
     }
 
     // function handleItemChange(item){setItem(item)}
-    const membreStore=useSelector(state=>state.userNewCh.membres)
-    const membres=membreStore.all
-    const blockedMembres=membreStore.blockedMembres
-    const unValidatedMembres=membreStore.newMembres
+    // const membres=useSelector(state=>state.userNewCh.membres)
+    // // const membres=membreStore.all
+    // const blockedMembres=useSelector(state=>state.userNewCh.blockedMembres)
+    // const unValidatedMembres=useSelector(state=>state.userNewCh.newMembres)
     const Switch=(val)=>{
       switch (val){
         case 'Tous':
@@ -112,10 +122,10 @@ export default function  Pagesceo(){
           setSelections(blockedMembres)
           break
         default:
-          setSelections(unValidatedMembres)
+          setSelections(newMembres) //(unValidatedMembres)
       }}
     let labelListe=type==="team"?"Rubriques":type; //gestion du titre du tableau pour "Team"
-    let thereAre=unValidatedMembres.length!==0?<span style={{color:"rgb(0,100,0)",fontWeight:"bold"}}>{'(+'+unValidatedMembres.length+')'}</span>:''
+    let thereAre=newMembres.length!==0?<span style={{color:"rgb(0,100,0)",fontWeight:"bold"}}>{'(+'+newMembres.length+')'}</span>:''
     let rubriqueMembres='Membres'
   return (
     <div id="pagesceo">
@@ -187,7 +197,7 @@ export default function  Pagesceo(){
               {/* <EditRubrique item={item}/> */}
               <div style={{width:"92%",padding:'15px 5px',marginTop:'1em',borderBottom:'.5px solid brown',display:"flex",flexDirection:"row",justifyContent:"flex-start"}}>
                   <h3 style={{textAlign:'center',color:"brown",width:"90%",letterSpacing:"3px",margin:"0px",padding:".4em 0px",textDecoration:".2px underline brown"}}>{titre}</h3>
-                  <span style={{width:'5%',textAlign:'right',paddind:'0px'}}><i class="fas fa-xmark" style={{color:"rgba(200,0,0,.6)"}} onClick={()=>setModalDisplay({showModal:false})}></i></span>
+                  <span style={{width:'5%',textAlign:'right',paddind:'0px'}}><i class="fas fa-xmark" style={{color:"rgba(200,0,0,.6)",cursor:"pointer"}} onClick={()=>setModalDisplay({showModal:false})}></i></span>
               </div>
               {modal(item)}
             {/* <button className="succesButton" onClick={()=>setModalDisplay({showModal:false})}>Valider</button>
@@ -301,8 +311,8 @@ function RowOfItem(props) {
         <td style={{height:"100%",width:"50%",textAlign:"left",borderRight:".8px dotted grey",borderBottom:".8px dotted grey"}}>{nom}</td>
         <td style={{height:"100%",width:"20%",textAlign:"left",borderRight:".8px dotted grey",borderBottom:".8px dotted grey"}}>{local}</td>
         {/* les icones */}
-        <td style={{height:"100%",width:"10%",textAlign:"center",borderRight:".8px dotted grey",borderBottom:".8px dotted grey"}} id="editButton"><button className='editItem' style={{color:'rgba(0,0,200,.8)',width:"70%"}} onClick={()=>handleEdit(selection)}>{editer}</button></td>
-        <td style={{height:"100%",width:"14%",textAlign:"center",borderRight:".8px dotted grey",borderBottom:".8px dotted grey"}}><button style={{color:"red",width:"70%"}} onClick={handleDelete}>{supprimer}</button></td>
+        <td style={{height:"100%",width:"10%",textAlign:"center",borderRight:".8px dotted grey",borderBottom:".8px dotted grey"}} id="editButton"><button className='editItem' style={{color:'rgba(0,0,200,.8)',width:"70%",cursor:"pointer"}} onClick={()=>handleEdit(selection)}>{editer}</button></td>
+        <td style={{height:"100%",width:"14%",textAlign:"center",borderRight:".8px dotted grey",borderBottom:".8px dotted grey"}}><button style={{color:"red",width:"70%",cursor:"pointer"}} onClick={handleDelete}>{supprimer}</button></td>
     </tr>
   )
 }
@@ -310,10 +320,10 @@ function RowOfItem(props) {
 
 function MembreSwitch(props) {
   return (
-    <div style={{display:"flex",flexDirection:"row",width:"fit-content",height:"90%",margin:"0px",padding:"0px",justifyContent:"space-around",alignItems:"center"}}>
-        <p style={{display:"flex",flexDirection:"column",margin:"0px 5px",padding:"Opx",justifyContent:"space-between",alignItems:"center"}}><h6 style={{margin:"0px",padding:"0px"}}>Tous</h6><input onFocus={()=>props.render('Tous')} type="radio" name="membres-group" style={{margin:"0px",padding:"0px"}}/></p>
-        <p style={{display:"flex",flexDirection:"column",margin:"0px 5px",padding:"Opx",justifyContent:"space-between",alignItems:"center"}}><h6 style={{margin:"0px",padding:"0px"}}>Suspendus</h6><input onFocus={()=>props.render('Suspendus')} type="radio" name="membres-group" style={{margin:"0px",padding:"0px"}}/></p>
-        <p style={{display:"flex",flexDirection:"column",margin:"0px 5px",padding:"Opx",justifyContent:"space-between",alignItems:"center"}}><h6 style={{margin:"0px",padding:"0px"}}>En attente</h6><input onFocus={()=>props.render('blocked')} type="radio" name="membres-group" style={{margin:"0px",padding:"0px"}}/></p>
+    <div id="switchMembres" style={{display:"flex",flexDirection:"row",width:"fit-content",height:"90%",margin:"0px",padding:"0px",justifyContent:"space-around",alignItems:"center"}}>
+        <p style={{display:"flex",flexDirection:"column",margin:"0px 5px",padding:"Opx",justifyContent:"space-between",alignItems:"center"}}><h6 style={{margin:"0px",padding:"0px",cursor:"pointer"}}>Tous</h6><input onFocus={()=>props.render('Tous')} type="radio" name="membres-group" style={{margin:"0px",padding:"0px"}}/></p>
+        <p style={{display:"flex",flexDirection:"column",margin:"0px 5px",padding:"Opx",justifyContent:"space-between",alignItems:"center"}}><h6 style={{margin:"0px",padding:"0px",cursor:"pointer"}}>Suspendus</h6><input onFocus={()=>props.render('Suspendus')} type="radio" name="membres-group" style={{margin:"0px",padding:"0px"}}/></p>
+        <p style={{display:"flex",flexDirection:"column",margin:"0px 5px",padding:"Opx",justifyContent:"space-between",alignItems:"center"}}><h6 style={{margin:"0px",padding:"0px",cursor:"pointer"}}>En attente</h6><input onFocus={()=>props.render('blocked')} type="radio" name="membres-group" style={{margin:"0px",padding:"0px"}}/></p>
     </div>
   )
 }

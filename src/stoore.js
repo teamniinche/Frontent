@@ -16,7 +16,9 @@ const counterSlice = createSlice({
     initialState:{loggedInUser: null,
                   chantierToModifyName:null,
                   nbreDeChantiers:null,
-                  membres:{all:[],newMembres:[],blockedMembres:[]},
+                  membres:[],
+                  newMembres:[],
+                  blockedMembres:[],
                   local:{pos:[14.698230, -17.437130],index:0},
                   index:0,
                   chantier:null,
@@ -64,12 +66,20 @@ const counterSlice = createSlice({
       setMembres:(state, action) => {
         return {...state, membres: action.payload}
         // return stat
+      },
+      setNewMembres:(state, action) => {
+        return {...state, membres: action.payload}
+        // return stat
+      },
+      setBlockedMembres:(state, action) => {
+        return {...state, membres: action.payload}
+        // return stat
       }
     },
   });
 
   // Exporter les actions générées automatiquement
-export const { loggedAccess, modifyChantier,chantiersCounter,mapOpened,setMembres,localisation,setChantier,setIndex,setIges,setAlbms,setAlbum} = counterSlice.actions;
+export const { loggedAccess, modifyChantier,chantiersCounter,mapOpened,setMembres,setNewMembres,setBlockedMembres,localisation,setChantier,setIndex,setIges,setAlbms,setAlbum} = counterSlice.actions;
 
 //mon reduer
 const reducer=counterSlice.reducer;

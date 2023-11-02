@@ -215,11 +215,11 @@ export default function Galerie() {
     }
   return <>
        <div style={{margin:"0px",padding:"1.5em 0px",marginTop:"110px",width:"100vw",height:"fit-content",display:"flex",flexDirection:"row",justifyContent:"space-around",borderBottom:"3px solid rgb(240,240,240)"}}>
-       <select onChange={(e)=>selectionChange(e)} style={{maxWidth:"44vw",overflow:"hidden",border:"none",fontWeight:"bold",color:"rgb(30,30,30)",backgroundColor:"white",width:"fit-content",marginTop:"10px",textDecoration:"none",borderBottom:"3px solid rgb(0,0,150"}}>
+       <select onChange={(e)=>selectionChange(e)} style={{maxWidth:"44vw",overflow:"hidden",border:"none",fontWeight:"bold",color:"rgb(30,30,30)",backgroundColor:"white",width:"fit-content",marginTop:"10px",textDecoration:"none",borderBottom:"3px solid rgb(0,0,150",cursor:"pointer"}}>
             <option>{'🖼 '+ albums.length + ' Album.s ( ' + images.length + ' photo.s)' }</option>
-                {albums.map((album,index)=><option key={index}>{'🖼 '+ album.name}</option>)}
+                {albums.map((album,index)=><option key={index} style={{cursor:"pointer"}}>{'🖼 '+ album.name}</option>)}
           </select>
-            <Link to="/quisommesnous/galerie/addPictures" style={{borderRadius:"10px",textDecoration:"none",width:"fit-content",backgroundColor:"rgb(0,0,150)",fontWeight:"bold",color:"white",padding:".5em",border:"1px dotted rgb(0,0,200)"}}>Ajouter photos</Link>
+            <Link to="/quisommesnous/galerie/addPictures" style={{borderRadius:"10px",textDecoration:"none",width:"fit-content",backgroundColor:"rgb(0,0,150)",fontWeight:"bold",color:"white",padding:".5em",border:"1px dotted rgb(0,0,200)",cursor:"pointer"}}>Ajouter photos</Link>
         </div>
     <Outlet/>
     </>
