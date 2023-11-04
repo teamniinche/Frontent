@@ -20,8 +20,9 @@ export default class Heade extends React.Component{
     const scrollTop = window.scrollY;
     if (scrollTop!==0){
       document.getElementById('topbaar').style.backgroundColor="rgb(150, 0 ,0)";
-    }else
-    document.getElementById('topbaar').style.backgroundColor="rgba(150, 0 ,0,.6)";
+    }
+    // else
+    // document.getElementById('topbaar').style.backgroundColor="rgba(150, 0 ,0,.6)";
     }
   handleClick=()=>{
     document.querySelector('#img_menu').style.display='none';
