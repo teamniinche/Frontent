@@ -45,6 +45,15 @@
         padding:0px;
         font-size:0.7rem
         }
+        #ul-list li:first-child{
+          position:sticky;
+          top:0px;
+          padding:2px 39.2%;
+          height:2em;
+          text-align:center;
+          background-color: antiquewhite;
+          color: blue;
+      }
 
 @media screen and (max-width:1000px){
     .leaflet-container{

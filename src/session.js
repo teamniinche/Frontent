@@ -1,4 +1,4 @@
-import React,{useState,useLayoutEffect} from 'react';
+import React,{useState,useEffect,useLayoutEffect} from 'react';
 import ReactModal from 'react-modal';
 import {useSelector} from 'react-redux';  //Le HOOK GETTER POUR LE CAS DE @REDUX/TOOLKIT
 import {Link,Outlet} from 'react-router-dom';
@@ -23,9 +23,25 @@ const Cession=()=>{
 const Session=()=>{
     const [modalDisplay,setModalDisplay]=useState({showModal:false,imgKey:''})
     const [link,setLink]=useState("/compte/nouveauChantier")
+    const [rsModal,setRsModal]=useState({showModal:false,rs:null})
     const loggedInUser=useSelector((state)=>{
         return state.userNewCh.loggedInUser
     })  //le GETTER dans le cas du @redux/toolkit
+    const {userX,userFa,userIn,userLi}=loggedInUser.rS
+    const [rsString,setRsString]=useState({X:userX,Fa:userFa,In:userIn,Li:userLi})
+    const icone=(rs)=>{
+        switch (rs){
+            case 'X':
+                return '/rs/twitter.webp'
+            case 'In':
+                return '/rs/instagram.webp'
+            case 'Fa':
+                return '/rs/facebook.webp'
+            default:
+                return '/rs/linkedin.webp'
+        }
+    }
+    
     const {id,pseudo,firstName, galeriePrive,profil,chef}=loggedInUser
     const avatar='avatar.webp';
     let imageProfil=galeriePrive.imgPublic!==''?galeriePrive.imgPublic:avatar;
@@ -179,6 +195,16 @@ const imgProfilStyle={
         minHeight:"88%",
         borderRadius:"50%",
         margin:"0px 3px"}
+const rs=rsModal.rs // Pour qu'il puisse etre utiliser ailleurs autre
+const inputLink=(e)=>{
+    const value=e.target.value
+    setRsString({...rsString,[rs]:value})
+}
+const handleRsValide=()=>{
+    const url=serverUrl+'api/membres/userRs/'+loggedInUser.pseudo
+    UpdateProps(url,rsString)
+    setRsModal({showModal:false,rs:null})
+}
   return (
     <div className="divBody">
         <div id="header-inscript">
@@ -258,9 +284,12 @@ const imgProfilStyle={
 
                         >
                         <div style={{padding:'10px 0px', display:'flex',flexDirection:'column',alignItems:'center'}}>
-                            <div style={{width:"92%",paddingBottom:'15px',margin:'5px',borderBottom:'.5px solid brown',display:"flex",flexDirection:"row",justifyContent:"flex-start"}}>
-                                <h3 style={{color:"brown",width:"90%",letterSpacing:"3px",margin:"0px",padding:".4em 0px",textDecoration:".2px underline brown"}}>Modification de profil</h3>
-                                <span style={{width:'5%',textAlign:'right',paddind:'0px'}}><i class="fas fa-xmark" style={{color:"rgba(200,0,0,.6)"}} onClick={()=>setModalDisplay({showModal:false})}></i></span>
+                            <div style={{position:"sticky",top:"0px",backgroundColor:"white",width:"92%",paddingBottom:'15px',margin:'5px',borderBottom:'.5px solid brown',display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
+                                <div style={{width:"92%",margin:'5px',display:"flex",flexDirection:"row",justifyContent:"flex-start"}}>
+                                    <h3 style={{color:"brown",width:"90%",letterSpacing:"3px",margin:"0px",padding:".4em 0px",textDecoration:".2px underline brown"}}>Modification de profil</h3>
+                                    <span style={{width:'5%',textAlign:'right',paddind:'0px'}}><i class="fas fa-xmark" style={{color:"rgba(200,0,0,.6)"}} onClick={()=>setModalDisplay({showModal:false})}></i></span>
+                                </div>
+                                <h6 style={{width:"100%",height:"2em",color:"blue",cursor:"pointer",textAlign:"right",margin:"0px",padding:"0px"}}>Changer vos parametres de connexion ?</h6>
                             </div>
                             <EditMembre render={()=>setModalDisplay({showModal:false})} item={loggedInUser}/>
                         </div>
@@ -277,6 +306,54 @@ const imgProfilStyle={
             </div>
         </div>
         <Outlet/>
+        <div id="rs" style={{backgroundColor:"rgba(0, 0, 0, 0.7)",display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",position:"sticky",bottom:"0px",marginTop:"80vh",height:"4em",padding:".5em 10%"}}>
+            <h6 style={{margin:"0px",padding:"0px",paddingBottom:"10px",color:"white",letterSpacing:"1px"}}>Double-cliquez sur une icone pour éditer son lien</h6>        
+            <div style={{width:"100%",display:"flex",flexDirection:"row",justifyContent:"space-between",alignItems:"center",height:"3em"}}>
+                <img onDoubleClick={()=>setRsModal({showModal:true,rs:'X'})} src='/rs/twitter.webp' alt='X'/>
+                <img onDoubleClick={()=>setRsModal({showModal:true,rs:'Fa'})} src='/rs/facebook.webp' alt='Facebook'/>
+                <img onDoubleClick={()=>setRsModal({showModal:true,rs:'In'})} src='/rs/instagram.webp' alt='Instagram'/>
+                <img onDoubleClick={()=>setRsModal({showModal:true,rs:'Li'})} src='/rs/linkedin.webp' alt='linkedin'/>
+            </div>
+        </div>
+        <ReactModal
+              isOpen={rsModal.showModal}
+              style={{
+                        overlay: {
+                          position: 'fixed',
+                          top: 0,
+                          left: 0,
+                          right: 0,
+                          bottom: 0,
+                          backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                            zIndex:15000,
+                            alignContent:"center",
+                        },content: {
+                      position: 'absolute',
+                      top: '30vh',
+                      right: '8vw',
+                      bottom: '40vh',
+                      border: '1px solid #ccc',
+                      background: 'white',
+                      width:'80vw',
+                      maxWidth:'300px',
+                      height:'fit-content',
+                      maxHeight:'500px',
+                      overflow: 'auto',
+                      WebkitOverflowScrolling: 'touch',
+                      borderRadius: '10px',
+                      outline: 'none',
+                      padding: '2vw',
+                      paddingTop:"0px",
+                      margin:"auto",
+                    zIndex:30000,
+                    }}}
+              >
+              <ul style={{listStyle:"none",display:"flex",flexDirection:"column",alignItems:"center",padding:"2%",margin:"0px",lineHeight:"2em"}} >
+                <h3 style={{width:"88%",display:"flex",alignItems:"center",justifyContent:"center",padding:"0px 10%",textDecoration:"none"}} > Editer le lien <img style={{width:"2em",height:"2em",marginLeft:"10px"}} src={icone(rsModal.rs)} alt={rsModal.rs}/></h3>
+                <input type="text" value={rsString[rs]} placeholder="lien ici..." style={{width:"80%",height:"2em",padding:"0.4em",marginBottom:"2em",}} onChange={(e)=>inputLink(e)}/>
+                <button onClick={handleRsValide} style={{mouse:"pointer",borderRadius:"10px",textDecoration:"none",width:"fit-content",backgroundColor:"rgb(0,0,150)",fontWeight:"bold",color:"white",padding:".5em 2em",border:"1px dotted rgb(0,0,200)",margin:"2em 25%"}}>Valider</button>
+            </ul>
+        </ReactModal>
     </div>
   )
 }
@@ -422,8 +499,18 @@ export const FieldsetCompte=()=>{//{ loggedInUser }
 //     document.getElementById('aGalerie').removeAttribute('class');
 // }
 // setClass3=()=>{
-    
-// }
+
+const handleScroll=()=>{
+    const scrollTop = window.scrollY;
+    if(document.getElementById('pcg')){
+        if (scrollTop>=150){
+        document.getElementById('pcg').style.backgroundColor="rgb(250, 250 ,250)";
+        }else{document.getElementById('pcg').style.backgroundColor="rgba(0, 0, 0, .05)";}
+    }
+}
+
+useEffect(()=>(window.addEventListener('scroll', handleScroll)))
+
     function publicOnly(){
         document.getElementById('p').style.display="block";
         document.getElementById('public').style.display="block";
@@ -471,7 +558,7 @@ export const FieldsetCompte=()=>{//{ loggedInUser }
                 </article>
             </fieldset>
             <div id="sessionDroite" style={{margin:"0",padding:"0",height:"fit-content",display:"flex",justifyContent:"center",alignItems:"center"}}>
-                <ul id="pcg">
+                <ul id="pcg" style={{position:"sticky",top:"82px"}}>
                     <li><Link id="aPublic" onClick={()=>publicOnly()}>Public</Link></li>
                     <li><Link id="aConfid" onClick={()=>confidOnly()}>Confidentiel</Link></li>
                     <li><Link id="aGalerie" onClick={()=>galerieOnly()}>Galérie</Link></li>

@@ -22,20 +22,37 @@ export default function Map(props) {
         iconAnchor:[fc/2,fc],
         popupAnchor:[0,-fc*3/4]
     })
-    const handleClick=(site,index)=>{ 
+    const flag=new Icon(
+      {
+        iconUrl:'/flag-senegal.ico',
+        iconSize:[fc/2,fc/2],
+        iconAnchor:[fc/4,fc/4],
+      }
+    )
+    const handleClick=(site,index)=>{
       // document.querySelector('.leaflet-container').style.height="12vw"
       const map=mapRef.current; //A mapContainer on l'utilise en ref={mapRef} au lieu de whenCreayed() qui ne mar che pas d'ailleurs
                           setCoord([site.lat,site.long]);
                           // let lt=site.lat-0.120000 //0.12 coefficent de deplacement du centre vers le haut(sur la lattitude) pour l'adapter à la retraction
                           setCenter([site.lat,site.long]);
-                          if(map) map.flyTo([site.lat,site.long],14);
+                          let zoom=index===0?6:14;
+                          if(map) map.flyTo([site.lat,site.long],zoom);
+                          // if(zoom!==10000){
                           const marker=listMarkerRef.current[index]
                           // marker.icon.iconSize=[80,100]
                           if(marker) marker.openPopup()
-                          setKZoom(20)
+                          let Zoom=index===0?0:20;
+                          setKZoom(Zoom)
+                        // }
+                        // else{setKZoom(6.2)}
 
                       }
-
+      // const handleInitClick=()=>{
+      //   const map=mapRef.current;
+      //   map.flyTo([14.5998233, -14.7402745],6.2);
+      // }
+  // const sn=<img src='' alt='🇸🇳'/>
+  // const Icon=(index)=>{const iconn=index===0?flag:icon;return iconn}
   return <div id="map">
      
     <MapContainer ref={mapRef} center={center} zoom={6.2} scrollWheelZoom={false} className='mapContainer'>
@@ -44,7 +61,7 @@ export default function Map(props) {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         {sites.map((site,index)=>{
-          return <Marker key={index} position={[site.lat, site.long]} icon={icon} ref={element=>listMarkerRef.current[index]=element} eventHandlers={{ mouseover: ""}}>
+          return <Marker key={index} position={[site.lat, site.long]} icon={index===0?flag:icon} ref={element=>listMarkerRef.current[index]=element} eventHandlers={{ mouseover: ""}}>
                       <Popup>{site.name}</Popup> 
                       {/* </Marker><img src={srcPopup} alt="" style={{height:"70px",width:"100px"}}/></Popup> */}
                 </Marker>})
@@ -57,13 +74,14 @@ export default function Map(props) {
               <p>{sites.length} CHANTIERS</p>
               <input value={coord} onChange={()=>null}/>
           </div>
-          <ul className="enfant-de-list"> 
-              {sites.map((site,index)=><li key={index} id={'ID'+index} onClick={()=>{handleClick(site,index)}} style={{width:"fit-content",lineHeight:"2rem",cursor:"pointer"}}><span style={{width:"fit-content",color:"green"}}>{site.ID<10?('0'+site.ID+'.  '):site.ID+ '.  ' }</span>{site.name}</li>)} 
+          <ul id="ul-list" className="enfant-de-list"> 
+              {sites.map((site,index)=><li key={index} id={'ID'+index} onClick={()=>{handleClick(site,index)}} style={{width:"fit-content",lineHeight:"2rem",cursor:"pointer"}}><span style={{width:"fit-content",color:"green"}}>{site.ID<10?('0'+site.ID+'.  '):site.ID?site.ID+ '.  ':'' }</span>{site.name}</li>)} 
           </ul> 
       </div>
   </div>
 }
 const sites=[
+  {name:'SénégaL 🇸🇳',lat:14.5998233,long:-14.7402745},
   {ID:0,name:'Ecole primaire de Ngolar sérère - Noto Diobass',lat:14.681982,long:-16.840937},
   {ID:1,name:'Lycée John Fitzgerald Kennedy',lat:14.6945440,long:-17.4455588},
   {ID:2,name:'Ecole Manguier 2',lat:14.689191,long:-17.458508},

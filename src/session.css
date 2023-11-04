@@ -286,6 +286,18 @@ fieldset{
             .addImgContentClass{
                 right:8vw;
             }
+#rs{
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+}
+#rs img{
+    width:2em;
+    height:2em;
+    background-color:white;
+    border-radius:50%;
+    padding:5px;
+    box-shadow: 4px -4px 5px grey inset, -4px 4px 6px white inset;
+}
 @media only screen and (min-width:960px) {
     #profil{
         width:350px;
