@@ -5,8 +5,9 @@ import {modifyChantier} from './stoore.js'  // ACTION Pour le HOOK SETTER pour l
 import {EditChantier} from './editionsOfItems.js';
 import {convertToBase64,compressImage,dataURLtoFile} from './traitementImages.js';
 import {UpdateProps,Poster} from './requetesFetch.js'
+import {serverUrl} from './root.js'
 
-const hostUrl='https://tnserver.onrender.com/'
+const hostUrl=serverUrl
 const NouveauChantier=()=> {
   // const item={name:"props.item.name",departement:"props.item.departement",dateAv:"props.item.dateAV",
   //             dateAp:"props.item.dateAp",imagesAv:"props.item.imagesAV",imagesAp:"props.item.imagesAp",redaction:"props.item.redaction"}

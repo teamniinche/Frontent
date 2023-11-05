@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import {DataListEquipes,DataListDepartements} from './dataListes.js';
 import {UpdateProps} from './requetesFetch.js';
-import {dateValidator,phoneValidator,nameValidator,lastNameValidator} from './regExpressions.js';
+import {dateValidator,phoneValidator,nameValidator,lastNameValidator,passwordValidator} from './regExpressions.js';
 import {serverUrl} from './root.js'
 
 const hostUrl=serverUrl
@@ -333,5 +333,89 @@ export function EditMembre(props){
         </div>
         
           
+    </form>
+}
+
+export function ChangePassWord(props){
+    const [item,setItem]=useState({Ancien:'',Nouveau:'',Confirmation:''})
+    const [validite,setValidite]=useState({Ancien:false,Nouveau:false,Confirmation:false})
+    // const VALIDITE=validite.Ancien && validite.Nouveau && validite.Confirmation
+    //
+    // function validatorSwitch(propriete){
+    //     switch (propriete){
+    //         case "Ancien":
+    //             return dateValidator;
+    //         case "Nouveau":
+    //             return phoneValidator;
+    //         default:
+    //             return nameValidator;
+    //         }}
+    function handleChange(element,valeur){
+        document.getElementById('zAlert').display='none';
+        let id=element+"msgValidation";
+        let para=document.getElementById(id);
+
+        if(!passwordValidator.test(valeur)){ // Controle de l'ENTREE pour les champs autres que "Sexe"
+            para.style.color="red";                         // ENTREE invalide
+            para.innerText='x '+element.toUpperCase()+' null !';
+            setItem({...item,[element]:valeur})
+            setValidite({...validite,[element]:false});
+        }else{    
+            if(element==="Confirmation" && valeur!==item.Nouveau){
+                para.innerText='✖ Infirmation ❕';
+                setItem({...item,[element]:valeur})
+                setValidite({...validite,[element]:false});
+            }else{                                         //ENTREE valide
+            para.innerText=''; 
+            setItem({...item,[element]:valeur})
+            setValidite({...validite,[element]:true});
+            }
+        }
+    }
+    //
+    const pseudo = props.item.pseudo
+    const handleValide=(e)=>{
+        e.preventDefault();
+        if(validite.Ancien===true && validite.Nouveau===true && validite.Confirmation===true){
+            fetch(hostUrl+'api/membres/membre/isSame',
+                {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({pseudo:pseudo,passWord:validite.Ancien})
+                })
+                .then(response => {
+                  if (response.ok) {return response.json();} 
+                  else {throw new Error('Erreur lors de la tentative de POSTER.');}
+                })
+                .then(data => {
+                    if(data.fidback){
+                        UpdateProps(hostUrl+'api/membres/user/'+pseudo,item)
+                        props.render(false)
+                    }else{
+                        const alert=document.getElementById('zAlert')
+                        alert.style.display='block';
+                        alert.innerText="✖ Il y'a des entrées non conformes."
+                    }
+                })
+          }  
+    }
+    // const itemContext=useContext(props.EditContext)
+
+    return <form id="changeUserForm" style={{width:"90%",minHeight:"80%",padding:"1em",margin:"auto",display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",}}>
+        <div className="changeUserForm2" style={{margin:"0",padding:"0px",height:"100%"}}>
+            <h3 style={{color:"rgba(0,0,0,0.3)",width:"80%",margin:"auto",paddinTop:"0em",marginBottom:".5em",textAlign:"center",borderBottom:".5px solid grey"}}>{pseudo}</h3>
+            <InputMembre value={item.Ancien} required name="Ancien mot de passe" width="80%" margin="1em 0px" type="password" item={item} render={(elem,val)=>handleChange(elem,val)}/>
+            <InputMembre value={item.Nouveau} required name="Nouveau mot de passe" width="80%" margin="1em 0px" type="password" item={item} render={(elem,val)=>handleChange(elem,val)}/>
+            <InputMembre value={item.Confirmation} name="Confirmation du nouveau" width="80%" margin="1em 0px" type="password" item={item} render={(elem,val)=>handleChange(elem,val)}/>
+        </div>
+        <div className="changeUserForm2" style={{margin:"0",padding:"0",height:"100%"}}>
+            <p id='zAlert'  style={{height:"fit-content",color:"white",backgroundColor:'red',display:"none",width:"fitContent",fontWeight:'bold',fontSize:'.8em',margin:'0px 12%',marginBottom:'10px',padding:'0px'}}></p>
+            <div style={{width:"90%",display:"flex",flexDirection:"column",justifyContent:"center"}}>
+                <button className="succesButton" style={{margin:"4px auto"}} onClick={(e)=>handleValide(e)}>Valider</button>
+                <button className="dangerButton" style={{margin:"4px auto",color:"rgb(150,0,0)",backgroundColor:"white",border:".5px solid grey"}} onClick={()=>props.render(false)}>Abandonner</button>
+            </div>
+        </div>
     </form>
 }

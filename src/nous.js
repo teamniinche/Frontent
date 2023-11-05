@@ -10,6 +10,8 @@ import {serverUrl} from './root.js'
 
 const hostUrl=serverUrl
 
+export function isUndefined(val){if(val===undefined || val===''){return true }else{return false}}
+export function ifVal(val){if(val.includes('.com/')){return val }else{return '.com/'}}
 export function Error(props) {
   const error=props.error
   const typ=()=>{
@@ -43,7 +45,8 @@ const membreDefault={
   "qualification":"Ecrivain-(Les Saillies du profane",
   "tngroupe":"Coordination TN",
   "galeriePrive":{"imgPublic":"","imgPrive":"","imgPublic1":"","imgPublic2":""},
-  "apropos":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sagittis laoreet dui ut finibus. Phasellus dapibus, orci quis laoreet malesuada, nulla velit auctor ligula, cursus pretium erat nibh sit amet leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum lorem sem, sollicitudin ut dolor vitae, imperdiet facilisis arcu. Nullam gravida laoreet elit luctus eleifend. Etiam condimentum quam ante, vel faucibus velit rhoncus vitae. Aenean tortor diam, egestas ac consequat at, posuere nec justo." 
+  "apropos":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sagittis laoreet dui ut finibus. Phasellus dapibus, orci quis laoreet malesuada, nulla velit auctor ligula, cursus pretium erat nibh sit amet leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum lorem sem, sollicitudin ut dolor vitae, imperdiet facilisis arcu. Nullam gravida laoreet elit luctus eleifend. Etiam condimentum quam ante, vel faucibus velit rhoncus vitae. Aenean tortor diam, egestas ac consequat at, posuere nec justo.", 
+  "rS":{"userFa":"","userX":"","userIn":"","userLi":""}
 }
 
 const MembreContext=React.createContext({
@@ -104,6 +107,7 @@ export function Nous (props){
 function DetailsMembre(){
   let myContext=useContext(MembreContext)
   let membre=myContext.membreObject.membre
+  const  rS=membre.rS
   const avatar=[['avatar.webp','NO IMAGES']]
   const {imgPublic,imgPrive,imgPublic1,imgPublic2}=membre.galeriePrive
   const IMAGES=[[imgPublic,''],[imgPrive,''],[imgPublic1,''],[imgPublic2,'']]
@@ -114,6 +118,10 @@ function DetailsMembre(){
   const twitter=require('./images/RS_logos/twitter.webp');
   const instagram=require('./images/RS_logos/instagram.webp');
   const linkedin=require('./images/RS_logos/linkedin.webp');
+  const faceLink=!isUndefined(rS.userFa)?ifVal(rS.userFa).split('.com/')[1]:''
+  const xLink=!isUndefined(rS.userX)?ifVal(rS.userX).split('.com/')[1]:''
+  const instaLink=!isUndefined(rS.userIn)?ifVal(rS.userIn).split('.com/')[1]:''
+  const linkLink=!isUndefined(rS.userLi)?ifVal(rS.userLi).split('.com/')[1]:''
 return(     
     <div className='detailsmembre'>
       <div className='memberCard'>
@@ -124,10 +132,10 @@ return(
           <span>{membre.qualification }</span> {'    ' + membre.departementDOrigine} 
           </p>
           <ul>
-          <a href='https://www.facebook.com'><li><img src={facebook} alt="facebook"/></li></a>
-          <a href='https://www.twitter.com'><li><img src={twitter} alt="twitter"/></li></a>
-          <a href='https://www.instagram.com'><li><img src={instagram} alt="instagram"/></li></a>
-          <a href='https://www.linkedin.com'><li><img src={linkedin} alt="linkedin"/></li></a>
+          <a href={'https://www.facebook.com/'+ faceLink}><li><img src={facebook} alt="facebook"/></li></a>
+          <a href={'https://www.twitter.com/'+ xLink}><li><img src={twitter} alt="X"/></li></a>
+          <a href={'https://www.instagram.com/' + instaLink}><li><img src={instagram} alt="instagram"/></li></a>
+          <a href={'https://www.linkedin.com/' + linkLink}><li><img src={linkedin} alt="linkedin"/></li></a>
           </ul>
         </div>
       </div>
@@ -173,7 +181,8 @@ class Membre extends React.Component{
 
   handleTwitterClick=(event)=>{
     event.stopPropagation();
-    let url = "https://twitter.com/ndourm9";
+    const xLink=isUndefined(this.membre.rS.userX)?ifVal(this.membre.rS.userX).split('.com/')[1]:''
+    let url = "https://twitter.com/"+xLink;
     window.open(url);
   }
   
