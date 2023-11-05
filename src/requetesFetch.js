@@ -1,6 +1,5 @@
 
 export const UpdateProps=(url,state)=> {fetch(url, {
-    // '/api/apprendre/0/name'
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
@@ -15,7 +14,6 @@ export const UpdateProps=(url,state)=> {fetch(url, {
       }
     })
     .then(data => {
-      // console.log(data);
       alert('Mise à jour réussie !')
     })
     .catch(error => {

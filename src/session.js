@@ -3,9 +3,10 @@ import ReactModal from 'react-modal';
 import {useSelector} from 'react-redux';  //Le HOOK GETTER POUR LE CAS DE @REDUX/TOOLKIT
 import {Link,Outlet} from 'react-router-dom';
 import {UpdateProps} from './requetesFetch.js';
-import {EditMembre} from './editionsOfItems.js';
+import {EditMembre,ChangePassWord} from './editionsOfItems.js';
 import {DataListEquipes} from './dataListes.js';
 import Connexion from './connexion.js'
+import { isUndefined,ifVal} from './nous.js';
 import './session.css';
 import {compressImage,convertToBase64,dataURLtoFile} from './traitementImages.js';
 import {serverUrl} from './root.js'
@@ -24,6 +25,7 @@ const Session=()=>{
     const [modalDisplay,setModalDisplay]=useState({showModal:false,imgKey:''})
     const [link,setLink]=useState("/compte/nouveauChantier")
     const [rsModal,setRsModal]=useState({showModal:false,rs:null})
+    const [changePwModal,setChangePwModal]=useState(false)
     const loggedInUser=useSelector((state)=>{
         return state.userNewCh.loggedInUser
     })  //le GETTER dans le cas du @redux/toolkit
@@ -51,6 +53,7 @@ const Session=()=>{
     let imgProfil= cloudinaryBaseUrl+'/'+imageProfil;
     useLayoutEffect(()=>{
             document.getElementsByClassName('header')[0].style.display="none";
+            document.getElementById('galerie').style.display="none";
             if(profil==='administrateur' || chef==="oui"){
             document.querySelector('#admin').style.display="inline-block";
             if(chef==="non"){
@@ -205,49 +208,73 @@ const handleRsValide=()=>{
     UpdateProps(url,rsString)
     setRsModal({showModal:false,rs:null})
 }
+const handleXClick=(rS)=>{
+    // event.stopPropagation();
+    const xLink=isUndefined(rS.userX)?ifVal(rS.userX).split('.com/')[1]:''
+    let url = "https://twitter.com/"+xLink;
+    window.open(url);
+  }
+  const handleLiClick=(rS)=>{
+    // event.stopPropagation();
+    const liLink=isUndefined(rS.userLi)?ifVal(rS.userLi).split('.com/')[1]:''
+    let url = "https://linkedin.com/"+liLink;
+    window.open(url);
+  }
+  const handleFaClick=(rS)=>{
+    // event.stopPropagation();
+    const faLink=isUndefined(rS.userFa)?ifVal(rS.userFa).split('.com/')[1]:''
+    let url = "https://facebook.com/"+faLink;
+    window.open(url);
+  }
+  const handleInClick=(rS)=>{
+    // event.stopPropagation();
+    const inLink=isUndefined(rS.userIn)?ifVal(rS.userIn).split('.com/')[1]:''
+    let url = "https://instagram.com/"+inLink;
+    window.open(url);
+  }
   return (
     <div className="divBody">
         <div id="header-inscript">
             <div style={{width:"90%",right:"7%",left:"3%",height:"84%",position:"absolute",display:"flex",flexDirection:"row",padding:"0%",top:"8%"}}>
                 <div style={{display:"flex",flexDirection:"row",width:"50%",minWidth:"fit-content",maxWidth:"250px",height:"100%",padding:"0px",margin:"0px",alignItems:"center",justifyContent:"flex-start",backgroundColor:"white",borderRadius:"20% 4% 4% 20%"}}>
                     <img src={imgProfil} onClick={()=>setModalDisplaye({showModal:true,imgKey:'imgPublic'})} alt="profil" id="imgProfil" style={imgProfilStyle}/>
-                    <ReactModal
-              isOpen={modalDisplaye.showModal}
-              style={{
-                        overlay: {
-                          position: 'fixed',
-                          top: 0,
-                          left: 0,
-                          right: 0,
-                          bottom: 0,
-                          backgroundColor: 'rgba(0, 0, 0, 0.7)'
-                        },content: {
-                      position: 'absolute',
-                      top: '15vh',
-                      right: '8vw',
-                      bottom: '40vh',
-                      border: '1px solid #ccc',
-                      background: 'white',
-                      width:'80vw',
-                      maxWidth:'300px',
-                      height:'100vw',
-                      maxHeight:'500px',
-                      overflow: 'auto',
-                      WebkitOverflowScrolling: 'touch',
-                      borderRadius: '4px',
-                      outline: 'none',
-                      padding: '2vw',
-                      paddingTop:"0px",
-                    }}}
-              >
-                <div style={{padding:'10px 0px', display:'flex',flexDirection:'column',alignItems:'center'}}>
-                    <span style={{width:'90%',textAlign:'right',paddind:'0px',paddingBottom:'15px',margin:'5px',borderBottom:'.5px solid brown'}}><i className="fas fa-xmark" style={{color:"rgba(200,0,0,.6)"}} onClick={()=>setModalDisplaye({showModal:false})}></i></span>
-                    <p style={{padding:'0px',color:'rgba(0,0,0,.5)',margin:'0px',marginBottom:'15px',textAlign:'center',width:'fit-content',fontSize:'10px'}}>Changer l'image {"props.params.lien"}</p>
-                    <img src={src} id='inputChangeImg' style={{width:'55vw',height:'55vw',margin:'5px',padding:'0px'}} alt='imageAChanger'/>
-                    <input  style={{marginBottom:'20px'}} type='file' name='images' accept='image/*' onChange={(e)=>handleInputChange(e)} id="modal_imgeProfil"/>
-                    <button style={{width:'80%',border:'.5px solid brown',borderRadius:'5px',height:'30px',color:'white',fontSize:'18px',fontWeight:'bold',backgroundColor:'rgba(200,0,0,.6)',BorderRadius:'90px'}} onClick={handleCloudinaryModalClick}>Terminer</button>
-                </div>
-                    </ReactModal>
+                <ReactModal
+            isOpen={modalDisplaye.showModal}
+            style={{
+                    overlay: {
+                        position: 'fixed',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        backgroundColor: 'rgba(0, 0, 0, 0.7)'
+                    },content: {
+                    position: 'absolute',
+                    top: '15vh',
+                    right: '8vw',
+                    bottom: '40vh',
+                    border: '1px solid #ccc',
+                    background: 'white',
+                    width:'80vw',
+                    maxWidth:'300px',
+                    height:'100vw',
+                    maxHeight:'500px',
+                    overflow: 'auto',
+                    WebkitOverflowScrolling: 'touch',
+                    borderRadius: '4px',
+                    outline: 'none',
+                    padding: '2vw',
+                    paddingTop:"0px",
+                }}}
+            >
+            <div style={{padding:'10px 0px', display:'flex',flexDirection:'column',alignItems:'center'}}>
+                <span style={{width:'90%',textAlign:'right',paddind:'0px',paddingBottom:'15px',margin:'5px',borderBottom:'.5px solid brown'}}><i className="fas fa-xmark" style={{color:"rgba(200,0,0,.6)"}} onClick={()=>setModalDisplaye({showModal:false})}></i></span>
+                <p style={{padding:'0px',color:'rgba(0,0,0,.5)',margin:'0px',marginBottom:'15px',textAlign:'center',width:'fit-content',fontSize:'10px'}}>Changer l'image {"props.params.lien"}</p>
+                <img src={src} id='inputChangeImg' style={{width:'55vw',height:'55vw',margin:'5px',padding:'0px'}} alt='imageAChanger'/>
+                <input  style={{marginBottom:'20px'}} type='file' name='images' accept='image/*' onChange={(e)=>handleInputChange(e)} id="modal_imgeProfil"/>
+                <button style={{width:'80%',border:'.5px solid brown',borderRadius:'5px',height:'30px',color:'white',fontSize:'18px',fontWeight:'bold',backgroundColor:'rgba(200,0,0,.6)',BorderRadius:'90px'}} onClick={handleCloudinaryModalClick}>Terminer</button>
+            </div>
+                </ReactModal>
                     <ReactModal
                         isOpen={modalDisplay.showModal}
                         style={{
@@ -283,17 +310,52 @@ const handleRsValide=()=>{
                             className="contentClassName"
 
                         >
-                        <div style={{padding:'10px 0px', display:'flex',flexDirection:'column',alignItems:'center'}}>
+                        <div style={{padding:'10px 0px',margin:"auto",display:'flex',flexDirection:'column',alignItems:'center'}}>
                             <div style={{position:"sticky",top:"0px",backgroundColor:"white",width:"92%",paddingBottom:'15px',margin:'5px',borderBottom:'.5px solid brown',display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
                                 <div style={{width:"92%",margin:'5px',display:"flex",flexDirection:"row",justifyContent:"flex-start"}}>
                                     <h3 style={{color:"brown",width:"90%",letterSpacing:"3px",margin:"0px",padding:".4em 0px",textDecoration:".2px underline brown"}}>Modification de profil</h3>
                                     <span style={{width:'5%',textAlign:'right',paddind:'0px'}}><i class="fas fa-xmark" style={{color:"rgba(200,0,0,.6)"}} onClick={()=>setModalDisplay({showModal:false})}></i></span>
                                 </div>
-                                <h6 style={{width:"100%",height:"2em",color:"blue",cursor:"pointer",textAlign:"right",margin:"0px",padding:"0px"}}>Changer vos parametres de connexion ?</h6>
+                                <h6 onClick={()=>{setModalDisplay({showModal:false});setChangePwModal(true)}} style={{width:"100%",height:"2em",color:"blue",cursor:"pointer",textAlign:"right",margin:"0px",padding:"0px"}}>Changer vos parametres de connexion ?</h6>
                             </div>
                             <EditMembre render={()=>setModalDisplay({showModal:false})} item={loggedInUser}/>
                         </div>
                     </ReactModal>
+                <ReactModal
+            isOpen={changePwModal}
+            style={{
+                    overlay: {
+                        position: 'fixed',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                        zIndex:15000,
+                        alignContent:"center",
+                    },content: {
+                    position: 'absolute',
+                    top: '30vh',
+                    right: '8vw',
+                    bottom: '40vh',
+                    border: '1px solid #ccc',
+                    background: 'white',
+                    width:'82vw',
+                    maxWidth:'300px',
+                    height:'fit-content',
+                    maxHeight:'500px',
+                    overflow: 'auto',
+                    WebkitOverflowScrolling: 'touch',
+                    borderRadius: '10px',
+                    outline: 'none',
+                    padding: '1vw',
+                    paddingTop:"0px",
+                    margin:"auto",
+                zIndex:30000,
+                }}}
+            >
+            <ChangePassWord render={(bool)=>setChangePwModal(bool)} item={loggedInUser}/>
+                </ReactModal>
                     <span style={{display:"flex",flexDirection:"column"}}>
                         <h5 id="detail2" style={{padding:"0px",margin:"0px",marginTop:"5%"}}><Link to="/compte/">{firstName.split(" ")[0]}</Link><i class="far fa-edit" style={{margin:"15px",color:"rgba(0,0,200,.8)"}} onClick={()=>setModalDisplay({showModal:true})}></i></h5>
                         <Link to='/connexion' style={{display:"inline-block",width:"70%",padding:"5px 8px",margin:"0px",height:"40%",paddingBottom:"10%"}}>Déconnexion</Link>
@@ -309,10 +371,10 @@ const handleRsValide=()=>{
         <div id="rs" style={{backgroundColor:"rgba(0, 0, 0, 0.7)",display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",position:"sticky",bottom:"0px",marginTop:"80vh",height:"4em",padding:".5em 10%"}}>
             <h6 style={{margin:"0px",padding:"0px",paddingBottom:"10px",color:"white",letterSpacing:"1px"}}>Double-cliquez sur une icone pour éditer son lien</h6>        
             <div style={{width:"100%",display:"flex",flexDirection:"row",justifyContent:"space-between",alignItems:"center",height:"3em"}}>
-                <img onDoubleClick={()=>setRsModal({showModal:true,rs:'X'})} src='/rs/twitter.webp' alt='X'/>
-                <img onDoubleClick={()=>setRsModal({showModal:true,rs:'Fa'})} src='/rs/facebook.webp' alt='Facebook'/>
-                <img onDoubleClick={()=>setRsModal({showModal:true,rs:'In'})} src='/rs/instagram.webp' alt='Instagram'/>
-                <img onDoubleClick={()=>setRsModal({showModal:true,rs:'Li'})} src='/rs/linkedin.webp' alt='linkedin'/>
+                <img onBlur={()=>handleXClick(loggedInUser.rS)} onDoubleClick={()=>setRsModal({showModal:true,rs:'X'})} src='/rs/twitter.webp' alt='X'/>
+                <img onBlur={()=>handleFaClick(loggedInUser.rS)} onDoubleClick={()=>setRsModal({showModal:true,rs:'Fa'})} src='/rs/facebook.webp' alt='Facebook'/>
+                <img onBlur={()=>handleInClick(loggedInUser.rS)} onDoubleClick={()=>setRsModal({showModal:true,rs:'In'})} src='/rs/instagram.webp' alt='Instagram'/>
+                <img onBlur={()=>handleLiClick(loggedInUser.rS)} onDoubleClick={()=>setRsModal({showModal:true,rs:'Li'})} src='/rs/linkedin.webp' alt='linkedin'/>
             </div>
         </div>
         <ReactModal
@@ -650,7 +712,7 @@ function Galerie() {//{loggedInUser}
 
 
   return (
-    <div id="galerie" style={{margin:"0px",padding:"10px 0px",width:"90%",height:"fit-content",border:"0px",display:"grid",gridTemplateColumns:"50% 50%"}}>
+    <div id="galerie" style={{margin:"0px",padding:"10px 0px",width:"90%",height:"fit-content",border:"0px"}}>
         <Img Key='imgPublic' Id={id} params={{lien:imgPublic,pseudo:pseudo}}src={img1}/>
         <Img Key='imgPrive' Id={id} params={{lien:imgPrive,pseudo:pseudo}} src={img2}/>
         <Img Key='imgPublic1' Id={id} params={{lien:imgPublic1,pseudo:pseudo}} src={img3}/>
