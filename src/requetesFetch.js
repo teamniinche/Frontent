@@ -31,7 +31,7 @@ export const Poster=(url,state)=>{
       })
       .then(response => {
         if (response.ok) {return response.json();} 
-        else {throw new Error('Erreur lors de la tentative de POSTER.');}
+        else {alert('Erreur lors de la tentative de POSTER.');}
       })
       .then(data => {if (data && data.pseudo){
         alert('Bienvenue '+ data.firstName + ' 👌🏻! Vous étes bien inscrit. Veuillez bien patienter pour la validatiion de votre inscription 🙏🏻🙏🏻🙏🏻')}

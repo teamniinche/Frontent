@@ -1,5 +1,6 @@
 import React,{useEffect, useState} from 'react';
 import './forms.css';
+import { useNavigate } from 'react-router-dom';
 import { identifiant,user,securite,calendrier,formation,telephone,mail,localisation} from './icons';
 import * as validate from './regExpressions.js';
 import {Poster} from './requetesFetch.js';
@@ -43,7 +44,7 @@ export default function Forms() {
         Département:"",Adresse:"",Téléphone:"",
         Pseudo:"",Mot:"",Confirmer:""
         })
-
+    const Navigate=useNavigate()
     const nouveauMembre={
         pseudo:membre.Pseudo,
         passWord:membre.Mot,
@@ -102,7 +103,7 @@ export default function Forms() {
                 let para=document.getElementById(id);
                 if(!validatorSwitch(validate,name).test(obj.val)){ // Controle de l'ENTREE pour les champs autres que "Sexe"
                     para.style.color="red";                         // ENTREE invalide
-                    para.innerText='x '+name.toUpperCase()+' null !';
+                    para.innerText='❌ '+name.toUpperCase()+' null !';
                     button.style.display="none";
                     if(name==='Pseudo'){
                         setMembre({...membre,Pseudo:"null",Mot:"null",Confirmer:"null"})
@@ -113,7 +114,7 @@ export default function Forms() {
                     }
                 }else{                                              //ENTREE valide
                     para.style.color="green";
-                    para.innerText='v';
+                    para.innerText='✔';
                     if(VALIDITE){  //Controle si tous les champs sont buen remplis
                     button.style.display="block"
                     }
@@ -136,11 +137,12 @@ export default function Forms() {
         // console.log(nouveauMembre)
         // console.log(validite)
     }
-   const handleClick=()=>{
+   const handleClick=(e)=>{
+        e.preventDefault()
         if(VALIDITE && (membre.Mot===membre.Confirmer)){
             Poster(hostUrl+'api/membres/newMembre',nouveauMembre)
-            // console.log(nouveauMembre)
-        }else{alert("Impossible d'envoyer le formulaire; il y'a des DONNEES NON CONFORMES !Veuillez ien vérifier les données saisies.")}
+            Navigate("/connexion")
+        }else{alert("✖ Impossible d'envoyer le formulaire; il y'a des DONNEES NON CONFORMES !Veuillez ien vérifier les données saisies.")}
     }
         
     return (
@@ -159,9 +161,9 @@ export default function Forms() {
                 <InputString type="phone" icon={telephone} for="Téléphone" render={(obj)=>{handleChange(obj)}}/>
                 <InputString type="mail" icon={mail} for="Adresse mail" render={(obj)=>{handleChange(obj)}}/>
                 <InputString type="text" for="Pseudo" icon={user} render={(obj)=>{handleChange(obj)}}/>
-                <InputString type="text" for="Mot de passe" icon={securite} render={(obj)=>{handleChange(obj)}}/>
-                <InputString type="text" for="Confirmer Mot de passe" icon={securite} render={(obj)=>{handleChange(obj)}}/>
-                <button  id='buttonValider' onClick={handleClick}>Valider</button>
+                <InputString type="password" for="Mot de passe" icon={securite} render={(obj)=>{handleChange(obj)}}/>
+                <InputString type="password" for="Confirmer Mot de passe" icon={securite} render={(obj)=>{handleChange(obj)}}/>
+                <button  id='buttonValider' onClick={(e)=>handleClick(e)}>Valider</button>
                 {/* <button onClick={()=>{onClick()}}>Enregistrer les modifs</button> */}
             </form>
         </div>
