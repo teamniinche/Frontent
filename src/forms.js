@@ -1,6 +1,6 @@
 import React,{useEffect, useState} from 'react';
 import './forms.css';
-import { useNavigate } from 'react-router-dom';
+//import { useNavigate } from 'react-router-dom';
 import { identifiant,user,securite,calendrier,formation,telephone,mail,localisation} from './icons';
 import * as validate from './regExpressions.js';
 import {Poster} from './requetesFetch.js';
@@ -44,7 +44,7 @@ export default function Forms() {
         Département:"",Adresse:"",Téléphone:"",
         Pseudo:"",Mot:"",Confirmer:""
         })
-    const Navigate=useNavigate()
+    //const Navigate=useNavigate()
     const nouveauMembre={
         pseudo:membre.Pseudo,
         passWord:membre.Mot,
@@ -141,7 +141,7 @@ export default function Forms() {
         e.preventDefault()
         if(VALIDITE && (membre.Mot===membre.Confirmer)){
             Poster(hostUrl+'api/membres/newMembre',nouveauMembre)
-            Navigate("/connexion")
+            setMembre({...membre,Pseudo:null,Mot:null,Confirmer:null})
         }else{alert("✖ Impossible d'envoyer le formulaire; il y'a des DONNEES NON CONFORMES !Veuillez ien vérifier les données saisies.")}
     }
         
