@@ -357,17 +357,35 @@ export function ChangePassWord(props){
 
         if(!passwordValidator.test(valeur)){ // Controle de l'ENTREE pour les champs autres que "Sexe"
             para.style.color="red";                         // ENTREE invalide
-            para.innerText='x '+element.toUpperCase()+' null !';
+            para.innerText='✖ '+element.toUpperCase()+' null !';
             setItem({...item,[element]:valeur})
             setValidite({...validite,[element]:false});
         }else{    
             if(element==="Confirmation" && valeur!==item.Nouveau){
+                para.style.color="red";
                 para.innerText='✖ Infirmation ❕';
                 setItem({...item,[element]:valeur})
                 setValidite({...validite,[element]:false});
-            }else{                                         //ENTREE valide
-            para.innerText=''; 
-            setItem({...item,[element]:valeur})
+            }else if(element==="Ancien" && valeur.length>=6){
+                setItem({...item,[element]:valeur})
+                fetch(hostUrl+'api/membres/membre/isSame',
+                {
+                  method: 'POST',
+                  headers: {'Content-Type': 'application/json'},
+                  body: JSON.stringify({pseudo:pseudo,passWord:valeur})
+                })
+                .then(response => {
+                    if (response.ok) {return response.json();} 
+                    else {throw new Error('Erreur lors de la tentative de POSTER.');}})
+                .then(data => {
+                    if(data.fidback){para.style.color="green";para.innerText='✔';setValidite({...validite,[element]:true});}
+                    else{para.style.color="red";para.innerText='✖ Mot de passe non reconnu ❗';setValidite({...validite,[element]:false});
+                }
+            })
+            }else{
+            para.style.color="green";
+            para.innerText='✔';
+            setItem({...item,[element]:valeur});
             setValidite({...validite,[element]:true});
             }
         }
@@ -377,20 +395,6 @@ export function ChangePassWord(props){
     const handleValide=(e)=>{
         e.preventDefault();
         if(validite.Ancien===true && validite.Nouveau===true && validite.Confirmation===true){
-            fetch(hostUrl+'api/membres/membre/isSame',
-                {
-                  method: 'POST',
-                  headers: {
-                      'Content-Type': 'application/json'
-                  },
-                  body: JSON.stringify({pseudo:pseudo,passWord:validite.Ancien})
-                })
-                .then(response => {
-                  if (response.ok) {return response.json();} 
-                  else {throw new Error('Erreur lors de la tentative de POSTER.');}
-                })
-                .then(data => {
-                    if(data.fidback){
                         UpdateProps(hostUrl+'api/membres/user/'+pseudo,item)
                         props.render(false)
                     }else{
@@ -398,9 +402,9 @@ export function ChangePassWord(props){
                         alert.style.display='block';
                         alert.innerText="✖ Il y'a des entrées non conformes."
                     }
-                })
+                // })
           }  
-    }
+    // }
     // const itemContext=useContext(props.EditContext)
 
     return <form id="changeUserForm" style={{width:"90%",minHeight:"80%",padding:"1em",margin:"auto",display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",}}>

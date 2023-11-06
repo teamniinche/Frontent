@@ -179,8 +179,8 @@ class Membre extends React.Component{
     document.getElementsByClassName("detailsmembre")[0].style.display="inline-block";
   }
 
-  handleTwitterClick=(event)=>{
-    event.stopPropagation();
+  handleTwitterClick=(e)=>{
+    e.stopPropagation();
     const xLink=isUndefined(this.membre.rS.userX)?ifVal(this.membre.rS.userX).split('.com/')[1]:''
     let url = "https://twitter.com/"+xLink;
     window.open(url);
@@ -191,7 +191,6 @@ class Membre extends React.Component{
   const imgProfilLink=this.membre.galeriePrive.imgPublic
   let imageProfil=imgProfilLink!==''?imgProfilLink:avatar;
     
-  //let membreImg=require('./images/'+ imageProfil);
   const cloudName='dapkl1ien'
   const cloudinaryBaseUrl = 'https://res.cloudinary.com/'+cloudName+'/image/upload/signed_upload_demo_form/membres';
   let membreImg = cloudinaryBaseUrl+'/'+imageProfil;
@@ -206,16 +205,14 @@ class Membre extends React.Component{
       <img src={membreImg} alt='Prenom NOM'/>
 
       <ul>
-        {/*<li>Prénom NOM</li>*/}
         <li className='prenomNom'>
         {this.membre.firstName +" " + this.membre.lastName +" - "+ this.membre.departementDOrigine}
-        <img src={twitter} alt="twitter" onClick={this.handleTwitterClick} id="twitterAList"/>
+        {/* <a href={url}></a> */}
+        <img src={twitter} alt="twitter" onClick={(e)=>this.handleTwitterClick(e)} id="twitterAList"/>
         </li>
 
-        {/*<li>Qualification</li>*/}
         <li>{this.membre.qualification}</li>
 
-        {/*<li>Alias - Groupe TN</li>*/}
         <li>{'@s '+ this.membre.alias +" - " + this.membre.tngroupe}</li>
 
       </ul>
