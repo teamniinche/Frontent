@@ -15,7 +15,7 @@ const hostUrl=serverUrl
 const cloudinaryBaseUrl = 'https://res.cloudinary.com/dapkl1ien/image/upload/signed_upload_demo_form/galerie';
 
 export function NouvelAlbum(props) {
-    // const [albums,setAlbums]=useState([{name:'Aucun album'}])
+    const [labelUpload,setLabelUpload]=useState('👈 0 image selectionnée')
     const [lastImage,setLastImage]=useState({numeroEnvoi:0,ordreEnvoi:0,imgName:null,album:null})
     // Pour afficher et/ou fermer la fenetre modale et identifiant de l'image selectionnée(=imgKey)
     const [modalDisplaye,setModalDisplaye]=useState({showModal:true,albumName:null,last:false})
@@ -49,11 +49,14 @@ export function NouvelAlbum(props) {
          },[images]);
         
         const handleCloudinaryModalClick=async () => {
+          if(labelUpload!=='Uploader les images'){alert('⚠ Images déjà uploadées ❗')}else{
+          setLabelUpload('... Uploading, Wait!')
           const nomAlbum=modalDisplaye.albumName
           if(nameValidator.test(nomAlbum) && nomAlbum!==null){
             let input=document.querySelector('#filesInput')
             const formData = new FormData();
             const files=input.files
+            const nbreOfFiles=files.length-1
             let j=modalDisplaye.last===true?lastImage.numeroEnvoi:lastImage.numeroEnvoi+1;
             let k=modalDisplaye.last===true?lastImage.ordreEnvoi+1:0
             let nouvel_album=modalDisplaye.last
@@ -89,10 +92,12 @@ export function NouvelAlbum(props) {
                     Poster(Url,{name:nomAlbum}); 
                 }
                 k=k+1
-        }}else{alert("VEUILLEZ RENSEIGNER LE NOM VALIDE DE L'ALBUM")}}
+                if(k>nbreOfFiles){setLabelUpload('✔ Upload terminé!')}
+        }}else{alert("VEUILLEZ RENSEIGNER LE NOM VALIDE DE L'ALBUM")}}}
         const inputAlbum=(e)=>{const valeur=e.target.value
                                 if(valeur!==''){ setModalDisplaye({...modalDisplaye,albumName:valeur})}
                               }
+        const handleInputFilesChange=()=>{setLabelUpload('Uploader les images')}
   return (
     <div style={{display:"flex",flexDirection:"column",paddingTop:"1.5em",width:"100%",margin:"0px",height:"fit-content"}} >
         <div style={{display:"flex",flexDirection:"row",width:"100%",padding:"0.5em 0px",justifyContent:"center",alignItems:"center",margin:".5em 0px"}}>
@@ -104,9 +109,9 @@ export function NouvelAlbum(props) {
                 }
             </datalist>
         </div>
-        <div style={{display:"flex",flexDirection:"row",justifyContent:"space-around",lineHeight:"2em",padding:"1em",backgroundColor:"rgba(0,0,0,0.1)"}}>
-            <input type="file" multiple style={{width:"70%",height:"2em",backgroundColor:"rgb(253,253,253)"}} id="filesInput" />
-            <button onClick={(e) =>handleCloudinaryModalClick(e)} style={{borderRadius:"10px",width:"30%",backgroundColor:"rgb(0,0,200)",fontWeight:"bold",color:"white",padding:"1em",border:"1px dotted rgb(0,0,200)"}}>Uploader les images</button>
+        <div style={{display:"flex",flexDirection:"row",justifyContent:"space-around",alignItems:"center",lineHeight:"2em",padding:"1em",backgroundColor:"rgba(0,0,0,0.1)"}}>
+            <input onChange={handleInputFilesChange} type="file" multiple style={{width:"45%",height:"3em",border:"2px solid blue",borderRadius:"10px",backgroundColor:"rgb(253,253,253)"}} id="filesInput" />
+            <button onClick={(e) =>handleCloudinaryModalClick(e)} style={{borderRadius:"10px",width:"50%",backgroundColor:"rgb(0,0,200)",fontWeight:"bold",color:"white",padding:"1em",border:"1px dotted rgb(0,0,200)"}}>{labelUpload}</button>
         </div>
     <ReactModal
               isOpen={modalDisplaye.showModal}
@@ -135,9 +140,10 @@ export function NouvelAlbum(props) {
                       WebkitOverflowScrolling: 'touch',
                       borderRadius: '4px',
                       outline: 'none',
+                      margin:"auto",
                       padding: '2vw',
                       paddingTop:"0px",
-                    zIndex:30000,
+                      zIndex:30000,
                     }}}
               >
               <ul style={{listStyle:"none",display:"flex",flexDirection:"column",padding:"2%",margin:"0px",lineHeight:"2em"}} >
@@ -215,7 +221,7 @@ export default function Galerie() {
     }
   return <>
        <div style={{margin:"0px",padding:"1.5em 0px",marginTop:"110px",width:"100vw",height:"fit-content",display:"flex",flexDirection:"row",justifyContent:"space-around",borderBottom:"3px solid rgb(240,240,240)"}}>
-       <select onChange={(e)=>selectionChange(e)} style={{maxWidth:"44vw",overflow:"hidden",border:"none",fontWeight:"bold",color:"rgb(30,30,30)",backgroundColor:"white",width:"fit-content",marginTop:"10px",textDecoration:"none",borderBottom:"3px solid rgb(0,0,150",cursor:"pointer"}}>
+          <select onChange={(e)=>selectionChange(e)} style={{maxWidth:"44vw",overflow:"hidden",border:"none",fontWeight:"bold",color:"rgb(30,30,30)",backgroundColor:"white",width:"fit-content",marginTop:"10px",textDecoration:"none",borderBottom:"3px solid rgb(0,0,150",cursor:"pointer"}}>
             <option>{'🖼 '+ albums.length + ' Album.s ( ' + images.length + ' photo.s)' }</option>
                 {albums.map((album,index)=><option key={index} style={{cursor:"pointer"}}>{'🖼 '+ album.name}</option>)}
           </select>
