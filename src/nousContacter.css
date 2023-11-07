@@ -3,7 +3,8 @@
     flex-direction: column-reverse;
     justify-content: space-between;
     align-items:center;
-    background-color: rgba(200,0,0,0.8);
+    background-color: rgba(150,0,0,0.6);
+    /* (200,0,0,0.8); */
     width: 100%;
     margin:.5% 0.1%;
     height: auto;

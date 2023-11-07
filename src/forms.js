@@ -148,7 +148,7 @@ export default function Forms() {
     return (
         <div className="divtec">
             <form className="form">
-                <div style={{width:"90%",backgroundColor:"rgba(255,0,0,.09)",maxHeight:"100px",margin:"2% 5%",textAlign:"center",display:"flex",flexDirection:"column",alignItems:"center"}}>
+                <div style={{width:"90%",position:"sticky",top:"60px",backgroundColor:"rgba(255,0,0,.09)",maxHeight:"100px",margin:"2% 5%",textAlign:"center",display:"flex",flexDirection:"column",alignItems:"center"}}>
                     <h3 style={{minHeight:"50%"}}>📖 Formulaire d'incription 📖</h3>
                     <h5 style={{minHeight:"50%",letterSpacing:"2px",color:"grey"}}>Les champs avec astherisque (*) sont obligatoires ❗</h5>
                 </div>
