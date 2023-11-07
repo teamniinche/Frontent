@@ -16,7 +16,7 @@ const logo=require('./images/logo_niintche_blanc.ico')
 const Cession=()=>{
     const loggedInUser=useSelector((state)=>{ return state.userNewCh.loggedInUser})
     if(loggedInUser===null){
-        return <Connexion/> 
+        return <Connexion/>
     }else{
         return <Session/> 
     }

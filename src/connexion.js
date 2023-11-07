@@ -1,17 +1,19 @@
 import React,{useState,useLayoutEffect} from 'react';
 import {Link,useNavigate} from 'react-router-dom';
-import {useDispatch} from 'react-redux'   //le HOOK SETTER dans le cas de @redux/toolkit
+import {useDispatch} from 'react-redux' //le HOOK SETTER dans le cas de @redux/toolkit
 import {loggedAccess} from './stoore.js'   //Pour le HOOK SETTER dans le cas de @redux/toolkit
 import {InputString} from './forms.js';
 import './connexion.css';
 import { identifiant,securite } from './icons.js';
 import { nameValidator,passwordValidator } from './regExpressions.js';
+import { useLocalStorage } from './useLocalStorage.js';
 
 
 const Connexion = () =>  {
     const [dataUser,setDataUser]=useState({Identifiant:"",Mot:""})
     const Navigate=useNavigate()
     const dispatch=useDispatch()  //le HOOK SETTER dans le cas de @redux/toolkit
+    const {setIttem}=useLocalStorage('pseudo_images')
     useLayoutEffect(()=>{ 
                     document.getElementsByClassName('header')[0].style.display="block";
                     dispatch(loggedAccess(null))
@@ -81,6 +83,7 @@ const Connexion = () =>  {
           })
           .then(data => {if (data && data.pseudo){
                           dispatch(loggedAccess(data))  //le HOOK SETTER dans le cas de @redux/toolkit
+                          setIttem({pseudo:data.pseudo,images:data.addeImages})
                           Navigate("/compte")
                           //alert('Bienvenue '+ data.firstName + ' 👌🏻!') // Vous étes bien inscrit. Veuillez bien patienter pour la validatiion de votre inscription 🙏🏻🙏🏻🙏🏻')
                         }else{

@@ -79,7 +79,7 @@ const counterSlice = createSlice({
   });
 
   // Exporter les actions générées automatiquement
-export const { loggedAccess, modifyChantier,chantiersCounter,mapOpened,setMembres,setNewMembres,setBlockedMembres,localisation,setChantier,setIndex,setIges,setAlbms,setAlbum} = counterSlice.actions;
+export const { loggedAccess,modifyChantier,chantiersCounter,mapOpened,setMembres,setNewMembres,setBlockedMembres,localisation,setChantier,setIndex,setIges,setAlbms,setAlbum} = counterSlice.actions;
 
 //mon reduer
 const reducer=counterSlice.reducer;

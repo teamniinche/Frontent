@@ -72,8 +72,8 @@ function Lateam(props) {
   return (
     
     <div className="rubrique" id={props.rubrique.id}>
-      <h3>
-        <a href="#tec" style={{ letterSpacing: "2px" }}>
+      <h3 style={{position:"sticky",top:"120px"}}>
+        <a href="#tec" style={{ letterSpacing: "2px",backgroundColor:"white"}}>
           {props.rubrique.titre} 🔺
         </a>
       </h3>

@@ -48,14 +48,14 @@ function Numeros(){
 export default function MetaData(){
     return <div className="divtech">
             <div className="meta-data">
-            <div className="copyright">
-                Copyright © 2023
-                @MBEGAAN JS (+221 77 152 86 20)
-                Tous droits réservés ®
-            </div>
-            <Numeros/>
-            <NousContacter/>
-            <Opinion/>
+                <div className="copyright">
+                    Copyright © 2023
+                    @MBEGAAN JS (+221 77 152 86 20)
+                    Tous droits réservés ®
+                </div>
+                <Numeros/>
+                <Opinion/>
+                <NousContacter/>
             </div>
         </div>
     }

@@ -4,12 +4,13 @@ import {Link,Outlet,useNavigate} from 'react-router-dom';
 import {useSelector,useDispatch} from 'react-redux';  //Le HOOK GETTER POUR LE CAS DE @REDUX/TOOLKIT
 import {nameValidator} from './regExpressions.js'
 import ReactModal from 'react-modal';
-import {Poster} from './requetesFetch.js';
+import {Poster, UpdateProps} from './requetesFetch.js';
 import {setIges,setAlbms,setAlbum} from './stoore.js'
 import {ajouter,supprimer} from './icons.js';
 import './galerie.css';
 import {compressImage,convertToBase64,dataURLtoFile} from './traitementImages.js';
 import {serverUrl} from './root.js'
+import { useLocalStorage } from './useLocalStorage.js';
 
 const hostUrl=serverUrl
 const cloudinaryBaseUrl = 'https://res.cloudinary.com/dapkl1ien/image/upload/signed_upload_demo_form/galerie';
@@ -163,6 +164,7 @@ export default function Galerie() {
     const dispatch=useDispatch()
 
     useLayoutEffect(() => {
+        document.getElementsByClassName('header')[0].style.height="0px";
         fetch(hostUrl+'api/images/albums/getAll')
           .then(response => response.json())
           .then(albums => {dispatch(setAlbms(albums));setAlbums(albums)})
@@ -231,7 +233,7 @@ export default function Galerie() {
     </>
 }
 
- function Album(props) {
+function Album(props) {
    const photos=props.photos //photos.length===0?{name:'avatar.webp'}:photos;
    const dispatch=useDispatch()
    const Navigate=useNavigate()
@@ -273,7 +275,8 @@ export function PhotosGrid() {
 
 export function ImagesGrid() {
   // const [statusUserConnected,setStatusUserConnected]=useState(null)
-  const loggedInUser=useSelector((state)=>{return state.userNewCh.loggedInUser})
+  // const loggedInUser=useSelector((state)=>{return state.userNewCh.loggedInUser})
+  const {getIttem,setIttem}=useLocalStorage('pseudo_images')
   const images=useSelector((state)=>{return state.userNewCh.album})
 
   // useEffect(()=>{if(loggedInUser!==null){console.log(loggedInUser);setStatusUserConnected(true)
@@ -281,13 +284,31 @@ export function ImagesGrid() {
   //                   setStatusUserConnected(false)
   //                 }
   //   },[loggedInUser])
+  
   const handleAdd=(image)=>{
-    if(loggedInUser!==null){
-        
-    }
+    const pseudoImages=getIttem()
+    if(pseudoImages){
+      const imagesPerso=pseudoImages.images
+      const pseudo=pseudoImages.pseudo
+      const pictures=Array.from(imagesPerso).push(image)
+      UpdateProps(serverUrl+'api/membres/updateImages',{pseudo:pseudo,images:pictures})
+      setIttem({pseudo:pseudo,images:pictures})
+        // alert(pseudoImages.pseudo)
+    }else{alert("⚠ Il y'eu une erreur.")}
 }
 // const handleRetirer=(image)=>alert(image.numeroEnvoi) 
-const handleDelete=(image)=>alert(image.numeroEnvoi)
+const handleDelete=(image)=>{
+const pseudoImages=getIttem()
+  if(pseudoImages){
+    const imagesPerso=pseudoImages.images
+    const pseudo=pseudoImages.pseudo
+    const index=Array.from(imagesPerso).indexOf(image)
+    const pictures=Array.from(imagesPerso).slice(index,1)
+    setIttem({pseudo:pseudo,images:pictures})
+    // alert(image.numeroEnvoi)
+  }else{alert("⚠ Il y'eu une erreur.")}
+}
+
 // const divIconsDisplay=statusUserConnected===true?"flex":"none"
   return <>
     <h3 style={{width:"100%",margin:"0.8em 0px",color:"grey",padding:"0px",textAlign:"center",}}>{images[0].album + ' ('+images.length+ ')'}</h3>
@@ -301,8 +322,8 @@ const handleDelete=(image)=>alert(image.numeroEnvoi)
                     <div className="publicName_icons" style={{position:"absolute",display:"flex",flexFlow:"row wrap",justifyContent:"space-between",
                         alignItems:"center",float:"right",width:"44vw",paddingBottom:"0.25vw",height:"5.75vw"}}>
                         {/* <button style={{display:"none",backgroundColor:"rgba(0,0,0,0)",border:"none",color:"red",padding:"0px",width:"40px",margin:"0px 1em"}} id={publicName+'Ret'} onClick={()=>handleRetirer(image)}>{ajouter}</button> */}
-                        <button style={{backgroundColor:"rgba(0,0,0,0)",border:"none",color:"blue",padding:"0px",width:"40px",margin:"0px 1em"}} id={publicName+'Add'} onClick={()=>handleAdd(image)}>{ajouter}</button>
-                        <button style={{backgroundColor:"rgba(0,0,0,0)",border:"none",color:"red",padding:"0px",width:"40px",margin:"0px 1em"}} id={publicName+'Sup'} onClick={()=>handleDelete(image)}>{supprimer}</button>
+                        <button style={{backgroundColor:"rgba(0,0,0,0)",border:"none",color:"blue",padding:"0px",width:"40px",margin:"0px 1em"}} id={publicName+'Add'} onClick={()=>handleAdd(image.imgName)}>{ajouter}</button>
+                        <button style={{backgroundColor:"rgba(0,0,0,0)",border:"none",color:"red",padding:"0px",width:"40px",margin:"0px 1em"}} id={publicName+'Sup'} onClick={()=>handleDelete(image.imgName)}>{supprimer}</button>
                     </div>
                 </div>
           })
