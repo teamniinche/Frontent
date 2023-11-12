@@ -19,9 +19,13 @@ export function Error(props) {
         return <h3 style={{margin:"0px",padding:"0px",width:"80%",textAlign:"center"}}>Erreur serveur, Veuillez contacter l'administrateur !</h3>
     }else if(error.includes(' fetch ')){
         return <h3 style={{margin:"0px",padding:"0px",width:"80%",textAlign:"center"}}>Veuillez vérifier votre connexion !</h3>
+    }else if(props.autre){
+      return <h3 style={{margin:"0px",padding:"0px",width:"80%",textAlign:"center"}}>{props.autre}</h3>
     }else{
-    return ''
-  }}
+      return ''
+    }
+
+  }
   
   return (
     <div style={{backgroundColor:"rgb(240,240,240)",width:"70%",height:"fit-content",padding:"20px 5%",margin:"3em 10%",display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"}}>
@@ -107,12 +111,16 @@ export function Nous (props){
 function DetailsMembre(){
   let myContext=useContext(MembreContext)
   let membre=myContext.membreObject.membre
+  const addedImages=membre.addedImages===undefined?[]:membre.addedImages;
+  const imgFromGalerie=addedImages.length===0?[]:addedImages.map(img=>[img,'From galérie'])
   const  rS=membre.rS
   const avatar=[['avatar.webp','NO IMAGES']]
   const {imgPublic,imgPrive,imgPublic1,imgPublic2}=membre.galeriePrive
   const IMAGES=[[imgPublic,''],[imgPrive,''],[imgPublic1,''],[imgPublic2,'']]
   let images=IMAGES.filter(image=>image[0]!=='')
-  let imges=images.length===0?avatar:images;
+  let iimages=[...images,...imgFromGalerie]
+  let imges=iimages.length===0?avatar:iimages;
+  console.log(imges)
 
   const facebook=require('./images/RS_logos/facebook.webp');
   const twitter=require('./images/RS_logos/twitter.webp');

@@ -1,16 +1,17 @@
 import React, {useLayoutEffect,useState} from 'react';
-// import {useEffect} from 'react'
+import {useEffect} from 'react'
 import {Link,Outlet,useNavigate} from 'react-router-dom';
 import {useSelector,useDispatch} from 'react-redux';  //Le HOOK GETTER POUR LE CAS DE @REDUX/TOOLKIT
-import {nameValidator} from './regExpressions.js'
+import {nameValidator} from './regExpressions.js';
 import ReactModal from 'react-modal';
 import {Poster, UpdateProps} from './requetesFetch.js';
-import {setIges,setAlbms,setAlbum} from './stoore.js'
+import {setIges,setAlbms,setAlbum} from './stoore.js';
 import {ajouter,supprimer} from './icons.js';
 import './galerie.css';
 import {compressImage,convertToBase64,dataURLtoFile} from './traitementImages.js';
-import {serverUrl} from './root.js'
+import {serverUrl} from './root.js';
 import { useLocalStorage } from './useLocalStorage.js';
+import { Error } from './nous.js';
 
 const hostUrl=serverUrl
 const cloudinaryBaseUrl = 'https://res.cloudinary.com/dapkl1ien/image/upload/signed_upload_demo_form/galerie';
@@ -237,10 +238,10 @@ function Album(props) {
    const photos=props.photos //photos.length===0?{name:'avatar.webp'}:photos;
    const dispatch=useDispatch()
    const Navigate=useNavigate()
-   const alb0=photos.filter((photo,index)=>index<2)
-   const alb1=photos.filter((photo,index)=>index<3 && index>1)
-   const alb2=photos.filter((photo,index)=>index<5 && index>2)
-   const alb3=photos.filter((photo,index)=>index<7 && index>4)
+   const alb0=photos?photos.filter((photo,index)=>index<2):[]
+   const alb1=photos?photos.filter((photo,index)=>index<3 && index>1):[]
+   const alb2=photos?photos.filter((photo,index)=>index<5 && index>2):[]
+   const alb3=photos?photos.filter((photo,index)=>index<7 && index>4):[]
    const imgClicked=(album)=>{
     dispatch(setAlbum(photos))
     Navigate("/quisommesnous/galerie/displayPhotos")
@@ -260,51 +261,79 @@ function Album(props) {
   )
 }
 export function PhotosGrid() {
-    const images=useSelector((state)=>{ return state.userNewCh.images})
-    const albums=useSelector((state)=>{ return state.userNewCh.albums})
+    const images= useSelector((state)=>{ return state.userNewCh.images})
+    const albums= useSelector((state)=>{ return state.userNewCh.albums})
+    const error=<Error error='' autre='Connexion lente ❗ Veuillez actualiser la page !'/>
   return (
     <div style={{paddingTop:"20px",display:"flex",flexFlow:"row wrap",alignItems:"start",justifyContent:"space-around"}}>
     {
-      Array.from(albums).map(album=>{
-        const pictures=Array.from(images).filter(lmage=>lmage.album===album.name)
-        return <Album album={album} photos={pictures}/>})
+      albums? Array.from(albums).map(album=>{
+        const pictures=images?Array.from(images).filter(lmage=>lmage.album===album.name):error
+        return pictures?<Album album={album} photos={pictures}/>:error}):error
     }
     </div>
   )
 }
 
 export function ImagesGrid() {
-  // const [statusUserConnected,setStatusUserConnected]=useState(null)
-  // const loggedInUser=useSelector((state)=>{return state.userNewCh.loggedInUser})
+  const [selectorProps,setSelectorProps]=useState({p_icons:"none",ajouter_retirer:false,supprimer_ico:"none"})
+  //const loggedInUser=useSelector((state)=>{return state.userNewCh.loggedInUser})
   const {getIttem,setIttem}=useLocalStorage('pseudo_images')
+  const [photos,setPhotos]=useState([])
   const images=useSelector((state)=>{return state.userNewCh.album})
-
-  // useEffect(()=>{if(loggedInUser!==null){console.log(loggedInUser);setStatusUserConnected(true)
-  //                 }else{
-  //                   setStatusUserConnected(false)
-  //                 }
-  //   },[loggedInUser])
   
-  const handleAdd=(image)=>{
+ 
+  useEffect(()=>{ 
     const pseudoImages=getIttem()
+    // const photos=pseudoImages!==undefined?pseudoImages.images:[]
+    let p_icons;let supprimer_ico;let ajouter_retirer
     if(pseudoImages){
       const imagesPerso=pseudoImages.images
+      if(pseudoImages.profil!=='any'){
+          p_icons="flex"
+          if(pseudoImages.profil==="administrateur"){ supprimer_ico="inline"}else{supprimer_ico="none"}
+          if(imagesPerso.length!==0){ajouter_retirer=false}else{ajouter_retirer=true}
+      }else{p_icons="none"}
+      setPhotos(imagesPerso)
+    }else{p_icons="none"}
+    setSelectorProps({p_icons:p_icons,ajouter_retirer:ajouter_retirer,supprimer_ico:supprimer_ico})
+  },[])
+  
+const handleAdd=(text,publicName)=>{
+    document.querySelector('#'+publicName+'Add').style.display="none"
+    document.querySelector('#'+publicName+'Ret').style.display="inline"
+    
+    const pseudoImages=getIttem()
+    if(pseudoImages){
+      let imagesPerso=pseudoImages.images
       const pseudo=pseudoImages.pseudo
-      const pictures=Array.from(imagesPerso).push(image)
-      UpdateProps(serverUrl+'api/membres/updateImages',{pseudo:pseudo,images:pictures})
-      setIttem({pseudo:pseudo,images:pictures})
-        // alert(pseudoImages.pseudo)
+      imagesPerso.push(text)
+      UpdateProps(hostUrl+'api/membres/from/galerie/updateImages',{pseudo:pseudo,images:imagesPerso})
+      setIttem({pseudo:pseudo,images:imagesPerso,profil:pseudoImages.profil})
+      //   // alert(pseudoImages.pseudo)
     }else{alert("⚠ Il y'eu une erreur.")}
 }
-// const handleRetirer=(image)=>alert(image.numeroEnvoi) 
-const handleDelete=(image)=>{
+const handleDelete=(publicName)=>{
+  fetch(hostUrl+'api/images/delete/'+ publicName,{method: 'DELETE'})
+  .then(response => {
+    if (response.ok) {return response.json();} 
+    else {throw new Error('⚠ Echec de la tentative de suppression ❗');}
+  })
+}
+
+const handleRetirer=(text,publicName)=>{
+  document.querySelector('#'+publicName+'Add').style.display="inline"
+  document.querySelector('#'+publicName+'Ret').style.display="none"
 const pseudoImages=getIttem()
   if(pseudoImages){
-    const imagesPerso=pseudoImages.images
+    let imagesPerso=pseudoImages.images
     const pseudo=pseudoImages.pseudo
-    const index=Array.from(imagesPerso).indexOf(image)
-    const pictures=Array.from(imagesPerso).slice(index,1)
-    setIttem({pseudo:pseudo,images:pictures})
+    const index=imagesPerso.indexOf(text)
+    const before=imagesPerso.slice(0,index)
+    const after=imagesPerso.slice(index+1,imagesPerso.length)
+    const Images=[...before,...after]
+    UpdateProps(hostUrl+'api/membres/from/galerie/updateImages',{pseudo:pseudo,images:Images})
+    setIttem({pseudo:pseudo,images:Images,profil:pseudoImages.profil})
     // alert(image.numeroEnvoi)
   }else{alert("⚠ Il y'eu une erreur.")}
 }
@@ -316,14 +345,26 @@ const pseudoImages=getIttem()
 
       {
         images.map((image)=>{
+                let ajouterDisplay
+                let retirerDisplay
+                let pu_icons=selectorProps.p_icons
+                let supprimer_ico=selectorProps.supprimer_ico
+                if(selectorProps.ajouter_retirer===false){
+                  if(photos.indexOf(image.imgName)>=0){
+                    ajouterDisplay="none";retirerDisplay="inline"
+                  }else{ajouterDisplay="inline";retirerDisplay="none"}
+                }else{ajouterDisplay="inline";retirerDisplay="none"}
+
                 const publicName=image.imgName.split('.')[0]
                 return <div key={publicName} style={{position:"relative",width:"44vw",height:"50vw",padding:"0.5vw",paddingTop:"0px",margin:"0.4vw",borderRadius:"4px",border:"1px solid rgba(0,0,0,0.4)"}}>
                     <img src={cloudinaryBaseUrl+'/'+ image.imgName} alt='Delagalerie' style={{position:"absolute",zIndex:"0",bottom:"0.5vw",width:"44vw",height:"45.5vw",margin:"0px",padding:"0px"}}/>
-                    <div className="publicName_icons" style={{position:"absolute",display:"flex",flexFlow:"row wrap",justifyContent:"space-between",
-                        alignItems:"center",float:"right",width:"44vw",paddingBottom:"0.25vw",height:"5.75vw"}}>
-                        {/* <button style={{display:"none",backgroundColor:"rgba(0,0,0,0)",border:"none",color:"red",padding:"0px",width:"40px",margin:"0px 1em"}} id={publicName+'Ret'} onClick={()=>handleRetirer(image)}>{ajouter}</button> */}
-                        <button style={{backgroundColor:"rgba(0,0,0,0)",border:"none",color:"blue",padding:"0px",width:"40px",margin:"0px 1em"}} id={publicName+'Add'} onClick={()=>handleAdd(image.imgName)}>{ajouter}</button>
-                        <button style={{backgroundColor:"rgba(0,0,0,0)",border:"none",color:"red",padding:"0px",width:"40px",margin:"0px 1em"}} id={publicName+'Sup'} onClick={()=>handleDelete(image.imgName)}>{supprimer}</button>
+                    <div className="publicName_icons" style={{display:pu_icons,position:"absolute",flexFlow:"row wrap",
+                          justifyContent:"space-between",alignItems:"center",width:"44vw",paddingBottom:"0.25vw",height:"4.50vw"}}>
+                        <div style={{margin:"0px",padding:"0px",height:"100%",width:"fit-content",display:"flex",flexDrection:"row",justifyContent:"flex-start",alignItems:"center"}}>
+                            <img className="retirer" src="/minus.ico" alt="retirer" onClick={()=>handleRetirer(image.imgName,publicName)} id={publicName+'Ret'} style={{display:retirerDisplay,cursor:"pointer",margin:"0px 1em",height:"16px",width:"16px",padding:"0px 1em"}}/>
+                            <button className="ajouter" style={{display:ajouterDisplay,backgroundColor:"rgba(0,0,0,0)",border:"none",color:"blue",padding:"0px 1em",width:"40px",margin:"0px 1em",cursor:"pointer"}} id={publicName+'Add'} onClick={()=>handleAdd(image.imgName,publicName)}>{ajouter}</button>
+                        </div>
+                        <button className="supprimer" style={{display:supprimer_ico,backgroundColor:"rgba(0,0,0,0)",border:"none",color:"red",padding:"0px 1em",width:"40px",margin:"0px 1em",cursor:"pointer"}} id={publicName+'Sup'} onClick={()=>handleDelete(publicName)}>{supprimer}</button>
                     </div>
                 </div>
           })

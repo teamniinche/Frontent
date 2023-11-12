@@ -3,6 +3,7 @@ import {Link,useNavigate} from 'react-router-dom';
 import {useDispatch} from 'react-redux' //le HOOK SETTER dans le cas de @redux/toolkit
 import {loggedAccess} from './stoore.js'   //Pour le HOOK SETTER dans le cas de @redux/toolkit
 import {InputString} from './forms.js';
+// import Modal from './modal.js';
 import './connexion.css';
 import { identifiant,securite } from './icons.js';
 import { nameValidator,passwordValidator } from './regExpressions.js';
@@ -14,6 +15,7 @@ const Connexion = () =>  {
     const Navigate=useNavigate()
     const dispatch=useDispatch()  //le HOOK SETTER dans le cas de @redux/toolkit
     const {setIttem}=useLocalStorage('pseudo_images')
+    // const [show,setShow]=useState(false)
     useLayoutEffect(()=>{ 
                     document.getElementsByClassName('header')[0].style.display="block";
                     dispatch(loggedAccess(null))
@@ -83,7 +85,7 @@ const Connexion = () =>  {
           })
           .then(data => {if (data && data.pseudo){
                           dispatch(loggedAccess(data))  //le HOOK SETTER dans le cas de @redux/toolkit
-                          setIttem({pseudo:data.pseudo,images:data.addeImages})
+                          setIttem({pseudo:data.pseudo,images:data.addedImages,profil:data.profil})
                           Navigate("/compte")
                           //alert('Bienvenue '+ data.firstName + ' 👌🏻!') // Vous étes bien inscrit. Veuillez bien patienter pour la validatiion de votre inscription 🙏🏻🙏🏻🙏🏻')
                         }else{
@@ -100,6 +102,11 @@ const Connexion = () =>  {
       <div>
         <div className="titreConnexion">Connexion à votre compte <img src={imgLg} alt="Logo de la teamniintche" className="imgLg"/></div>
         <div className="connexionContainer">
+
+        {/* <Modal show={show} modalTitle='Test' render={bool=>setShow(bool)}><h1>Le modal</h1></Modal>
+        <button onClick={()=>setShow(true)}>ShowModal</button> */}
+
+
             <InputString type="text" icon={identifiant} for="Identifiant" render={(obj)=>{handleChange(obj)}}/>
             <span style={{display:"block",marginLeft:"50px"}}>
             <i class="fas fa-xmark" id="invalidPseudo" style={{color:"rgba(200,0,0,.6)",display:"none"}}> Entree null!</i>

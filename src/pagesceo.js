@@ -27,6 +27,8 @@ export default function  Pagesceo(){
   const [blockedMembres,setBlockedMembres]=useState([])
 
   useEffect(() => {
+    // document.querySelector("#switchMembres").style.display="none"
+
     fetch(hostUrl+'api/membres/allmembres')
       .then(response => response.json())
       .then(meembres => {
@@ -320,8 +322,8 @@ function RowOfItem(props) {
 
 function MembreSwitch(props) {
   return (
-    <div id="switchMembres" style={{display:"flex",flexDirection:"row",width:"fit-content",height:"90%",margin:"0px",padding:"0px",justifyContent:"space-around",alignItems:"center"}}>
-        <p style={{display:"flex",flexDirection:"column",margin:"0px 5px",padding:"Opx",justifyContent:"space-between",alignItems:"center"}}><h6 style={{margin:"0px",padding:"0px",cursor:"pointer"}}>Tous</h6><input onFocus={()=>props.render('Tous')} type="radio" name="membres-group" style={{margin:"0px",padding:"0px"}}/></p>
+    <div id="switchMembres" style={{flexDirection:"row",width:"fit-content",height:"90%",margin:"0px",padding:"0px",justifyContent:"space-around",alignItems:"center"}}>
+        <p  style={{display:"flex",flexDirection:"column",margin:"0px 5px",padding:"Opx",justifyContent:"space-between",alignItems:"center"}}><h6 style={{margin:"0px",padding:"0px",cursor:"pointer"}}>Tous</h6><input onFocus={()=>props.render('Tous')} type="radio" defaultChecked name="membres-group" style={{margin:"0px",padding:"0px"}}/></p>
         <p style={{display:"flex",flexDirection:"column",margin:"0px 5px",padding:"Opx",justifyContent:"space-between",alignItems:"center"}}><h6 style={{margin:"0px",padding:"0px",cursor:"pointer"}}>Suspendus</h6><input onFocus={()=>props.render('Suspendus')} type="radio" name="membres-group" style={{margin:"0px",padding:"0px"}}/></p>
         <p style={{display:"flex",flexDirection:"column",margin:"0px 5px",padding:"Opx",justifyContent:"space-between",alignItems:"center"}}><h6 style={{margin:"0px",padding:"0px",cursor:"pointer"}}>En attente</h6><input onFocus={()=>props.render('blocked')} type="radio" name="membres-group" style={{margin:"0px",padding:"0px"}}/></p>
     </div>

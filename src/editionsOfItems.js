@@ -415,7 +415,7 @@ export function ChangePassWord(props){
             <InputMembre value={item.Confirmation} name="Confirmation du nouveau" width="80%" margin="1em 0px" type="password" item={item} render={(elem,val)=>handleChange(elem,val)}/>
         </div>
         <div className="changeUserForm2" style={{margin:"0",padding:"0",height:"100%"}}>
-            <p id='zAlert'  style={{height:"fit-content",color:"white",backgroundColor:'red',display:"none",width:"fitContent",fontWeight:'bold',fontSize:'.8em',margin:'0px 12%',marginBottom:'10px',padding:'0px'}}></p>
+            <p id='zAlert'  style={{height:"fit-content",color:"white",backgroundColor:'red',display:"none",width:"fit-content",fontWeight:'bold',fontSize:'.8em',margin:'0px 12%',marginBottom:'10px',padding:'0px'}}>c'est quoi ça ?</p>
             <div style={{width:"90%",display:"flex",flexDirection:"column",justifyContent:"center"}}>
                 <button className="succesButton" style={{margin:"4px auto"}} onClick={(e)=>handleValide(e)}>Valider</button>
                 <button className="dangerButton" style={{margin:"4px auto",color:"rgb(150,0,0)",backgroundColor:"white",border:".5px solid grey"}} onClick={()=>props.render(false)}>Abandonner</button>

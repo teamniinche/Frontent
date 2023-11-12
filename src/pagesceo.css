@@ -61,12 +61,13 @@
     border-radius:4px;
     margin:2em;
     padding:1em;
+    cursor:pointer;
  }
  .dangerButton{
     background-color:rgba(200,0,0,.6);
     
  }
- #switchMembres{
+ #switchMembres,#ajouterChantier{
     display:none;
  }
  overlay1{
