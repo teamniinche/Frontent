@@ -38,9 +38,11 @@ export default function Slider(props) {
             setImgSousTitre({number:Number,rapport:Rapport});
         }
     }
-    const cloudinaryBaseUrl = 'https://res.cloudinary.com/dapkl1ien/image/upload/signed_upload_demo_form/membres';
+    const cloudinaryMembresUrl = 'https://res.cloudinary.com/dapkl1ien/image/upload/signed_upload_demo_form/membres';
+    const cloudinaryGalerieUrl = 'https://res.cloudinary.com/dapkl1ien/image/upload/signed_upload_demo_form/galerie';
     const img=(url,sTitre)=>{
-        let img=cloudinaryBaseUrl+'/'+ url;
+        const cloudinaryUrl=sTitre==='From galérie'?cloudinaryGalerieUrl:cloudinaryMembresUrl;
+        let img=cloudinaryUrl+'/'+ url;
         return <div className="sliderContentItem">
                     <img src={img} alt="imageSlider" className="imageSlider"/>
                     <span className="spanBottom">{sTitre}</span>
@@ -61,7 +63,7 @@ export default function Slider(props) {
         </div>
         <div className={classe} 
             style={{
-                width:"100%",
+                width:"100.5%",
                 height: "100%",
                 overflow: "hidden",
                 display:"flex",

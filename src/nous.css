@@ -88,7 +88,7 @@
         }
         .memberCard{
             float: left;
-            width:90%;
+            width:92%;
             margin:2%;
             padding: 2%;
             height:fit-content;
@@ -112,7 +112,7 @@
                 align-items: center;
                 }
                 .etatCivil ul{
-                    width: 100%;
+                    width: 98%;
                     display: flex;
                     flex-direction: row;
                     justify-content: space-around;

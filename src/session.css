@@ -1,4 +1,6 @@
-
+/* .header,#galerie{
+    display:none;
+} */
 .divBody{
     margin: 0px;
     background-color: rgba(0, 0, 0, .05);

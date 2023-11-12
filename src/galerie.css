@@ -1,17 +1,21 @@
+.ajouter,.retirer{
+  width:16px;
+  height:100%;
+}
 .ajouter{
-  width:14px;
-  height:100%;
-}
-.supprimer{
-  width:14px;
-  height:100%;
-}
-.retirer{
-  width:14px;
-  height:100%;
+  width:22px;
 }
 /* .publicName_icons{
   flex-flow:row wrap;
   justify-content:space-between;
   align-items:center;
+} */
+/* .publicName_icons{
+  display:flex;
+  flex-flow:row wrap;
+  justify-content:space-between;
+  align-items:center;
+} */
+/* .supprimer{
+  display:none;
 } */
