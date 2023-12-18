@@ -3,8 +3,9 @@ import {useContext} from 'react';
 import './nous.css';
 import {ResearchBar} from './sideBar.js';
 import {Link, Outlet} from 'react-router-dom';
+import { loader} from './toast.js';
 // import InputString from './forms.js';
-import MetaData from './nousContacter';
+import {NousContacter} from './nousContacter';
 import Slider from './slider.js'
 import {serverUrl} from './root.js'
 
@@ -99,7 +100,7 @@ export function Nous (props){
         <div className='noussidebar'>
           <ResearchBar typ="MEMBRE" number={membres.length} render={iptValue=>inputChange(iptValue)} />
           <div className='noussidebar-membres'>
-            {membres.map((item)=><Membre key={item.id} membre={item} render={membre=>handlaRender(membre)} />)}
+            {membres?membres.map((item)=><Membre key={item.id} membre={item} render={membre=>handlaRender(membre)} />):loader}
           </div>
         </div>
         <DetailsMembre/>
@@ -250,7 +251,8 @@ export class SecondeBar extends React.Component{
         </ul>
       </div>
       <Outlet/>
-      <MetaData/>
+      <img src="/filigrane.jpg" alt="filigrane" style={{margin:"-40px 0px",zIndex:"-10",padding:"0px",height:"70vh",width:"100vw"}} id="filigrane"/>
+      <NousContacter/>
     </div>
 ) }
 }

@@ -58,7 +58,8 @@
                                 /* #chantier1{
                                     margin:.2em  0px;
                                 } */
-                                    .chantiers_bloc a,.chantiers_bloc a p{
+                                    .chantiers_bloc a{
+                                        /* .chantiers_bloc a p */
                                         margin: 0px 1.5em;
                                         }
                                     .chantiers_bloc a{
@@ -72,20 +73,30 @@
                                             width:30%;
                                             min-height:100%;
                                             }
-                                        .chantiers_bloc a p{
+                                        /* .chantiers_bloc a p{
                                             color: rgba(0, 0 ,0,.5);
                                             font-weight: bold;
-                                            text-align: left;
                                             font-size: .8em;
                                             margin:0em .1em;
-                                            /* overflow-y:scroll; */
-                                            }
+                                            overflow-y:scroll;
+                                            } */
                                             .chantiers_bloc a .item_left{
                                                 border:1px dotted rgba(255, 0, 0, 0.6);
                                                 background-color: rgba(255, 255, 255,.6);
                                                 width:70%;
                                                 border-left: none;
                                                 min-height: 100%;
+                                                }
+                                                .item_left p{
+                                                    height:90%;
+                                                    color: rgba(0, 0 ,0,.5);
+                                                    font-weight: bold;
+                                                    font-size: .8em;
+                                                    margin:.2em .1em;
+                                                    display:flex;
+                                                    flex-flow:column wrap;
+                                                    justify-content:center;
+                                                    align-items:center;
                                                 }
                                                 .chantiers_bloc a .item_left span{
                                                     font-weight: lighter;
@@ -122,9 +133,9 @@
                     margin-left:0px;
                     width: 100%;
                     }
-                    .chantiers_bloc a p{
+                    /* .chantiers_bloc a p{
                         text-align: center;
-                        }
+                        } */
     } 
     @media screen and (max-width:700px) and (min-width:600px){
         .sideBar{

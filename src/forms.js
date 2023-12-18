@@ -1,12 +1,14 @@
 import React,{useEffect, useState} from 'react';
+import ReactModal from 'react-modal'
 import './forms.css';
+import {NousContacter} from './nousContacter.js'
 // import { useNavigate } from 'react-router-dom';
 import { identifiant,user,securite,calendrier,formation,telephone,mail,localisation} from './icons';
 import * as validate from './regExpressions.js';
-import {Poster} from './requetesFetch.js';
+// import {Poster} from './requetesFetch.js';
 import {DataListDepartements} from './dataListes.js';
-import {serverUrl} from './root.js'
-
+import { loader } from './toast.js';
+import {serverUrl} from './root.js';
 const hostUrl=serverUrl
 let types={
     text:"text",
@@ -44,6 +46,7 @@ export default function Forms() {
         Département:"",Adresse:"",Téléphone:"",
         Pseudo:"",Mot:"",Confirmer:""
         })
+    const [pseudo_Email_Code,setPseudo_Email_Code]=useState({pseudo:null,email:null,code:null,show:false})
     // const Navigate=useNavigate()
     const nouveauMembre={
         pseudo:membre.Pseudo,
@@ -137,15 +140,53 @@ export default function Forms() {
         // console.log(nouveauMembre)
         // console.log(validite)
     }
+
+
+    const Poster=(url,state)=>{
+        fetch(url,
+            {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(state)
+            })
+            .then(response => {
+              if (response.ok) {return response.json();} 
+              else {alert('Erreur lors de la tentative de POSTER.');}
+            })
+            .then(data => {if (data && data.pseudo){
+              const url_confirm_email=hostUrl+'api/membres/sendConfirmationMail'
+              const {newMembreId,pseudo,email}=data
+              fetch(url_confirm_email,
+                {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({pseudo:pseudo,email:email})
+                })
+                .then(response => {
+                  if (response.ok) {return response.json();} 
+                  else {alert("Erreur lors de la tentative de verification d'email." );}
+                })
+                .then(()=>setPseudo_Email_Code({pseudo:pseudo,email:email,show:true}))
+            //   alert('Bienvenue '+ data.firstName + ' 👌🏻! Vous étes bien inscrit. Veuillez bien patienter pour la validatiion de votre inscription 🙏🏻🙏🏻🙏🏻')}
+            //   alert('Poste bien réussi !')
+    }})
+      }
+
+
+
    const handleClick=(e)=>{
         e.preventDefault()
         if(VALIDITE && (membre.Mot===membre.Confirmer)){
             Poster(hostUrl+'api/membres/newMembre',nouveauMembre)
             setMembre({...membre,Pseudo:null,Mot:null,Confirmer:null})
-        }else{alert("✖ Impossible d'envoyer le formulaire; il y'a des DONNEES NON CONFORMES !Veuillez ien vérifier les données saisies.")}
+        }else{alert("✖ Impossible d'envoyer le formulaire; il y'a des DONNEES NON CONFORMES !Veuillez bien vérifier les données saisies.")}
     }
         
-    return (
+    return <>
         <div className="divtec">
             <form className="form">
                 <div style={{width:"90%",position:"sticky",top:"60px",backgroundColor:"rgba(255,0,0,.09)",maxHeight:"100px",margin:"2% 5%",textAlign:"center",display:"flex",flexDirection:"column",alignItems:"center"}}>
@@ -166,10 +207,98 @@ export default function Forms() {
                 <button  id='buttonValider' onClick={(e)=>handleClick(e)}>Valider</button>
                 {/* <button onClick={()=>{onClick()}}>Enregistrer les modifs</button> */}
             </form>
+            <ReactModal
+            isOpen={pseudo_Email_Code.show}
+            style={{
+                    overlay: {
+                        position: 'fixed',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                        zIndex:15000,
+                        alignContent:"center",
+                    },content: {
+                    position: 'absolute',
+                    top: '20vh',
+                    right: '8vw',
+                    bottom: '40vh',
+                    border: '1px solid #ccc',
+                    background: 'white',
+                    width:'82vw',
+                    maxWidth:'400px',
+                    height:'fit-content',
+                    maxHeight:'400px',
+                    overflow: 'auto',
+                    WebkitOverflowScrolling: 'touch',
+                    borderRadius: '10px',
+                    outline: 'none',
+                    padding: '1vw',
+                    paddingTop:"0px",
+                    margin:"auto",
+                zIndex:30000,
+                }}}
+            >
+            <ConfirmEmail render={()=>setPseudo_Email_Code({...pseudo_Email_Code,show:false})} item={pseudo_Email_Code}/>
+                </ReactModal>
         </div>
-    )
+        <NousContacter/>
+        </>
 }
+export function ConfirmEmail(props){
+    const [ICode,setICode]=useState(null)
+    const {pseudo,email}=props.item
+    const inputCode=(e)=>{
+        document.getElementById('uncorrect').style.display='none'
+        const val=e.target.value
+        if(val.length<=4){setICode(val)}
+    }
+    const handleCodeValide=()=>{
+            const loader=document.getElementById('loader')
+            const unCorrect=document.getElementById('uncorrect')
+            loader.style.display='inline'
+            const url_validation=hostUrl+'api/membres/code_is_valid'
+            // const url_mise_a_jour=hostUrl+'api/membres/updateValidation'
+            if(ICode!==null && ICode!=="" && ICode.length===4){
+                fetch(url_validation,
+                    {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({email:email,code:ICode})
+                    })
+                    .then(response => response.json())
+                    .then(data => {if (data.isValid){
+                            // unCorrect.display='none'
 
+                            props.render()
+                            alert("✔✔ E-MAIL confirmé")
+                        }else{
+                            unCorrect.style.display='inline'
+                        }
+                        loader.style.display='none'
+                    })
+            }else{
+                unCorrect.style.display='inline' 
+            }
+        }
+
+    return <>
+    <div style={{position:"sticky",top:"0px",backgroundColor:"white",width:"92%",paddingBottom:'15px',margin:'5px',borderBottom:'.5px solid brown',display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
+        <div style={{width:"92%",margin:'5px',display:"flex",flexDirection:"row",justifyContent:"flex-start"}}>
+            <h4 style={{color:"brown",width:"90%",letterSpacing:"3px",margin:"0px",padding:".4em 0px",textDecoration:".2px underline brown"}}>Vérification d'E-mail 💌</h4>
+            <span style={{width:'5%',textAlign:'right',paddind:'0px'}}><i class="fas fa-xmark" style={{color:"rgba(200,0,0,.6)"}} onClick={()=>props.render()}></i></span>
+        </div>
+    </div>
+    <div style={{listStyle:"none",display:"flex",flexDirection:"column",alignItems:"center",padding:"2%",margin:"0px",lineHeight:"2em"}} >
+        <h4 style={{width:"88%",display:"flex",alignItems:"center",justifyContent:"center",padding:"0px 10%",textDecoration:"none"}} >{pseudo}, <br/>veuillez entrer le code à 4 chiffres envoyé à l'adresse {email}</h4>
+        <input type="text" value={ICode} placeholder="****" style={{width:"80%",fontWeight:"bold",color:"rgb(150,0,0)",letterSpacing:"1rem",textAlign:"center",height:"2em",padding:"0.4em",marginBottom:"2em",}} onChange={(e)=>inputCode(e)}/>
+        <div style={{width:"100%",height:"fit-content",display:"flex",justifyContent:"center",alignItems:"center",paddind:"0px",margin:"0px"}}><button onClick={handleCodeValide} style={{mouse:"pointer",borderRadius:"10px",textDecoration:"none",width:"fit-content",backgroundColor:"rgb(0,0,150)",fontWeight:"bold",color:"white",padding:".5em 2em",border:"1px dotted rgb(0,0,200)",margin:"2em 5%"}}>Vérifier</button><span id="loader" style={{margin:"0px",padding:"0px"}}>{loader}</span><span id="uncorrect">❌</span></div>
+    </div>
+</>
+}
 export  function InputString(props){ 
     const [state,setState]=useState({val:"",nom:"",label:"",bool:false})
     let name=props.for;

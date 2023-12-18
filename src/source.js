@@ -11,7 +11,7 @@ import Sections from './sections.js';
 import {Nous,SecondeBar} from './nous.js';
 import LaTeam from './lateam.js';
 // import Discussion from './discussion.js';
-import MetaData from './nousContacter.js';
+import {NousSoutenir,CopyRight} from './nousContacter.js';
 // import Map from './map.js'
 // import Inscription from './inscription.js'
 import Forms from './forms.js'
@@ -27,6 +27,8 @@ import Session,{FieldsetCompte} from './session.js';
 import Pagesceo from "./pagesceo.js";
 import NouveauChantier from './nouveauChantier.js';
 // import {ConnectedFieldsetCompte} from "./session.js";
+// import Actu from './actu.js'
+import Contacts from "./contacts.js";
 
 export default function Teamniintche() {
   return (
@@ -45,7 +47,8 @@ export default function Teamniintche() {
                       </Route>
                       <Route path="/quisommesnous/" element=<LaTeam/>/>
                 </Route>
-                <Route path="/nouscontacter" element=<MetaData/>/>
+                {/* <Route path="/actualites" element=<Actu/>/> */}
+                <Route path="/nouscontacter" element=<Contacts/>/>
                 <Route path="/connexion" element=<Connexion/>/>
                 <Route path="/compte" element=<Session/>>
                     <Route path="/compte/pagesceo" element=<Pagesceo/>/>
@@ -64,6 +67,8 @@ export default function Teamniintche() {
                 <Route path="*" element=<Sections />/>
             </Route>
           </Routes>
+          <NousSoutenir/>
+          <CopyRight/>
         </div>
       </Router>
     // </PersistGate>

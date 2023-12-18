@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import Tronc from './tronc.js';
 import {useDispatch} from 'react-redux' ;
 import {chantiersCounter,localisation,setIndex} from './stoore.js';
+import { loader} from './toast.js';
 import './sideBar.css';
 import {Error} from './nous.js'
 import {serverUrl} from './root.js'
@@ -47,10 +48,12 @@ class Chantier extends React.Component{
           <Link onClick={this.onClick}>
               <img src={imagList} alt="images-projet" id="img01"/>
               <div className="item_left">
-              <p>Activité {this.props.chantier.name}<br/>
-              <span style={{textDecoration:"underline",color:"rgb(0,0,100)",fontWeight:"bold"}}>{this.props.chantier.type}</span><br/>
-              <span style={{color:"rgb(0,0,100)"}}>{'Coût : '+ montant}</span> <br/>
-              <span>{this.intervalDate(this.dateDebut,this.dateFin)} </span></p></div>
+                  <p>Activité {this.props.chantier.name}<br/>
+                      <span style={{margin:".5em auto",textDecoration:"underline",color:"rgb(0,0,100)",fontWeight:"bold"}}>{this.props.chantier.type}</span><br/>
+                      <span style={{margin:".5em auto",color:"rgb(0,0,100)"}}>{'Coût : '+ montant}</span> <br/>
+                      <span>{this.intervalDate(this.dateDebut,this.dateFin)} </span>
+                  </p>
+              </div>
           </Link>
         </div>
      }
@@ -134,7 +137,7 @@ class Chantier extends React.Component{
               </div>
               <div className='listChantiers'>
                 <ResearchBar typ="CHANTIER" number={Chantiers.length} render={(iptValue)=>{inputChange(iptValue)}} /> 
-                {Chantiers.map((item,index)=><Chantier key={index} chantier={item} render={(chantier,index)=> chantierChange(chantier,index)} />)}
+                {Chantiers?Chantiers.map((item,index)=><Chantier key={index} chantier={item} render={(chantier,index)=> chantierChange(chantier,index)} />):loader}
                </div>
           </div>
         </div>
@@ -168,7 +171,7 @@ export class ResearchBar extends React.Component{
               }
   return (
     <div className="chantiers_bloc" style={style1}>
-      <input style={{width:"98.5%",minHeight:"40%",marginLeft:"1%",padding:"3%",border:"0px",borderRadius:"10px"}} placeholder={"RECHERCHER "+this.props.typ} value={this.props.termOfResearch} onChange={this.handleChange} />
+      <input type="search" style={{width:"98.5%",minHeight:"40%",marginLeft:"1%",padding:"3%",border:"0px",borderRadius:"10px"}} placeholder={"RECHERCHER "+this.props.typ} value={this.props.termOfResearch} onChange={this.handleChange} />
       <label style={style2} >{number+' ' +this.props.typ+'.S TROUVE.S'} </label>
     </div>
   ) }
