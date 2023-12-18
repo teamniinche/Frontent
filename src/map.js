@@ -96,7 +96,12 @@ const sites=[
   {ID:21,name:'Ecole Sinthiou Daga(Campagne 2021 distribution des fournitures sclaires) - Kaolack',lat:13.612586,long:-16.124997},
   {ID:22,name:'Mour Diop(Salle informatique) - Medina',lat:14.6830064,long:-17.4507858},
   {ID:23,name:'Ecole 4 de Nguekokh - Fatick',lat:14.5183854,long:-17.0004184},
-  {ID:24,name:'Plage Bargny(Operation plage Zéro dechets)',lat:14.686545,long:-17.228878}
+  {ID:24,name:'Plage Bargny(Operation plage Zéro dechets)',lat:14.686545,long:-17.228878},
+  {ID:25,name:"École primaire Bacary DABO (Campagne <<Tous à l'école>> 2023) - Kaguitte(Ziguinchor)",lat:12.391625,long:-16.405854},
+  {ID:26,name:"École primaire Kaguitte kassou (Campagne <<Tous à l'école>> 2023) - Kaguitte(Ziguinchor)",lat:12.408594,long:-16.398019},
+  {ID:27,name:"École primaire Nyassia (Campagne <<Tous à l'école>> 2023) - Nyassia(Ziguinchor)",lat:12.474034,long:-16.371648}
+
+
 ] 
 
 export function Mapp(props) {
