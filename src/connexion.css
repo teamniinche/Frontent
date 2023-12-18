@@ -1,6 +1,10 @@
 .header{
     display:block;
 }
+#loader{
+    display:"none";
+    margin-top:"20px"
+}
 .connexionContainer{width:50%;
     margin:15% 25%;
     padding:2%;

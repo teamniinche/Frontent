@@ -145,8 +145,8 @@ const Session=()=>{
         });
     }
     
-    const handleCloudinaryModalClick=async () => {
-        //     e.preventDefault();
+    const handleCloudinaryModalClick=async (e) => {
+        e.preventDefault();
         const signResponse = await fetch(hostUrl+'api/mycloudinary/signuploadform/'+fileName.nameToSave.split(".")[0]);
         const signData = await signResponse.json();
         // deleteImg(signData.apiKey,signData.apiSecret,fileName.nameToSave)
@@ -158,7 +158,7 @@ const Session=()=>{
             // const files = document.querySelector("#modal_galerie_membre").files; //identifie l'input de type file du modal actif
             const file = document.querySelector("#modal_imgeProfil").files[0]; //identifie l'input de type file du modal actif
             const base64Image = await convertToBase64(file);
-            const compressedImage = await compressImage(base64Image,1,200);                         //commentée:derniere touche
+            const compressedImage = await compressImage(base64Image,1,300);                         //commentée:derniere touche
             const compressedFile=dataURLtoFile(compressedImage,file.name)
             const formData = new FormData();
         
@@ -170,6 +170,7 @@ const Session=()=>{
                 formData.append("api_key", signData.apikey);
                 formData.append("timestamp", signData.timestamp);
                 formData.append("signature", signData.signature);
+                formData.append("invalidate", true);
                 formData.append("eager", "c_pad,h_200,w_200|c_crop,h_200,w_200");
                 formData.append("public_id", fileName.nameToSave.split(".")[0]);
                 formData.append("folder", "signed_upload_demo_form/membres");
@@ -189,6 +190,7 @@ const Session=()=>{
                 });
             // };
             UpdateProps(Url,fileName)
+            // imgProfil= cloudinaryBaseUrl+'/'+imageProfil;
             setModalDisplaye({showModal:false,imgKey:''});
     }
 // const imgProfilWidth=document.getElementById("imgProfil").style.maxWidth
@@ -272,7 +274,7 @@ const handleXClick=(rS)=>{
                 <p style={{padding:'0px',color:'rgba(0,0,0,.5)',margin:'0px',marginBottom:'15px',textAlign:'center',width:'fit-content',fontSize:'10px'}}>Changer l'image {"props.params.lien"}</p>
                 <img src={src} id='inputChangeImg' style={{width:'55vw',height:'55vw',margin:'5px',padding:'0px'}} alt='imageAChanger'/>
                 <input  style={{marginBottom:'20px'}} type='file' name='images' accept='image/*' onChange={(e)=>handleInputChange(e)} id="modal_imgeProfil"/>
-                <button style={{width:'80%',border:'.5px solid brown',borderRadius:'5px',height:'30px',color:'white',fontSize:'18px',fontWeight:'bold',backgroundColor:'rgba(200,0,0,.6)',BorderRadius:'90px'}} onClick={handleCloudinaryModalClick}>Terminer</button>
+                <button style={{width:'80%',border:'.5px solid brown',borderRadius:'5px',height:'30px',color:'white',fontSize:'18px',fontWeight:'bold',backgroundColor:'rgba(200,0,0,.6)',BorderRadius:'90px'}} onClick={(e)=>handleCloudinaryModalClick(e)}>Terminer</button>
             </div>
                 </ReactModal>
                     <ReactModal
@@ -831,6 +833,7 @@ const handleCloudinaryModalClick=async () => {
             formData.append("api_key", signData.apikey);
             formData.append("timestamp", signData.timestamp);
             formData.append("signature", signData.signature);
+            formData.append("invalidate", true);
             formData.append("eager", "c_pad,h_200,w_200|c_crop,h_200,w_200");
             formData.append("public_id", fileName.nameToSave.split(".")[0]);
             formData.append("folder", "signed_upload_demo_form/membres");

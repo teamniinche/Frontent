@@ -43,18 +43,9 @@ export default function Map(props) {
                           if(marker) marker.openPopup()
                           let Zoom=index===0?0:20;
                           setKZoom(Zoom)
-                        // }
-                        // else{setKZoom(6.2)}
-
                       }
-      // const handleInitClick=()=>{
-      //   const map=mapRef.current;
-      //   map.flyTo([14.5998233, -14.7402745],6.2);
-      // }
   // const sn=<img src='' alt='🇸🇳'/>
-  // const Icon=(index)=>{const iconn=index===0?flag:icon;return iconn}
   return <div id="map">
-     
     <MapContainer ref={mapRef} center={center} zoom={6.2} scrollWheelZoom={false} className='mapContainer'>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -62,26 +53,25 @@ export default function Map(props) {
         />
         {sites.map((site,index)=>{
           return <Marker key={index} position={[site.lat, site.long]} icon={index===0?flag:icon} ref={element=>listMarkerRef.current[index]=element} eventHandlers={{ mouseover: ""}}>
-                      <Popup>{site.name}</Popup> 
+                      <Popup>{index===0?'SénégaL 🇸🇳  ':site.name}</Popup> 
                       {/* </Marker><img src={srcPopup} alt="" style={{height:"70px",width:"100px"}}/></Popup> */}
                 </Marker>})
         }
-        {/* <Sites render={(num)=>setKZoom(num)}/> */}
     </MapContainer>
      {/* center of Senegal:[14.5998233, -14.7402745] */}
      <div id="div-avec-map">
           <div className="enfant-de-list">
-              <p>{sites.length} CHANTIERS</p>
-              <input value={coord} onChange={()=>null}/>
+              <p>MAPPAGE {sites.length} ACTIVITES</p>
+              <input value={coord} onChange={()=>null} style={{color:"rgba(0,0,0,.1)",borderColor:"rgba(0,0,0,.1)",fontWeight:"bold"}}/>
           </div>
           <ul id="ul-list" className="enfant-de-list"> 
-              {sites.map((site,index)=><li key={index} id={'ID'+index} onClick={()=>{handleClick(site,index)}} style={{width:"fit-content",lineHeight:"2rem",cursor:"pointer"}}><span style={{width:"fit-content",color:"green"}}>{site.ID<10?('0'+site.ID+'.  '):site.ID?site.ID+ '.  ':'' }</span>{site.name}</li>)} 
+              {sites.map((site,index)=><li key={index} id={'ID'+index} onClick={()=>{handleClick(site,index)}} style={{width:"100%",lineHeight:"2rem",cursor:"pointer"}}><span style={{width:"fit-content",fontWeight:"bold",color:"green"}}>{site.ID<10?('0'+site.ID+'.  '):site.ID?site.ID+ '.  ':'' }</span>{site.name}</li>)} 
           </ul> 
       </div>
   </div>
 }
 const sites=[
-  {name:'SénégaL 🇸🇳',lat:14.5998233,long:-14.7402745},
+  {name:"SénégaL 🇸🇳  Revenir à l'état initial",lat:14.5998233,long:-14.7402745},
   {ID:0,name:'Ecole primaire de Ngolar sérère - Noto Diobass',lat:14.681982,long:-16.840937},
   {ID:1,name:'Lycée John Fitzgerald Kennedy',lat:14.6945440,long:-17.4455588},
   {ID:2,name:'Ecole Manguier 2',lat:14.689191,long:-17.458508},

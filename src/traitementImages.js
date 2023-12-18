@@ -18,6 +18,8 @@ export const compressImage = async (base64Image,quality,wH) => {
                       image.onload = () => {
                                               const canvas = document.createElement("canvas");
                                               const ctx = canvas.getContext("2d");
+                                              // const ratio=image.height / image.width;
+                                              // let height=ratio*wH
                                               let height=wH,width =wH 
                                               canvas.width = width;canvas.height = height;
                                               ctx.drawImage(image, 0, 0, width, height);

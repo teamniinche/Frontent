@@ -1,13 +1,17 @@
 import React,{useState,useLayoutEffect} from 'react';
 import {Link,useNavigate} from 'react-router-dom';
+import ReactModal from 'react-modal';
 import {useDispatch} from 'react-redux' //le HOOK SETTER dans le cas de @redux/toolkit
 import {loggedAccess} from './stoore.js'   //Pour le HOOK SETTER dans le cas de @redux/toolkit
 import {InputString} from './forms.js';
+import {NousContacter} from './nousContacter.js';
 // import Modal from './modal.js';
 import './connexion.css';
 import { identifiant,securite } from './icons.js';
 import { nameValidator,passwordValidator } from './regExpressions.js';
 import { useLocalStorage } from './useLocalStorage.js';
+import {ConfirmEmail } from './forms.js';
+import {loader} from './toast.js'
 
 
 const Connexion = () =>  {
@@ -15,9 +19,11 @@ const Connexion = () =>  {
     const Navigate=useNavigate()
     const dispatch=useDispatch()  //le HOOK SETTER dans le cas de @redux/toolkit
     const {setIttem}=useLocalStorage('pseudo_images')
+    const [pseudo_Email,setPseudo_Email]=useState({pseudo:null,email:null,show:false})
     // const [show,setShow]=useState(false)
     useLayoutEffect(()=>{ 
                     document.getElementsByClassName('header')[0].style.display="block";
+                    document.getElementById("loader").style.display="none"
                     dispatch(loggedAccess(null))
                   }
             )
@@ -50,11 +56,17 @@ const Connexion = () =>  {
 
     function handleClick(user){
       let alerte=document.getElementById('buttonConnectClick')
+      let button=document.getElementById('connecterButton')
+      let loader=document.getElementById('loader')
+      loader.style.display="inline"
+      button.innerText="Connexion ..."
       let pseudo=user.Identifiant;
       let pW=user.Mot;
       if(pseudo===''||pW===''){
         alerte.innerText='NI Identifiant ni Mot de passe ne doit etre NULL !)'
         alerte.style.display="block";
+        button.innerText="Se connecter";
+        loader.style.display="none";
       }else{
         // fetch('https://tnserver.onrender.com/api/membres/'+pseudo)
         // // fetch('https://tnserver.onrender.com/api/membres/login')
@@ -84,20 +96,31 @@ const Connexion = () =>  {
             else {throw new Error('Erreur lors de la tentative de CONNEXION.');}
           })
           .then(data => {if (data && data.pseudo){
-                          dispatch(loggedAccess(data))  //le HOOK SETTER dans le cas de @redux/toolkit
-                          setIttem({pseudo:data.pseudo,images:data.addedImages,profil:data.profil})
-                          Navigate("/compte")
+                              dispatch(loggedAccess(data))  //le HOOK SETTER dans le cas de @redux/toolkit
+                              setIttem({pseudo:data.pseudo,images:data.addedImages,profil:data.profil})
+                          if(data.EValidation.confirmation){
+                              // dispatch(loggedAccess(data))  //le HOOK SETTER dans le cas de @redux/toolkit
+                              // setIttem({pseudo:data.pseudo,images:data.addedImages,profil:data.profil})
+                              Navigate("/compte")
                           //alert('Bienvenue '+ data.firstName + ' 👌🏻!') // Vous étes bien inscrit. Veuillez bien patienter pour la validatiion de votre inscription 🙏🏻🙏🏻🙏🏻')
+                          }else{
+                              setPseudo_Email({pseudo:data.pseudo,email:data.email,show:true})
+                              button.innerText="Se connecter";
+                              loader.style.display="none";
+                          }
                         }else{
                           alerte.innerText = data.erreur
                           alerte.style.display="block";
+                          button.innerText="Se connecter";
+                          loader.style.display="none";
                         }
                       })
       }
 
+      // button.innerText="Se connecter"
     }
     const imgLg=require('./images/logo_niintche.webp')
-  return (
+  return <>
     <div className="divTech">
       <div>
         <div className="titreConnexion">Connexion à votre compte <img src={imgLg} alt="Logo de la teamniintche" className="imgLg"/></div>
@@ -118,7 +141,49 @@ const Connexion = () =>  {
               <i class="fas fa-check" id="validPw" style={{color:"rgba(0,100,0,.8)",display:"none"}}></i>
             </span>
             {/* <Link to="/compte"><button className='succesButton' style={{width:"50%",padding:".5em"}} onClick={()=>{handleClick(dataUser)}}>Se connecter</button></Link> */}
-            <button className='succesButton' style={{width:"50%",padding:".5em"}} onClick={()=>{handleClick(dataUser)}}>Se connecter</button>
+            <div style={{margin:"0px",padding:"0px",display:"flex",justifyContent:"flex-start",width:"100%",alignItems:"center"}}>
+                {/* #le bouton */}
+                <button className='succesButton' id="connecterButton" style={{width:"50%",padding:".5em"}} onClick={()=>{handleClick(dataUser)}}>Se connecter</button>
+                {/* #le loader */}
+                <span id="loader" style={{margin:"0px",padding:"0px"}}>{loader}</span> {/* #le loader */}
+            </div>
+
+            <ReactModal
+            isOpen={pseudo_Email.show}
+            style={{
+                    overlay: {
+                        position: 'fixed',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                        zIndex:15000,
+                        alignContent:"center",
+                    },content: {
+                    position: 'absolute',
+                    top: '20vh',
+                    right: '8vw',
+                    bottom: '40vh',
+                    border: '1px solid #ccc',
+                    background: 'white',
+                    width:'82vw',
+                    maxWidth:'400px',
+                    height:'fit-content',
+                    maxHeight:'400px',
+                    overflow: 'auto',
+                    WebkitOverflowScrolling: 'touch',
+                    borderRadius: '10px',
+                    outline: 'none',
+                    padding: '1vw',
+                    paddingTop:"0px",
+                    margin:"auto",
+                zIndex:30000,
+                }}}
+            >
+            <ConfirmEmail render={()=>setPseudo_Email({...pseudo_Email,show:false})} item={pseudo_Email}/>
+                </ReactModal>
+
             <span id="buttonConnectClick">Identifiant et Mot de passe requis !</span>
             <h5 className="sousTitre" >Vous avez un jeton mais vous ne vous etes encore inscrits 
                 <Link to="/connexion/inscription"><span>S'inscrire</span></Link>
@@ -126,7 +191,8 @@ const Connexion = () =>  {
         </div>
       </div>
     </div>
-  )
+    <NousContacter/>
+  </>
 }
 
 // export default connect()(Connexion);

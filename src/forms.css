@@ -5,7 +5,7 @@
     padding:1%;
     margin:2% 4%;
     background-color:white;
-    box-shadow: -5px 2px 8px grey,5px 5px 8px grey;
+    box-shadow: -5px -2px 8px grey,5px 0px 8px grey;
 }
 .divEnglobantInputEtIcon{
     display:flex;
@@ -29,7 +29,7 @@
     border:0.001px grey dotted;
     border-radius:5px;
     width:82%;
-    height:50%;
+    height:70%;
     padding:6px 4%;
     border-bottom: 2px solid rgba(255,0,0,.3);
     background-color: #fff;
@@ -45,6 +45,9 @@
     padding:6px 1%;
     margin:0px;
     }
+#loader,#uncorrect{
+    display:none;
+}
 .identifiant,.calendrier,.formation,.telephone,.mail,.localisation{
     color:grey;
     width:75%;
@@ -65,12 +68,12 @@
 .div-input{
     display:flex;
     flex-direction:column;
-    justify-content:center;
+    justify-content:flex-start;
     width:90%;
     height:70px;
     padding:0%;
     margin:2% 5%;
-    margin-top:7%;
+    margin-top:5%;
     }
     .div-input span{
         display:flex;
@@ -97,6 +100,10 @@
         margin:2% 20%;
         }
     }
+    /* .divEnglobantInputEtIcon{
+        height: 40%;
+        width:40%;
+    } */
 @media screen and (max-width:600px){
     .divtec{
         padding-top:0px;

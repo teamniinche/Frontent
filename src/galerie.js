@@ -337,7 +337,7 @@ const pseudoImages=getIttem()
     // alert(image.numeroEnvoi)
   }else{alert("⚠ Il y'eu une erreur.")}
 }
-
+// const handleImageClick=publicName=>alert(publicName) onClick={handleImageClick(publicName)}
 // const divIconsDisplay=statusUserConnected===true?"flex":"none"
   return <>
     <h3 style={{width:"100%",margin:"0.8em 0px",color:"grey",padding:"0px",textAlign:"center",}}>{images[0].album + ' ('+images.length+ ')'}</h3>
@@ -368,7 +368,9 @@ const pseudoImages=getIttem()
                     </div>
                 </div>
           })
-    }</div>
+    }
+        {/* <button onClick={()=>setShow(true)}>ShowModal</button> */}
+    </div>
     </>
   }
 

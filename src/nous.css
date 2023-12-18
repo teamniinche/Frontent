@@ -238,7 +238,7 @@
         margin:Opx;
         }
     .noussidebar,.secondebar{
-        width: 98%;
+        width: 97%;
         margin:1%;
         }
     .detailsmembre{
@@ -251,7 +251,7 @@
     }
 @media screen and (max-width:600px){
     .secondebar{
-        margin-top:48px;
+        margin-top:40px;
         position: fixed;
         }
     .noustronc{

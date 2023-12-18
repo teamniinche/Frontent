@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './lateam.css';
 import {Error} from './nous.js'
 import {serverUrl} from './root.js'
+import { loader } from './toast.js';
 
 const hostUrl=serverUrl
 export default function LaTeam() {
@@ -35,9 +36,9 @@ useEffect(() => {
       </ul>
       <div>
         { 
-          rubriques.map(item => (
+          rubriques?rubriques.map(item => (
           <Lateam key={item.titre} rubrique={item} /> 
-        ))}
+        )):loader}
       </div>
     </div>
     </>
