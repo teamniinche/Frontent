@@ -1,6 +1,7 @@
 import React from 'react';
 import menu from '../src/images/menu.ico';
 import './divPortable.css';
+import './style.css';
 
 export default function TitreRealisations(props) {
     function handleClick(){
