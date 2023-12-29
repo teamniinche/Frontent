@@ -42,7 +42,7 @@ export default function Actu() {
 
         <div style={{margin:"0px",padding:"1em",width:"90%"}}>
             <p style={{margin:"0px",padding:"0px",width:"100%",lineHeight:"2rem"}}>
-                <span className="badge" style={{color:"rgba(255,0,0,.6)",border:"1px solid rgba(255,0,0,.3)",borderRadius:"5px",letterSpacing:"3px"}}>EN COURS ...</span>
+                <span className="badge" style={{color:"rgba(255,0,0,.6)",border:"1px solid rgba(255,0,0,.3)",borderRadius:"5px",letterSpacing:"3px"}}>CETTE PAGE EST EN COURS DE CONCEPTION ...</span>
                 <br/>
                 {actu.mots1} 👉
                 <span className="badge" style={{color:"rgba(0,0,255,.6)",border:"1px solid blue",borderRadius:"5px"}} onClick={handleMenuClick}>MENU</span>
