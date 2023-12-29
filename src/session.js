@@ -52,7 +52,7 @@ const Session=()=>{
     const cloudinaryBaseUrl = 'https://res.cloudinary.com/'+cloudName+'/image/upload/signed_upload_demo_form/membres';
     let imgProfil= cloudinaryBaseUrl+'/'+imageProfil;
     useLayoutEffect(()=>{
-            if(document.getElementsByClassName('header')){document.getElementsByClassName('header')[0].style.display="none";}
+            if(document.getElementsByClassName('top-bar')){document.getElementsByClassName('top-bar')[0].style.display="none";}
             if(document.getElementById('galerie')){document.getElementById('galerie').style.display="none";}
             if(profil==='administrateur' || chef==="oui"){
             document.querySelector('#admin').style.display="inline-block";
