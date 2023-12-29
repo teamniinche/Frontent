@@ -22,7 +22,7 @@ const Connexion = () =>  {
     const [pseudo_Email,setPseudo_Email]=useState({pseudo:null,email:null,show:false})
     // const [show,setShow]=useState(false)
     useLayoutEffect(()=>{ 
-                    document.getElementsByClassName('header')[0].style.display="block";
+                    // document.getElementsByClassName('header')[0].style.display="block";
                     document.getElementById("loader").style.display="none"
                     dispatch(loggedAccess(null))
                   }
@@ -121,8 +121,8 @@ const Connexion = () =>  {
     }
     const imgLg=require('./images/logo_niintche.webp')
   return <>
-    <div className="divTech">
-      <div>
+    <div className="divtech">
+      <div style={{backgroundImage:"url('/filigrane.jpg')",height:"95vh",width:"100vw",marginBottom:"-50px",marginTop:"-10px"}}>
         <div className="titreConnexion">Connexion à votre compte <img src={imgLg} alt="Logo de la teamniintche" className="imgLg"/></div>
         <div className="connexionContainer">
 

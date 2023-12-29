@@ -4,7 +4,10 @@
     align-items: flex-end;
     width: 100%; 
     min-height:100%;
+    
+    /* changés */
     padding: 0px;
+    padding-top:56px;
     }
 
 @media screen and (min-width:900px){

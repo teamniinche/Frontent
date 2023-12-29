@@ -1,9 +1,9 @@
 import React, {useLayoutEffect,useState} from 'react';
 import {useEffect} from 'react'
 import {Link,Outlet,useNavigate} from 'react-router-dom';
+import ReactModal from 'react-modal';
 import {useSelector,useDispatch} from 'react-redux';  //Le HOOK GETTER POUR LE CAS DE @REDUX/TOOLKIT
 import {nameValidator} from './regExpressions.js';
-import ReactModal from 'react-modal';
 import {Poster, UpdateProps} from './requetesFetch.js';
 import {setIges,setAlbms,setAlbum} from './stoore.js';
 import {ajouter,supprimer} from './icons.js';
@@ -165,7 +165,7 @@ export default function Galerie() {
     const dispatch=useDispatch()
 
     useLayoutEffect(() => {
-        document.getElementsByClassName('header')[0].style.height="0px";
+        // document.getElementsByClassName('header')[0].style.height="0px";
         fetch(hostUrl+'api/images/albums/getAll')
           .then(response => response.json())
           .then(albums => {dispatch(setAlbms(albums));setAlbums(albums)})

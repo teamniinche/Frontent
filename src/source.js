@@ -27,8 +27,9 @@ import Session,{FieldsetCompte} from './session.js';
 import Pagesceo from "./pagesceo.js";
 import NouveauChantier from './nouveauChantier.js';
 // import {ConnectedFieldsetCompte} from "./session.js";
-// import Actu from './actu.js'
+import Actu from './actu.js'
 import Contacts from "./contacts.js";
+import Accueil from "./Accueil.js";
 
 export default function Teamniintche() {
   return (
@@ -47,24 +48,23 @@ export default function Teamniintche() {
                       </Route>
                       <Route path="/quisommesnous/" element=<LaTeam/>/>
                 </Route>
-                {/* <Route path="/actualites" element=<Actu/>/> */}
+                <Route path="/actualites" element=<Actu/>/>
                 <Route path="/nouscontacter" element=<Contacts/>/>
                 <Route path="/connexion" element=<Connexion/>/>
                 <Route path="/compte" element=<Session/>>
                     <Route path="/compte/pagesceo" element=<Pagesceo/>/>
                     <Route path="/compte/nouveauChantier" element=<NouveauChantier/>/>
-                    <Route path="/compte/" element=<FieldsetCompte/>/> 
-
+                    <Route path="/compte/" element=<FieldsetCompte/>/>
                         {/* <ConnectedFieldsetCompte/> */}
-                        
                         {/* <Route path="/compte/personnel/confidentiel" element=<Pagesceo/>/>
                         <Route path="/compte/personnel/galerie" element=<Pagesceo/>/>
                         <Route path="/compte/personnel/" element=<FieldsetCompte/>/>
                     </Route> */}
                 </Route>
                 <Route path="/connexion/inscription" element=<Forms/>/> 
-                <Route path="/" element=<Sections />/>
-                <Route path="*" element=<Sections />/>
+                <Route path="/nos_realisations" element=<Sections />/>
+                <Route path="/" element=<Accueil/>/>
+                <Route path="*" element=<Accueil/>/>
             </Route>
           </Routes>
           <NousSoutenir/>
