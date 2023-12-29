@@ -3,7 +3,7 @@ import './style.css'
 
 export default function Actu() {
     const actu={
-        mots1:'Cependant vous pouvez visitez les autres pages accessibles dépuis le ',
+        mots1:'Cependant vous pouvez visiter les autres pages accessibles dépuis le ',
         // 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
         // images:['arrivee_ecole2.jpg','background.jpg'],
         // mots2:''
@@ -57,7 +57,7 @@ export default function Actu() {
                 {actu.mots2}
             </p>
             <img src={src2} alt='idea' style={imgStyle2}/> */}
-            <span style={{marginBottom:"100px"}}>Plus de plus amples informations, <Link to='/nouscontacter' style={{fontWeight:"bold",display:"inline"}}>nous conctacter</Link> sur nos plateformes digitales.
+            <span style={{marginBottom:"100px"}}>Pour de plus amples informations, <Link to='/nouscontacter' style={{fontWeight:"bold",display:"inline"}}>nous conctacter</Link> sur nos plateformes digitales.
             </span>
         </div>
       </div>
