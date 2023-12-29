@@ -29,7 +29,8 @@ import NouveauChantier from './nouveauChantier.js';
 // import {ConnectedFieldsetCompte} from "./session.js";
 import Actu from './actu.js'
 import Contacts from "./contacts.js";
-import Accueil from "./Accueil.js";
+import Accueil from "./accueil.js";
+
 
 export default function Teamniintche() {
   return (
