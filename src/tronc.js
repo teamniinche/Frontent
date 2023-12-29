@@ -9,13 +9,13 @@ import PresentationEtablissement from './local.js'
       
 
 export default function Tronc(props) {
-  useEffect(()=>{document.getElementsByClassName('header')[0].style.height="36vh";})
+  // useEffect(()=>{document.getElementsByClassName('header')[0].style.height="36vh";})
   return (
     <div className='tronc'>
       <TitreRealisations ChFocus={props.chantier.name} nombre={props.nombre} />
-      <Map chantier={props.chantier}/>
+      <Map/>
+      {/* <Map chantier={props.chantier}/> */}
       <Presentation chantier={props.chantier} index={props.index}/>
-      {/* <Outlet/> */}
     </div>
   )
 }

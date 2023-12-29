@@ -157,7 +157,7 @@ export default function Forms() {
             })
             .then(data => {if (data && data.pseudo){
               const url_confirm_email=hostUrl+'api/membres/sendConfirmationMail'
-              const {newMembreId,pseudo,email}=data
+              const {pseudo,email}=data //   {newMembreId,pseudo,email}=data
               fetch(url_confirm_email,
                 {
                   method: 'POST',

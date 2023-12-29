@@ -3,6 +3,7 @@
     display: flex;
     flex-direction: column;
     padding: 5px 2px;
+    padding-top:54px;
     margin:Opx;
     }
 .noustronc{
@@ -17,9 +18,12 @@
     z-index: 90;
     width: 100%;
     height: 50px;
-    margin:2px 0px;
+    margin:0px;
+    /* 2px 0px; */
+    /* margin-top:0px; */
+    position: fixed;
     background-color: whitesmoke;
-    border: .1px solid brown;
+    /* border: .1px solid brown; */
     border-bottom: .25px dotted brown;
     }
     .secondebar ul{
@@ -251,11 +255,11 @@
     }
 @media screen and (max-width:600px){
     .secondebar{
-        margin-top:40px;
+        margin-top:0px;
         position: fixed;
         }
     .noustronc{
-        margin-top:110px;
+        margin-top:77px;
         }
     #twitterAList{
         right:4px;

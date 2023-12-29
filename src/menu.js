@@ -12,12 +12,12 @@ export default function Menu() {
       }
   return (
     <div id='menu' onClick={handleClick}>
-        <Link style={{textDecoration:'none'}} id='fermer'><span style={{color:'red',fontSize:'20px',textAlign:'left'}}>X</span></Link>
-        <Link to='/' className='menu_link' style={{marginTop:'10px'}}>NOS REALISATIONS</Link>
+        <Link style={{textDecoration:'none'}} id='fermer'><span style={{color:'red',fontSize:'20px',textAlign:'left'}}><i className="fa fa-xmark"></i></span></Link>
+        <Link to='/' className='menu_link' style={{marginTop:'10px'}}>ACCUEIL</Link>
+        <hr/>
+        <Link to='/nos_realisations' className='menu_link'>NOS REALISATIONS</Link>
         <hr/>
         <Link to='/quisommesnous' className='menu_link'>QUI SOMMES-NOUS ?</Link>
-        <hr/>
-        <Link to='/actualite' className='menu_link'>ACTUALITÉS</Link>
         <hr/>
          <Link to='/' className='menu_link'>NOTRE COMPTABILITE</Link>
         <hr/>

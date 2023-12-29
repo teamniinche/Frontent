@@ -6,7 +6,7 @@ export default function Slider(props) {
     const {images,classe,classe1,classe2}=props;
     
     useEffect(()=>{
-        document.getElementsByClassName('header')[0].style.height="0px"; //"0px" doit etre dynamisé
+        // document.getElementsByClassName('header')[0].style.height="0px"; //"0px" doit etre dynamisé
         let Rapport='1/'+images.length;
         document.querySelector('.'+classe1).style.display="none";
         document.querySelector('.'+classe2).style.display="inline-block";

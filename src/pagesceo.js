@@ -32,7 +32,7 @@ export default function  Pagesceo(){
     fetch(hostUrl+'api/membres/allmembres')
       .then(response => response.json())
       .then(meembres => {
-                        const NewSubcribed=meembres.filter(membre=>membre.IValidation==='false')
+                        const NewSubcribed=meembres.filter(membre=>membre.IValidation===false)
                         const blockeedMembres=meembres.filter(membre=>membre.statu==='x')
                         setMembres(meembres)
                         setNewMembres(NewSubcribed)
