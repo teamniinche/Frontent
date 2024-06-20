@@ -135,16 +135,13 @@ class Chantier extends React.Component{
                   <p>25 Chantier(s) trouvé(s)</p>
                    <hr/>
               </div>
-    {/*
-          <div className='listChantiers'>
+    {/* <div className='listChantiers'>
                 <ResearchBar typ="CHANTIER" number={Chantiers.length} render={(iptValue)=>{inputChange(iptValue)}} /> 
                 {Chantiers?Chantiers.map((item,index)=><Chantier key={index} chantier={item} render={(chantier,index)=> chantierChange(chantier,index)} />):loader}
-               </div>
-    */}
+               </div> */}
           </div>
         </div>
       )
-    // }
   }
 
 
