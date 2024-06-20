@@ -129,7 +129,7 @@ class Chantier extends React.Component{
       return (
         <div className="Tablette_pc">
           <Tronc chantier={state.chantier} nombre={nombre} />
-          <div className='sideBar' style={display:'inline-block',width:'98%',}>
+          <div className='sideBar' style={{display:'inline-block',width:'98%',}}>
               <div className="chantiers" id="chantiers_title">
                   {/* <p>{Chantiers.length} Chantiers trouvé(s)</p> */}
                   <p>25 Chantier(s) trouvé(s)</p>
