@@ -126,8 +126,9 @@ class Chantier extends React.Component{
           .catch(error => setError(error.message)); // Stocke uniquement le message de l'erreur
           if (error) {return <Error error={error}/>}
         },[dispatch,error]);
-      return ( <Tronc chantier={state.chantier} nombre={nombre} />
-              {/* <div className="Tablette_pc">
+      return <>
+          <Tronc chantier={state.chantier} nombre={nombre} />
+  {/* <div className="Tablette_pc">
           <Tronc chantier={state.chantier} nombre={nombre} />
           <div className='sideBar' style={{display:'inline-block',width:'98%',}}>
               <div className="chantiers" id="chantiers_title">
@@ -141,7 +142,7 @@ class Chantier extends React.Component{
               </div>
           </div>
       </div> */}
-      )
+     </> 
   }
 
 
