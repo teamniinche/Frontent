@@ -132,7 +132,7 @@ class Chantier extends React.Component{
       {/* <div className='sideBar' style={{display:'inline-block',width:'98%',}}>
               <div className="chantiers" id="chantiers_title">
                   {/* <p>{Chantiers.length} Chantiers trouvé(s)</p> */}
-                  <p>25 Chantier(s) trouvé(s)</p>
+{/* <p>25 Chantier(s) trouvé(s)</p>
                    <hr/>
               </div>
               <div className='listChantiers'>
