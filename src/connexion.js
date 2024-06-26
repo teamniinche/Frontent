@@ -23,6 +23,7 @@ const Connexion = () =>  {
     // const [show,setShow]=useState(false)
     useLayoutEffect(()=>{ 
                     // document.getElementsByClassName('header')[0].style.display="block";
+                    if(document.getElementsByClassName('top-bar')){document.getElementsByClassName('top-bar')[0].style.display="block";}
                     document.getElementById("loader").style.display="none"
                     dispatch(loggedAccess(null))
                   }
