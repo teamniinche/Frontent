@@ -1,4 +1,5 @@
-import React,{useEffect} from 'react';
+import React from 'react';
+// import {useEffect} from 'react';
 import './tronc.css';
 import TitreRealisations from './divPortable.js';
 import {aimer,nePasAimer} from './icons.js';
