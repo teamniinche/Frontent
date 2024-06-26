@@ -126,23 +126,23 @@ class Chantier extends React.Component{
           .catch(error => setError(error.message)); // Stocke uniquement le message de l'erreur
           if (error) {return <Error error={error}/>}
         },[dispatch,error]);
-      return (
-        <div className="Tablette_pc">
+      return <>
           <Tronc chantier={state.chantier} nombre={nombre} />
-          <div className='sideBar'>
+  {/* <div className="Tablette_pc">
+          <Tronc chantier={state.chantier} nombre={nombre} />
+          <div className='sideBar' style={{display:'inline-block',width:'98%',}}>
               <div className="chantiers" id="chantiers_title">
-                  {/* <p>{Chantiers.length} Chantiers trouvé(s)</p> */}
+                  <p>{Chantiers.length} Chantiers trouvé(s)</p>
                   <p>25 Chantier(s) trouvé(s)</p>
                    <hr/>
               </div>
               <div className='listChantiers'>
                 <ResearchBar typ="CHANTIER" number={Chantiers.length} render={(iptValue)=>{inputChange(iptValue)}} /> 
                 {Chantiers?Chantiers.map((item,index)=><Chantier key={index} chantier={item} render={(chantier,index)=> chantierChange(chantier,index)} />):loader}
-               </div>
+              </div>
           </div>
-        </div>
-      )
-    // }
+      </div> */}
+     </> 
   }
 
 
