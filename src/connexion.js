@@ -187,7 +187,7 @@ const Connexion = () =>  {
                 </ReactModal>
 
             <span id="buttonConnectClick">Identifiant et Mot de passe requis !</span>
-            <h5 className="sousTitre" >Vous avez un jeton mais vous ne vous etes encore inscrits 
+            <h5 className="sousTitre" >Vous vous n'êtes encore inscrit ?
                 <Link to="/connexion/inscription"><span>S'inscrire</span></Link>
             </h5>
         </div>
