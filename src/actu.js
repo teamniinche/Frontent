@@ -45,7 +45,7 @@ export default function Actu() {
     }
     return <>
     <DerniereActualite/>
-    <div>
+{/* <div>
 
         <div style={{margin:"0px",padding:"1em",width:"90%"}}>
             <p style={{margin:"0px",padding:"0px",width:"100%",lineHeight:"2rem"}}>
@@ -54,8 +54,8 @@ export default function Actu() {
                 {actu.mots1} 👉
                 <span className="badge" style={{color:"rgba(0,0,255,.6)",border:"1px solid blue",borderRadius:"5px"}} onClick={handleMenuClick}>MENU</span>
             </p>
-        </div>
-        <div style={{margin:"0px",padding:"1em",width:"90%",paddingBottom:"30vh"}}>
+        </div>*/}
+        <div style={{margin:"0px",padding:"1em",width:"90%",paddingBottom:"5vh"}}> {/* 30vh était à la place des 5vh*/}
             {/* <img src={src1} alt='flyeuse' style={imgStyle1}/> */}
             {/* <p style={{margin:"0px",padding:"0px",width:"100vw",textAlign:"justify"}}>
                 {actu.mots1}
@@ -67,7 +67,7 @@ export default function Actu() {
             <span style={{marginBottom:"100px"}}>Pour de plus amples informations, <Link to='/nouscontacter' style={{fontWeight:"bold",display:"inline"}}>nous conctacter</Link> sur nos plateformes digitales.
             </span>
         </div>
-      </div>
+{/*</div>*/}
       </>
   }
 
