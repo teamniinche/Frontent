@@ -30,7 +30,7 @@ export function Opinion(){
 
     }
     return <div className="opinion">
-                <p className="ecrire">Nous écrire à la newsletter</p>
+                <p className="ecrire">Nous écrire à <br/><b>teamniintche@teamniintche.com</b></p>
                 <textarea name="textar" id="textare" cols="" rows="15" placeholder="Saisir votre message ici..."></textarea>
                 <InputString type="text" icon={identifiant} iconStyle={style} for="Nom" render={(obj)=>{handleChange(obj)}}/>
                 <InputString type="mail" icon={mail} iconStyle={style} for="Adresse mail" render={(obj)=>{handleChange(obj)}}/>
