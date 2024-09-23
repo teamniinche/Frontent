@@ -41,8 +41,9 @@ export default class Heade extends React.Component{
                   <div className="nav-items">
                       <Link to="/">Accueil</Link>
                       <Link to="/nos_realisations">Réalisations</Link>
-                      <Link to="/quisommesnous">Qui sommes-nous ?</Link>
-    {/*<Link to="/notre_comptabilite">Comptabilité</Link>*/}
+                      <Link to="/nos_partenaires">Nos partenaires</Link>
+                      {/*<Link to="/quisommesnous">Qui sommes-nous ?</Link>
+    <Link to="/notre_comptabilite">Comptabilité</Link>*/}
                       <Link to="/nousContacter">Contacts</Link>
                   </div>
                   <div id='img_menu' onClick={this.handleClick}>
