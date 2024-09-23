@@ -79,7 +79,7 @@ export default function Actu() {
     const widthFirst="45vw";
     const heightFirst="30vw"; //210px
     return <>
-      <h3 id="1" style={{margin:"0px",marginTop:"1em",borderTop:"1px double brown",padding:".5em 1em",borderTopRightRadius:"8px",fontWeight:"bold",borderBottomRightRadius:"8px",fontSize:"0.8rem",textDecoration:"none",border:"1px solid rgba(150,0,0,0.7)",borderLeft:"0.5rem solid rgba(150,0,0,0.7)",textAlign:"center",color:"rgba(0,145,0,0.9)",}}><a href="#tec" style={{color:"rgba(255,0,0,.4)",letterSpacing: "4px",textDecoration:"none" }}>{">> "}A propos de la team & des Niintches...</a></h3>
+      <h3 id="1" style={{margin:"0px",marginTop:"1em",borderTop:"8px double brown",padding:".5em 1em",borderTopRightRadius:"8px",fontWeight:"bold",borderBottomRightRadius:"8px",fontSize:"0.8rem",textDecoration:"none",border:"1px solid rgba(150,0,0,0.7)",borderLeft:"2rem solid rgba(150,0,0,0.7)",textAlign:"center",color:"rgba(0,145,0,0.9)",}}><a href="#tec" style={{color:"rgba(255,0,0,.4)",letterSpacing: "4px",textDecoration:"none",display:"inline-block",width:"fit-content",}}>{">> "}A propos de la team & des Niintches...</a></h3>
       <p id="pImgs" style={{margin:"0.5%",padding:"4% 2%",width:"95%",fontSize:"16px",lineHeight:"1.5em",height:"fit-content",borderRadius:"5px",textAlign:"justify",letterSpacing:"2px",fontWeight:"bold",color:"rgba(0,0,0,.7)",textShadow:"2px 2px .5px white",backgroundColor:"rgba(0,0,0,.09)",wordWrap:"wrap",}}>
           
       <img src="/img_accueil/photo_de_famille.jpg" alt="test" style={{float:"left",position:"relative",width:widthFirst,height:heightFirst,margin:"10px",marginlLeft:"0px"}}/>
