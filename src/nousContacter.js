@@ -41,7 +41,7 @@ export function Numeros(){
     return <div className="reseaux_Sociaux">
                 <p className="suivre">Nos numéros de téléphone</p>
                 <ul id="liste_numeros">
-                    <li>(+221) 77 152 86 20 / 76 375 57 32</li>
+                    <li>(+221) 77 616 01 04 / 77 517 48 78</li>
                 </ul>
             </div>
         }
@@ -57,7 +57,7 @@ export default function MetaData(){
 
 export function CopyRight() {
   return <div className="copyright">
-  CopyRight © 2023 @ndourm9 Tous droits réservés ®
+  CopyRight © 2023 TeamNiintche Tous droits réservés ®
 </div>
 }
 
