@@ -14,7 +14,7 @@ export function NousContacter(){
                 <ul id="liste_reseaux_sociaux">
                     <li><Link to="https://facebook.com/teamniintche/"><img src={facebook} alt="facebook"/></Link></li>
                     {/* <span>Facebook</span></Link></li> */}
-                    <li><Link to="https://twitter.com/TeamNiintche/"><img src={twitter} alt="Twitter"/></Link></li>
+                    <li><Link to="https://x.com/TeamNiintche/"><img src={twitter} alt="Twitter"/></Link></li>
                     {/* <span>Twitter</span></Link> </li> */}
                     <li><Link to="https://instagram.com/teamniintche/"><img src={instagram} alt="Instagram"/></Link></li>
                     {/* <span>Instagram</span></Link> </li> */}
