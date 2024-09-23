@@ -19,10 +19,13 @@
     }
     .divInsConnect{
         position:absolute;
-        bottom:18%;
+        bottom:0.5rem;
+        width:fit-content;
+        left:0.5rem;
+        /* bottom:18%;
         width:70%;
-        left:20%;
-        background-color:rgba(0,0,0,.4);
+        left:20%;*/
+        background-color:rgba(0,0,0,.2);
         height:30px;
         display:flex;
         flex-direction:row;
