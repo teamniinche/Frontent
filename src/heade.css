@@ -41,6 +41,7 @@
                 text-decoration:none;
                 height:100%;
                 border-radius:6px;
+                margin:0.2rem;
                 }
                 .insConnect:hover{
                     color: white;
