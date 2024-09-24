@@ -70,7 +70,7 @@
         text-align: center;
         position: fixed;
         z-index: 100;
-        box-shadow:2px 2px 8px white;
+        box-shadow:2px 2px 4px grey;
         }
     .contient{
         display: flex;
