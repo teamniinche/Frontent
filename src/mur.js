@@ -14,7 +14,7 @@ export default function Mur() {
   <h4 style={{color:"rgba(255,255,255,0.7",fontFamily:"sans-serif",fontSize:"1rem",position:"absolute",top:"60%",textAlign:"center",}}>
     <span style={{fontFamily:"'Sofia', sans-serif",fontSize:"4rem",}}>TeamNiintche</span>
     <br/>
-    Volontaires de la citoyyenneté active
+    Volontaires de la citoyenneté active
   </h4>
 </div>
 }
