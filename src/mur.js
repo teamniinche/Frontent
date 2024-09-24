@@ -11,8 +11,8 @@ export default function Mur() {
       <span id="barDeSix"> | </span>
       <Link className="insConnect" to="/connexion/inscription">S'inscrire</Link>
   </div>
-  <h4 style={{color:"rgba(255,255,255,0.7",fontFamily:"'Sofia', sans-serif",position:"absolute",top:"60%",}}>
-    <span>TeamNiintche</span>
+  <h4 style={{color:"rgba(255,255,255,0.7",fontFamily:"sans-serif",fontSize:"1rem",position:"absolute",top:"60%",textAlign:"center",}}>
+    <span style={{fontFamily:"'Sofia', sans-serif",fontSize:"4rem",}}>TeamNiintche</span>
     <br/>
     Volontaires de la citoyyenneté active
   </h4>
