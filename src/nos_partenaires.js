@@ -89,9 +89,13 @@ export default function Partenaires() {
             </thead>
             <tbody>
                {Object.values(parteners).map(ptner=>( <tr>
-                    <td>{ptner.nom}</td>
+                    <td>
+                       <img src={"/logos_partenaires/"+ptner.logo} width="20px" height="30px"/>
+                       <br/>
+                       <span>{ptner.nom}</span>
+                   </td>
                     <td>{ptner.date}</td>
-                    <td>{/* ptner.map(actvt=><li>{actvt && actvt.nom}</li>)*/}</td>
+                    <td>{ptner.map(actvt=>(<li>{actvt}</li>))}</td>
                     <td>{ptner.total}</td>
                     <td>{ptner.contacts}</td>
                 </tr>))}
