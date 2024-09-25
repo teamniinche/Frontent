@@ -78,7 +78,7 @@ export default function Partenaires() {
         contacts: ""
     }
 };
-    return <div className='parteners' style={{width:"92%",height:"100vh",margin:"0px",padding:"4% 10%",}}>
+    return <div className='parteners' style={{width:"80%",height:"80vh",margin:"0px",padding:"10vh 10%",}}>
         <table style={{width:"80%",height:"fit-content",}}>
             <thead>
                 <th>Nom & Logo</th>
