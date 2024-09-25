@@ -12,7 +12,7 @@ export default function Partenaires() {
                 <th>Contacts</th>
             </thead>
             <tbody>
-               {partenaires.map(ptner=>{ <tr>
+               {Array.from(partenaires).map(ptner=>{ <tr>
                     <td>{ptner.nom}</td>
                     <td>{ptner.date}</td>
                     <td>{/* ptner.map(actvt=><li>{actvt && actvt.nom}</li>)*/}</td>
