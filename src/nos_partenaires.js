@@ -85,7 +85,7 @@ export default function Partenaires() {
     const mazars=require('./images/logos_partenaires/logo_mazars.png');
     const distingo=require('./images/logos_partenaires/logo_distingo.png');
     const fabrimetal=require('./images/logos_partenaires/logo_fabrimetal.png');
-   const logo=(nom)={
+   const logo=(nom)=>{
        let logo;
        switch(nom) {
   case nom.includes("uchan"):
