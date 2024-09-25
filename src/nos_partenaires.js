@@ -113,7 +113,7 @@ export default function Partenaires() {
                {Object.values(parteners).map(ptner=>{
                    return <tr>
                         <td>
-                           <img src={"logo_"+trim(ptner.nom).toLowerCase()} width="50px" height="40px"/>
+                           <img src={"logo_"+ptner.nom.trim().toLowerCase()} width="50px" height="40px"/>
                            <br/>
                            <span>{ptner.nom}</span>
                         </td>
