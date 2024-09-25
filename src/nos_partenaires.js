@@ -85,10 +85,36 @@ export default function Partenaires() {
     const mazars=require('./images/logos_partenaires/logo_mazars.png');
     const distingo=require('./images/logos_partenaires/logo_distingo.png');
     const fabrimetal=require('./images/logos_partenaires/logo_fabrimetal.png');
+   const logo=(nom)={
+       let logo;
+       switch(nom) {
+  case nom.includes("uchan"):
+    return auchan;
+    break;
+case nom.includes("fabri"):
+    return fabrimetal;
+    break;
+case nom.includes("sonatel"):
+    return sonatel;
+    break;
+case nom.includes("seter"):
+    return seter;
+    break;  
+  case nom.includes("senum"):
+    return senum;
+    break;
+case nom.includes("mazars"):
+    return mazars;
+    break;
+  default:
+     return null;
+} 
+   }
+
     const trPartenaires=()=>{return <tbody>{Object.values(parteners).map(ptner=>{
                    return <tr>
                         <td>
-                           <img src={ptner.nom.trim().toLowerCase()} width="50px" height="40px"/>
+                           <img src={logo(ptner.nom)} width="50px" height="40px"/>
                            <br/>
                            <span>{ptner.nom}</span>
                         </td>
