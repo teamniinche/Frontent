@@ -85,32 +85,7 @@ export default function Partenaires() {
     const mazars=require('./images/logos_partenaires/logo_mazars.png');
     const distingo=require('./images/logos_partenaires/logo_distingo.png');
     const fabrimetal=require('./images/logos_partenaires/logo_fabrimetal.png');
-    /*function logo(s){
-        var logo_s;
-        switch (s){
-            case "Auchan":
-                logo_s=logo_auchan;
-            case "Sonatel":
-            case "Senum":
-            case "Seter":
-            case "Mazars":
-            case "Fabrimetal":
-            case "distingo":
-            default:  
-        }
-        return logo_s
-    }*/
-    return <div className='parteners' style={{width:"80%",height:"80vh",margin:"0px",padding:"10vh 10%",}}>
-        <table style={{width:"80%",height:"fit-content",}}>
-            <thead>
-                <th>Nom & Logo</th>
-                <th>Dépuis ...</th>
-                <th>Activités</th>
-                <th>Apport total</th>
-                <th>Contacts</th>
-            </thead>
-            <tbody>
-               {Object.values(parteners).map(ptner=>{
+    const trPartenaires=()=>{Object.values(parteners).map(ptner=>{
                    return <tr>
                         <td>
                            <img src={ptner.nom.trim().toLowerCase()} width="50px" height="40px"/>
@@ -123,6 +98,17 @@ export default function Partenaires() {
                         <td>{ptner.contacts}</td>
                     </tr>
                 })}
+    return <div className='parteners' style={{width:"80%",height:"80vh",margin:"0px",padding:"10vh 10%",}}>
+        <table style={{width:"80%",height:"fit-content",}}>
+            <thead>
+                <th>Nom & Logo</th>
+                <th>Dépuis ...</th>
+                <th>Activités</th>
+                <th>Apport total</th>
+                <th>Contacts</th>
+            </thead>
+            <tbody>
+            {trPartenaires()}
             </tbody>
         </table>
         </div>
