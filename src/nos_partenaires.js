@@ -78,7 +78,28 @@ export default function Partenaires() {
         contacts: ""
     }
 };
-    const logo=require('./images/logos_partenaires/logo_auchan.png');
+    const logo_auchan=require('./images/logos_partenaires/logo_auchan.png');
+    const logo_sonatel=require('./images/logos_partenaires/logo_sonatel.png');
+    const logo_seter=require('./images/logos_partenaires/logo_seter.png');
+    const logo_senum=require('./images/logos_partenaires/logo_senum.png');
+    const logo_mazars=require('./images/logos_partenaires/logo_mazars.png');
+    const logo_distingo=require('./images/logos_partenaires/logo_distingo.png');
+    const logo_fabrimetal=require('./images/logos_partenaires/logo_fabrimetal.png');
+    /*function logo(s){
+        var logo_s;
+        switch (s){
+            case "Auchan":
+                logo_s=logo_auchan;
+            case "Sonatel":
+            case "Senum":
+            case "Seter":
+            case "Mazars":
+            case "Fabrimetal":
+            case "distingo":
+            default:  
+        }
+        return logo_s
+    }*/
     return <div className='parteners' style={{width:"80%",height:"80vh",margin:"0px",padding:"10vh 10%",}}>
         <table style={{width:"80%",height:"fit-content",}}>
             <thead>
@@ -90,11 +111,9 @@ export default function Partenaires() {
             </thead>
             <tbody>
                {Object.values(parteners).map(ptner=>{
-                   /*let logoLink='./images/RS_logos/'+ptner.logo;
-                   let logo=require(logoLink);*/
                    return <tr>
                         <td>
-                           <img src={logo} width="50px" height="40px"/>
+                           <img src={"logo_"+trim(ptner.nom).toLowerCase()} width="50px" height="40px"/>
                            <br/>
                            <span>{ptner.nom}</span>
                         </td>
