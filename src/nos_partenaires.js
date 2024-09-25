@@ -88,7 +88,7 @@ export default function Partenaires() {
                 <th>Contacts</th>
             </thead>
             <tbody>
-               {Object.values(parteners).map(ptner=>{var logo="./images/logos_partenaires/"+ptner.logo; return <tr>
+               {Object.values(parteners).map(ptner=>{var logo="./images/logos partenaires/"+ptner.logo; return <tr>
                     <td>
                        <img src={logo} width="20px" height="30px"/>
                        <br/>
