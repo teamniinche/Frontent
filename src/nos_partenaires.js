@@ -14,7 +14,7 @@ export default function Partenaires() {
     const parteners = {
     sonatel: {
         nom: "Sonatel",
-        logo: "logo-sonatel.png",
+        logo: "logo_sonatel.png",
         date: "01/09/2022",
         intervention: [
             "Campagne TOUS A L'ÉCOLE 2021 à Kaguitte(Ziguinchor)",
@@ -25,7 +25,7 @@ export default function Partenaires() {
     },
     seter: {
         nom: "Seter",
-        logo: "logo-seter.png",
+        logo: "logo_seter.png",
         date: "01/09/2022",
         intervention: ["Démarches en cours ..."],
         total: "",
@@ -33,7 +33,7 @@ export default function Partenaires() {
     },
     auchan: {
         nom: "Auchan",
-        logo: "logo-auchan.png",
+        logo: "logo_auchan.png",
         date: "01/09/2022",
         intervention: [
             "Réfection école Keur Massar",
@@ -44,7 +44,7 @@ export default function Partenaires() {
     },
     distingo: {
         nom: "Distingo",
-        logo: "logo-distingo.png",
+        logo: "logo_distingo.png",
         date: "01/09/2022",
         intervention: [
             "Campagne TOUS A L'ÉCOLE 2021 à Kaguitte(Ziguinchor)",
@@ -55,7 +55,7 @@ export default function Partenaires() {
     },
     fabrimetal: {
         nom: "Fabri Metal",
-        logo: "logo-fabrimetal.png",
+        logo: "logo_fabrimetal.png",
         date: "01/09/2022",
         intervention: ["Réfection école SEBI GARE (Sébikotane)"],
         total: "",
@@ -63,7 +63,7 @@ export default function Partenaires() {
     },
     mazars: {
         nom: "Mazars",
-        logo: "logo-mazars.png",
+        logo: "logo_mazars.png",
         date: "01/09/2022",
         intervention: ["Réfection école Ngolar sérère(Notto Diobass)"],
         total: "",
@@ -71,7 +71,7 @@ export default function Partenaires() {
     },
     senum: {
         nom: "Senum",
-        logo: "logo-senum.png",
+        logo: "logo_senum.png",
         date: "01/09/2022",
         intervention: ["Démarches en cours ..."],
         total: "",
