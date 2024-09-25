@@ -95,7 +95,7 @@ export default function Partenaires() {
                        <span>{ptner.nom}</span>
                    </td>
                     <td>{ptner.date}</td>
-                    <td>{ptner.map(actvt=>(<li>{actvt}</li>))}</td>
+                    <td>{ptner.intervention.map(actvt=>(<li>{actvt}</li>))}</td>
                     <td>{ptner.total}</td>
                     <td>{ptner.contacts}</td>
                 </tr>))}
