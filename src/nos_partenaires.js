@@ -88,9 +88,9 @@ export default function Partenaires() {
                 <th>Contacts</th>
             </thead>
             <tbody>
-               {Object.values(parteners).map(ptner=>( <tr>
+               {Object.values(parteners).map(ptner=>{var logo="./images/logos_partenaires/"+ptner.logo; return <tr>
                     <td>
-                       <img src="./images/logos_partenaires/logo-auchan.png" width="20px" height="30px"/>
+                       <img src={logo} width="20px" height="30px"/>
                        <br/>
                        <span>{ptner.nom}</span>
                    </td>
@@ -98,7 +98,7 @@ export default function Partenaires() {
                     <td>{ptner.intervention.map(actvt=>(<li>{actvt}</li>))}</td>
                     <td>{ptner.total}</td>
                     <td>{ptner.contacts}</td>
-                </tr>))}
+                </tr>})}
             </tbody>
         </table>
         </div>
