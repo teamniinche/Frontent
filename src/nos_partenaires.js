@@ -93,7 +93,7 @@ export default function Partenaires() {
                    let logo=require(logoLink);
                    return <tr>
                         <td>
-                           <img src={'./images/logos_partenaires/'+ptner.logo} width="50px" height="40px"/>
+                           <img src={'./images/logos_partenaires/logo_auchan.png'} width="50px" height="40px"/>
                            <br/>
                            <span>{ptner.nom}</span>
                         </td>
