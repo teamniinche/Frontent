@@ -124,7 +124,7 @@ const Connexion = () =>  {
     const imgLg=require('./images/logo_niintche.webp')
   return <>
     <div className="divtech">
-      <div style={{backgroundImage:"url('/filigrane.jpg')",height:"95vh",width:"100vw",marginBottom:"-50px",marginTop:"-10px"}}>
+      <div id="div-connexion" style={{backgroundImage:"url('/filigrane.jpg')",width:"100vw",marginBottom:"-50px",marginTop:"-10px"}}>
         <div className="titreConnexion">Connexion à votre compte <img src={imgLg} alt="Logo de la teamniintche" className="imgLg"/></div>
         <div className="connexionContainer">
 
