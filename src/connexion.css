@@ -16,6 +16,9 @@
     margin-bottom:3%;
     margin-top:1%;
     }
+#div-connexion{
+    height:"80vh",
+    }
 .connexionContainer h5 span{display:inline-block;
     width:100px;
     height:1.5em;
@@ -36,7 +39,8 @@
     }
 .titreConnexion{
     width: 50%;
-    margin:1.5% 25%;
+    margin:1% 25%;
+    /*margin:1.5% 25%;*/
     text-align: center;
     color: blue;
     font-weight: bolder;
@@ -76,4 +80,12 @@
             width:98%;
             margin:0px 1%;
             }
+        #div-connexion{
+            height:"95vh",
+        }
+    }
+@media screen and (max-width:1000px){
+        #div-connexion{
+            height:"95vh",
+        }
     }
