@@ -88,17 +88,21 @@ export default function Partenaires() {
                 <th>Contacts</th>
             </thead>
             <tbody>
-               {Object.values(parteners).map(ptner=>{var logo=require("./images/logos_partenaires/"+ptner.logo); return <tr>
-                    <td>
-                       <img src={logo} width="50px" height="40px"/>
-                       <br/>
-                       <span>{ptner.nom}</span>
-                   </td>
-                    <td>{ptner.date}</td>
-                    <td>{ptner.intervention.map(actvt=>(<li>{actvt}</li>))}</td>
-                    <td>{ptner.total}</td>
-                    <td>{ptner.contacts}</td>
-                </tr>})}
+               {Object.values(parteners).map(ptner=>{
+                   let logoLink='./images/logos_partenaires/'+ptner.logo;
+                   let logo=require(logoLink);
+                   return <tr>
+                        <td>
+                           <img src={logo} width="50px" height="40px"/>
+                           <br/>
+                           <span>{ptner.nom}</span>
+                        </td>
+                        <td>{ptner.date}</td>
+                        <td>{ptner.intervention.map(actvt=>(<li>{actvt}</li>))}</td>
+                        <td>{ptner.total}</td>
+                        <td>{ptner.contacts}</td>
+                    </tr>
+                })}
             </tbody>
         </table>
         </div>
