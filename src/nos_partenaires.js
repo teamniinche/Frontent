@@ -15,7 +15,7 @@ export default function Partenaires() {
                {partenaires.map(ptner=>{ <tr>
                     <td>{ptner.nom}</td>
                     <td>{ptner.date}</td>
-                    <td>{ ptner.map(actvt=><li>{actvt && actvt.nom}</li>)}</td>
+                    <td>{/* ptner.map(actvt=><li>{actvt && actvt.nom}</li>)*/}</td>
                     <td>{ptner.total}</td>
                     <td>{ptner.contacts}</td>
                 </tr>})}
