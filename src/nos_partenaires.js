@@ -89,7 +89,7 @@ export default function Partenaires() {
             </thead>
             <tbody>
                {Object.values(parteners).map(ptner=>{
-                   let logoLink='./images/logos_partenaires/'+ptner.logo;
+                   let logoLink='images/logos_partenaires/'+ptner.logo;
                    let logo=require(logoLink);
                    return <tr>
                         <td>
