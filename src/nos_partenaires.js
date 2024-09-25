@@ -1,4 +1,4 @@
-import {partenaires} from './src/partenaires.js';
+import {partenaires} from './partenaires.js';
 export default function Partenaires() {
 
 
