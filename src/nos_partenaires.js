@@ -78,6 +78,7 @@ export default function Partenaires() {
         contacts: ""
     }
 };
+    const logo=require('./images/logos_partenaires/logo_auchan.png');
     return <div className='parteners' style={{width:"80%",height:"80vh",margin:"0px",padding:"10vh 10%",}}>
         <table style={{width:"80%",height:"fit-content",}}>
             <thead>
@@ -93,7 +94,7 @@ export default function Partenaires() {
                    let logo=require(logoLink);*/
                    return <tr>
                         <td>
-                           <img src="/src/images/logos_partenaires/logo_auchan.png" width="50px" height="40px"/>
+                           <img src={logo} width="50px" height="40px"/>
                            <br/>
                            <span>{ptner.nom}</span>
                         </td>
