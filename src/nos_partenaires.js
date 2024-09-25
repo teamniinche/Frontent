@@ -90,7 +90,7 @@ export default function Partenaires() {
             <tbody>
                {Object.values(parteners).map(ptner=>( <tr>
                     <td>
-                       <img src={"/logos_partenaires/"+ptner.logo} width="20px" height="30px"/>
+                       <img src="/logos_partenaires/"+{ptner.logo} width="20px" height="30px"/>
                        <br/>
                        <span>{ptner.nom}</span>
                    </td>
