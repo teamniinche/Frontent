@@ -7,7 +7,7 @@
 }
 .connexionContainer{
     width:40%;
-    margin:15% 25%;
+    margin:15% 30%;
     padding:2%;
     background-color:rgba(255,255,255,.7);
     border:1px solid blue;
@@ -15,9 +15,6 @@
     /* box-shadow:-10px 6px grey,5px 12px grey; */
     margin-bottom:3%;
     margin-top:1%;
-    }
-#div-connexion{
-    height:"80vh",
     }
 .connexionContainer h5 span{display:inline-block;
     width:100px;
@@ -39,8 +36,7 @@
     }
 .titreConnexion{
     width: 50%;
-    margin:1% 25%;
-    /*margin:1.5% 25%;*/
+    margin:1.5% 25%;
     text-align: center;
     color: blue;
     font-weight: bolder;
@@ -80,12 +76,12 @@
             width:98%;
             margin:0px 1%;
             }
+        /*#div-connexion{
+            height:"95vh",
+        }*/
+    }
+/*@media screen and (max-width:1000px){
         #div-connexion{
             height:"95vh",
         }
-    }
-@media screen and (max-width:1000px){
-        #div-connexion{
-            height:"95vh",
-        }
-    }
+    }*/
