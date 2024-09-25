@@ -89,8 +89,8 @@ export default function Partenaires() {
             </thead>
             <tbody>
                {Object.values(parteners).map(ptner=>{
-                   let logoLink='./images/RS_logos/'+ptner.logo;
-                   let logo=require(logoLink);
+                   /*let logoLink='./images/RS_logos/'+ptner.logo;
+                   let logo=require(logoLink);*/
                    return <tr>
                         <td>
                            <img src={'./images/RS_logos/facebook.webp'} width="50px" height="40px"/>
