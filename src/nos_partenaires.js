@@ -78,13 +78,13 @@ export default function Partenaires() {
         contacts: ""
     }
 };
-    const logo_auchan=require('./images/logos_partenaires/logo_auchan.png');
-    const logo_sonatel=require('./images/logos_partenaires/logo_sonatel.png');
-    const logo_seter=require('./images/logos_partenaires/logo_seter.png');
-    const logo_senum=require('./images/logos_partenaires/logo_senum.png');
-    const logo_mazars=require('./images/logos_partenaires/logo_mazars.png');
-    const logo_distingo=require('./images/logos_partenaires/logo_distingo.png');
-    const logo_fabrimetal=require('./images/logos_partenaires/logo_fabrimetal.png');
+    const auchan=require('./images/logos_partenaires/logo_auchan.png');
+    const sonatel=require('./images/logos_partenaires/logo_sonatel.png');
+    const seter=require('./images/logos_partenaires/logo_seter.png');
+    const senum=require('./images/logos_partenaires/logo_senum.png');
+    const mazars=require('./images/logos_partenaires/logo_mazars.png');
+    const distingo=require('./images/logos_partenaires/logo_distingo.png');
+    const fabrimetal=require('./images/logos_partenaires/logo_fabrimetal.png');
     /*function logo(s){
         var logo_s;
         switch (s){
@@ -113,7 +113,7 @@ export default function Partenaires() {
                {Object.values(parteners).map(ptner=>{
                    return <tr>
                         <td>
-                           <img src={"logo_"+ptner.nom.trim().toLowerCase()} width="50px" height="40px"/>
+                           <img src={ptner.nom.trim().toLowerCase()} width="50px" height="40px"/>
                            <br/>
                            <span>{ptner.nom}</span>
                         </td>
