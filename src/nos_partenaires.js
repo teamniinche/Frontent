@@ -79,7 +79,7 @@ export default function Partenaires() {
     }
 }
     const fontSize="0.6rem";
-    return <div style={{height:"78vh",}}>
+    return <div style={{height:"100vh",}}>
         <div className='parteners' style={{height:"100%",margin:"0px",paddingTop:"70px",maxHeight:"100%",overflowY:"scroll",}}>
         {/*<img src="/images/teamniintche.png" width="60px" height="50px"/>*/}
         <h3 style={{color:"rgba(0,0,100,0.3)",padding:"1rem 0px",marginTop:"0px",textAlign:"center",}}>La TeamNiintche remercie tous ses partenairees et collaborateurs.</h3>
