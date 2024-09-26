@@ -20,16 +20,8 @@ export default function Partenaires() {
             "Campagne TOUS A L'ÉCOLE 2021 à Kaguitte(Ziguinchor)",
             "Campagne TOUS A L'ÉCOLE 2023 à DABO (Ziguinchor)"
         ],
-        total: "",
-        contacts: ""
-    },
-    seter: {
-        nom: "Seter",
-        logo: "logo_seter.png",
-        date: "01/09/2022",
-        intervention: ["Démarches en cours ..."],
-        total: "",
-        contacts: ""
+        total: "10 000 000 F cfa",
+        contacts: "GROUPE SONATEL"
     },
     auchan: {
         nom: "Auchan",
@@ -39,8 +31,8 @@ export default function Partenaires() {
             "Réfection école Keur Massar",
             "Réfection école Keur Madiabel(Kaolack)"
         ],
-        total: "",
-        contacts: ""
+        total: "15 000 000 F cfa",
+        contacts: "AUCHAN SENEGAL"
     },
     distingo: {
         nom: "Distingo",
@@ -50,24 +42,24 @@ export default function Partenaires() {
             "Campagne TOUS A L'ÉCOLE 2021 à Kaguitte(Ziguinchor)",
             "Campagne TOUS A L'ÉCOLE 2023 à DABO (Ziguinchor)"
         ],
-        total: "",
-        contacts: ""
+        total: "10 000 000 F cfa",
+        contacts: "distingo.com"
     },
     fabrimetal: {
         nom: "Fabri Metal",
         logo: "logo_fabrimetal.png",
         date: "01/09/2022",
         intervention: ["Réfection école SEBI GARE (Sébikotane)"],
-        total: "",
-        contacts: ""
+        total: "10 000 000 F cfa",
+        contacts: "fabrimetal.com"
     },
     mazars: {
         nom: "Mazars",
         logo: "logo_mazars.png",
         date: "01/09/2022",
         intervention: ["Réfection école Ngolar sérère(Notto Diobass)"],
-        total: "",
-        contacts: ""
+        total: "10 000 000 F cfa",
+        contacts: "mazars.org"
     },
     senum: {
         nom: "Senum",
@@ -75,7 +67,15 @@ export default function Partenaires() {
         date: "01/09/2022",
         intervention: ["Démarches en cours ..."],
         total: "",
-        contacts: ""
+        contacts: "senum.com"
+    },
+    seter: {
+        nom: "Seter",
+        logo: "logo_seter.png",
+        date: "01/09/2022",
+        intervention: ["Démarches en cours ..."],
+        total: "",
+        contacts: "seter.sn"
     }
 };
    /* const auchan=require('./images/logos_partenaires/logo_auchan.png');
