@@ -77,17 +77,18 @@ export default function Partenaires() {
         total: "",
         contacts: "seter.sn"
     }
-    
+    }
+    const fontSize="0.6rem";
     return <div className='parteners' style={{width:"80%",height:"80vh",margin:"0px",padding:"10vh 10%",paddingTop:"15vh",}}>
         {/*<img src="/images/teamniintche.png" width="60px" height="50px"/>*/}
         <h3 style={{color:"rgba(0,0,100,0.3)",padding:"1rem 0px",}}>La TeamNiintche remercie tous ses partenairees et collaborateurs.</h3>
         <table style={{width:"100%",height:"fit-content",}}>
             <thead>
                 <th style={{height:"4rem",lineHeight:"1rem",backgroundColor:"rgba(0,0,100,0.3)",}}>Nom & Logo</th>
-                <th style={{width:"8rem",backgroundColor:"rgba(0,0,100,0.3)",fontSize:"0.6rem",}}>Dépuis ...</th>
-                <th style={{backgroundColor:"rgba(0,0,100,0.3)",paddingRight:"1rem",fontSize:"0.6rem",}}>Activités</th>
-                <th style={{backgroundColor:"rgba(0,0,100,0.3)",fontSize:"0.6rem",minWidth:"10rem",fontWeight:"bold",textAlign:"center",}}>Apport total (F cfa)</th>
-                <th style={{backgroundColor:"rgba(0,0,100,0.3)",fontSize:"0.6rem",}}>Contacts</th>
+                <th style={{width:"8rem",backgroundColor:"rgba(0,0,100,0.3)",fontSize:fontSize,}}>Dépuis ...</th>
+                <th style={{backgroundColor:"rgba(0,0,100,0.3)",paddingRight:"1rem",fontSize:fontSize,}}>Activités</th>
+                <th style={{backgroundColor:"rgba(0,0,100,0.3)",fontSize:fontSize,minWidth:"10rem",fontWeight:"bold",textAlign:"center",}}>Apport total (F cfa)</th>
+                <th style={{backgroundColor:"rgba(0,0,100,0.3)",fontSize:fontSize,}}>Contacts</th>
             </thead>
             <tbody>{Object.values(parteners).map(ptner=>{
                    return <tr style={{height:"5rem",borderBottom:"1px solid rgba(0,0,100,0.3)",}}>
@@ -96,10 +97,10 @@ export default function Partenaires() {
                            <br/>
                            <span>{ptner.nom}</span>
                         </td>
-                        <td style={{width:"8rem",paddingRight:"1rem",fontSize:"0.6rem",}}>{ptner.date}</td>
-                        <td style={{fontSize:"0.6rem",}}>{ptner.intervention.map(actvt=>(<li>{actvt}</li>))}</td>
-                        <td style={{fontSize:"0.6rem",minWidth:"10rem",fontWeight:"bold",textAlign:"center",}}>{numStr(ptner.total,' '}</td>
-                        <td style={{fontSize:"0.6rem",}}><a href="">{ptner.contacts}</a></td>
+                        <td style={{width:"8rem",paddingRight:"1rem",fontSize:fontSize,}}>{ptner.date}</td>
+                        <td style={{fontSize:fontSize,}}>{ptner.intervention.map(actvt=>(<li>{actvt}</li>))}</td>
+                        <td style={{fontSize:fontSize,minWidth:"10rem",fontWeight:"bold",textAlign:"center",}}>{numStr(ptner.total,' '}</td>
+                        <td style={{fontSize:fontSize,}}><a href="">{ptner.contacts}</a></td>
                     </tr>})}
             </tbody>
         </table>
