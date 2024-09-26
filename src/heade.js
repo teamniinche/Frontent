@@ -28,7 +28,7 @@ export default class Heade extends React.Component{
     document.querySelector('#img_menu').style.display='none';
     document.querySelector('#menu').style.display='flex';
   }
-  const active=(page)=>{
+  active=(page)=>{
         var urlcourante = document.location.href;
         const target={backgroundColor:"rgba(55,0,0,0.2)",color:"white",};
         const activeStyle=urlcourante.includes(page)?target:{};
