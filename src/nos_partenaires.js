@@ -91,7 +91,7 @@ export default function Partenaires() {
                     }*/
     return <div className='parteners' style={{width:"80%",height:"80vh",margin:"0px",padding:"10vh 10%",paddingTop:"15vh",}}>
         {/*<img src="/images/teamniintche.png" width="60px" height="50px"/>*/}
-        <h3 style={{color:"rgba(0,0,100,0.3)",padding:"1rem 0px",}}>La TeamNiintche remercie tous ses partenairees.</h3>
+        <h3 style={{color:"rgba(0,0,100,0.3)",padding:"1rem 0px",}}>La TeamNiintche remercie tous ses partenairees et collaborateurs.</h3>
         <table style={{width:"100%",height:"fit-content",}}>
             <thead>
                 <th style={{height:"4rem",lineHeight:"1rem",backgroundColor:"rgba(0,0,100,0.3)",}}>Nom & Logo</th>
