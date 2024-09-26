@@ -90,6 +90,7 @@ export default function Partenaires() {
     const trPartenaires=()=>{return 
                     }*/
     return <div className='parteners' style={{width:"80%",height:"80vh",margin:"0px",padding:"10vh 10%",paddingTop:"15vh",}}>
+        <h3 style={{color:"rgba(0,0,100,0.3)",padding:"1rem 0px",}}>La <img src="./images/logo_blanc.jpg" width="4rem" height="2rem"> remercie tous ces partenairees.</h3>
         <table style={{width:"100%",height:"fit-content",}}>
             <thead>
                 <th style={{height:"4rem",lineHeight:"1rem",backgroundColor:"rgba(0,0,100,0.3)",}}>Nom & Logo</th>
