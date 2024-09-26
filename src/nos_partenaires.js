@@ -1,3 +1,4 @@
+import {NousContacter} from './nousContacter.js'
 import './partenaires.css';
 
 export default function Partenaires() {
@@ -78,7 +79,8 @@ export default function Partenaires() {
     }
 }
     const fontSize="0.6rem";
-    return <div className='parteners' style={{height:"80vh",margin:"0px",paddingTop:"70px",}}>
+    return <>
+        <div className='parteners' style={{height:"80vh",margin:"0px",paddingTop:"70px",}}>
         {/*<img src="/images/teamniintche.png" width="60px" height="50px"/>*/}
         <h3 style={{color:"rgba(0,0,100,0.3)",padding:"1rem 0px",marginTop:"0px",textAlign:"center",}}>La TeamNiintche remercie tous ses partenairees et collaborateurs.</h3>
         <table style={{width:"100%",height:"fit-content",}}>
@@ -104,5 +106,7 @@ export default function Partenaires() {
             </tbody>
         </table>
         </div>
+        <NousContacter/>
+    </>
       
   }
