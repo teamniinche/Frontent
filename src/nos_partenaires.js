@@ -93,8 +93,8 @@ export default function Partenaires() {
         <table style={{width:"80%",height:"fit-content",}}>
             <thead>
                 <th style={{height:"4rem",lineHeight:"1rem",backgroundColor:"rgba(0,0,100,0.3)",}}>Nom & Logo</th>
-                <th style={{width:"6rem",backgroundColor:"rgba(0,0,100,0.3)",}}>Dépuis ...</th>
-                <th style={{backgroundColor:"rgba(0,0,100,0.3)",}}>Activités</th>
+                <th style={{width:"8rem",backgroundColor:"rgba(0,0,100,0.3)",}}>Dépuis ...</th>
+                <th style={{backgroundColor:"rgba(0,0,100,0.3)",paddingRight:"1rem",}}>Activités</th>
                 <th style={{backgroundColor:"rgba(0,0,100,0.3)",}}>Apport total</th>
                 <th style={{backgroundColor:"rgba(0,0,100,0.3)",}}>Contacts</th>
             </thead>
@@ -105,7 +105,7 @@ export default function Partenaires() {
                            <br/>
                            <span>{ptner.nom}</span>
                         </td>
-                        <td style={{width:"6rem",}}>{ptner.date}</td>
+                        <td style={{width:"8rem",paddingRight:"1rem",}}>{ptner.date}</td>
                         <td>{ptner.intervention.map(actvt=>(<li>{actvt}</li>))}</td>
                         <td>{ptner.total}</td>
                         <td><a href="">{ptner.contacts}</a></td>
