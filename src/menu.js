@@ -19,19 +19,20 @@ export default function Menu() {
         const activeStyle=urlcourante.includes(page)?target:{};
         return activeStyle;
     }
+    
   return (
     <div id='menu' onClick={handleClick}>
         <Link style={{textDecoration:'none'}} id='fermer'><span style={{color:'red',fontSize:'20px',textAlign:'left'}}><i className="fa fa-xmark"></i></span></Link>
-        <Link to='/' className='menu_link' style={{marginTop:'10px',...active("accueil")}}>ACCUEIL</Link>
+        <Link to='/' className='menu_link' style={{marginTop:'10px',...active("ccueil")}}>ACCUEIL</Link>
         <hr/>
-        <Link to='/nos_realisations' className='menu_link' style={active("realisations")}>NOS REALISATIONS</Link>
+        <Link to='/nos_realisations' className='menu_link' style={active("ealisations")}>NOS REALISATIONS</Link>
         <hr/>
         <Link to='/nos_partenaires' className='menu_link' style={active("partenaires")}>NOS PARTENAIRES</Link>
         {/*<Link to='/quisommesnous' className='menu_link'>QUI SOMMES-NOUS ?</Link>
         <hr/>
         <Link to='/' className='menu_link'>NOTRE COMPTABILITE</Link>*/}
         <hr/>
-        <Link to='/nousContacter' className='menu_link' style={active("contact")}>NOUS CONTACTER</Link>
+        <Link to='/nousContacter' className='menu_link' style={active("ontact")}>NOUS CONTACTER</Link>
         <hr/>
     </div>
   )
