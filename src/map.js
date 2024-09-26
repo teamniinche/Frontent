@@ -45,10 +45,11 @@ export default function Map(props) {
                           setKZoom(Zoom)
                       }
   // const sn=<img src='' alt='🇸🇳'/>
+    // &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors
   return <div id="map">
     <MapContainer ref={mapRef} center={center} zoom={6.2} scrollWheelZoom={false} className='mapContainer'>
         <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          attribution=''
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         {sites.map((site,index)=>{
