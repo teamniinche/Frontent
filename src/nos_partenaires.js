@@ -114,7 +114,7 @@ case nom.includes("mazars"):
     const trPartenaires=()=>{return <tbody>{Object.values(parteners).map(ptner=>{
                    return <tr>
                         <td>
-                           <img src="img_accueil/carrelage.jpg" width="50px" height="40px"/>
+                           <img src="img_accueil/"+"carrelage.jpg" width="50px" height="40px"/>
                            <br/>
                            <span>{ptner.nom}</span>
                         </td>
