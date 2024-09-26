@@ -78,43 +78,19 @@ export default function Partenaires() {
         contacts: ""
     }
 };
-    const auchan=require('./images/logos_partenaires/logo_auchan.png');
+   /* const auchan=require('./images/logos_partenaires/logo_auchan.png');
     const sonatel=require('./images/logos_partenaires/logo_sonatel.png');
     const seter=require('./images/logos_partenaires/logo_seter.png');
     const senum=require('./images/logos_partenaires/logo_senum.png');
     const mazars=require('./images/logos_partenaires/logo_mazars.png');
     const distingo=require('./images/logos_partenaires/logo_distingo.png');
-    const fabrimetal=require('./images/logos_partenaires/logo_fabrimetal.png');
-   const logo=(nom)=>{
-       let logo;
-       switch(nom) {
-  case nom.includes("uchan"):
-    return auchan;
-    break;
-case nom.includes("fabri"):
-    return fabrimetal;
-    break;
-case nom.includes("sonatel"):
-    return sonatel;
-    break;
-case nom.includes("seter"):
-    return seter;
-    break;  
-  case nom.includes("senum"):
-    return senum;
-    break;
-case nom.includes("mazars"):
-    return mazars;
-    break;
-  default:
-     return null;
-} 
-   }
+    const fabrimetal=require('./images/logos_partenaires/logo_fabrimetal.png');*/
+   
 
     const trPartenaires=()=>{return <tbody>{Object.values(parteners).map(ptner=>{
                    return <tr>
                         <td>
-                           <img src={"img_accueil/"+"carrelage.jpg"} width="50px" height="40px"/>
+                           <img src={"logos_partenaires/"+ptner.logo} width="50px" height="40px"/>
                            <br/>
                            <span>{ptner.nom}</span>
                         </td>
