@@ -28,6 +28,16 @@ export default class Heade extends React.Component{
     document.querySelector('#img_menu').style.display='none';
     document.querySelector('#menu').style.display='flex';
   }
+  const active=(page)=>{
+        var urlcourante = document.location.href;
+        const target={
+            backgroundColor:"rgba(55, 0, 0, 0.2)",
+            color:"white",
+        };
+        const activeStyle=urlcourante.includes(page)?target:{};
+        return activeStyle;
+  }
+    
   render(){
   return (
     // <div className="header">
@@ -39,12 +49,12 @@ export default class Heade extends React.Component{
                 </div>
                 <div id="left">
                   <div className="nav-items">
-                      <Link to="/">Accueil</Link>
-                      <Link to="/nos_realisations">Réalisations</Link>
-                      <Link to="/nos_partenaires">Nos partenaires</Link>
+                      <Link to="/" style={active("ccueil")}>Accueil</Link>
+                      <Link to="/nos_realisations" style={active("alisations")}>Réalisations</Link>
+                      <Link to="/nos_partenaires" style={active("partenaires")}>Nos partenaires</Link>
                       {/*<Link to="/quisommesnous">Qui sommes-nous ?</Link>
     <Link to="/notre_comptabilite">Comptabilité</Link>*/}
-                      <Link to="/nousContacter">Contacts</Link>
+                      <Link to="/nousContacter" style={active("ontact")}>Contacts</Link>
                   </div>
                   <div id='img_menu' onClick={this.handleClick}>
                     <Link id="menu_ico"><img src={menu} alt=""/>MENU</Link>
