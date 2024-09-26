@@ -42,7 +42,7 @@ export default class Heade extends React.Component{
               <div className="contient">
                 <div id="right">
                   <Link to='/' ><img src={img1} alt="" className="logo"/></Link>
-                            /*quisommesnous*/
+                  {/*quisommesnous*/}
                   {/* <Link to="/connexion" id="seconnecter">Se connecter</Link> */}
                 </div>
                 <div id="left">
