@@ -1,3 +1,8 @@
 .parteners{
   width:80%;
 }
+@media screen and (max-width:1000px){
+  .parteners{
+    width:92%;
+  }
+}
