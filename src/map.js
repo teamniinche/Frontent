@@ -49,7 +49,7 @@ export default function Map(props) {
   return <div id="map">
     <MapContainer ref={mapRef} center={center} zoom={6.2} scrollWheelZoom={false} className='mapContainer'>
         <TileLayer
-          attribution=''
+          attribution='🇸🇳 Crédit @teamniintche'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         {sites.map((site,index)=>{
