@@ -99,7 +99,7 @@ export default function Partenaires() {
                         </td>
                         <td style={{width:"8rem",paddingRight:"1rem",fontSize:fontSize,}}>{ptner.date}</td>
                         <td style={{fontSize:fontSize,}}>{ptner.intervention.map(actvt=>(<li>{actvt}</li>))}</td>
-                        <td style={{fontSize:fontSize,minWidth:"10rem",fontWeight:"bold",textAlign:"center",}}>{numStr(ptner.total,' '}</td>
+                        <td style={{fontSize:fontSize,minWidth:"10rem",fontWeight:"bold",textAlign:"center",}}>{numStr(ptner.total,' ')}</td>
                         <td style={{fontSize:fontSize,}}><a href="">{ptner.contacts}</a></td>
                     </tr>})}
             </tbody>
