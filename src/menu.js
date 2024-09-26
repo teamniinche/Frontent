@@ -12,8 +12,8 @@ export default function Menu() {
       }
     const active=(page)=>{
         var urlcourante = document.location.href;
-        const target=
-            background-color:"rgba(55, 0, 0, 0.2)",
+        const target={
+            backgroundColor:"rgba(55, 0, 0, 0.2)",
             color:"white",
         };
         const activeStyle=urlcourante.includes(page)?target:{};
