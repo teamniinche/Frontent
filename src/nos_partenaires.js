@@ -92,14 +92,14 @@ export default function Partenaires() {
     return <div className='parteners' style={{width:"80%",height:"80vh",margin:"0px",padding:"10vh 10%",paddingTop:"15vh",}}>
         <table style={{width:"80%",height:"fit-content",}}>
             <thead>
-                <th style={{lineHeight:"1rem",}}>Nom & Logo</th>
-                <th style={{with:"6rem",}}>Dépuis ...</th>
-                <th>Activités</th>
-                <th>Apport total</th>
-                <th>Contacts</th>
+                <th style={{lineHeight:"1rem",backgroundColor:"rgba(0,0,100,0.3)",}}>Nom & Logo</th>
+                <th style={{with:"6rem",backgroundColor:"rgba(0,0,100,0.3)",}}>Dépuis ...</th>
+                <th style={{backgroundColor:"rgba(0,0,100,0.3)",}}>Activités</th>
+                <th style={{backgroundColor:"rgba(0,0,100,0.3)",}}>Apport total</th>
+                <th style={{backgroundColor:"rgba(0,0,100,0.3)",}}>Contacts</th>
             </thead>
             <tbody>{Object.values(parteners).map(ptner=>{
-                   return <tr style={{height:"4rem",}}>
+                   return <tr style={{height:"5rem",borderBottom:"1px solid rgba(0,0,100,0.3)",}}>
                         <td style={{lineHeight:"1rem",}}>
                            <img src={"logos_partenaires/"+ptner.logo} width="70px" height="40px"/>
                            <br/>
@@ -108,7 +108,7 @@ export default function Partenaires() {
                         <td style={{with:"6rem",}}>{ptner.date}</td>
                         <td>{ptner.intervention.map(actvt=>(<li>{actvt}</li>))}</td>
                         <td>{ptner.total}</td>
-                        <td>{ptner.contacts}</td>
+                        <td><a href="">{ptner.contacts}</a></td>
                     </tr>})}
             </tbody>
         </table>
