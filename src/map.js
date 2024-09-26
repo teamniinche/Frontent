@@ -49,7 +49,7 @@ export default function Map(props) {
   return <div id="map">
     <MapContainer ref={mapRef} center={center} zoom={6.2} scrollWheelZoom={false} className='mapContainer'>
         <TileLayer
-          attribution='SénégaL 🇸🇳 activités @teamniintche & partenaires & collaborateurs'
+          attribution='SénégaL 🇸🇳 Activités @TeamNiintche & Partenaires & Collaborateurs'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         {sites.map((site,index)=>{
