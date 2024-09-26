@@ -67,8 +67,16 @@ export default function Partenaires() {
         intervention: ["Démarches en cours ..."],
         total: "",
         contacts: "seter.sn"
+    },
+    adl: {
+        nom: "ADL",
+        logo: "logo_adl.png",
+        date: "2024",
+        intervention: ["Démarches en cours ..."],
+        total: "",
+        contacts: "adl.sn"
     }
-    }
+}
     const fontSize="0.6rem";
     return <div className='parteners' style={{height:"80vh",margin:"0px",paddingTop:"12vh",}}>
         {/*<img src="/images/teamniintche.png" width="60px" height="50px"/>*/}
