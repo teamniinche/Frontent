@@ -12,8 +12,11 @@ export default function Menu() {
       }
     const active=(page)=>{
         var urlcourante = document.location.href;
-        const target={};
-        const activeStyle= urlcourante.includes(page)?target:{};
+        const target=
+            background-color:"rgba(55, 0, 0, 0.2)",
+            color:"white",
+        };
+        const activeStyle=urlcourante.includes(page)?target:{};
         return activeStyle;
     }
   return (
