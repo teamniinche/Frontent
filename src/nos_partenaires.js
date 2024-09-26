@@ -84,33 +84,33 @@ export default function Partenaires() {
     const senum=require('./images/logos_partenaires/logo_senum.png');
     const mazars=require('./images/logos_partenaires/logo_mazars.png');
     const distingo=require('./images/logos_partenaires/logo_distingo.png');
-    const fabrimetal=require('./images/logos_partenaires/logo_fabrimetal.png');*/
+    const fabrimetal=require('./images/logos_partenaires/logo_fabrimetal.png');
    
 
-    const trPartenaires=()=>{return <tbody>{Object.values(parteners).map(ptner=>{
-                   return <tr>
-                        <td>
-                           <img src={"logos_partenaires/"+ptner.logo} width="50px" height="40px"/>
-                           <br/>
-                           <span>{ptner.nom}</span>
-                        </td>
-                        <td>{ptner.date}</td>
-                        <td>{ptner.intervention.map(actvt=>(<li>{actvt}</li>))}</td>
-                        <td>{ptner.total}</td>
-                        <td>{ptner.contacts}</td>
-                    </tr>})}
-                    </tbody>
-                    }
-    return <div className='parteners' style={{width:"80%",height:"80vh",margin:"0px",padding:"10vh 10%",}}>
+    const trPartenaires=()=>{return 
+                    }*/
+    return <div className='parteners' style={{width:"80%",height:"80vh",margin:"0px",padding:"10vh 10%",paddingTop:"15vh",}}>
         <table style={{width:"80%",height:"fit-content",}}>
             <thead>
-                <th>Nom & Logo</th>
-                <th>Dépuis ...</th>
+                <th style={{lineHeight:"1rem",}}>Nom & Logo</th>
+                <th style={{with:"6rem",}}>Dépuis ...</th>
                 <th>Activités</th>
                 <th>Apport total</th>
                 <th>Contacts</th>
             </thead>
-            {trPartenaires()}
+            <tbody>{Object.values(parteners).map(ptner=>{
+                   return <tr style={{height:"6rem",}}>
+                        <td style={{lineHeight:"1rem",}}>
+                           <img src={"logos_partenaires/"+ptner.logo} width="70px" height="60px"/>
+                           <br/>
+                           <span>{ptner.nom}</span>
+                        </td>
+                        <td style={{with:"6rem",}}>{ptner.date}</td>
+                        <td>{ptner.intervention.map(actvt=>(<li>{actvt}</li>))}</td>
+                        <td>{ptner.total}</td>
+                        <td>{ptner.contacts}</td>
+                    </tr>})}
+            </tbody>
         </table>
         </div>
       
