@@ -90,13 +90,13 @@ export default function Partenaires() {
     const trPartenaires=()=>{return 
                     }*/
     return <div className='parteners' style={{width:"80%",height:"80vh",margin:"0px",padding:"10vh 10%",paddingTop:"15vh",}}>
-        <table style={{width:"80%",height:"fit-content",}}>
+        <table style={{width:"100%",height:"fit-content",}}>
             <thead>
                 <th style={{height:"4rem",lineHeight:"1rem",backgroundColor:"rgba(0,0,100,0.3)",}}>Nom & Logo</th>
-                <th style={{width:"8rem",backgroundColor:"rgba(0,0,100,0.3)",}}>Dépuis ...</th>
-                <th style={{backgroundColor:"rgba(0,0,100,0.3)",paddingRight:"1rem",}}>Activités</th>
-                <th style={{backgroundColor:"rgba(0,0,100,0.3)",}}>Apport total</th>
-                <th style={{backgroundColor:"rgba(0,0,100,0.3)",}}>Contacts</th>
+                <th style={{width:"8rem",backgroundColor:"rgba(0,0,100,0.3)",fontSize:"0.8rem",}}>Dépuis ...</th>
+                <th style={{backgroundColor:"rgba(0,0,100,0.3)",paddingRight:"1rem",fontSize:"0.8rem",}}>Activités</th>
+                <th style={{backgroundColor:"rgba(0,0,100,0.3)",fontSize:"0.8rem",}}>Apport total</th>
+                <th style={{backgroundColor:"rgba(0,0,100,0.3)",fontSize:"0.8rem",}}>Contacts</th>
             </thead>
             <tbody>{Object.values(parteners).map(ptner=>{
                    return <tr style={{height:"5rem",borderBottom:"1px solid rgba(0,0,100,0.3)",}}>
@@ -105,10 +105,10 @@ export default function Partenaires() {
                            <br/>
                            <span>{ptner.nom}</span>
                         </td>
-                        <td style={{width:"8rem",paddingRight:"1rem",}}>{ptner.date}</td>
-                        <td>{ptner.intervention.map(actvt=>(<li>{actvt}</li>))}</td>
-                        <td>{ptner.total}</td>
-                        <td><a href="">{ptner.contacts}</a></td>
+                        <td style={{width:"8rem",paddingRight:"1rem",fontSize:"0.8rem",}}>{ptner.date}</td>
+                        <td style={{fontSize:"0.8rem",}}>{ptner.intervention.map(actvt=>(<li>{actvt}</li>))}</td>
+                        <td style={{fontSize:"0.8rem",}}>{ptner.total}</td>
+                        <td style={{fontSize:"0.8rem",}}><a href="">{ptner.contacts}</a></td>
                     </tr>})}
             </tbody>
         </table>
