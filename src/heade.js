@@ -30,10 +30,7 @@ export default class Heade extends React.Component{
   }
   const active=(page)=>{
         var urlcourante = document.location.href;
-        const target={
-            backgroundColor:"rgba(55, 0, 0, 0.2)",
-            color:"white",
-        };
+        const target={backgroundColor:"rgba(55,0,0,0.2)",color:"white",};
         const activeStyle=urlcourante.includes(page)?target:{};
         return activeStyle;
   }
