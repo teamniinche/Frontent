@@ -1,8 +1,10 @@
 .parteners{
   width:80%;
+  padding:10vh 10%;
 }
 @media screen and (max-width:1000px){
   .parteners{
     width:92%;
+    padding:"6vh 4%";
   }
 }
