@@ -47,6 +47,10 @@
                     color: white;
                     }
         #barDeSix{
+            display:flex;
+            flex-direction:row;
+            justify-content:center;
+            align-items:center;
             color:rgba(255,255,255,.6);
             font-weight:bold;
             font-size:24px;
