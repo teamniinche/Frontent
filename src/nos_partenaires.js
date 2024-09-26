@@ -77,7 +77,7 @@ export default function Partenaires() {
         total: "",
         contacts: "seter.sn"
     }
-    const fontSize="0.6rem";
+    const fontSize="0.6rem"
     return <div className='parteners' style={{width:"80%",height:"80vh",margin:"0px",padding:"10vh 10%",paddingTop:"15vh",}}>
         {/*<img src="/images/teamniintche.png" width="60px" height="50px"/>*/}
         <h3 style={{color:"rgba(0,0,100,0.3)",padding:"1rem 0px",}}>La TeamNiintche remercie tous ses partenairees et collaborateurs.</h3>
