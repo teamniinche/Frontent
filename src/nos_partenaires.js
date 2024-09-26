@@ -99,7 +99,7 @@ export default function Partenaires() {
                 <th>Contacts</th>
             </thead>
             <tbody>{Object.values(parteners).map(ptner=>{
-                   return <tr style={{height:"6rem",}}>
+                   return <tr style={{height:"4rem",}}>
                         <td style={{lineHeight:"1rem",}}>
                            <img src={"logos_partenaires/"+ptner.logo} width="70px" height="40px"/>
                            <br/>
