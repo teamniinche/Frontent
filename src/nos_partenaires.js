@@ -21,7 +21,7 @@ export default function Partenaires() {
     sonatel: {
         nom: "Sonatel",
         logo: "logo_sonatel.png",
-        date: "01/09/2022",
+        date: "2022",
         intervention: [
             "Campagne TOUS A L'ÉCOLE 2021",
             "Campagne TOUS A L'ÉCOLE 2023"
@@ -32,7 +32,7 @@ export default function Partenaires() {
     auchan: {
         nom: "Auchan",
         logo: "logo_auchan.png",
-        date: "01/09/2022",
+        date: "2022",
         intervention: [
             "Réfection école élémentaire LA LINGUERE de Keur Massar",
             "Réfection école primaire de Keur Madiabel(Kaolack)"
@@ -43,7 +43,7 @@ export default function Partenaires() {
     distingo: {
         nom: "Distingo",
         logo: "logo_distingo.png",
-        date: "01/09/2022",
+        date: "2022",
         intervention: [
             "Campagne TOUS A L'ÉCOLE 2022",
             "Campagne TOUS A L'ÉCOLE 2023"
@@ -54,7 +54,7 @@ export default function Partenaires() {
     fabrimetal: {
         nom: "Fabri Metal",
         logo: "logo_fabrimetal.png",
-        date: "01/09/2022",
+        date: "2022",
         intervention: ["Réfection école primaire SEBI GARE (Sébikotane)"],
         total:10000000,
         contacts: "fabrimetal.com"
@@ -62,7 +62,7 @@ export default function Partenaires() {
     mazars: {
         nom: "Mazars",
         logo: "logo_mazars.png",
-        date: "01/09/2022",
+        date: "2022",
         intervention: ["Réfection école primaire Ngolar sérère(Notto Diobass)"],
         total:10000000,
         contacts: "mazars.org"
@@ -70,7 +70,7 @@ export default function Partenaires() {
     senum: {
         nom: "Senum",
         logo: "logo_senum.png",
-        date: "01/09/2024",
+        date: "2024",
         intervention: ["Démarches en cours ..."],
         total: "",
         contacts: "senum.com"
@@ -78,7 +78,7 @@ export default function Partenaires() {
     seter: {
         nom: "Seter",
         logo: "logo_seter.png",
-        date: "01/09/2024",
+        date: "2024",
         intervention: ["Démarches en cours ..."],
         total: "",
         contacts: "seter.sn"
@@ -90,11 +90,11 @@ export default function Partenaires() {
         <h3 style={{color:"rgba(0,0,100,0.3)",padding:"1rem 0px",}}>La TeamNiintche remercie tous ses partenairees et collaborateurs.</h3>
         <table style={{width:"100%",height:"fit-content",}}>
             <thead>
-                <th style={{height:"4rem",lineHeight:"1rem",backgroundColor:"rgba(0,0,100,0.3)",}}>Nom & Logo</th>
-                <th style={{width:"8rem",backgroundColor:"rgba(0,0,100,0.3)",fontSize:fontSize,}}>Dépuis ...</th>
+                <th style={{height:"4rem",lineHeight:"1rem",backgroundColor:"rgba(0,0,100,0.3)",minWidth:"5rem",}}>Nom & Logo</th>
+                <th style={{width:"8rem",backgroundColor:"rgba(0,0,100,0.3)",fontSize:fontSize,textAlign:"center",}}>Dépuis ...</th>
                 <th style={{backgroundColor:"rgba(0,0,100,0.3)",paddingRight:"1rem",fontSize:fontSize,}}>Activités</th>
                 <th style={{backgroundColor:"rgba(0,0,100,0.3)",fontSize:fontSize,minWidth:"10rem",fontWeight:"bold",textAlign:"center",}}>Apport total (F cfa)</th>
-                <th style={{backgroundColor:"rgba(0,0,100,0.3)",fontSize:fontSize,}}>Contacts</th>
+                <th style={{backgroundColor:"rgba(0,0,100,0.3)",fontSize:fontSize,textAlign:"center",}}>Contacts</th>
             </thead>
             <tbody>{Object.values(parteners).map(ptner=>{
                    return <tr style={{height:"5rem",borderBottom:"1px solid rgba(0,0,100,0.3)",}}>
@@ -103,10 +103,10 @@ export default function Partenaires() {
                            <br/>
                            <span>{ptner.nom}</span>
                         </td>
-                        <td style={{width:"8rem",paddingRight:"1rem",fontSize:fontSize,}}>{ptner.date}</td>
+                        <td style={{width:"8rem",paddingRight:"1rem",fontSize:fontSize,textAlign:"center",}}>{ptner.date}</td>
                         <td style={{fontSize:fontSize,}}>{ptner.intervention.map(actvt=>(<li>{actvt}</li>))}</td>
-                        <td style={{fontSize:fontSize,minWidth:"10rem",fontWeight:"bold",textAlign:"center",}}>{numStr(ptner.total,' ')}</td>
-                        <td style={{fontSize:fontSize,}}><a href="">{ptner.contacts}</a></td>
+                        <td style={{fontSize:fontSize,minWidth:"10rem",fontWeight:"bold",textAlign:"center",}}>{ptner.total.toLocaleString()}</td>
+                        <td style={{fontSize:fontSize,textAlign:"center",}}><a href="">{ptner.contacts}</a></td>
                     </tr>})}
             </tbody>
         </table>
