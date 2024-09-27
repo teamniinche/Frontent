@@ -60,7 +60,7 @@ export default function Map(props) {
                            {site.partner.map(
                                ptner=>{return <span style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",width:"fit-content",padding:"5px",backgroundColor:"whitesmoke",height:"fit-content",marginRight:"5px",}}>
                                        <img src={'/logos_partenaires/logo_'+ptner+'.png'} alt={'logo_'+ptner} width="45px" height="30px" />
-                                        <span>{' '+ptner}</span>
+                                        <span>{' '+ptner[0].toUpperCase()+ptner.slice(1)}</span>
                                    </span>}
                             )}
                             </div>
