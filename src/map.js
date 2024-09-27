@@ -56,12 +56,14 @@ export default function Map(props) {
           return <Marker key={index} position={[site.lat, site.long]} icon={index===0?flag:icon} ref={element=>listMarkerRef.current[index]=element} eventHandlers={{ mouseover: ""}}>
                       <Popup>
                            {index===0?'SénégaL 🇸🇳  ':site.name}<br/>
+                           <div style={{display:"flex",flexDirection:"row",justifyContent:"flex-start",alignItems:"center",width:"fit-content",height:"fit-content",}}>
                            {site.partner.map(
-                               ptner=>{return <span style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",padding:"5px",backgroundColor:"whitesmoke",height:"fit-content",marginRight:"5px",}}>
+                               ptner=>{return <span style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",width:"fit-content",padding:"5px",backgroundColor:"whitesmoke",height:"fit-content",marginRight:"5px",}}>
                                        <img src={'/logos_partenaires/logo_'+ptner+'.png'} alt={'logo_'+ptner} width="45px" height="30px" />
                                         <span>{' '+ptner}</span>
                                    </span>}
-                            )}<br/>
+                            )}
+                            </div><br/>
                             <span style={{display:"inline-block",backgroundColor:"green",color:"white",fontWeight:"bold",padding:"4px 1rem",margin:"0.5rem 0px",borderTopRightRadius:"10px",borderBottomLeftRadius:"10px",}}>Coût moyen:<b>8 000 000</b> Fcfa</span><br/>
                             <VoirDet/>
                       </Popup> 
