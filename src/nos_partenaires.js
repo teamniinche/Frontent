@@ -78,9 +78,10 @@ export default function Partenaires() {
         contacts: "adl.sn"
     }
 }
+    
     const fontSize="0.6rem";
-    return <div style={{height:"80vh",}}>
-        <div className='parteners' style={{height:"80vh",margin:"0px",paddingTop:"70px",maxHeight:"80vh",overflow:"scroll",}}>
+    return <>
+        <div className='parteners' style={{height:"400px",margin:"0px",paddingTop:"70px",maxHeight:"400px",overflowX:"scroll",}}>
         {/*<img src="/images/teamniintche.png" width="60px" height="50px"/>*/}
         <h3 style={{color:"rgba(0,0,100,0.3)",padding:"1rem 0px",marginTop:"0px",textAlign:"center",}}>La TeamNiintche remercie tous ses partenairees et collaborateurs.</h3>
         <table style={{width:"100%",height:"fit-content",}}>
@@ -107,6 +108,6 @@ export default function Partenaires() {
         </table>
         </div>
         <NousContacter/>
-    </div>
+    </>
       
   }
