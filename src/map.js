@@ -57,7 +57,7 @@ export default function Map(props) {
                       <Popup>
                            {index===0?'SénégaL 🇸🇳  ':site.name}<br/>
                            {site.partner.map(
-                               ptner=>{return <span><img src={'/logos_partenaires/logo_'+ptner+'.png'} alt={'logo_'+ptner} width="3rem" height="2rem" /> {' '+ptner}</span>}
+                               ptner=>{return <span><img src={'/logos_partenaires/logo_'+ptner+'.png'} alt={'logo_'+ptner} width="45px" height="30px" /> {' '+ptner}</span>}
                             )}<br/>
                             <span style={{display:"inline-block",backgroundColor:"green",color:"white",fontWeight:"bold",padding:"4px 1rem",margin:"0.5rem 0px",borderTopRightRadius:"10px",borderBottomLeftRadius:"10px",}}>Coût moyen:<b>8 000 000</b> Fcfa</span><br/>
                             <VoirDet/>
@@ -78,7 +78,7 @@ export default function Map(props) {
                         {site.ID<10?('0'+site.ID+'.  '):site.ID?site.ID+ '.  ':'' }
                     </span>
                     {site.name}<br/>
-                    {site.partner.map(ptner=>{return <span><img src={'/logos_partenaires/logo_'+ptner+'.png'} alt={'logo_'+ptner} width="2.5rem" height="1.5rem" /> {' '+ptner}</span>})}
+                    {site.partner.map(ptner=>{return <span><img src={'/logos_partenaires/logo_'+ptner+'.png'} alt={'logo_'+ptner} width="35px" height="25px" /> {' '+ptner}</span>})}
             </li>)} 
           </ul> 
       </div>
