@@ -80,10 +80,10 @@ export default function Partenaires() {
 }
     const fontSize="0.6rem";
     return <div style={{height:"87vh",}}>
-        <div className='parteners' style={{height:"100%",margin:"0px",paddingTop:"70px",}}>
+        <div className='parteners' style={{height:"100%",margin:"0px",paddingTop:"70px",maxHeight:"500px",overflowY:"scroll",}}>
         {/*<img src="/images/teamniintche.png" width="60px" height="50px"/>*/}
         <h3 style={{color:"rgba(0,0,100,0.3)",padding:"1rem 0px",marginTop:"0px",textAlign:"center",}}>La TeamNiintche remercie tous ses partenairees et collaborateurs.</h3>
-        <table style={{width:"100%",height:"fit-content",maxHeight:"500px",overflowY:"scroll",}}>
+        <table style={{width:"100%",height:"fit-content",}}>
             <thead>
                 <th style={{height:"4rem",lineHeight:"1rem",backgroundColor:"rgba(0,0,100,0.3)",minWidth:"5rem",}}>Nom & Logo</th>
                 <th style={{width:"8rem",backgroundColor:"rgba(0,0,100,0.3)",fontSize:fontSize,textAlign:"center",}}>Dépuis ...</th>
