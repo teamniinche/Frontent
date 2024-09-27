@@ -58,7 +58,7 @@ export default function Map(props) {
                            {index===0?'SénégaL 🇸🇳  ':site.name}<br/>
                            {site.partner.map(
                                ptner=>{return 
-                                   <span style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",padding:"5px";backgroundColor:"whitesmoke",height:"fit-content",marginRight:"5px",}}>
+                                   <span style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",padding:"5px",backgroundColor:"whitesmoke",height:"fit-content",marginRight:"5px",}}>
                                        <img src={'/logos_partenaires/logo_'+ptner+'.png'} alt={'logo_'+ptner} width="45px" height="30px" />
                                         <span>{' '+ptner}</span>
                                    </span>}
