@@ -168,10 +168,11 @@ return <>
               </Marker>})
       }
       {/* <Sites render={(num)=>setKZoom(num)}/> */}
-  </MapContainer>
-function VoirDet(){
-    return (<a href="">voir détails de l'activité</a>)
-}
-      
+  </MapContainer>    
 </>
 }
+
+function VoirDet(){
+    return <a href="">voir détails de l'activité</a>
+}
+  
