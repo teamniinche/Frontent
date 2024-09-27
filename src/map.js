@@ -63,7 +63,7 @@ export default function Map(props) {
                                         <span>{' '+ptner}</span>
                                    </span>}
                             )}
-                            </div><br/>
+                            </div>
                             <span style={{display:"inline-block",backgroundColor:"green",color:"white",fontWeight:"bold",padding:"4px 1rem",margin:"0.5rem 0px",borderTopRightRadius:"10px",borderBottomLeftRadius:"10px",}}>Coût moyen:<b>8 000 000</b> Fcfa</span><br/>
                             <VoirDet/>
                       </Popup> 
