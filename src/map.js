@@ -85,7 +85,7 @@ export default function Map(props) {
   </div>
 }
 const sites=[
-  {name:"SénégaL 🇸🇳  Revenir à l'état initial",lat:14.5998233,long:-14.7402745},
+  {name:"SénégaL 🇸🇳  Revenir à l'état initial",partner:[],lat:14.5998233,long:-14.7402745},
   {ID:0,name:'Ecole primaire de Ngolar sérère - Noto Diobass',partner:['mazars'],lat:14.681982,long:-16.840937},
   {ID:1,name:'Lycée John Fitzgerald Kennedy',partner:[],lat:14.6945440,long:-17.4455588},
   {ID:2,name:'Ecole Manguier 2',partner:[],lat:14.689191,long:-17.458508},
