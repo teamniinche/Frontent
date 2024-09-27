@@ -95,7 +95,7 @@ const sites=[
   {ID:6,name:'Lycée Ousmane Sembene de Yoff',partner:[],lat:14.759137,long:-17.483991},
   {ID:7,name:'Ecole élémentaire LA LINGUERE(Keur Massar)',partner:['auchan'],lat:14.763831,long:-17.309521},
   {ID:8,name:'Ecole élémentaire Soukeyna Konaré(Saint Louis)',partner:[],lat:16.024871,long:-16.491862},
-  {ID:9,name:'Ecole Sebi Gare(Sebikotane)',partner:['fabrimetal],lat:14.741661,long:-17.154132},
+  {ID:9,name:'Ecole Sebi Gare(Sebikotane)',partner:['fabrimetal'],lat:14.741661,long:-17.154132},
   {ID:10,name:'Ecole Primaire de Fakhane(Bambey) X2',partner:[],lat:14.692870,long:-16.392642},
   {ID:11,name:'Ecole primaire de Keur Madiabel(Kaolack)',partner:['auchan'],lat:13.852332,long:-16.053818},
   {ID:12,name:'Ecole Hamo 3 Guediawaye',partner:[],lat:14.756895,long:-17.425552},
