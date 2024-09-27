@@ -54,7 +54,11 @@ export default function Map(props) {
         />
         {sites.map((site,index)=>{
           return <Marker key={index} position={[site.lat, site.long]} icon={index===0?flag:icon} ref={element=>listMarkerRef.current[index]=element} eventHandlers={{ mouseover: ""}}>
-                      <Popup>{index===0?'SénégaL 🇸🇳  ':site.name}<br/>Coût moyen:<b>8 000 000</b> Fcfa<br/><VoirDet/></Popup> 
+                      <Popup>
+                           {index===0?'SénégaL 🇸🇳  ':site.name}<br/>
+                            <span style={{backgroundColor:"green",color:"white",fontWeight:"bold",padding:"4px 1rem",}}>Coût moyen:<b>8 000 000</b> Fcfa</span><br/>
+                            <VoirDet/>
+                      </Popup> 
                       {/* </Marker><img src={srcPopup} alt="" style={{height:"70px",width:"100px"}}/></Popup> */}
                 </Marker>})
         }
