@@ -54,7 +54,7 @@ export default function Map(props) {
         />
         {sites.map((site,index)=>{
           return <Marker key={index} position={[site.lat, site.long]} icon={index===0?flag:icon} ref={element=>listMarkerRef.current[index]=element} eventHandlers={{ mouseover: ""}}>
-                      <Popup>{index===0?'SénégaL 🇸🇳  ':site.name}</Popup> 
+                      <Popup>{index===0?'SénégaL 🇸🇳  ':site.name<VoirDet/>}</Popup> 
                       {/* </Marker><img src={srcPopup} alt="" style={{height:"70px",width:"100px"}}/></Popup> */}
                 </Marker>})
         }
@@ -169,5 +169,12 @@ return <>
       }
       {/* <Sites render={(num)=>setKZoom(num)}/> */}
   </MapContainer>
+function VoirDet(){
+    return <>
+        <a href="">voir détails de l'activité</a>
+        
+    </>
+}
+      
 </>
 }
