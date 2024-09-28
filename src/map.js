@@ -58,9 +58,9 @@ export default function Map(props) {
                            {index===0?'SénégaL 🇸🇳  ':site.name}<br/>
                            <div style={{display:"flex",flexDirection:"row",justifyContent:"flex-start",alignItems:"center",width:"fit-content",height:"fit-content",}}>
                            {site.partner.map(
-                               ptner=>{return <a className="partnerLink" href="" style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",width:"fit-content",padding:"5px",backgroundColor:"whitesmoke",height:"fit-content",marginRight:"5px",}}>
-                                       <img src={'/logos_partenaires/logo_'+ptner+'.png'} alt={'logo_'+ptner} width="45px" height="30px" />
-                                        <span>{' '+ptner[0].toUpperCase()+ptner.slice(1)}</span>
+                               ptner=>{return <a className="partnerLink" href={'https://www.'+ptner.site} style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",width:"fit-content",padding:"5px",backgroundColor:"whitesmoke",height:"fit-content",marginRight:"5px",}}>
+                                       <img src={'/logos_partenaires/logo_'+ptner.nom+'.png'} alt={'logo_'+ptner.nom} width="45px" height="30px" />
+                                        <span>{' '+ptner.nom[0].toUpperCase()+ptner.nom.slice(1)}</span>
                                    </a>}
                             )}
                             </div>
@@ -83,42 +83,42 @@ export default function Map(props) {
                         {site.ID<10?('0'+site.ID+'.  '):site.ID?site.ID+ '.  ':'' }
                     </span>
                     {site.name}<br/>
-                    {site.partner.map(ptner=>{return <span><img src={'/logos_partenaires/logo_'+ptner+'.png'} alt={'logo_'+ptner} width="35px" height="25px" /> {' '+ptner}</span>})}
+                    {site.partner.map(ptner=>{return <span><img src={'/logos_partenaires/logo_'+ptner.nom+'.png'} alt={'logo_'+ptner.nom} width="35px" height="25px" /> {' '+ptner.nom}</span>})}
             </li>)} 
           </ul> 
       </div>
   </div>
 }
 const sites=[
-  {name:"SénégaL 🇸🇳  Revenir à l'état initial",partner:[],lat:14.5998233,long:-14.7402745},
-  {ID:0,name:'Ecole primaire de Ngolar sérère - Noto Diobass',partner:['mazars'],lat:14.681982,long:-16.840937},
-  {ID:1,name:'Lycée John Fitzgerald Kennedy',partner:[],lat:14.6945440,long:-17.4455588},
-  {ID:2,name:'Ecole Manguier 2',partner:[],lat:14.689191,long:-17.458508},
-  {ID:3,name:'Lycée Lamine Gueye(Réfectoire)',partner:[],lat:14.661993,long:-17.439949},
-  {ID:4,name:'Lycée Blaise Diagne',partner:[],lat:14.696999,long:-17.453558},
-  {ID:5,name:'Ecole élémentaire de Yoff',partner:[],lat:14.751712,long:-17.459920},
-  {ID:6,name:'Lycée Ousmane Sembene de Yoff',partner:[],lat:14.759137,long:-17.483991},
-  {ID:7,name:'Ecole élémentaire LA LINGUERE(Keur Massar)',partner:['auchan'],lat:14.763831,long:-17.309521},
-  {ID:8,name:'Ecole élémentaire Soukeyna Konaré(Saint Louis)',partner:[],lat:16.024871,long:-16.491862},
-  {ID:9,name:'Ecole Sebi Gare(Sebikotane)',partner:['fabrimetal'],lat:14.741661,long:-17.154132},
-  {ID:10,name:'Ecole Primaire de Fakhane(Bambey) X2',partner:[],lat:14.692870,long:-16.392642},
-  {ID:11,name:'Ecole primaire de Keur Madiabel(Kaolack)',partner:['auchan'],lat:13.852332,long:-16.053818},
-  {ID:12,name:'Ecole Hamo 3 Guediawaye',partner:[],lat:14.756895,long:-17.425552},
-  {ID:13,name:'Dahra Keur Mady DRAME(Kaolack)',partner:[],lat:13.709280,long:-16.117002},
-  {ID:14,name:'Daray Serigne El Hadji MBACKE(TOUBA) X2',partner:[],lat:14.905985,long:-15.918944},
-  {ID:15,name:'Ecole Lamane Ngomak Faye(Thiès)',partner:[],lat:14.791097,long:-16.935935},
-  {ID:16,name:'Annexe Empire des enfants(Popenguine)',partner:[],lat:14.554464,long:-17.113234},
-  {ID:17,name:'Ecole élémentaire Amath BA de Podor',partner:[],lat:16.651486,long:-14.955794},
-  {ID:18,name:'Ecole Kaguitte(Campagne 2022 distribution des fournitures sclaires) - Ziguinchor',partner:['sonatel','distingo'],lat:12.409300,long:-16.396568},
-  {ID:19,name:'Ecole 4 Gayenne pres de école Serigne Bassirou Mbacké - Gossas',partner:[],lat:14.485250,long:-16.063436},
-  {ID:20,name:'Ecole 9 - Dagana',partner:[],lat:16.522814,long:-15.508815},
-  {ID:21,name:'Ecole Sinthiou Daga(Campagne 2021 distribution des fournitures sclaires) - Kaolack',partner:[],lat:13.612586,long:-16.124997},
-  {ID:22,name:'Mour Diop(Salle informatique) - Medina',partner:[],lat:14.6830064,long:-17.4507858},
-  {ID:23,name:'Ecole 4 de Nguekokh - Fatick',partner:[],lat:14.5183854,long:-17.0004184},
-  {ID:24,name:'Plage Bargny(Operation plage Zéro dechets)',partner:[],lat:14.686545,long:-17.228878},
-  {ID:25,name:"École primaire Bacary DABO (Campagne <<Tous à l'école>> 2023) - Kaguitte(Ziguinchor)",partner:['sonatel','distingo'],lat:12.391625,long:-16.405854},
-  {ID:26,name:"École primaire Kaguitte kassou (Campagne <<Tous à l'école>> 2023) - Kaguitte(Ziguinchor)",partner:['sonatel','distingo'],lat:12.408594,long:-16.398019},
-  {ID:27,name:"École primaire Nyassia (Campagne <<Tous à l'école>> 2023) - Nyassia(Ziguinchor)",partner:['sonatel','distingo'],lat:12.474034,long:-16.371648}
+  {name:"SénégaL 🇸🇳  Revenir à l'état initial",partner:[],cout:8000000,lat:14.5998233,long:-14.7402745},
+  {ID:0,name:'Ecole primaire de Ngolar sérère - Noto Diobass',partner:[{nom:'mazars',site:'mazars.sn'}],cout:8000000,lat:14.681982,long:-16.840937},
+  {ID:1,name:'Lycée John Fitzgerald Kennedy',partner:[],cout:8000000,lat:14.6945440,long:-17.4455588},
+  {ID:2,name:'Ecole Manguier 2',partner:[],cout:8000000,lat:14.689191,long:-17.458508},
+  {ID:3,name:'Lycée Lamine Gueye(Réfectoire)',partner:[],cout:8000000,lat:14.661993,long:-17.439949},
+  {ID:4,name:'Lycée Blaise Diagne',partner:[],cout:8000000,lat:14.696999,long:-17.453558},
+  {ID:5,name:'Ecole élémentaire de Yoff',partner:[],cout:8000000,lat:14.751712,long:-17.459920},
+  {ID:6,name:'Lycée Ousmane Sembene de Yoff',partner:[],cout:8000000,lat:14.759137,long:-17.483991},
+  {ID:7,name:'Ecole élémentaire LA LINGUERE(Keur Massar)',partner:[{nom:'auchan',site:'auchan.sn'}],cout:8000000,lat:14.763831,long:-17.309521},
+  {ID:8,name:'Ecole élémentaire Soukeyna Konaré(Saint Louis)',partner:[],cout:8000000,lat:16.024871,long:-16.491862},
+  {ID:9,name:'Ecole Sebi Gare(Sebikotane)',partner:[{nom:'fabrimetal',site:'fabrimetal-senegal.com'}],cout:8000000,lat:14.741661,long:-17.154132},
+  {ID:10,name:'Ecole Primaire de Fakhane(Bambey) X2',partner:[],cout:8000000,lat:14.692870,long:-16.392642},
+  {ID:11,name:'Ecole primaire de Keur Madiabel(Kaolack)',partner:[{nom:'auchan',site:'auchan.sn'}],cout:8000000,lat:13.852332,long:-16.053818},
+  {ID:12,name:'Ecole Hamo 3 Guediawaye',partner:[],cout:8000000,lat:14.756895,long:-17.425552},
+  {ID:13,name:'Dahra Keur Mady DRAME(Kaolack)',partner:[],cout:8000000,lat:13.709280,long:-16.117002},
+  {ID:14,name:'Daray Serigne El Hadji MBACKE(TOUBA) X2',partner:[],cout:8000000,lat:14.905985,long:-15.918944},
+  {ID:15,name:'Ecole Lamane Ngomak Faye(Thiès)',partner:[],cout:8000000,lat:14.791097,long:-16.935935},
+  {ID:16,name:'Annexe Empire des enfants(Popenguine)',partner:[],cout:8000000,lat:14.554464,long:-17.113234},
+  {ID:17,name:'Ecole élémentaire Amath BA de Podor',partner:[],cout:8000000,lat:16.651486,long:-14.955794},
+  {ID:18,name:'Ecole Kaguitte(Campagne 2022 distribution des fournitures sclaires) - Ziguinchor',partner:[{nom:'sonatel',site:'sonatel.sn'},{nom:'distingo',site:'ips.sn'}],cout:8000000,lat:12.409300,long:-16.396568},
+  {ID:19,name:'Ecole 4 Gayenne pres de école Serigne Bassirou Mbacké - Gossas',partner:[],cout:8000000,lat:14.485250,long:-16.063436},
+  {ID:20,name:'Ecole 9 - Dagana',partner:[],cout:8000000,lat:16.522814,long:-15.508815},
+  {ID:21,name:'Ecole Sinthiou Daga(Campagne 2021 distribution des fournitures sclaires) - Kaolack',partner:[],cout:8000000,lat:13.612586,long:-16.124997},
+  {ID:22,name:'Mour Diop(Salle informatique) - Medina',partner:[],cout:8000000,lat:14.6830064,long:-17.4507858},
+  {ID:23,name:'Ecole 4 de Nguekokh - Fatick',partner:[],cout:8000000,lat:14.5183854,long:-17.0004184},
+  {ID:24,name:'Plage Bargny(Operation plage Zéro dechets)',partner:[],cout:0,lat:14.686545,long:-17.228878},
+  {ID:25,name:"École primaire Bacary DABO (Campagne <<Tous à l'école>> 2023) - Kaguitte(Ziguinchor)",partner:[{nom:'sonatel',site:'sonatel.sn'},{nom:'distingo',site:'ips.sn'}],cout:8000000,lat:12.391625,long:-16.405854},
+  {ID:26,name:"École primaire Kaguitte kassou (Campagne <<Tous à l'école>> 2023) - Kaguitte(Ziguinchor)",partner:[{nom:'sonatel',site:'sonatel.sn'},{nom:'distingo',site:'ips.sn'}],cout:8000000,lat:12.408594,long:-16.398019},
+  {ID:27,name:"École primaire Nyassia (Campagne <<Tous à l'école>> 2023) - Nyassia(Ziguinchor)",partner:[{nom:'sonatel',site:'sonatel.sn'},{nom:'distingo',site:'ips.sn'}],cout:8000000,lat:12.474034,long:-16.371648}
 
 
 ] 
