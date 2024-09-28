@@ -82,9 +82,9 @@
 
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 120px;
+  width: pfit-content;
   background-color: black;
-  color: #fff;
+  color: rgb(0,0,100);
   text-align: center;
   border-radius: 6px;
   padding: 5px 0;
