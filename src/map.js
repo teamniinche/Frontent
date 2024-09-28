@@ -67,7 +67,7 @@ export default function Map(props) {
                             )}
                             </div>
                             <span style={{display:"inline-block",backgroundColor:"green",color:"white",fontWeight:"bold",padding:"4px 1rem",margin:"0.5rem 0px",borderTopRightRadius:"10px",borderBottomLeftRadius:"10px",}}>Coût moyen:<b>{site.cout}</b> Fcfa</span><br/>
-                            <VoirDet/>
+                            <VoirDet site={site.name}/>
                       </Popup> 
                       {/* </Marker><img src={srcPopup} alt="" style={{height:"70px",width:"100px"}}/></Popup> */}
                 </Marker>})
@@ -192,7 +192,16 @@ return <>
 </>
 }
 
-function VoirDet(){
-    return <a href="">voir les détails sur l'activité</a>
+function VoirDet({site}){
+    return <a href="" className="tooltip" style={{display:"inline-block",}}>
+            voir les détails sur l'activité
+            <ul className="tooltiptext" style={{color:"rgb(0,0,100)",padding:"5px",}}>
+                <li>L'état des lieux Avant</li>
+                <li>Le progamme établi des activités prévues</li>
+                <li>Débit pour les activités prévues</li>
+                <li>Le rendu de l'ouvrage Après</li>
+                <li>le Compte-rendufinal des activités</li>
+            </ul>
+        </a>
 }
   
