@@ -66,6 +66,10 @@
           color: blue;
           text-shadow:-4px -4px 1px white;
       }
+    .partnerLink{
+        transition: transform 1s;
+        transition-timing-function: ease;
+    }
     .partnerLink:hover{
         backgroundColor:white;
         transform: scale(2.5);
