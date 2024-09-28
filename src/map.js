@@ -109,16 +109,16 @@ const sites=[
   {ID:15,name:'Ecole Lamane Ngomak Faye(Thiès)',partner:[],cout:8000000,lat:14.791097,long:-16.935935},
   {ID:16,name:'Annexe Empire des enfants(Popenguine)',partner:[],cout:8000000,lat:14.554464,long:-17.113234},
   {ID:17,name:'Ecole élémentaire Amath BA de Podor',partner:[],cout:8000000,lat:16.651486,long:-14.955794},
-  {ID:18,name:'Ecole Kaguitte(Campagne 2022 distribution des fournitures sclaires) - Ziguinchor',partner:[{nom:'sonatel',site:'sonatel.sn'},{nom:'distingo',site:'ips.sn'}],cout:8000000,lat:12.409300,long:-16.396568},
+  {ID:18,name:'Ecole Kaguitte(Campagne 2022 distribution des fournitures sclaires) - Ziguinchor',partner:[{nom:'sonatel',site:'sonatel.sn'},{nom:'distingo',site:'lps.sn'}],cout:8000000,lat:12.409300,long:-16.396568},
   {ID:19,name:'Ecole 4 Gayenne pres de école Serigne Bassirou Mbacké - Gossas',partner:[],cout:8000000,lat:14.485250,long:-16.063436},
   {ID:20,name:'Ecole 9 - Dagana',partner:[],cout:8000000,lat:16.522814,long:-15.508815},
   {ID:21,name:'Ecole Sinthiou Daga(Campagne 2021 distribution des fournitures sclaires) - Kaolack',partner:[],cout:8000000,lat:13.612586,long:-16.124997},
   {ID:22,name:'Mour Diop(Salle informatique) - Medina',partner:[],cout:8000000,lat:14.6830064,long:-17.4507858},
   {ID:23,name:'Ecole 4 de Nguekokh - Fatick',partner:[],cout:8000000,lat:14.5183854,long:-17.0004184},
   {ID:24,name:'Plage Bargny(Operation plage Zéro dechets)',partner:[],cout:0,lat:14.686545,long:-17.228878},
-  {ID:25,name:"École primaire Bacary DABO (Campagne <<Tous à l'école>> 2023) - Kaguitte(Ziguinchor)",partner:[{nom:'sonatel',site:'sonatel.sn'},{nom:'distingo',site:'ips.sn'}],cout:8000000,lat:12.391625,long:-16.405854},
-  {ID:26,name:"École primaire Kaguitte kassou (Campagne <<Tous à l'école>> 2023) - Kaguitte(Ziguinchor)",partner:[{nom:'sonatel',site:'sonatel.sn'},{nom:'distingo',site:'ips.sn'}],cout:8000000,lat:12.408594,long:-16.398019},
-  {ID:27,name:"École primaire Nyassia (Campagne <<Tous à l'école>> 2023) - Nyassia(Ziguinchor)",partner:[{nom:'sonatel',site:'sonatel.sn'},{nom:'distingo',site:'ips.sn'}],cout:8000000,lat:12.474034,long:-16.371648}
+  {ID:25,name:"École primaire Bacary DABO (Campagne <<Tous à l'école>> 2023) - Kaguitte(Ziguinchor)",partner:[{nom:'sonatel',site:'sonatel.sn'},{nom:'distingo',site:'lps.sn'}],cout:8000000,lat:12.391625,long:-16.405854},
+  {ID:26,name:"École primaire Kaguitte kassou (Campagne <<Tous à l'école>> 2023) - Kaguitte(Ziguinchor)",partner:[{nom:'sonatel',site:'sonatel.sn'},{nom:'distingo',site:'lps.sn'}],cout:8000000,lat:12.408594,long:-16.398019},
+  {ID:27,name:"École primaire Nyassia (Campagne <<Tous à l'école>> 2023) - Nyassia(Ziguinchor)",partner:[{nom:'sonatel',site:'sonatel.sn'},{nom:'distingo',site:'lps.sn'}],cout:8000000,lat:12.474034,long:-16.371648}
 
 
 ] 
