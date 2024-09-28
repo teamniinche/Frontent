@@ -193,14 +193,14 @@ return <>
 }
 
 function VoirDet({site}){
-    return <a href="" className="tooltip" style={{display:"inline-block",}}>
-            voir les détails sur l'activité
-            <ul className="tooltiptext" style={{color:"rgb(0,0,100)",padding:"5px",}}>
-                <li>L'état des lieux Avant</li>
+    return <a href="" className="tooltip">
+            voir les détails sur l activité
+            <ul className="tooltiptext">
+                <li>L état des lieux Avant</li>
                 <li>Le progamme établi des activités prévues</li>
                 <li>Débit pour les activités prévues</li>
-                <li>Le rendu de l'ouvrage Après</li>
-                <li>le Compte-rendufinal des activités</li>
+                <li>Le rendu de l ouvrage Après</li>
+                <li>le Compte-rendu final des activités</li>
             </ul>
         </a>
 }
