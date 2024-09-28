@@ -193,8 +193,8 @@ return <>
 }
 
 function VoirDet({site}){
-    return <a href="" className="tooltip">
-            voir les détails sur l activité
+    return <div className="tooltip">
+            <a  href="">voir les détails sur l activité</a>
             <ul className="tooltiptext">
                 <li>L état des lieux Avant</li>
                 <li>Le progamme établi des activités prévues</li>
@@ -202,6 +202,6 @@ function VoirDet({site}){
                 <li>Le rendu de l ouvrage Après</li>
                 <li>le Compte-rendu final des activités</li>
             </ul>
-        </a>
+        </div>
 }
   
