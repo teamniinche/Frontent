@@ -120,9 +120,8 @@ const sites=[
   {ID:24,name:'Plage Bargny(Operation plage Zéro dechets)',partner:[],cout:0,lat:14.686545,long:-17.228878},
   {ID:25,name:"École primaire Bacary DABO (Campagne <<Tous à l'école>> 2023) - Kaguitte(Ziguinchor)",partner:[{nom:'sonatel',site:'sonatel.sn',apport:4},{nom:'distingo',site:'lps.sn',apport:4}],cout:8000000,lat:12.391625,long:-16.405854},
   {ID:26,name:"École primaire Kaguitte kassou (Campagne <<Tous à l'école>> 2023) - Kaguitte(Ziguinchor)",partner:[{nom:'sonatel',site:'sonatel.sn',apport:4},{nom:'distingo',site:'lps.sn',apport:4}],cout:8000000,lat:12.408594,long:-16.398019},
-  {ID:27,name:"École primaire Nyassia (Campagne <<Tous à l'école>> 2023) - Nyassia(Ziguinchor)",partner:[{nom:'sonatel',site:'sonatel.sn',apport:4},{nom:'distingo',site:'lps.sn',apport:4}],cout:8000000,lat:12.474034,long:-16.371648}
-
-
+  {ID:27,name:"École primaire Nyassia (Campagne <<Tous à l'école>> 2023) - Nyassia(Ziguinchor)",partner:[{nom:'sonatel',site:'sonatel.sn',apport:4},{nom:'distingo',site:'lps.sn',apport:4}],cout:8000000,lat:12.474034,long:-16.371648},
+  {ID:28,name:"École primaire Maguette Codou Sarr ex Taïba- Grand dakar",partner:[],cout:10000000,lat:14.705090,long:-17.453694}
 ] 
 
 export function Mapp(props) {
