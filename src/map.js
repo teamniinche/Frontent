@@ -57,7 +57,8 @@ export default function Map(props) {
                       <Popup>
                            {index===0?'SénégaL 🇸🇳  ':site.name}<br/>
                            <div style={{display:"flex",flexDirection:"row",justifyContent:"flex-start",alignItems:"center",width:"fit-content",height:"fit-content",}}>
-                           <Travaux travaux={site.travaux}/><br/>
+                           <Travaux travaux={site.travaux}/>
+                            <br/>
                             {site.partner.length!=0?'Avec':null}
                            {site.partner.map(
                                ptner=>{return <a className="partnerLink" href={'https://www.'+ptner.site} target="_blank" style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",width:"fit-content",padding:"5px",textDecoration:"none",backgroundColor:"whitesmoke",height:"fit-content",marginRight:"5px",}}>
@@ -208,7 +209,7 @@ function VoirDet({site}){
 }
 function Travaux({travaux}){
     return <div style={{maxWidth:'100%',display:'flex',flexDirection:'row',justifyContent:'flex-start',gap:'5px',flexWrap:'wrap',}}>
-            {travaux.map(travail=>{return <span style={{display:'inline-block',width:'fit-content',height:'fit-content',fontSize:'8px',backgroundColor:'whitesmoke',padding:'2px',borderRadius:'5px',border:'2px solid rgba(0,200,0,0.4)',fontWeight:'bold',}}>✔ {travail}</span>})}
+            {travaux.map(travail=>{return <span style={{display:'inline-block',width:'fit-content',height:'fit-content',fontSize:'10px',backgroundColor:'whitesmoke',padding:'2px',borderRadius:'5px',border:'2px solid rgba(0,200,0,0.4)',fontWeight:'bold',}}>✔ {travail}</span>})}
         </div>
 }
   
