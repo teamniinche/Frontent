@@ -40,7 +40,7 @@ export default function Map(props) {
                           if(map) map.flyTo([site.lat,site.long],zoom);
                           // if(zoom!==10000){
                           const marker=listMarkerRef.current[index]
-                          const target=targetLi.current[index];
+                          const target=targetLi.current;
                           target.setAttribute('class','selected');
                           // marker.icon.iconSize=[80,100]
                           if(marker) marker.openPopup()
