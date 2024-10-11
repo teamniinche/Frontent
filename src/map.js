@@ -207,7 +207,7 @@ function VoirDet({site}){
         </div>*/}
 }
 function Travaux({travaux}){
-    return <div style{{display:'flex',flexDirection:'row',justifyContent:'flex-start',gap:'5px',}}>
+    return <div style={{display:'flex',flexDirection:'row',justifyContent:'flex-start',gap:'5px',}}>
             {travaux.map(travail=>{return <span style={{padding:'0.5rem',borderRadius:'5px',border:'2px solid green',fontWeight:'bold',}}>✔ {travail}</span>})}
         </div>
 }
