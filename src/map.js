@@ -57,9 +57,8 @@ export default function Map(props) {
                       <Popup>
                            {index===0?'SénégaL 🇸🇳  ':site.name}<br/>
                            <Travaux travaux={site.travaux}/>
-                           {'Partenaire(s) :'}<br/>
+                           {site.partner.length!=0?'Partenaire(s) :':null}<br/>
                            <div style={{display:"flex",flexDirection:"row",justifyContent:"flex-start",alignItems:"center",width:"fit-content",height:"fit-content",}}>
-    {/*{site.partner.length!=0?'Avec':null}*/}
                            {site.partner.map(
                                ptner=>{return <a className="partnerLink" href={'https://www.'+ptner.site} target="_blank" style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",width:"fit-content",padding:"5px",textDecoration:"none",backgroundColor:"whitesmoke",height:"fit-content",marginRight:"5px",}}>
                                         <span>{' '+ptner.nom[0].toUpperCase()+ptner.nom.slice(1)}</span>
