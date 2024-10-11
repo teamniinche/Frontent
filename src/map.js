@@ -66,8 +66,10 @@ export default function Map(props) {
                                    </a>}
                             )}
                             </div>
-                            <span style={{display:"inline-block",backgroundColor:"green",color:"white",fontWeight:"bold",padding:"4px 1rem",margin:"0.5rem 0px",borderTopRightRadius:"10px",borderBottomLeftRadius:"10px",}}>Coût moyen:<b>{site.cout}</b> Fcfa</span><br/>
-                            <VoirDet site={site.name}/>
+                            {index===0?null:()=>{return <>
+                                <span style={{display:"inline-block",backgroundColor:"green",color:"white",fontWeight:"bold",padding:"4px 1rem",margin:"0.5rem 0px",borderTopRightRadius:"10px",borderBottomLeftRadius:"10px",}}>Coût moyen:<b>{site.cout}</b> Fcfa</span><br/>
+                                <VoirDet site={site.name}/>
+                            </>}}
                       </Popup> 
                       {/* </Marker><img src={srcPopup} alt="" style={{height:"70px",width:"100px"}}/></Popup> */}
                 </Marker>})
