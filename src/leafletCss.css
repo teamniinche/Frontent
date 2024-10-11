@@ -11,13 +11,13 @@
     display:inline-block;
     background-color:rgba(0,0,250,0.3);
     color:white;
-    font-size:bold;
+    font-weight:bold;
 }
 li:hover{
     display:inline-block;
     background-color:rgba(0,0,250,0.3);
     color:white;
-    font-size:bold;
+    font-weight:bold;
 }
 #div-avec-map{
   display:flex;
