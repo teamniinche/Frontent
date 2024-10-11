@@ -9,8 +9,15 @@
 }
 .selected{
     display:inline-block;
-    background-color:blue;
+    background-color:rgba(0,0,250,0.3);
     color:white;
+    font-size:bold;
+}
+li:over{
+    display:inline-block;
+    background-color:rgba(0,0,250,0.3);
+    color:white;
+    font-size:bold;
 }
 #div-avec-map{
   display:flex;
