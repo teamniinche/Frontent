@@ -57,7 +57,8 @@ export default function Map(props) {
                       <Popup>
                            {index===0?'SénégaL 🇸🇳  ':site.name}<br/>
                            <div style={{display:"flex",flexDirection:"row",justifyContent:"flex-start",alignItems:"center",width:"fit-content",height:"fit-content",}}>
-                           {site.partner.length!=0?'Avec':null}
+                           <Travaux travaux={site.travaux}/>
+                            {site.partner.length!=0?'Avec':null}
                            {site.partner.map(
                                ptner=>{return <a className="partnerLink" href={'https://www.'+ptner.site} target="_blank" style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",width:"fit-content",padding:"5px",textDecoration:"none",backgroundColor:"whitesmoke",height:"fit-content",marginRight:"5px",}}>
                                         <span>{' '+ptner.nom[0].toUpperCase()+ptner.nom.slice(1)}</span>
@@ -94,36 +95,36 @@ export default function Map(props) {
   </div>
 }
 const sites=[
-  {name:"SénégaL 🇸🇳  Revenir à l'état initial",partner:[],cout:8000000,lat:14.5998233,long:-14.7402745},
-  {ID:0,name:'Ecole primaire de Ngolar sérère - Noto Diobass',partner:[{nom:'mazars',site:'mazars.sn',apport:5}],cout:8000000,lat:14.681982,long:-16.840937},
-  {ID:1,name:'Lycée John Fitzgerald Kennedy',partner:[],cout:8000000,lat:14.6945440,long:-17.4455588},
-  {ID:2,name:'Ecole Manguier 2',partner:[],cout:8000000,lat:14.689191,long:-17.458508},
-  {ID:3,name:'Lycée Lamine Gueye(Réfectoire)',partner:[],cout:8000000,lat:14.661993,long:-17.439949},
-  {ID:4,name:'Lycée Blaise Diagne',partner:[],cout:8000000,lat:14.696999,long:-17.453558},
-  {ID:5,name:'Ecole élémentaire de Yoff',partner:[],cout:8000000,lat:14.751712,long:-17.459920},
-  {ID:6,name:'Lycée Ousmane Sembene de Yoff',partner:[],cout:8000000,lat:14.759137,long:-17.483991},
-  {ID:7,name:'Ecole élémentaire LA LINGUERE(Keur Massar)',partner:[{nom:'auchan',site:'auchan.sn',apport:5}],cout:8000000,lat:14.763831,long:-17.309521},
-  {ID:8,name:'Ecole élémentaire Soukeyna Konaré(Saint Louis)',partner:[],cout:8000000,lat:16.024871,long:-16.491862},
-  {ID:9,name:'Ecole Sebi Gare(Sebikotane)',partner:[{nom:'fabrimetal',site:'fabrimetal-senegal.com',apport:8}],cout:8000000,lat:14.741661,long:-17.154132},
-  {ID:10,name:'Ecole Primaire de Fakhane(Bambey) X2',partner:[],cout:8000000,lat:14.692870,long:-16.392642},
-  {ID:11,name:'Ecole primaire de Keur Madiabel(Kaolack)',partner:[{nom:'auchan',site:'auchan.sn',apport:4}],cout:8000000,lat:13.852332,long:-16.053818},
-  {ID:12,name:'Ecole Hamo 3 Guediawaye',partner:[],cout:8000000,lat:14.756895,long:-17.425552},
-  {ID:13,name:'Dahra Keur Mady DRAME(Kaolack)',partner:[],cout:8000000,lat:13.709280,long:-16.117002},
-  {ID:14,name:'Daray Serigne El Hadji MBACKE(TOUBA) X2',partner:[],cout:8000000,lat:14.905985,long:-15.918944},
-  {ID:15,name:'Ecole Lamane Ngomak Faye(Thiès)',partner:[],cout:8000000,lat:14.791097,long:-16.935935},
-  {ID:16,name:'Annexe Empire des enfants(Popenguine)',partner:[],cout:8000000,lat:14.554464,long:-17.113234},
-  {ID:17,name:'Ecole élémentaire Amath BA de Podor',partner:[],cout:8000000,lat:16.651486,long:-14.955794},
-  {ID:18,name:'Ecole Kaguitte(Campagne 2022 distribution des fournitures sclaires) - Ziguinchor',partner:[{nom:'sonatel',site:'sonatel.sn',apport:4},{nom:'distingo',site:'lps.sn',apport:4}],cout:8000000,lat:12.409300,long:-16.396568},
-  {ID:19,name:'Ecole 4 Gayenne pres de école Serigne Bassirou Mbacké - Gossas',partner:[],cout:8000000,lat:14.485250,long:-16.063436},
-  {ID:20,name:'Ecole 9 - Dagana',partner:[],cout:8000000,lat:16.522814,long:-15.508815},
-  {ID:21,name:'Ecole Sinthiou Daga(Campagne 2021 distribution des fournitures sclaires) - Kaolack',partner:[],cout:8000000,lat:13.612586,long:-16.124997},
-  {ID:22,name:'Mour Diop(Salle informatique) - Medina',partner:[],cout:8000000,lat:14.6830064,long:-17.4507858},
-  {ID:23,name:'Ecole 4 de Nguekokh - Fatick',partner:[],cout:8000000,lat:14.5183854,long:-17.0004184},
-  {ID:24,name:'Plage Bargny(Operation plage Zéro dechets)',partner:[],cout:0,lat:14.686545,long:-17.228878},
-  {ID:25,name:"École primaire Bacary DABO (Campagne <<Tous à l'école>> 2023) - Kaguitte(Ziguinchor)",partner:[{nom:'sonatel',site:'sonatel.sn',apport:4},{nom:'distingo',site:'lps.sn',apport:4}],cout:8000000,lat:12.391625,long:-16.405854},
-  {ID:26,name:"École primaire Kaguitte kassou (Campagne <<Tous à l'école>> 2023) - Kaguitte(Ziguinchor)",partner:[{nom:'sonatel',site:'sonatel.sn',apport:4},{nom:'distingo',site:'lps.sn',apport:4}],cout:8000000,lat:12.408594,long:-16.398019},
-  {ID:27,name:"École primaire Nyassia (Campagne <<Tous à l'école>> 2023) - Nyassia(Ziguinchor)",partner:[{nom:'sonatel',site:'sonatel.sn',apport:4},{nom:'distingo',site:'lps.sn',apport:4}],cout:8000000,lat:12.474034,long:-16.371648},
-  {ID:28,name:"École primaire Maguette Codou Sarr ex Taïba- Grand dakar",partner:[],cout:10000000,lat:14.705090,long:-17.453694}
+  {name:"SénégaL 🇸🇳  Revenir à l'état initial",travaux:[],partner:[],cout:8000000,lat:14.5998233,long:-14.7402745},
+  {ID:0,name:'Ecole primaire de Ngolar sérère - Noto Diobass',travaux:['Carrelage','Peinture','Réparation de table-bancs','Nettoyage/Reboisement','Réparation de toitures'],partner:[{nom:'mazars',site:'mazars.sn',apport:5}],cout:8000000,lat:14.681982,long:-16.840937},
+  {ID:1,name:'Lycée John Fitzgerald Kennedy',travaux:['Réfection toillettes','Carrelage','Peinture','Nettoyage/Reboisement'],partner:[],cout:8000000,lat:14.6945440,long:-17.4455588},
+  {ID:2,name:'Ecole Manguier 2',travaux:['Peinture','Amenagement et drainage des eaux de pluies','Nettoyage/Reboisement'],partner:[],cout:8000000,lat:14.689191,long:-17.458508},
+  {ID:3,name:'Lycée Lamine Gueye(Réfectoire)',travaux:['Carrelage','Peinture','Nettoyage/Reboisement','Réparation de toitures','Réhabilitation des murs'],partner:[],cout:8000000,lat:14.661993,long:-17.439949},
+  {ID:4,name:'Lycée Blaise Diagne',travaux:['Carrelage','Peinture','Réparation de table-bancs','Nettoyage/Reboisement','Réparation de toitures'],partner:[],cout:8000000,lat:14.696999,long:-17.453558},
+  {ID:5,name:'Ecole élémentaire de Yoff',travaux:['Carrelage','Peinture','Réparation de table-bancs','Nettoyage/Reboisement','Réparation de toitures'],partner:[],cout:8000000,lat:14.751712,long:-17.459920},
+  {ID:6,name:'Lycée Ousmane Sembene de Yoff',travaux:['Carrelage','Peinture','Plomberie','Electricité','Réparation de table-bancs','Nettoyage/Reboisement','Réparation de toitures'],partner:[],cout:8000000,lat:14.759137,long:-17.483991},
+  {ID:7,name:'Ecole élémentaire LA LINGUERE(Keur Massar)',travaux:['Carrelage','Peinture','Plomberie','Electricité','Réparation de table-bancs','Nettoyage/Reboisement','Réparation de toitures'],partner:[{nom:'auchan',site:'auchan.sn',apport:5}],cout:8000000,lat:14.763831,long:-17.309521},
+  {ID:8,name:'Ecole élémentaire Soukeyna Konaré(Saint Louis)',travaux:['Carrelage','Peinture','Réparation de table-bancs','Plomberie','Electricité','Nettoyage/Reboisement'],partner:[],cout:8000000,lat:16.024871,long:-16.491862},
+  {ID:9,name:'Ecole Sebi Gare(Sebikotane)',travaux:['Carrelage','Peinture','Réparation de table-bancs','Nettoyage/Reboisement','Réparation de toitures'],partner:[{nom:'fabrimetal',site:'fabrimetal-senegal.com',apport:8}],cout:8000000,lat:14.741661,long:-17.154132},
+  {ID:10,name:'Ecole Primaire de Fakhane(Bambey) X2',travaux:['Carrelage','Peinture','Plomberie','Electricité','Réparation de table-bancs','Nettoyage/Reboisement','Réparation de toitures','Construction de toilettes'],partner:[],cout:8000000,lat:14.692870,long:-16.392642},
+  {ID:11,name:'Ecole primaire de Keur Madiabel(Kaolack)',travaux:['Carrelage','Peinture','Plomberie','Electricité','Réparation de table-bancs','Nettoyage/Reboisement','Réfection des toilettes'],partner:[{nom:'auchan',site:'auchan.sn',apport:4}],cout:8000000,lat:13.852332,long:-16.053818},
+  {ID:12,name:'Ecole Hamo 3 Guediawaye',travaux:['Carrelage','Peinture','Nettoyage/Reboisement'],partner:[],cout:8000000,lat:14.756895,long:-17.425552},
+  {ID:13,name:'Dahra Keur Mady DRAME(Kaolack)',travaux:['Carrelage','Peinture','Plomberie','Electricité','Nettoyage/Reboisement','Construction de toilettes'],partner:[],cout:8000000,lat:13.709280,long:-16.117002},
+  {ID:14,name:'Daray Serigne El Hadji MBACKE(TOUBA) X2',travaux:['Carrelage','Peinture','Nettoyage/Reboisement'],partner:[],cout:8000000,lat:14.905985,long:-15.918944},
+  {ID:15,name:'Ecole Lamane Ngomak Faye(Thiès)',travaux:['Peinture','Nettoyage/Reboisement'],partner:[],cout:8000000,lat:14.791097,long:-16.935935},
+  {ID:16,name:'Annexe Empire des enfants(Popenguine)',travaux:['Carrelage','Peinture','Réparation de table-bancs','Nettoyage/Reboisement'],partner:[],cout:8000000,lat:14.554464,long:-17.113234},
+  {ID:17,name:'Ecole élémentaire Amath BA de Podor',travaux:['Carrelage','Peinture','Réparation de table-bancs','Nettoyage/Reboisement','Réparation de toitures'],partner:[],cout:8000000,lat:16.651486,long:-14.955794},
+  {ID:18,name:'Ecole Kaguitte(Campagne 2022 distribution des fournitures sclaires) - Ziguinchor',travaux:['Distribution de fournitures scolaires'],partner:[{nom:'sonatel',site:'sonatel.sn',apport:4},{nom:'distingo',site:'lps.sn',apport:4}],cout:8000000,lat:12.409300,long:-16.396568},
+  {ID:19,name:'Ecole 4 Gayenne pres de école Serigne Bassirou Mbacké - Gossas',travaux:['Peinture','Nettoyage/Reboisement'],partner:[],cout:8000000,lat:14.485250,long:-16.063436},
+  {ID:20,name:'Ecole 9 - Dagana',travaux:['Carrelage','Peinture','Réparation de table-bancs','Nettoyage/Reboisement','Réparation de toitures'],partner:[],cout:8000000,lat:16.522814,long:-15.508815},
+  {ID:21,name:'Ecole Sinthiou Daga(Campagne 2021 distribution des fournitures sclaires) - Kaolack',travaux:['Distribution de fournitures scolaires'],partner:[],cout:8000000,lat:13.612586,long:-16.124997},
+  {ID:22,name:'Mour Diop(Salle informatique) - Medina',travaux:['Peinture','Nettoyage/Reboisement'],partner:[],cout:8000000,lat:14.6830064,long:-17.4507858},
+  {ID:23,name:'Ecole 4 de Nguekokh - Fatick',travaux:['Carrelage','Peinture','Réparation de table-bancs','Nettoyage/Reboisement','Réparation de toitures'],partner:[],cout:8000000,lat:14.5183854,long:-17.0004184},
+  {ID:24,name:'Plage Bargny(Operation plage Zéro dechets)',travaux:['Nettoyage/Reboisement'],partner:[],cout:0,lat:14.686545,long:-17.228878},
+  {ID:25,name:"École primaire Bacary DABO (Campagne <<Tous à l'école>> 2023) - Kaguitte(Ziguinchor)",travaux:['Distribution de fournitures scolaires'],partner:[{nom:'sonatel',site:'sonatel.sn',apport:4},{nom:'distingo',site:'lps.sn',apport:4}],cout:8000000,lat:12.391625,long:-16.405854},
+  {ID:26,name:"École primaire Kaguitte kassou (Campagne <<Tous à l'école>> 2023) - Kaguitte(Ziguinchor)",travaux:['Distribution de fournitures scolaires'],partner:[{nom:'sonatel',site:'sonatel.sn',apport:4},{nom:'distingo',site:'lps.sn',apport:4}],cout:8000000,lat:12.408594,long:-16.398019},
+  {ID:27,name:"École primaire Nyassia (Campagne <<Tous à l'école>> 2023) - Nyassia(Ziguinchor)",travaux:['Distribution de fournitures scolaires'],partner:[{nom:'sonatel',site:'sonatel.sn',apport:4},{nom:'distingo',site:'lps.sn',apport:4}],cout:8000000,lat:12.474034,long:-16.371648},
+  {ID:28,name:"École primaire Maguette Codou Sarr ex Taïba- Grand dakar",travaux:['Carrelage','Peinture','Réparation de table-bancs','Nettoyage/Reboisement','Réparation de tables-bancs'],partner:[],cout:10000000,lat:14.705090,long:-17.453694}
 ] 
 
 export function Mapp(props) {
@@ -204,5 +205,10 @@ function VoirDet({site}){
                 <li>le Compte-rendu final des activités</li>
             </ul>
         </div>*/}
+}
+function Travaux({travaux}){
+    return <div style{{display:'flex',flexDirection:'row',justifyContent:'flex-start',gap:'5px',}}>
+            {travaux.map(travail=>{return <span style={{padding:'0.5rem',borderRadius:'5px',border:'2px solid green',fontWeight:'bold',}}>✔ {travail}</span>})}
+        </div>
 }
   
