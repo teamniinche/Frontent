@@ -14,6 +14,7 @@ export default function Map(props) {
     // un tableau de refs qui permet une ref à chaque element d'une liste sur laquelle on boucle
     //sinon const listMarkerRef=useRef() est unique et affecté uniquement au dernier element la fin de la boucle
     const listMarkerRef=useRef([]); //il faut mettre [] sinon on a une erreur de "[...]Ref est null ou undefined"
+    const targetLi=useRef([]);
 
     const fc=20+kZoom
     const icon =new Icon({
@@ -39,6 +40,8 @@ export default function Map(props) {
                           if(map) map.flyTo([site.lat,site.long],zoom);
                           // if(zoom!==10000){
                           const marker=listMarkerRef.current[index]
+                          const target=targetLi.current[index];
+                          target.setAttribute('class','selected');
                           // marker.icon.iconSize=[80,100]
                           if(marker) marker.openPopup()
                           let Zoom=index===0?0:20;
@@ -83,7 +86,7 @@ export default function Map(props) {
               <input value={coord} onChange={()=>null} style={{color:"rgba(0,0,0,.1)",borderColor:"rgba(0,0,0,.1)",fontWeight:"bold"}}/>
           </div>
           <ul id="ul-list" className="enfant-de-list"> 
-              {sites.map((site,index)=><li key={index} id={'ID'+index} onClick={()=>{handleClick(site,index)}} style={{width:"100%",lineHeight:"2rem",cursor:"pointer"}}>
+              {sites.map((site,index)=><li key={index} ref={targetLi} id={'ID'+index} onClick={()=>{handleClick(site,index)}} style={{width:"100%",lineHeight:"2rem",cursor:"pointer"}}>
                     <span style={{width:"fit-content",fontWeight:"bold",color:"green"}}>
                         {site.ID<10?('0'+site.ID+'.  '):site.ID?site.ID+ '.  ':'' }
                     </span>
