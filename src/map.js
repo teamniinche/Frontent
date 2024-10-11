@@ -14,7 +14,7 @@ export default function Map(props) {
     // un tableau de refs qui permet une ref à chaque element d'une liste sur laquelle on boucle
     //sinon const listMarkerRef=useRef() est unique et affecté uniquement au dernier element la fin de la boucle
     const listMarkerRef=useRef([]); //il faut mettre [] sinon on a une erreur de "[...]Ref est null ou undefined"
-    const targetLi=useRef([]);
+    const targetLi=useRef(null);
 
     const fc=20+kZoom
     const icon =new Icon({
@@ -40,8 +40,7 @@ export default function Map(props) {
                           if(map) map.flyTo([site.lat,site.long],zoom);
                           // if(zoom!==10000){
                           const marker=listMarkerRef.current[index]
-                          const target=targetLi.current;
-                          target.setAttribute('class','selected');
+                          targetLi.current.setAttribute('class','selected');
                           // marker.icon.iconSize=[80,100]
                           if(marker) marker.openPopup()
                           let Zoom=index===0?0:20;
