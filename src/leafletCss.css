@@ -9,10 +9,8 @@
 }
 .team-on-bg{
     background-position:center;
-    background-size: 40%;
+    background-size: 50%;
     background-repeat: no-repeat;
-    filter: blur(8px);
-  -webkit-filter: blur(8px);
 }
 .selected{
     display:inline-block;
