@@ -7,6 +7,12 @@
   display:flex;
   flex-direction:column;
 }
+.team-on-bg{
+    background-image:url("/teamniintche_blanc.png");
+    background-position:center;
+    background-size: 30%;
+    background-repeat: no-repeat;
+}
 .selected{
     display:inline-block;
     background-color:rgba(0,0,250,0.6);
