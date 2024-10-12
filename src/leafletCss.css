@@ -8,7 +8,7 @@
   flex-direction:column;
 }
 .team-on-bg{
-    background-image:url("/teamniintche_blanc.png");
+    background-image:url("teamniintche.ico");
     background-position:center;
     background-size: 30%;
     background-repeat: no-repeat;
