@@ -37,6 +37,14 @@ export default function Partenaires() {
         total:10000000,
         contacts: "distingo.com"
     },
+    humam: {
+        nom: "Hum'am",
+        logo: "logo_humam.png",
+        date: "2022",
+        intervention: ["Réfection école primaire de Fakhane(Bambey)"],
+        total:70000000,
+        contacts: "humam.org"
+    },
     fabrimetal: {
         nom: "Fabri Metal",
         logo: "logo_fabrimetal.png",
