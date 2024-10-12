@@ -13,7 +13,7 @@ export default function Partenaires() {
             "Campagne TOUS A L'ÉCOLE 2023"
         ],
         total:10000000,
-        contacts: "GROUPE SONATEL"
+        contacts: "sonatel.sn"
     },
     auchan: {
         nom: "Auchan",
@@ -24,7 +24,7 @@ export default function Partenaires() {
             "Réfection école primaire de Keur Madiabel(Kaolack)"
         ],
         total:15000000,
-        contacts: "AUCHAN SENEGAL"
+        contacts: "auchan.sn"
     },
     distingo: {
         nom: "Distingo",
@@ -111,7 +111,7 @@ export default function Partenaires() {
                         <td style={{width:"8rem",paddingRight:"1rem",fontSize:fontSize,textAlign:"center",}}>{ptner.date}</td>
                         <td style={{fontSize:fontSize,}}>{ptner.intervention.map(actvt=>(<li>{actvt}</li>))}</td>
                         <td style={{fontSize:fontSize,minWidth:"10rem",fontWeight:"bold",textAlign:"center",}}>{ptner.total.toLocaleString()}</td>
-                        <td style={{fontSize:fontSize,textAlign:"center",}}><a href="">{ptner.contacts}</a></td>
+                        <td style={{fontSize:fontSize,textAlign:"center",}}><a href={"https://www:"+ptner.contacts}>{ptner.contacts}</a></td>
                     </tr>})}
             </tbody>
         </table>
