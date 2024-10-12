@@ -58,8 +58,9 @@ export default function Map(props) {
           return <Marker key={index} position={[site.lat, site.long]} icon={index===0?flag:icon} ref={element=>listMarkerRef.current[index]=element} eventHandlers={{ mouseover: ""}}>
                       <Popup>
                            {index===0?'SénégaL 🇸🇳  ':site.name}<br/>
+                           <hr/>
                            <Travaux travaux={site.travaux}/>
-                           <div style={{width:'100%',padding:'1rem',borderRadius:'8px',border:'2px dotted whitesmoke',marginTop:'0.3rem',}}>
+                           <div style={{width:'90%',padding:'2%',borderRadius:'8px',border:'2px dotted rgba(0,0,0,0.5)',marginTop:'0.3rem',}}>
                                    {site.partner.length!=0?'Partenaire(s) :':null}<br/>
                                    <div style={{display:"flex",flexDirection:"row",justifyContent:"center",alignItems:"center",width:"fit-content",height:"fit-content",}}>
                                    {site.partner.map(
