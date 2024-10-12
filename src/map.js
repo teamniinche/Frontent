@@ -60,7 +60,7 @@ export default function Map(props) {
                            {index===0?'SénégaL 🇸🇳  ':site.name}<br/>
                            <hr/>
                            <Travaux travaux={site.travaux}/>
-                           {site.partner.length!=0?<div style={{width:'90%',padding:'2%',borderRadius:'8px',border:'2px dotted rgba(0,0,0,0.5)',marginTop:'0.3rem',}}>
+                           {site.partner.length!=0?<div className='team-on-bg' style={{width:'90%',padding:'2%',borderRadius:'8px',border:'2px dotted rgba(0,0,0,0.5)',marginTop:'0.3rem',}}>
                                    {'Partenaire(s) :'}<br/>
                                    <div style={{display:"flex",flexDirection:"row",justifyContent:"center",alignItems:"center",width:"fit-content",height:"fit-content",}}>
                                    {site.partner.map(
@@ -200,7 +200,7 @@ return <>
 }
 
 function VoirDet({site}){
-    return <a  disabled href="">voir plus de détails sur l'activité</a>
+    return <a href="">voir plus de détails sur l'activité</a>
     {/*<div className="tooltip">
             <ul className="tooltiptext">
                 <li>L état des lieux Avant</li>
