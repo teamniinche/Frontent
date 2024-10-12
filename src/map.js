@@ -60,8 +60,8 @@ export default function Map(props) {
                            {index===0?'SénégaL 🇸🇳  ':site.name}<br/>
                            <hr/>
                            <Travaux travaux={site.travaux}/>
-                           <div style={{width:'90%',padding:'2%',borderRadius:'8px',border:'2px dotted rgba(0,0,0,0.5)',marginTop:'0.3rem',}}>
-                                   {site.partner.length!=0?'Partenaire(s) :':null}<br/>
+                           {site.partner.length!=0?<div style={{width:'90%',padding:'2%',borderRadius:'8px',border:'2px dotted rgba(0,0,0,0.5)',marginTop:'0.3rem',}}>
+                                   {'Partenaire(s) :'}<br/>
                                    <div style={{display:"flex",flexDirection:"row",justifyContent:"center",alignItems:"center",width:"fit-content",height:"fit-content",}}>
                                    {site.partner.map(
                                        ptner=>{return <a className="partnerLink" href={'https://www.'+ptner.site} target="_blank" style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",width:"fit-content",padding:"5px",textDecoration:"none",backgroundColor:"whitesmoke",height:"fit-content",marginRight:"5px",}}>
@@ -71,7 +71,7 @@ export default function Map(props) {
                                            </a>}
                                     )}
                                     </div>
-                            </div>
+                            </div>:null}
                             {site.name.includes('SénégaL')?null:<div>
                                 <span style={{display:"inline-block",backgroundColor:"green",color:"white",fontWeight:"bold",padding:"4px 1rem",margin:"0.5rem 0px",borderTopRightRadius:"10px",borderBottomLeftRadius:"10px",}}>Coût moyen:<b>{site.cout}</b> Fcfa</span><br/>
                                 <VoirDet site={site.name}/>
