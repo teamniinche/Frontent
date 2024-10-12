@@ -92,7 +92,7 @@ export default function Map(props) {
                     <span style={{width:"fit-content",fontWeight:"bold",color:"green"}}>
                         {site.ID<10?('0'+site.ID+'.  '):site.ID?site.ID+ '.  ':'' }
                     </span>
-                    {site.name}<br/>
+                    {site.name+' '}
                     {site.partner.map(ptner=>{return <span><img src={'/logos_partenaires/logo_'+ptner.nom+'.png'} alt={'logo_'+ptner.nom} width="35px" height="25px" /> {' '+ptner.nom}</span>})}
             </li>)} 
           </ul> 
