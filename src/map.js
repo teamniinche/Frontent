@@ -200,7 +200,7 @@ return <>
 }
 
 function VoirDet({site}){
-    return <a  href="">voir plus de détails sur l'activité</a>
+    return <a  disabled href="">voir plus de détails sur l'activité</a>
     {/*<div className="tooltip">
             <ul className="tooltiptext">
                 <li>L état des lieux Avant</li>
