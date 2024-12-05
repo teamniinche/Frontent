@@ -130,7 +130,7 @@ const sites=[
   {ID:26,name:"École primaire Kaguitte kassou (Campagne <<Tous à l'école>> 2023) - Kaguitte(Ziguinchor)",travaux:['Distribution de fournitures scolaires'],partner:[{nom:'sonatel',site:'sonatel.sn',apport:4},{nom:'distingo',site:'lps.sn',apport:4}],cout:8000000,lat:12.408594,long:-16.398019},
   {ID:27,name:"École primaire Nyassia (Campagne <<Tous à l'école>> 2023) - Nyassia(Ziguinchor)",travaux:['Distribution de fournitures scolaires'],partner:[{nom:'sonatel',site:'sonatel.sn',apport:4},{nom:'distingo',site:'lps.sn',apport:4}],cout:8000000,lat:12.474034,long:-16.371648},
   {ID:28,name:"École primaire Maguette Codou Sarr ex Taïba- Grand dakar",travaux:['maçonerie','Carrelage','Peinture','Réparation de table-bancs','Nettoyage/Reboisement'],partner:[],cout:10000000,lat:14.7050511,long:-17.4536581},
-  {ID:29,name:"Centre formation professionnelle de Bargny",travaux:['Carrelage','Peinture','Réparation de table-bancs','Nettoyage/Reboisement'],partner:[{nom:'cefe',site:'environnement.gouv.sn',apport:15}],cout:20000000,lat:14.769608,long:-17.4188987},
+  {ID:29,name:"Centre de formation professionnelle de Bargny",travaux:['Carrelage','Peinture','Réparation de table-bancs','Nettoyage/Reboisement'],partner:[{nom:'cefe',site:'environnement.gouv.sn',apport:15}],cout:20000000,lat:14.769608,long:-17.4188987},
   {ID:30,name:"École primaire El H. Ogo Diop(Dakar)",travaux:['maçonnerie','Carrelage','Peinture','Réparation de table-bancs','Nettoyage/Reboisement'],partner:[{nom:'men',site:'education.sn',apport:10}],cout:10000000,lat:14.6927794,long:-17.2246585}
 ] 
 
