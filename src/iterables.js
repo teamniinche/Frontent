@@ -185,7 +185,7 @@ export const rs=[ ['X (ex twitter)','/images/RS_logos/twitter.webp','https://www
 
 export const annees=['2022','2023','2024'];
 
-export const notre_mission="Pour le Bien-Être Scolaire à l'école publique Sénégalaise, 1 Communauté - 4 Actions";
+export const notre_mission={p1:"   Pour le Bien-Être Scolaire,",p2:" 1 Communauté - 3 Actions   "};
 export const presentation={
     paragraphe1:"   La Team Niintche est née d'une rencontre d'acteurs communautaires qui ont eu à intervenir dans diverses activités dans le cadre de leurs engagements pour la communauté. Ainsi durant la pandémie de 2019, ils ont très tot senti la necessité d'organiser la communauté pour faire face au COVID 19. Distribudtion de masques,mise en placee de point de sensibilisation,confinement consensuel ont été leur fort durant toute la période du COVID.",
     paragraphe2:"   Lorsque les autorités ont décidé de réouvrir les classes après un long moment de vacances,ils se sont engagés à nettoyer les écoles pour bien recevoir les élèves.Mais devant l'état inadapté des établissements visités particulièrement des toilettes,la volonté de refectionner ces lieux cruciaux de l'éducation a émergé et ce fut le départ de l'aventure TEAM NIINTCHE, un Consortium d'associations de Proximité réunis pour un objectif commun: Impulser une nouvelle dynamique d'engagement volontaire et participatif au service de la communauté en général , de l'École publique Sénégalaise en particulier."

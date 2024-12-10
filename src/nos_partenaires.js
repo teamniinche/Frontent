@@ -4,6 +4,22 @@ import './partenaires.css';
 export default function Partenaires() {
     
     const parteners = {
+    men: {
+        nom: "M.E.N",
+        logo: "logo_men.png",
+        date: "2024",
+        intervention: ["Réfection école primaire El H. Ogo DIOP - Dakar"],
+        total: "",
+        contacts: "education.com"
+    },
+    cefe: {
+        nom: "S.E.F.E",
+        logo: "logo_cefe.png",
+        date: "2024",
+        intervention: ["Réfection Centre de formation Professionnelle de Bargny"],
+        total: "",
+        contacts: "environnement.gouv.sn"
+    },
     sonatel: {
         nom: "Sonatel",
         logo: "logo_sonatel.png",
@@ -84,15 +100,23 @@ export default function Partenaires() {
         intervention: ["Démarches en cours ..."],
         total: "",
         contacts: "adl.sn"
+    },
+    awn: {
+        nom: "A.W.N",
+        logo: "logo_awn.png",
+        date: "2024",
+        intervention: ["Campagne TOUS A L ECOLE 2024"],
+        total: "",
+        contacts: "awlnafrican.net"
     }
 }
     
     const fontSize="0.6rem";
     return <>
-        <div className='parteners' style={{height:"87vh",margin:"0px",paddingTop:"70px",}}>
+        <div className='parteners' style={{height:"87vh",margin:"0px",paddingTop:"5rem",}}>
         {/*<img src="/images/teamniintche.png" width="60px" height="50px"/>*/}
-        <h3 style={{color:"rgba(0,0,100,0.3)",padding:"1rem 0px",marginTop:"0px",textAlign:"center",}}>La TeamNiintche remercie tous ses partenairees et collaborateurs.</h3>
-        <div style={{maxHeight:"100%",overflow:"scroll",scrollbarWidth:"thin",}}>
+        <h3 style={{color:"rgba(0,0,100,0.3)",padding:"1rem 0px",marginBottom:"0px",marginTop:"0px",textAlign:"center",}}>La TeamNiintche remercie tous ses partenairees et collaborateurs.</h3>
+        <div style={{padding:"1rem",maxHeight:"100%",overflow:"scroll",scrollbarWidth:"thin",}}>
             <table style={{width:"100%",height:"fit-content",}}>
             <thead>
                 <th style={{height:"4rem",lineHeight:"1rem",backgroundColor:"rgba(0,0,100,0.3)",minWidth:"5rem",}}>Nom & Logo</th>

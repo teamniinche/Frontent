@@ -36,7 +36,7 @@ export default function Map(props) {
     const handleActivityClick=(site,index)=>{
       document.getElementById("div-avec-map").style.display='none';
     }
-    const initialZoom=window.innerWidth>=1000?7:6.4;//1000?7:6.2;
+    const initialZoom=window.innerWidth>=1000?7:6.2;
     const handleClick=(site,index)=>{
       // document.querySelector('.leaflet-container').style.height="12vw"
       document.getElementById("div-avec-map").style.display='none';

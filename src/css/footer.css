@@ -2,9 +2,10 @@
     display:flex;
     flex-direction:column;
     justify-content:center;
-    align-items:center;
+    align-items:flex-start;
     width:98%;
     padding:1rem 1%;
+    padding-left:6%;
     background-color:black;
     color:white;
     font-size:0.8rem;
