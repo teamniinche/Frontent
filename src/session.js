@@ -7,7 +7,7 @@ import {EditMembre,ChangePassWord} from './editionsOfItems.js';
 import {DataListEquipes} from './dataListes.js';
 import Connexion from './connexion.js'
 import { isUndefined,ifVal} from './nous.js';
-import './session.css';
+import './css/session.css';
 import {compressImage,convertToBase64,dataURLtoFile} from './traitementImages.js';
 import {serverUrl} from './root.js'
 
@@ -855,7 +855,7 @@ const handleCloudinaryModalClick=async () => {
         UpdateProps(Url,fileName)
         setModalDisplay({showModal:false,imgKey:''});
 }
-
+const h=window.innerWidth>=800?'fit-content':'100vw';
     //Chargement & uploading d'images 1) et 2)
     // 1)Au chargement
 //   function handleImagesChange(e){
@@ -905,7 +905,7 @@ const handleCloudinaryModalClick=async () => {
                   background: 'white',
                   width:'80vw',
                   maxWidth:'300px',
-                  height:'100vw',
+                  height:h,
                   maxHeight:'fit-content',
                   overflow: 'auto',
                   WebkitOverflowScrolling: 'touch',

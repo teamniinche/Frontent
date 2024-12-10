@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from 'react';
 import { Link } from 'react-router-dom';
-import './lateam.css';
+import './css/lateam.css';
 import {Error} from './nous.js'
 import {serverUrl} from './root.js'
 import { loader } from './toast.js';

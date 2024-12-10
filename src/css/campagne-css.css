@@ -1,0 +1,11 @@
+.form-campagne{
+    width:80%;
+}
+.form-campagne-parts{
+    width:100%;
+    display:flex;
+    flex-direction:row;
+}
+.form-campagne-p{
+    width:50%;
+}

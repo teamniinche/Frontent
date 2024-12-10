@@ -1,7 +1,7 @@
 import React,{useEffect} from 'react';
 import {NousContacter} from './nousContacter.js';
 import  SideBar from './sideBar.js';
-import './sections.css';
+import './css/sections.css';
 
 export default function Sections() {
   // useEffect(()=>{document.getElementsByClassName('header')[0].style.height="0vh";})

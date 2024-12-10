@@ -1,5 +1,3 @@
-//people using the keyboard for navigation or screen readers will still be able to use this app.
-
 import React from "react";
 import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
 // import { PersistGate } from 'redux-persist/integration/react';
@@ -12,31 +10,23 @@ import {Nous,SecondeBar} from './nous.js';
 import LaTeam from './lateam.js';
 // import Discussion from './discussion.js';
 import {NousSoutenir,CopyRight} from './nousContacter.js';
-// import Map from './map.js'
-// import Inscription from './inscription.js'
 import Forms from './forms.js'
 import Connexion from './connexion.js'
-// import CompressionImage, {RedimensionnementImage} from './tesImage.js';
-// import PresentationEtablissement from './local.js'
-// import ImageCompressee from './imageCompressor.js'
-// import {ImageUploader} from './traitementImages.js'
 import Galerie,{PhotosGrid,NouvelAlbum,ImagesGrid} from './galerie.js'
 import Session,{FieldsetCompte} from './session.js';
-// import Slider from './slider.js';
-// import {images} from './icons.js';
 import Pagesceo from "./pagesceo.js";
 import NouveauChantier from './nouveauChantier.js';
-// import {ConnectedFieldsetCompte} from "./session.js";
 import Actu from './actu.js'
 import Contacts from "./contacts.js";
 import Accueil from "./accueil.js";
+import Items from "./campagnes-tn/items.js";
+
 
 
 export default function Teamniintche() {
   return (
-    // <PersistGate persistor={persistor}>
       <Router>
-        <div>
+        <div >
           <Heade/>
           <Routes>
             <Route>
@@ -56,13 +46,11 @@ export default function Teamniintche() {
                     <Route path="/compte/pagesceo" element=<Pagesceo/>/>
                     <Route path="/compte/nouveauChantier" element=<NouveauChantier/>/>
                     <Route path="/compte/" element=<FieldsetCompte/>/>
-                        {/* <ConnectedFieldsetCompte/> */}
-                        {/* <Route path="/compte/personnel/confidentiel" element=<Pagesceo/>/>
-                        <Route path="/compte/personnel/galerie" element=<Pagesceo/>/>
-                        <Route path="/compte/personnel/" element=<FieldsetCompte/>/>
-                    </Route> */}
                 </Route>
-                <Route path="/connexion/inscription" element=<Forms/>/> 
+                <Route path="/connexion/inscription" element=<Forms/>/>
+                <Route path="/connexion/inscription" element=<Items/>/> 
+                <Route path="/campagnes" element=<Items/>/> 
+                {/* Forms */}
                 <Route path="/nos_realisations" element=<Sections />/>
                 <Route path="/" element=<Accueil/>/>
                 <Route path="*" element=<Accueil/>/>
@@ -72,6 +60,5 @@ export default function Teamniintche() {
           <CopyRight/>
         </div>
       </Router>
-    // </PersistGate>
   );
 }

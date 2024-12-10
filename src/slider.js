@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import './slider.css';
+import './css/slider.css';
 
 export default function Slider(props) {
     const [imgSousTitre,setImgSousTitre]=useState({number:1,rapport:''});

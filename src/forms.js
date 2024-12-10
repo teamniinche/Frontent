@@ -1,11 +1,9 @@
 import React,{useEffect, useState} from 'react';
 import ReactModal from 'react-modal'
-import './forms.css';
+import './css/forms.css';
 import {NousContacter} from './nousContacter.js'
-// import { useNavigate } from 'react-router-dom';
 import { identifiant,user,securite,calendrier,formation,telephone,mail,localisation} from './icons';
 import * as validate from './regExpressions.js';
-// import {Poster} from './requetesFetch.js';
 import {DataListDepartements} from './dataListes.js';
 import { loader } from './toast.js';
 import {serverUrl} from './root.js';
@@ -246,6 +244,7 @@ export default function Forms() {
         <NousContacter/>
         </>
 }
+
 export function ConfirmEmail(props){
     const [ICode,setICode]=useState(null)
     const {pseudo,email}=props.item
@@ -314,6 +313,7 @@ export  function InputString(props){
         }
         // console.log({...state,val:event.target.value,nom:event.target.name})
         }
+
     const idd=props.for.split(" ")[0];
     useEffect(()=>{
         let inputList=document.getElementById(idd)
@@ -321,6 +321,7 @@ export  function InputString(props){
             inputList.setAttribute('list','departements');
             }
         },);
+
     function handleFocus(){
         // console.log(state)
         let label=<>{name} {star}</>
@@ -336,6 +337,7 @@ export  function InputString(props){
             parag2Message.innerText=''
         }
         }
+
     function handleBlur(event){
         let val=event.target.value;
         let label=event.target.value===""?"":<>{name} {star}</>

@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
-import './menu.css';
+import './css/menu.css';
 
 export default function Menu() {
     const handleClick=()=>{
@@ -17,7 +17,9 @@ export default function Menu() {
         <hr/>
         <Link to='/nos_realisations' className='menu_link'>NOS REALISATIONS</Link>
         <hr/>
-        <Link to='/quisommesnous' className='menu_link'>QUI SOMMES-NOUS ?</Link>
+        <Link to="/campagnes" className='menu_link'>NOS CAMPAGNES</Link>
+        <hr/>
+        {/* <Link to='/quisommesnous' className='menu_link'>QUI SOMMES-NOUS ?</Link> */}
         <hr/>
     {/*<Link to='/' className='menu_link'>NOTRE COMPTABILITE</Link>*/}
         <hr/>

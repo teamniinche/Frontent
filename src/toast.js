@@ -1,4 +1,4 @@
-// import react from 'react'
+import React from 'react'
 // import './style.css'
 
 export const loader=<div class="spinner-border text-light" role="status">

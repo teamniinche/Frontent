@@ -1,14 +1,15 @@
 import React from 'react';
 import menu from '../src/images/menu.ico';
-import './divPortable.css';
-import './style.css';
+import './css/divPortable.css';
+import './css/style.css';
 
 export default function TitreRealisations(props) {
     function handleClick(){
-        let myEement=document.getElementsByClassName("sideBar")[0];
-        let tronc=document.getElementsByClassName("tronc")[0];
+        let myEement=document.getElementById("div-avec-map");
+
+        // let tronc=document.getElementsByClassName("tronc")[0];
         myEement.style.display=myEement.style.display==="none"?"inline-block":"none";
-        tronc.style.display=myEement.style.display==="none"?"inline-block":"none";
+        // tronc.style.display=myEement.style.display==="none"?"inline-block":"none";
         }
     let ch=props.ChFocus==="John F.J.K"?"":props.ChFocus;
   return <>
