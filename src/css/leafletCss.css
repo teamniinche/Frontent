@@ -144,8 +144,10 @@ li:hover{
       float:left;
       top:-60px;
       left:20px;
-      height:90vh;
-      z-index:100;
+      max-height:70vw;
+      overflow:scroll;
+      height:70vh;
+      z-index:1000;
     }
     #div-avec-map #ul-list{
       height:fit-content;

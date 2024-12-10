@@ -8,7 +8,7 @@ export function Cards({mission}) {
       <Card.Body>
         <Card.Title><h3 style={{color:'rgba(200,0,0,0.7)',fontFamily:'serif',}}>{mission.libelle}</h3></Card.Title>
         <Card.Text>
-        <span style={{fontFamily:'cursive',fontSize:'0.7rem',}}>{mission.text}</span>
+        <span style={{fontFamily:'cursive',fontSize:'0.8rem',}}>{mission.text}</span>
         </Card.Text>
       </Card.Body>
       {mission.add && <ListGroup className="list-group-flush" >
