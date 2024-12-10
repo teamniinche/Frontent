@@ -20,7 +20,7 @@ import Actu from './actu.js'
 import Contacts from "./contacts.js";
 import Accueil from "./accueil.js";
 import Items from "./campagnes-tn/items.js";
-
+import Partenaires from "./nos_partenaires.js";
 
 
 export default function Teamniintche() {
@@ -52,6 +52,7 @@ export default function Teamniintche() {
                 <Route path="/campagnes" element=<Items/>/> 
                 {/* Forms */}
                 <Route path="/nos_realisations" element=<Sections />/>
+                <Route path="/nos_partenaires" element=<Partenaires />/>
                 <Route path="/" element=<Accueil/>/>
                 <Route path="*" element=<Accueil/>/>
             </Route>

@@ -13,9 +13,9 @@
     #mur{
         position:relative;
     }
-/* @media screen and (min-width:750px){
-        //60px  vs 80vh 
+@media screen and (min-width:750px){
+        /* 60px vs 80vh */
     .header{
-        min-height: 80vh; 
+        min-height: 60px;
     }
-}*/
+}

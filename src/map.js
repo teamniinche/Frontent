@@ -16,6 +16,7 @@ export default function Map(props) {
     // un tableau de refs qui permet une ref à chaque element d'une liste sur laquelle on boucle
     //sinon const listMarkerRef=useRef() est unique et affecté uniquement au dernier element la fin de la boucle
     const listMarkerRef=useRef([]); //il faut mettre [] sinon on a une erreur de "[...]Ref est null ou undefined"
+    const targetLi=useRef(null);
 
     const fc=20+kZoom
     const icon =new Icon({
@@ -46,18 +47,43 @@ export default function Map(props) {
                           let zoom=index===0?7:14;
                           if(map) map.flyTo([site.lat,site.long],zoom);
                           const marker=listMarkerRef.current[index]
+                          targetLi.current.setAttribute('class','selected');
+                          // marker.icon.iconSize=[80,100]
                           if(marker) marker.openPopup()
                           let Zoom=index===0?0:20;
                           setKZoom(Zoom)
                       }
-  return <>
-  <div id="map">
-    <MapContainer ref={mapRef} center={center} zoom={initialZoom} scrollWheelZoom={false} className='mapContainer'>
-        {/* attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' */}
-        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+  // const sn=<img src='' alt='🇸🇳'/>
+    // &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors
+  return <><div id="map">
+    <MapContainer ref={mapRef} center={center} zoom={6.2} scrollWheelZoom={false} className='mapContainer'>
+        <TileLayer
+          attribution='SénégaL 🇸🇳 Activités @TeamNiintche & Partenaires & Collaborateurs'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
         {sites.map((site,index)=>{
           return <Marker key={index} position={[site.lat, site.long]} icon={index===0?flag:icon} ref={element=>listMarkerRef.current[index]=element} eventHandlers={{ mouseover: ""}}>
-                      <Popup>{index===0?'SénégaL 🇸🇳  ':site.name}</Popup> 
+                      <Popup>
+                           {index===0?'SénégaL 🇸🇳  ':site.name}<br/>
+                           <hr/>
+                           <Travaux travaux={site.travaux}/>
+                           {site.partner.length!=0?<div className='team-on-bg' style={{width:'90%',padding:'2%',backgroundImage:'url("/teamniintche_blanc.png")',borderRadius:'8px',border:'2px dotted rgba(0,0,0,0.5)',marginTop:'0.3rem',}}>
+                                   {'Partenaire(s) :'}<br/>
+                                   <div style={{display:"flex",flexDirection:"row",justifyContent:"center",alignItems:"center",width:"fit-content",height:"fit-content",}}>
+                                   {site.partner.map(
+                                       ptner=>{return <a className="partnerLink" href={'https://www.'+ptner.site} target="_blank" style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",width:"fit-content",padding:"5px",textDecoration:"none",backgroundColor:"whitesmoke",height:"fit-content",marginRight:"5px",}}>
+                                                <span>{' '+ptner.nom[0].toUpperCase()+ptner.nom.slice(1)}</span>
+                                                <img src={'/logos_partenaires/logo_'+ptner.nom+'.png'} alt={'logo_'+ptner.nom} width="45px" height="30px" />
+                                                <span style={{color:"rgb(0,150,0)",}}>{ptner.apport.toLocaleString()+'M fcfa'}</span>
+                                           </a>}
+                                    )}
+                                    </div>
+                            </div>:null}
+                            {site.name.includes('SénégaL')?null:<div>
+                                <span style={{display:"inline-block",backgroundColor:"green",color:"white",fontWeight:"bold",padding:"4px 1rem",margin:"0.5rem 0px",borderTopRightRadius:"10px",borderBottomLeftRadius:"10px",}}>Coût moyen:<b>{site.cout}</b> Fcfa</span><br/>
+                                <VoirDet site={site.name}/>
+                            </div>}
+                      </Popup> 
                       {/* </Marker><img src={srcPopup} alt="" style={{height:"70px",width:"100px"}}/></Popup> */}
                 </Marker>})
         }
@@ -69,7 +95,13 @@ export default function Map(props) {
               <input value={coord} onChange={()=>null} style={{color:"rgba(0,0,0,.1)",borderColor:"rgba(0,0,0,.1)",fontWeight:"bold"}}/>
           </div>
           <ul id="ul-list" className="enfant-de-list"> 
-              {sites.map((site,index)=><li key={index} id={'ID'+index} onClick={()=>{handleClick(site,index)}} style={{width:"100%",lineHeight:"2rem",cursor:"pointer"}}><span style={{width:"fit-content",fontWeight:"bold",color:"green"}}>{site.ID<10?('0'+site.ID+'.  '):site.ID?site.ID+ '.  ':'' }</span>{site.name}</li>)} 
+              {sites.map((site,index)=><li key={index} ref={targetLi} id={'ID'+index} onClick={()=>{handleClick(site,index)}} style={{width:"100%",lineHeight:"2rem",cursor:"pointer"}}>
+                    <span style={{width:"fit-content",fontWeight:"bold",color:"green"}}>
+                        {site.ID<10?('0'+site.ID+'.  '):site.ID?site.ID+ '.  ':'' }
+                    </span>
+                    {site.name+' '}
+                    {site.partner.map(ptner=>{return <span><img src={'/logos_partenaires/logo_'+ptner.nom+'.png'} alt={'logo_'+ptner.nom} width="35px" height="25px" /> {' '+ptner.nom}</span>})}
+            </li>)} 
           </ul> 
       </div>
   </div>
@@ -115,9 +147,9 @@ const sites=[
   {ID:26,name:"École primaire Kaguitte kassou (Campagne <<Tous à l'école>> 2023) - Kaguitte(Ziguinchor)",travaux:['Distribution de fournitures scolaires'],partner:[{nom:'sonatel',site:'sonatel.sn',apport:4},{nom:'distingo',site:'lps.sn',apport:4}],cout:8000000,lat:12.408594,long:-16.398019},
   {ID:27,name:"École primaire Nyassia (Campagne <<Tous à l'école>> 2023) - Nyassia(Ziguinchor)",travaux:['Distribution de fournitures scolaires'],partner:[{nom:'sonatel',site:'sonatel.sn',apport:4},{nom:'distingo',site:'lps.sn',apport:4}],cout:8000000,lat:12.474034,long:-16.371648},
   {ID:28,name:"École primaire Maguette Codou Sarr ex Taïba- Grand dakar",travaux:['maçonerie','Carrelage','Peinture','Réparation de table-bancs','Nettoyage/Reboisement'],partner:[],cout:10000000,lat:14.7050511,long:-17.4536581},
-  {ID:29,name:"Centre formation professionnelle de Bargny",travaux:['Carrelage','Peinture','Réparation de table-bancs','Nettoyage/Reboisement'],partner:[{nom:'cefe',site:'environnement.gouv.sn',apport:15}],cout:20000000,lat:14.769608,long:-17.4188987},
+  {ID:29,name:"Centre de formation professionnelle de Bargny",travaux:['Carrelage','Peinture','Réparation de table-bancs','Nettoyage/Reboisement'],partner:[{nom:'cefe',site:'environnement.gouv.sn',apport:15}],cout:20000000,lat:14.769608,long:-17.4188987},
   {ID:30,name:"École primaire El H. Ogo Diop(Dakar)",travaux:['maçonnerie','Carrelage','Peinture','Réparation de table-bancs','Nettoyage/Reboisement'],partner:[{nom:'men',site:'education.sn',apport:10}],cout:10000000,lat:14.6927794,long:-17.2246585}
-] 
+]
 
 
 export function Mapp(props) {
@@ -183,6 +215,25 @@ return <>
               </Marker>})
       }
       {/* <Sites render={(num)=>setKZoom(num)}/> */}
-  </MapContainer>
+  </MapContainer>    
 </>
 }
+
+function VoirDet({site}){
+    return <a href="">voir plus de détails sur l'activité</a>
+    {/*<div className="tooltip">
+            <ul className="tooltiptext">
+                <li>L état des lieux Avant</li>
+                <li>Le progamme établi des activités prévues</li>
+                <li>Débit pour les activités prévues</li>
+                <li>Le rendu de l ouvrage Après</li>
+                <li>le Compte-rendu final des activités</li>
+            </ul>
+        </div>*/}
+}
+function Travaux({travaux}){
+    return <div style={{maxWidth:'100%',display:'flex',flexDirection:'row',justifyContent:'flex-start',gap:'5px',flexWrap:'wrap',}}>
+            {travaux.map(travail=>{return <span style={{display:'inline-block',width:'fit-content',height:'fit-content',fontSize:'10px',backgroundColor:'whitesmoke',padding:'2px',borderRadius:'5px',border:'2px solid rgba(0,200,0,0.4)',fontWeight:'bold',}}>✔ {travail}</span>})}
+        </div>
+}
+  

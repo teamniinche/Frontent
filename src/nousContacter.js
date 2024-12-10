@@ -35,6 +35,7 @@ export function NsContacterNsSuivre(){
 </div>
 }
 
+
 const iconsStyle={fontWeight:'bold',fontSize:'1.4rem',}
 const liStyle={display:'flex',flexDirection:'row',justifyContent:'flex-start',alignItems:'center',}
 export function Opinion(){
@@ -53,6 +54,10 @@ export function Opinion(){
                     </li>
                 </ul>
                 {/* <textarea name="textar" id="textare" cols="" rows="15" placeholder="Saisir votre message ici..."></textarea>
+    }
+    return <div className="opinion">
+                <p className="ecrire">Nous écrire à <br/><b>teamniintche@teamniintche.com</b></p>
+                <textarea name="textar" id="textare" cols="" rows="15" placeholder="Saisir votre message ici..."></textarea>
                 <InputString type="text" icon={identifiant} iconStyle={style} for="Nom" render={(obj)=>{handleChange(obj)}}/>
                 <InputString type="mail" icon={mail} iconStyle={style} for="Adresse mail" render={(obj)=>{handleChange(obj)}}/>
                 <button type="submit" className="btn btn-success" value="">Envoyer</button> */}
@@ -85,7 +90,7 @@ export default function MetaData(){
 
 export function CopyRight() {
   return <div className="copyright">
-  CopyRight ©2023 Team Niintche, Tous droits réservés ®
+  CopyRight © 2023 TeamNiintche Tous droits réservés ®
 </div>
 }
 

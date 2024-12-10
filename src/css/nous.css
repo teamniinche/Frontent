@@ -4,7 +4,7 @@
     flex-direction: column;
     padding: 5px 2px;
     padding-top:54px;
-    margin:Opx;
+    margin:0px;
     }
 .noustronc{
     display: flex;
@@ -237,10 +237,10 @@
         }
 @media screen and (max-width:1000px){
     .noussidebar{
-        width: 40%;
+        width: 45%;
         }
     .detailsmembre{
-        width: 60%;
+        width: 55%;
         }
     }
 @media screen and (max-width:700px){

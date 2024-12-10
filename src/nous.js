@@ -121,7 +121,7 @@ function DetailsMembre(){
   let images=IMAGES.filter(image=>image[0]!=='')
   let iimages=[...images,...imgFromGalerie]
   let imges=iimages.length===0?avatar:iimages;
-  console.log(imges)
+  /*console.log(imges)*/
 
   // const facebook=require('/images/RS_logos/facebook.webp');
   // const twitter=require('/images/RS_logos/twitter.webp');

@@ -105,7 +105,7 @@ const Connexion = () =>  {
     const imgLg=require('./images/logo_niintche.webp')
   return <>
     <div className="divtech">
-      <div style={{backgroundImage:"url('/filigrane.jpg')",height:"95vh",width:"100vw",marginBottom:"-50px",marginTop:"-10px"}}>
+      <div id="div-connexion" style={{backgroundImage:"url('/filigrane.jpg')",width:"100vw",height:"95vh",marginBottom:"-50px",marginTop:"-10px"}}>
         <div className="titreConnexion">Connexion à votre compte <img src={imgLg} alt="Logo de la teamniintche" className="imgLg"/></div>
         <div className="connexionContainer">
 
@@ -164,7 +164,7 @@ const Connexion = () =>  {
                 </ReactModal>
 
             <span id="buttonConnectClick">Identifiant et Mot de passe requis !</span>
-            <h5 className="sousTitre" >Vous avez un jeton mais vous ne vous etes encore inscrits 
+            <h5 className="sousTitre" >Vous vous n'êtes encore inscrit ?
                 <Link to="/connexion/inscription"><span>S'inscrire</span></Link>
             </h5>
         </div>
