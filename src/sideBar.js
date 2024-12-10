@@ -4,7 +4,7 @@ import Tronc from './tronc.js';
 import {useDispatch} from 'react-redux' ;
 import {chantiersCounter,localisation,setIndex} from './stoore.js';
 import { loader} from './toast.js';
-import './sideBar.css';
+import './css/sideBar.css';
 import {Error} from './nous.js'
 import {serverUrl} from './root.js'
 

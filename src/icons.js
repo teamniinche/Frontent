@@ -1,3 +1,5 @@
+import React from 'react'
+
 // <!-- from https://heroicons.com -->
 
 const style={width:"40px",minHeight:"40px",color:"rgba(0,0,0,.5)",margin:"20px"}

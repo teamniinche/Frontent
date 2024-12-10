@@ -1,6 +1,6 @@
 import React from 'react'
 import Slider from './slider';
-import './local.css'
+import './css/local.css'
 export default function PresentationEtablissement(props) {
     const chantier=props.chantier
     const {etat0,etat1,etat2,etat3}=chantier.etat
@@ -39,7 +39,10 @@ export function Etat(props){
   const chantier=props.chantier
   return <>
     <h2 id="1" style={{margin:"0px",marginTop:"1em",borderTop:"1px double brown",padding:".5em 1em"}}><a href="#tec" style={{ letterSpacing: "2px",textDecoration:"none" }}>🔺 Etat des lieux avant travaux</a></h2>
-    <p style={{margin:"1%",padding:"4% 4%",width:"90%",fontSize:"18px",lineHeight:"1.5em",height:"fit-content",borderRadius:"5px",textAlign:"justify",letterSpacing:"2px",fontWeight:"bold",color:"rgba(0,0,0,.7)",textShadow:"2px 2px .5px white",backgroundColor:"rgba(0,0,0,.09)"}}><Slider images={props.images} classe='sliderEtat' classe1='sliderNavPrec1' classe2='sliderNavSuiv1' />{chantier.etatLit} </p>
+    <p style={{margin:"1%",padding:"4% 4%",width:"90%",fontSize:"18px",lineHeight:"1.5em",height:"fit-content",borderRadius:"5px",textAlign:"justify",letterSpacing:"2px",fontWeight:"bold",color:"rgba(0,0,0,.7)",textShadow:"2px 2px .5px white",backgroundColor:"rgba(0,0,0,.09)"}}>
+        <Slider images={props.images} classe='sliderEtat' classe1='sliderNavPrec1' classe2='sliderNavSuiv1' />
+        {chantier.etatLit}
+    </p>
   </>
 }
 

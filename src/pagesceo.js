@@ -5,7 +5,7 @@ import {modifyChantier} from './stoore.js'  // ACTION Pour le HOOK SETTER pour l
 // ,setMembres,setNewMembres,setBlockedMembres
 import {Link,useNavigate} from 'react-router-dom';
 import ReactModal from 'react-modal'
-import './pagesceo.css';
+import './css/pagesceo.css';
 import {editer,supprimer,ajouter} from './icons.js';
 import {EditRubrique,EditMembreAdmin} from './editionsOfItems.js';
 import {UpdateProps} from './requetesFetch.js';

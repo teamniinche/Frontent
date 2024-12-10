@@ -7,7 +7,7 @@ import {nameValidator} from './regExpressions.js';
 import {Poster, UpdateProps} from './requetesFetch.js';
 import {setIges,setAlbms,setAlbum} from './stoore.js';
 import {ajouter,supprimer} from './icons.js';
-import './galerie.css';
+import './css/galerie.css';
 import {compressImage,convertToBase64,dataURLtoFile} from './traitementImages.js';
 import {serverUrl} from './root.js';
 import { useLocalStorage } from './useLocalStorage.js';
@@ -24,30 +24,8 @@ export function NouvelAlbum(props) {
     const images=useSelector((state)=>{ return state.userNewCh.images})
     const albums=useSelector((state)=>{ return state.userNewCh.albums})
     useLayoutEffect(() => {
-      // const selectElement=document.querySelector('select')
-      // const selected=selectElement.value.split('🖼 ')[1]
       let picture=images.length===0?{numeroEnvoi:0,ordreEnvoi:0,album:''}:images[images.length-1];
       setLastImage(picture)
-      // if(!selected.includes("Album.s")){
-      //   const inputElement=document.querySelector("#listAlbums")
-      //   inputElement.value=selected
-      // }
-        //if(document.querySelector('#overlay-div')){
-            //const overlay=document.querySelector('#overlay-div')
-            //overlay.style.display="inline-block"
-        //}
-        // fetch(hostUrl+'api/images/albums/getAll')//'api/images/albums/getAll')
-        //   .then(response => response.json())
-        //   .then(albums => setAlbums(albums))
-        //   .catch(error => alert(error.message)); // Stocke uniquement le message de l'erreur
-          // fetch(hostUrl+'api/images/getAll')
-          // .then(response => response.json())
-          // .then(images => {
-          // let picture=images.length===0?{numeroEnvoi:0,ordreEnvoi:0,album:''}:images[images.length-1];
-          // setLastImage(picture)
-          //       })
-          // .catch(error => alert(error.message));
-        // setModalDisplaye({showModal:true,albumName:'Aucun album',last:false})
          },[images]);
         
         const handleCloudinaryModalClick=async () => {
@@ -165,7 +143,6 @@ export default function Galerie() {
     const dispatch=useDispatch()
 
     useLayoutEffect(() => {
-        // document.getElementsByClassName('header')[0].style.height="0px";
         fetch(hostUrl+'api/images/albums/getAll')
           .then(response => response.json())
           .then(albums => {dispatch(setAlbms(albums));setAlbums(albums)})
@@ -174,43 +151,7 @@ export default function Galerie() {
           .then(images => {dispatch(setIges(images));setImages(images)})
           .catch(error => alert(error.message));
         },[dispatch]);
-        // const deleteImg=async (apiKey,apiSecret,filename) =>{
-        //     const url = hostUrl+'api/mycloudinary/delete/'+filename;
-    
-        //     fetch(url, {
-        //             method: "POST",
-        //             headers: {
-        //                 "Authorization": `Basic ${btoa(`${apiKey}:${apiSecret}`)}`
-        //             }
-        //         })
-        //     .then(response => {
-        //         if (response.status === 200) {
-        //         console.log(`L'image ${filename} a été supprimée avec succès.`);
-        //         } else {
-        //         console.error(`Échec de la suppression de l'image ${filename}.`);
-        //         }
-        //     })
-        //     .catch(error => {
-        //         console.error("Une erreur s'est produite lors de la demande de suppression.", error);
-        //     });
-        // }
 
-    //   const handleInputChange=async (e)=>{
-    //       const input =e.target;
-    //       if (input.files && input.files[0]) {
-    //           let file=input.files[0]
-    //           const base64Image = await convertToBase64(file);
-    //           const compressedImage = await compressImage(base64Image,1,300);
-    //           const compressedFile= await dataURLtoFile(compressedImage,file.name)
-    //           setCompressedFile(compressedFile)
-            //   const reader = new FileReader();
-            //     reader.onload = function (e) {
-            //       const image = document.getElementById('inputChangeImg');
-            //       image.src = compressedImage //compressedImage ;
-            //     };
-            //   reader.readAsDataURL(input.files[0]);
-        //   }
-    //   }
     const Navigate=useNavigate()
     const selectionChange=(e)=>{
       const selected=e.target.value.split('🖼 ')[1]
@@ -277,7 +218,6 @@ export function PhotosGrid() {
 
 export function ImagesGrid() {
   const [selectorProps,setSelectorProps]=useState({p_icons:"none",ajouter_retirer:false,supprimer_ico:"none"})
-  //const loggedInUser=useSelector((state)=>{return state.userNewCh.loggedInUser})
   const {getIttem,setIttem}=useLocalStorage('pseudo_images')
   const [photos,setPhotos]=useState([])
   const images=useSelector((state)=>{return state.userNewCh.album})
@@ -285,7 +225,6 @@ export function ImagesGrid() {
  
   useEffect(()=>{ 
     const pseudoImages=getIttem()
-    // const photos=pseudoImages!==undefined?pseudoImages.images:[]
     let p_icons;let supprimer_ico;let ajouter_retirer
     if(pseudoImages){
       const imagesPerso=pseudoImages.images
@@ -310,7 +249,6 @@ const handleAdd=(text,publicName)=>{
       imagesPerso.push(text)
       UpdateProps(hostUrl+'api/membres/from/galerie/updateImages',{pseudo:pseudo,images:imagesPerso})
       setIttem({pseudo:pseudo,images:imagesPerso,profil:pseudoImages.profil})
-      //   // alert(pseudoImages.pseudo)
     }else{alert("⚠ Il y'eu une erreur.")}
 }
 const handleDelete=(publicName)=>{
@@ -334,11 +272,9 @@ const pseudoImages=getIttem()
     const Images=[...before,...after]
     UpdateProps(hostUrl+'api/membres/from/galerie/updateImages',{pseudo:pseudo,images:Images})
     setIttem({pseudo:pseudo,images:Images,profil:pseudoImages.profil})
-    // alert(image.numeroEnvoi)
   }else{alert("⚠ Il y'eu une erreur.")}
 }
-// const handleImageClick=publicName=>alert(publicName) onClick={handleImageClick(publicName)}
-// const divIconsDisplay=statusUserConnected===true?"flex":"none"
+
   return <>
     <h3 style={{width:"100%",margin:"0.8em 0px",color:"grey",padding:"0px",textAlign:"center",}}>{images[0].album + ' ('+images.length+ ')'}</h3>
     <div style={{paddingTop:"0px",display:"flex",flexFlow:"row wrap",alignItems:"start",justifyContent:"space-around"}}>
@@ -369,7 +305,6 @@ const pseudoImages=getIttem()
                 </div>
           })
     }
-        {/* <button onClick={()=>setShow(true)}>ShowModal</button> */}
     </div>
     </>
   }

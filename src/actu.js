@@ -1,6 +1,6 @@
+import React from 'react'
 import {Link} from 'react-router-dom'
-// import Slider from './slider'
-import './style.css'
+import './css/style.css'
 
 
 const actu={
@@ -13,28 +13,6 @@ const actu={
     mots5:"De par cet engagement communautaire, la Teamniintche s’est particulièrement consacré à la rénovation d’écoles, à l’organisation chaque année d’une campagne de distribution de fournitures scolaires et/ou des vêtements à travers plusieurs régions du Sénégal ,à l’organisation de journées de don de sang, à des assistances sociales par des initiations de cagnottes et/ou des appels à l’aide via les réseaux sociaux pour des tiers en situation d’urgence, à des opérations de reboisement et/ou de nettoyage de plages, etc.",
 }
 export default function Actu() {
-    
-    // curl https://api.cloudinary.com/v1_1/demo/image/upload -X POST --data 'file=sample.jpg&timestamp=173719931&api_key=436464676&signature=a781d61f86a6f818af'
-    // const imgStyle1={
-    //     // float:"left",
-    //     width:"8em",
-    //     height:"8em",
-    //     margin:".05em",
-    //     marginLeft:"0px",
-    //     position:"absolute",
-    //     display:"inline"
-    // }
-    // const imgStyle2={
-    //     // float:"left",
-    //     width:"8em",
-    //     height:"8em",
-    //     margin:".05em",
-    //     marginRight:"0px",
-    //     position:"absolute",
-    //     display:"inline"
-    // }
-    // const src1=require('./images/'+actu.images[0])
-    // const src2=require('./images/'+actu.images[1])
     const handleMenuClick=()=>{
         const displayOfMenu=document.querySelector('#menu').style.display
         if(displayOfMenu==="none"){
@@ -72,10 +50,6 @@ export default function Actu() {
   }
 
   export function DerniereActualite(){
-    // const images=[['arrivee_ecole2.jpg','A larrivée']]
-    // function extraitNombre(str){ return Number(str.replace(/[^\d]/g, "")) };
-    // const pWidth="80vw";//document.querySelector("#pImgs").style.width;
-    // const pWidthInt=extraitNombre(pWidth);
     const widthFirst="45vw";
     const heightFirst="30vw"; //210px
     return <>
@@ -83,7 +57,6 @@ export default function Actu() {
       <p id="pImgs" style={{margin:"0.5%",padding:"4% 2%",width:"95%",fontSize:"16px",lineHeight:"1.5em",height:"fit-content",borderRadius:"5px",textAlign:"justify",letterSpacing:"2px",fontWeight:"bold",color:"rgba(0,0,0,.7)",textShadow:"2px 2px .5px white",backgroundColor:"rgba(0,0,0,.09)",wordWrap:"wrap",}}>
           
       <img src="/img_accueil/photo_de_famille.jpg" alt="test" style={{float:"left",position:"relative",width:widthFirst,height:heightFirst,margin:"10px",marginlLeft:"0px"}}/>
-          {/* <Slider images={images} classe='sliderEtat' classe1='sliderNavPrec1' classe2='sliderNavSuiv1' /> */}
         {actu.mots2}
       <img src="/img_accueil/don_de_sang.jpg" alt="test" style={{float:"right",position:"relative",width:"200px",height:"210px",margin:"10px",marginRight:"0px"}}/>
       {actu.mots3}

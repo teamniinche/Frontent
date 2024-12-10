@@ -1,5 +1,5 @@
 import React from 'react';
-import './imageDiv.css';
+import './css/imageDiv.css';
 
 export default function ImageDiv(props) {
   return (

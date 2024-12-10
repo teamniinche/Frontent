@@ -1,6 +1,6 @@
 import React ,{useEffect,useState} from 'react';
 import {useContext} from 'react';
-import './nous.css';
+import './css/nous.css';
 import {ResearchBar} from './sideBar.js';
 import {Link, Outlet} from 'react-router-dom';
 import { loader} from './toast.js';
@@ -123,10 +123,10 @@ function DetailsMembre(){
   let imges=iimages.length===0?avatar:iimages;
   /*console.log(imges)*/
 
-  const facebook=require('./images/RS_logos/facebook.webp');
-  const twitter=require('./images/RS_logos/twitter.webp');
-  const instagram=require('./images/RS_logos/instagram.webp');
-  const linkedin=require('./images/RS_logos/linkedin.webp');
+  // const facebook=require('/images/RS_logos/facebook.webp');
+  // const twitter=require('/images/RS_logos/twitter.webp');
+  // const instagram=require('/images/RS_logos/instagram.webp');
+  // const linkedin=require('/images/RS_logos/linkedin.webp');
   const faceLink=!isUndefined(rS.userFa)?ifVal(rS.userFa).split('.com/')[1]:''
   const xLink=!isUndefined(rS.userX)?ifVal(rS.userX).split('.com/')[1]:''
   const instaLink=!isUndefined(rS.userIn)?ifVal(rS.userIn).split('.com/')[1]:''
@@ -141,10 +141,10 @@ return(
           <span>{membre.qualification }</span> {'    ' + membre.departementDOrigine} 
           </p>
           <ul>
-          <a href={'https://www.facebook.com/'+ faceLink}><li><img src={facebook} alt="facebook"/></li></a>
-          <a href={'https://www.twitter.com/'+ xLink}><li><img src={twitter} alt="X"/></li></a>
-          <a href={'https://www.instagram.com/' + instaLink}><li><img src={instagram} alt="instagram"/></li></a>
-          <a href={'https://www.linkedin.com/' + linkLink}><li><img src={linkedin} alt="linkedin"/></li></a>
+          <a href={'https://www.facebook.com/'+ faceLink}><li><img src='/images/RS_logos/facebook.webp' alt="facebook"/></li></a>
+          <a href={'https://www.twitter.com/'+ xLink}><li><img src='/images/RS_logos/twitter.webp' alt="X"/></li></a>
+          <a href={'https://www.instagram.com/' + instaLink}><li><img src='/images/RS_logos/instagram.webp' alt="instagram"/></li></a>
+          <a href={'https://www.linkedin.com/' + linkLink}><li><img src='/images/RS_logos/linkedin.webp' alt="linkedin"/></li></a>
           </ul>
         </div>
       </div>
@@ -204,7 +204,7 @@ class Membre extends React.Component{
   const cloudinaryBaseUrl = 'https://res.cloudinary.com/'+cloudName+'/image/upload/signed_upload_demo_form/membres';
   let membreImg = cloudinaryBaseUrl+'/'+imageProfil;
     
-  const twitter=require('./images/RS_logos/twitter.webp');
+  // const twitter=require('./images/RS_logos/twitter.webp');
   const style={
     backgroundColor:this.membre.sexe==='Homme'?'rgba(0,0,250,.1)':'rgba(255,0,150,.1)',
   }
@@ -217,7 +217,7 @@ class Membre extends React.Component{
         <li className='prenomNom'>
         {this.membre.firstName +" " + this.membre.lastName +" - "+ this.membre.departementDOrigine}
         {/* <a href={url}></a> */}
-        <img src={twitter} alt="twitter" onClick={(e)=>this.handleTwitterClick(e)} id="twitterAList"/>
+        <img src='/images/RS_logos/twitter.webp' alt="twitter" onClick={(e)=>this.handleTwitterClick(e)} id="twitterAList"/>
         </li>
 
         <li>{this.membre.qualification}</li>

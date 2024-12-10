@@ -1,0 +1,46 @@
+.cards-div-icons i{
+    border:1px solid whitesmoke;
+    border-radius:5px;
+    padding:0px 3px;
+    cursor:pointer;
+}
+.cards-div-icons i:hover{
+    border:1px solid blue;
+    border-radius:5px;
+    padding:0px 3px;
+    cursor:pointer;
+    color:blue;
+}
+@media screen and (max-width:672px){
+    .scrollItems{
+        overflow-x:scroll;
+        justify-content:flex-start !important;
+    };
+}
+@media screen and (max-width:550px){
+    .cardText{
+        position:relative;
+        flex-direction:column !important;
+        border-left:1px solid rgba(0,0,80,0.1);
+        border-top:2px solid rgba(0,0,80,0.1);
+        box-shadow: unset !important;
+    };
+    .cards-img{
+        border:none !important;
+        width:180px !important;
+        height:180px !important;
+    }
+    .cards-div-icons{
+        position:absolute;
+        flex-direction:column !important;
+        top:2rem;
+        left:-2rem;
+        margin-left:2.5rem;
+    }
+}
+@media screen and (min-width:1300px){
+    .bureau-cards{
+        width:90% !important;
+        padding:0px 5%;
+    };
+}

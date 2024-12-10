@@ -5,8 +5,7 @@ import {useDispatch} from 'react-redux' //le HOOK SETTER dans le cas de @redux/t
 import {loggedAccess} from './stoore.js'   //Pour le HOOK SETTER dans le cas de @redux/toolkit
 import {InputString} from './forms.js';
 import {NousContacter} from './nousContacter.js';
-// import Modal from './modal.js';
-import './connexion.css';
+import './css/connexion.css';
 import { identifiant,securite } from './icons.js';
 import { nameValidator,passwordValidator } from './regExpressions.js';
 import { useLocalStorage } from './useLocalStorage.js';
@@ -20,10 +19,8 @@ const Connexion = () =>  {
     const dispatch=useDispatch()  //le HOOK SETTER dans le cas de @redux/toolkit
     const {setIttem}=useLocalStorage('pseudo_images')
     const [pseudo_Email,setPseudo_Email]=useState({pseudo:null,email:null,show:false})
-    // const [show,setShow]=useState(false)
     useLayoutEffect(()=>{ 
                     if(document.getElementsByClassName('top-bar')){document.getElementsByClassName('top-bar')[0].style.display="block";}
-                    // document.getElementsByClassName('header')[0].style.display="block";
                     if(document.getElementsByClassName('top-bar')){document.getElementsByClassName('top-bar')[0].style.display="block";}
                     document.getElementById("loader").style.display="none"
                     dispatch(loggedAccess(null))
@@ -70,22 +67,7 @@ const Connexion = () =>  {
         button.innerText="Se connecter";
         loader.style.display="none";
       }else{
-        // fetch('https://tnserver.onrender.com/api/membres/'+pseudo)
-        // // fetch('https://tnserver.onrender.com/api/membres/login')
-
-        //   .then(response => response.json())
-        //   .then(membre => {
-        //   if(membre.passWord===pW){
-        //     // dispatch(loginSuccess(membre));
-        //     dispatch(loggedAccess(membre))  //le HOOK SETTER dans le cas de @redux/toolkit
-        //     Navigate("/compte")
-        //   }else{
-        //     alerte.innerText='Identifiant et/ou Mot de passe INVALIDE.S !'
-        //     alerte.style.display="block";
-        //   }
-        // })
-        // .catch(error => alert("Identifiant invalide !" + error.message)); // Stocke uniquement le message de l'erreur
-        fetch('https://tnserver.onrender.com/api/membres/login',
+       fetch('https://tnserver.onrender.com/api/membres/login',
           {
             method: 'POST',
             headers: {
@@ -119,7 +101,6 @@ const Connexion = () =>  {
                       })
       }
 
-      // button.innerText="Se connecter"
     }
     const imgLg=require('./images/logo_niintche.webp')
   return <>
@@ -127,10 +108,6 @@ const Connexion = () =>  {
       <div id="div-connexion" style={{backgroundImage:"url('/filigrane.jpg')",width:"100vw",height:"95vh",marginBottom:"-50px",marginTop:"-10px"}}>
         <div className="titreConnexion">Connexion à votre compte <img src={imgLg} alt="Logo de la teamniintche" className="imgLg"/></div>
         <div className="connexionContainer">
-
-        {/* <Modal show={show} modalTitle='Test' render={bool=>setShow(bool)}><h1>Le modal</h1></Modal>
-        <button onClick={()=>setShow(true)}>ShowModal</button> */}
-
 
             <InputString type="text" icon={identifiant} for="Identifiant" render={(obj)=>{handleChange(obj)}}/>
             <span style={{display:"block",marginLeft:"50px"}}>

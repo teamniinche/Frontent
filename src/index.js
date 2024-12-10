@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import {store,persistor} from './stoore.js';
-import './index.css';
+import './css/index.css';
 import Teamniintche from './source.js'
 
 // import { persistor } from './store';

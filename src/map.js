@@ -3,9 +3,11 @@ import {useState,useRef} from 'react';
 import { useSelector} from 'react-redux'
 import { MapContainer, TileLayer,Marker,Popup} from 'react-leaflet'
 import {Icon} from 'leaflet';
-import './leafletCss.css'
+import { Karousel } from './campagnes-tn/items';
+import './css/leafletCss.css'
 
 export default function Map(props) {
+    const ints=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24];
     const [center,setCenter]=useState([14.5998233, -14.7402745])
     const [kZoom,setKZoom]=useState(0)
     const [coord,setCoord]=useState(null)
@@ -30,15 +32,20 @@ export default function Map(props) {
         iconAnchor:[fc/4,fc/4],
       }
     )
+
+    const handleActivityClick=(site,index)=>{
+      document.getElementById("div-avec-map").style.display='none';
+    }
+    const initialZoom=window.innerWidth>=1000?7:6.4;//1000?7:6.2;
     const handleClick=(site,index)=>{
       // document.querySelector('.leaflet-container').style.height="12vw"
+      document.getElementById("div-avec-map").style.display='none';
       const map=mapRef.current; //A mapContainer on l'utilise en ref={mapRef} au lieu de whenCreayed() qui ne mar che pas d'ailleurs
                           setCoord([site.lat,site.long]);
                           // let lt=site.lat-0.120000 //0.12 coefficent de deplacement du centre vers le haut(sur la lattitude) pour l'adapter à la retraction
                           setCenter([site.lat,site.long]);
-                          let zoom=index===0?6:14;
+                          let zoom=index===0?7:14;
                           if(map) map.flyTo([site.lat,site.long],zoom);
-                          // if(zoom!==10000){
                           const marker=listMarkerRef.current[index]
                           targetLi.current.setAttribute('class','selected');
                           // marker.icon.iconSize=[80,100]
@@ -48,7 +55,7 @@ export default function Map(props) {
                       }
   // const sn=<img src='' alt='🇸🇳'/>
     // &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors
-  return <div id="map">
+  return <><div id="map">
     <MapContainer ref={mapRef} center={center} zoom={6.2} scrollWheelZoom={false} className='mapContainer'>
         <TileLayer
           attribution='SénégaL 🇸🇳 Activités @TeamNiintche & Partenaires & Collaborateurs'
@@ -84,7 +91,7 @@ export default function Map(props) {
      {/* center of Senegal:[14.5998233, -14.7402745] */}
      <div id="div-avec-map">
           <div className="enfant-de-list">
-              <p>MAPPAGE {sites.length} ACTIVITES</p>
+              <p><span style={{color:'red',fontSize:'1.2rem',display:'inline-block',padding:'0.5rem',cursor:'pointer',}} onClick={handleActivityClick} id="activityNone"><i className="fa fa-xmark"></i></span> MAPPAGE {sites.length} ACTIVITES</p>
               <input value={coord} onChange={()=>null} style={{color:"rgba(0,0,0,.1)",borderColor:"rgba(0,0,0,.1)",fontWeight:"bold"}}/>
           </div>
           <ul id="ul-list" className="enfant-de-list"> 
@@ -98,7 +105,17 @@ export default function Map(props) {
           </ul> 
       </div>
   </div>
+  <div className="carousel-container">
+    <Karousel 
+      ints={ints}
+      titre="QUELQUES IMAGES DE REFECTION 2024"
+      sTitre="TN - Réfection Ecoles & Daahras 2024"
+      imgFolderRoot="img-refection/imageRef2024"
+    />
+  </div>
+  </>
 }
+
 const sites=[
   {name:"SénégaL 🇸🇳  Revenir à l'état initial",travaux:[],partner:[],cout:8000000,lat:14.5998233,long:-14.7402745},
   {ID:0,name:'Ecole primaire de Ngolar sérère - Noto Diobass',travaux:['Carrelage','Peinture','Réparation de table-bancs','Nettoyage/Reboisement','Réparation de toitures'],partner:[{nom:'mazars',site:'mazars.sn',apport:5}],cout:8000000,lat:14.681982,long:-16.840937},
@@ -132,7 +149,8 @@ const sites=[
   {ID:28,name:"École primaire Maguette Codou Sarr ex Taïba- Grand dakar",travaux:['maçonerie','Carrelage','Peinture','Réparation de table-bancs','Nettoyage/Reboisement'],partner:[],cout:10000000,lat:14.7050511,long:-17.4536581},
   {ID:29,name:"Centre de formation professionnelle de Bargny",travaux:['Carrelage','Peinture','Réparation de table-bancs','Nettoyage/Reboisement'],partner:[{nom:'cefe',site:'environnement.gouv.sn',apport:15}],cout:20000000,lat:14.769608,long:-17.4188987},
   {ID:30,name:"École primaire El H. Ogo Diop(Dakar)",travaux:['maçonnerie','Carrelage','Peinture','Réparation de table-bancs','Nettoyage/Reboisement'],partner:[{nom:'men',site:'education.sn',apport:10}],cout:10000000,lat:14.6927794,long:-17.2246585}
-] 
+]
+
 
 export function Mapp(props) {
   const index=useSelector(state=>state.userNewCh.index)

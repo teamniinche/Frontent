@@ -1,0 +1,208 @@
+.leaflet-container{
+    height: 40vw;
+    width:65vw;
+    float: right;
+}
+#map{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+}
+.team-on-bg{
+    background-position:center;
+    background-size: 50%;
+    background-repeat: no-repeat;
+}
+.selected{
+    display:inline-block;
+    background-color:rgba(0,0,250,0.6);
+    color:white;
+    font-weight:bold;
+}
+li:hover{
+    display:inline-block;
+    background-color:rgba(0,0,250,0.6);
+    color:white;
+    font-weight:bold;
+}
+#div-avec-map{
+  display:flex;
+  flex-direction:column;
+  height:95%;
+  width:90%;
+  padding:15px 0px;
+  margin:0px auto;
+  box-shadow:-8px -8px 10px rgba(0, 0, 0, 0.2),8px 8px 10px rgba(0, 0, 0, 0.2);
+  margin-bottom:15px
+  }
+    #div-avec-map ul{
+        display:grid;
+        height:60vh;
+        overflow-y:scroll;
+        color:rgb(0,0,160);
+        list-style:none;
+        width:95%;
+        border-top:2px solid grey;
+        margin:0px 2%;
+        padding:0px
+        }
+.enfant-de-list{
+  display:flex;
+  flex-direction:row;
+  width:96%;
+  margin-bottom:15px;
+  }
+    .enfant-de-list p{
+        margin:0px 10px;
+        color:green;
+        font-weight:bold;
+        width:45%;
+        }
+    .enfant-de-list input{
+        text-align:center;
+        height:2em;
+        width:50%;
+        margin:0px;
+        padding:0px;
+        font-size:0.7rem
+        }
+        #ul-list li{
+          display:inline-block;
+          width:100%;
+
+        }
+        #ul-list li:first-child{
+          position:sticky;
+          top:0px;
+          padding:auto;
+          overflow:hidden;
+          height:2em;
+          text-align:center;
+          font-weight:bold;
+          letter-spacing:1px;
+          background-color: antiquewhite;
+          color: blue;
+          text-shadow:-4px -4px 1px white;
+      }
+      .carousel-container{
+        background:linear-gradient(to left bottom, white,rgba(0,90,90,0.8));
+        padding:1rem 15%;
+      }
+      #filigrane{
+        display:none !important;
+      }
+    .partnerLink{
+        transition: transform 1s;
+        transition-timing-function: ease;
+    }
+    .partnerLink:hover{
+        background-color:white;
+        transform: scale(2.5);
+    }
+    .tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: pfit-content;
+  background-color: black;
+  color: rgb(0,0,100);
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+.tooltiptext {
+  left:0px;
+  top:15px;
+}
+
+@media screen and (max-width:1000px){
+    #filigrane{
+      display:none !important;
+    }
+    .leaflet-container{
+      width:100% !important;
+      height:100% !important;
+    };
+    #div-avec-map{
+      margin:0px auto;
+      box-shadow:-8px -8px 10px rgba(0, 0, 0, 0.2),8px 8px 10px rgba(0, 0, 0, 0.2);
+      position:absolute;
+      background-color:white;
+      display:none;
+      float:left;
+      top:-60px;
+      left:20px;
+      height:90vh;
+      z-index:100;
+    }
+    #div-avec-map #ul-list{
+      height:fit-content;
+    }
+    .carousel-container{
+      padding:1rem 2vw;
+      height:96vw;
+    }
+    #map{
+      height:60vh;
+      /* padding:1rem; */
+      padding:0px;
+      margin:0px;
+    }
+    .mapContainer{
+      /* position:absolute; */
+      float:left;
+      height:100%;
+      margin:0px;
+    }
+
+   }
+/* @media screen and (max-width:700px){
+    #div-avec-map{
+      top:-54px;
+    }
+  } */
+@media screen and (min-width:1000px){
+    #filigrane{
+      display:none !important;
+    }
+    #map{
+        flex-direction:row-reverse;
+    }
+    #div-avec-map{
+      display:flex !important;
+      width:40%;
+      height:fit-content;
+      margin:0px;
+      margin-top: 30px;
+      padding-left:1.5em;
+      box-shadow:none;
+    }
+    #activityNone{
+      display:none !important;
+    }
+    .enfant-de-list{
+      width:100%;
+      height: fit-content;
+    }
+    .enfant-de-list li{
+      font-size: .65em;
+    }
+    .enfant-de-list p,.enfant-de-list span{
+      font-size:1em;
+    }
+    #div-avec-map ul{
+      height: 35vw;
+    }
+  }

@@ -1,5 +1,5 @@
 import React from 'react';
-import './heade.css';
+import './css/heade.css';
 import img1 from '../src/images/logo_niintche_blanc.ico';
 import menu from '../src/images/menu.ico';
 import {Link} from 'react-router-dom';
@@ -37,7 +37,10 @@ export default class Heade extends React.Component{
     
   render(){
   return (
-    // <div className="header">
+    // <div style={{display:'flex',flexDirection:'column',alignItems:'center',height:'fit-content',}}>
+    // <div style={{backgroundColor:'white',height:'60px',width:'1000px',position:'sticky',top:'0px',zIndex:'10',}}>test</div>
+    
+    // {/* // <div className="header"> */}
           <div className="top-bar" id='topbaar'>
               <div className="contient">
                 <div id="right">
@@ -49,9 +52,10 @@ export default class Heade extends React.Component{
                   <div className="nav-items">
                       <Link to="/" style={this.active("ccueil")}>Accueil</Link>
                       <Link to="/nos_realisations" style={this.active("alisations")}>Réalisations</Link>
+                      <Link to="/campagnes" style={this.active("ampagnes")}>Campagnes</Link>
                       <Link to="/nos_partenaires" style={this.active("partenaires")}>Nos partenaires</Link>
                       {/*<Link to="/quisommesnous">Qui sommes-nous ?</Link>
-    <Link to="/notre_comptabilite">Comptabilité</Link>*/}
+                      <Link to="/notre_comptabilite">Comptabilité</Link>*/}
                       <Link to="/nousContacter" style={this.active("ontact")}>Contacts</Link>
                   </div>
                   <div id='img_menu' onClick={this.handleClick}>
@@ -61,7 +65,7 @@ export default class Heade extends React.Component{
               </div>
                 <Menu/>
           </div>
-          
+          // </div>
   )}
 }
 
