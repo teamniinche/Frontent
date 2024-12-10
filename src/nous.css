@@ -4,14 +4,15 @@
     flex-direction: column;
     padding: 5px 2px;
     padding-top:54px;
-    margin:Opx;
+    margin:0px;
     }
 .noustronc{
     display: flex;
     flex-direction: row;
     padding:0px;
     padding-top: 5px;
-    margin:Opx;
+    margin:0px;
+    margin-top:50px;
 
     }
 .secondebar{
@@ -234,12 +235,19 @@
             /* box-shadow: 2px -2px 1px brown inset, -2px 2px 1px white inset; */
             box-shadow: 1px -1px 3px grey inset, -4px 4px 6px white inset;
         }
+@media screen and (max-width:1000px){
+    .noussidebar{
+        width: 45%;
+        }
+    .detailsmembre{
+        width: 55%;
+        }
+    }
 @media screen and (max-width:700px){
     .noustronc{
         display: flex;
         flex-direction: column;
         padding: 2px;
-        margin:Opx;
         }
     .noussidebar,.secondebar{
         width: 97%;

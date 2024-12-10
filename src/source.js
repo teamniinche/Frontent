@@ -30,6 +30,7 @@ import NouveauChantier from './nouveauChantier.js';
 import Actu from './actu.js'
 import Contacts from "./contacts.js";
 import Accueil from "./accueil.js";
+import Partenaires from "./nos_partenaires.js";
 
 
 export default function Teamniintche() {
@@ -64,6 +65,7 @@ export default function Teamniintche() {
                 </Route>
                 <Route path="/connexion/inscription" element=<Forms/>/> 
                 <Route path="/nos_realisations" element=<Sections />/>
+                <Route path="/nos_partenaires" element=<Partenaires />/>
                 <Route path="/" element=<Accueil/>/>
                 <Route path="*" element=<Accueil/>/>
             </Route>

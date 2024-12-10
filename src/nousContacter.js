@@ -14,7 +14,7 @@ export function NousContacter(){
                 <ul id="liste_reseaux_sociaux">
                     <li><Link to="https://facebook.com/teamniintche/"><img src={facebook} alt="facebook"/></Link></li>
                     {/* <span>Facebook</span></Link></li> */}
-                    <li><Link to="https://twitter.com/TeamNiintche/"><img src={twitter} alt="Twitter"/></Link></li>
+                    <li><Link to="https://x.com/TeamNiintche/"><img src={twitter} alt="Twitter"/></Link></li>
                     {/* <span>Twitter</span></Link> </li> */}
                     <li><Link to="https://instagram.com/teamniintche/"><img src={instagram} alt="Instagram"/></Link></li>
                     {/* <span>Instagram</span></Link> </li> */}
@@ -30,7 +30,7 @@ export function Opinion(){
 
     }
     return <div className="opinion">
-                <p className="ecrire">Nous écrire à la newsletter</p>
+                <p className="ecrire">Nous écrire à <br/><b>teamniintche@teamniintche.com</b></p>
                 <textarea name="textar" id="textare" cols="" rows="15" placeholder="Saisir votre message ici..."></textarea>
                 <InputString type="text" icon={identifiant} iconStyle={style} for="Nom" render={(obj)=>{handleChange(obj)}}/>
                 <InputString type="mail" icon={mail} iconStyle={style} for="Adresse mail" render={(obj)=>{handleChange(obj)}}/>
@@ -41,7 +41,7 @@ export function Numeros(){
     return <div className="reseaux_Sociaux">
                 <p className="suivre">Nos numéros de téléphone</p>
                 <ul id="liste_numeros">
-                    <li>(+221) 77 152 86 20 / 76 375 57 32</li>
+                    <li>(+221) 77 616 01 04 / 77 517 48 78</li>
                 </ul>
             </div>
         }
@@ -57,7 +57,7 @@ export default function MetaData(){
 
 export function CopyRight() {
   return <div className="copyright">
-  CopyRight © 2023 @ndourm9 Tous droits réservés ®
+  CopyRight © 2023 TeamNiintche Tous droits réservés ®
 </div>
 }
 
