@@ -181,6 +181,13 @@ export const contacts=[
     ['Siège : N°346 Grand-Dakar','/logos_contacts/location.png','']
 ]
 
+// const rss=[ ['X (ex twitter)','/images/RS_logos/twitter.webp','https://www.x.com/'],
+//     ['Facebook','/images/RS_logos/facebook.webp','https://www.facebook.com/'],
+//     ['Youtube','/images/RS_logos/youtube.webp','https://www.youtube.com/'],
+//     ['Instagram','/images/RS_logos/instagram.webp','https://www.Instagram.com/'],
+//     ['Linkedin','/images/RS_logos/linkedin.webp','https://www.linkedin.com/']
+// ]
+
 export const missionActions=[
     "Rénovation d'écoles et de Daaras",
     "Réparation de de table-bancs",

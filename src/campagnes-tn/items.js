@@ -3,7 +3,7 @@ import { Dropdown,Carousel } from 'react-bootstrap';
 import Modal from './new-item.js';
 import {serverApiUrl} from '../root.js';
 import '../css/items.css';
-import {parteners,partenaires,annees} from '../iterables.js'
+import {missionActions,parteners,partenaires,activities,contacts,rs,annees} from '../iterables.js'
 import Partenaires,{PartenerCard} from '../components/partenaires.js';
 import { AlertPoped } from './poputs.js';
 import DataTable from 'datatables.net-dt';
@@ -506,56 +506,6 @@ export function Partnaires(){
     </div>
 }
 
-const activities=[
-'Ecole primaire de Ngolar sérère - Noto Diobass',
-'Lycée John Fitzgerald Kennedy',
-'Ecole Manguier 2',
-'Lycée Lamine Gueye(Réfectoire)',
-'Lycée Blaise Diagne',
-'Ecole élémentaire de Yoff',
-'Lycée Ousmane Sembene de Yoff',
-'Ecole élémentaire LA LINGUERE(Keur Massar)',
-'Ecole élémentaire Soukeyna Konaré(Saint Louis)',
-'Ecole Sebi Gare(Sebikotane)',
-  'Ecole Primaire de Fakhane(Bambey) X2',
-  'Ecole primaire de Keur Madiabel(Kaolack)',
-  'Ecole Hamo 3 Guediawaye',
-  'Dahra Keur Mady DRAME(Kaolack)',
-  'Daray Serigne El Hadji MBACKE(TOUBA) X2',
-  'Ecole Lamane Ngomak Faye(Thiès)',
-  'Annexe Empire des enfants(Popenguine)',
-  'Ecole élémentaire Amath BA de Podor',
-  'Ecole Kaguitte(Campagne 2022 distribution des fournitures sclaires) - Ziguinchor',
-  'Ecole 4 Gayenne pres de école Serigne Bassirou Mbacké - Gossas',
-  'Ecole 9 - Dagana',
-  'Ecole Sinthiou Daga(Campagne 2021 distribution des fournitures sclaires) - Kaolack',
-  'Mour Diop(Salle informatique) - Medina',
-  'Ecole 4 de Nguekokh - Fatick',
-  'Plage Bargny(Operation plage Zéro dechets)',
-  "École primaire Bacary DABO (Campagne <<Tous à l'école>> 2023) - Kaguitte(Ziguinchor)",
-  "École primaire Kaguitte kassou (Campagne <<Tous à l'école>> 2023) - Kaguitte(Ziguinchor)",
-  "École primaire Nyassia (Campagne <<Tous à l'école>> 2023) - Nyassia(Ziguinchor)",
-
-];
-const contacts=[
-    ['+221 77 616 01 04','/logos_contacts/call.png',''],
-    ['teamniintche@gmail.com','/images/RS_logos/gmail.webp',''],
-    ['Siège : Grand-Dakar rue *** n','/logos_contacts/location.png','']
-]
-
-const missionActions=[
-    "Rénovation d'écoles et de Daaras",
-    "Réparation de de table-bancs",
-    "Aides aux parents d'élèves en kits scolaires"
-
-]
-
-const rs=[ ['X (ex twitter)','/images/RS_logos/twitter.webp','https://www.x.com/'],
-    ['Facebook','/images/RS_logos/facebook.webp','https://www.facebook.com/'],
-    ['Youtube','/images/RS_logos/youtube.webp','https://www.youtube.com/'],
-    ['Instagram','/images/RS_logos/instagram.webp','https://www.Instagram.com/'],
-    ['Linkedin','/images/RS_logos/linkedin.webp','https://www.linkedin.com/']
-]
 function FooterItemContainer({children}){
     return <div id="footer-item-container">
         {children}

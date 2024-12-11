@@ -45,7 +45,7 @@ export function Opinion(){
                 <p className="suivre">Nous écrire</p>
                 <ul id="liste_numeros">
                 <li style={liStyle}>
-                        <span style={{display:'flex',width:'2rem',height:'100%',flexDirection:'column',justifyContent:'center',alignItems:'center', gap:'1rem',padding:'0px 1rem',margin:'0px 2rem',backgroundColor:'rgba(80,0,0,0.3)',}}>
+                        <span className="lnum-ul-li-span" style={{display:'flex',width:'2rem',height:'100%',flexDirection:'column',justifyContent:'center',alignItems:'center', gap:'1rem',padding:'0px 1rem',margin:'0px 2rem',backgroundColor:'rgba(80,0,0,0.3)',}}>
                             <i class="bi bi-envelope-at-fill" style={{color:'rgba(150,0,0,0.9)',...iconsStyle}}></i>
                         </span>
                         <span>
@@ -68,12 +68,12 @@ export function Numeros(){
                 <p className="suivre">Nos numéros</p>
                 <ul id="liste_numeros">
                     <li style={liStyle}>
-                         <span style={{display:'flex',width:'2rem',height:'100%',flexDirection:'column',justifyContent:'center',alignItems:'center', gap:'0.6rem',padding:'0px 1rem',margin:'0px 2rem',backgroundColor:'rgba(0,80,0,0.3)',}}>
+                         <span className="lnum-ul-li-span" style={{display:'flex',width:'2rem',height:'100%',flexDirection:'column',justifyContent:'center',alignItems:'center', gap:'0.6rem',padding:'0px 1rem',margin:'0px 2rem',backgroundColor:'rgba(0,80,0,0.3)',}}>
                             <i class="bi bi-telephone-plus-fill" style={{color:'green',...iconsStyle}}></i>
                             <i class="bi bi-whatsapp" style={{color:'green',...iconsStyle}}></i>
                         </span>
                         <span>
-                            (+221) 77 616 04 01
+                            (+221) 77 616 01 04
                         </span>
                     </li>
                 </ul>

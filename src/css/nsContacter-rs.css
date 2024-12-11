@@ -64,4 +64,9 @@
                         justify-content: space-between;
                         align-items: center;
                         }
-                        
+@media screen and (max-width:500px){
+    #rs a img{
+        width:25px;
+        height:95%;
+    }
+}
