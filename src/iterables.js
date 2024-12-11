@@ -114,6 +114,14 @@ export const parteners = {
     }
 }
 
+export const rsRoots={
+    f:"https://facebook.com/",
+    x:"https://twitter.com/",
+    l:"https://linkedin.com/",
+    i:"https://instagram.com/",
+    y:"https://youtube.com/"
+}
+
 export const partenaires=[
     ["Ministère de l'Eduction Nationale",'/logos_partenaires/logo_men-trparent.png','https://www.education.sn/','2024'],
     ["Centre d'Education et de Formation Environnementale",'/logos_partenaires/logo_cefe-trparent.png','https://www.environnement.gouv.sn/','2024'],
@@ -160,6 +168,10 @@ export const activities=[
       "École primaire Bacary DABO (Campagne <<Tous à l'école>> 2023) - Kaguitte(Ziguinchor)",
       "École primaire Kaguitte kassou (Campagne <<Tous à l'école>> 2023) - Kaguitte(Ziguinchor)",
       "École primaire Nyassia (Campagne <<Tous à l'école>> 2023) - Nyassia(Ziguinchor)",
+      "École primaire Maguette Codou Sarr ex Taïba- Grand dakar",
+      "Centre de formation professionnelle de Bargny",
+      "École primaire El H. Ogo Diop(Dakar)",
+
     
     ];
 export const contacts=[
