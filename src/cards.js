@@ -21,7 +21,11 @@ export function Cards({mission}) {
 }
 
 export function CardsMembre({membre}){
+  const handleClickRs=(app,link)=>{
+    const url="https://www."+app+".com/"+link.split(".com/")[1];
+    window.open(url);}
   const url=membre.img!==''?membre.img:'img-mbresBAT/no-photo.jpg';
+
   return <div className="cardText" style={{position:'relative',display:'flex',flexDirection:'row',justifyContent:'center',alignItems:'center',padding:'1rem',width:'fit-content',margin:'1rem',marginRight:'0.4rem',boxShadow:'1px 1px 2px grey',}}>
     <img className='cards-img' src={url} alt={membre.poste} style={{width:'135px',height:'135px',padding:'15px',border:'1px solid rgba(0,0,90,0.1)',}} width='135px' height='135px'/>
     <div style={{dispaly:'flex',flexDirection:'column',justifyContent:'flex-start',alignItems:'flex-start',paddingLeft:'1rem',maxWidth:'210px',maxHeight:'210px',width:'210px',}}>
@@ -30,7 +34,11 @@ export function CardsMembre({membre}){
       <span style={{display:'block',fontSize:'0.8rem',color:'grey',}}>Alias {membre.alias}</span>
       <span style={{display:'block',marginBottom:'1rem',fontWeight:'bold',color:'rgba(0,0,80,0.8)',}}>{membre.poste}</span>
       
-      <div className='cards-div-icons' style={{display:'flex',flexDirection:'row',justifyContent:'flex-start',alignItems:'center',gap:'1.5rem',color:'grey',}}><i class="bi bi-twitter-x"></i><i class="bi bi-facebook"></i><i class="bi bi-linkedin"></i></div>
+      <div className='cards-div-icons' style={{display:'flex',flexDirection:'row',justifyContent:'flex-start',alignItems:'center',gap:'1.5rem',color:'grey',}}>
+      <i class="bi bi-twitter-x" onClick={()=>handleClickRs("x",membre.rs.x)}></i>
+      <i class="bi bi-facebook" onClick={()=>handleClickRs("facebook",membre.rs.f)}></i>
+      <i class="bi bi-linkedin" onClick={()=>handleClickRs("linkedin",membre.rs.l)}></i>
+      </div>
     </div>
     
   </div>
