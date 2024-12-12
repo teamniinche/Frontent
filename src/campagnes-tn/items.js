@@ -17,7 +17,7 @@ export const DisplayAlertContext=createContext();
 
 // let table = new DataTable('.table');
 export default function Items(){
-    const colors={"text":'#dae0e7',"line":'#595b5e'}
+    const colors={"text":'transparent',"line":"grey"}//'#595b5e'
     const [entities,setEntities]=useState('Dons');
     const [bgColor,setBgColor]=useState(colors.text)
 
@@ -77,18 +77,17 @@ export default function Items(){
 
     <div  id="parent-itemsCampagnes" style={{backgroundColor:"#212529",paddingTop:"80px",height:"fit-content",width:"100vw",display:'flex',flexDirection:'row',justifyContent:'center',alignItems:'flex-start',}}> 
         <div className="itemsCampagnes" style={{width:'80%',display:'flex',flexDirection:'row',justifyContent:'center',alignItems:'flex-start',}}>
-        
-            <div className="entriesCampagnes" style={{backgroundColor:bgColor,width:'15%',padding:'2rem',borderRadius:"5px solid "+colors.Line,boxShadow:"2px 2px 5px "+colors.text,}}>
-            
-                <Entities render={(str)=>setEntities(str)}/>
+            <div id="entries-tables" style={{width:"100%",maxWidth:"100%",overflow:"scroll",color:"white",}}>
+                <div className="entriesCampagnes" style={{backgroundColor:bgColor,width:'15%',padding:'2rem',borderRadius:"5px solid "+colors.Line,boxShadow:"2px 2px 5px "+colors.text,}}>
+                    <Entities render={(str)=>setEntities(str)}/>
+                </div>
+                <div className="tablesCampagnes" style={{backgroundColor:bgColor,borderRadius:"5px solid "+colors.line,boxShadow:"2px 2px 5px "+colors.text,padding:"5px",width:"98%",border:"1px solid "+colors.line,margin:'0px 1rem',marginBottom:'1rem',}}>
+                    <Table Component={Entity(entities)} render={(clor)=>setBgColor(clor)}/>
+                </div>
             </div>
-            <div className="tablesCampagnes" style={{backgroundColor:bgColor,borderRadius:"5px solid "+colors.line,boxShadow:"2px 2px 5px "+colors.text,padding:"2rem",width:"80%",border:"1px solid "+colors.line,margin:'0px 1rem',marginBottom:'1rem',}}>
-            
-                <Table Component={Entity(entities)} render={(clor)=>setBgColor(clor)}/>
-            
-            </div>
+            <PartImgs/>
         </div>
-        <div className="partenairesCampagnes" style={{backgroundColor:bgColor,width:'15%',padding:'2rem',borderRadius:"5px solid "+colors.Line,boxShadow:"2px 2px 5px "+colors.text,}}>
+        <div className="partenairesCampagnes" style={{backgroundColor:"#dae0e7",width:'15%',padding:'2rem',borderRadius:"5px solid "+colors.Line,boxShadow:"2px 2px 5px "+colors.text,}}>
         <h3>Nos Partenaires</h3>
         <Parteners/>
         </div>
@@ -111,24 +110,31 @@ function Table({Component,render}){
     const {configModal}=useContext(DisplayAlertContext);
     const bool=configModal && configModal.bool;
     const str=configModal && configModal.str;
-    const ints=[1,2,3,4,5,6,7,8,9,10,11];
-    const ptnrs=['Sonatel','C.E.F.E','Awn','Distingo','Jeader'];
+    
     return <>
         <Component render={(clor)=>render(clor)}/>
         <hr/>
-        <h3 style={{textAlign:"center",color:"grey",}}>CAMPAGNE 2024 : LES PARTENAIRES</h3>
-            <div style={{display:"flex",flexDirection:"row",justifyContent:"flex-start",alignItems:"center",flexWrap:"wrap",gap:"1rem",paddingBottom:'1rem',}}>
-                {Object.values(parteners).map(p=>{return ptnrs.includes(p.nom) && <PartenerCard imgLink={"logos_partenaires/"+p.logo} name={p.nom}/>})}
-            </div>
-        <hr/>
-        <Karousel 
-            ints={ints}
-            titre="QUELQUES IMAGES DE LA CAMPAGNE 2024"
-            sTitre="TN - Campagne TOUS A L'ECOLE 2024 - éco-kits"
-            imgFolderRoot="img-campagnes/campagne-2022/img2022"
-        />
         <Modal bool={bool} entity={str}/>
     </>
+
+}
+
+export function PartImgs(){
+    const ints=[1,2,3,4,5,6,7,8,9,10,11];
+    const ptnrs=['Sonatel','C.E.F.E','Awn','Distingo','Jeader'];
+    return <div id="part_imgs" style={{backgroundColor:"#dae0e7",width:"96%",margin:"0px",padding:"2%",}}>
+            <h3 style={{textAlign:"center",color:"grey",}}>CAMPAGNE 2024 : LES PARTENAIRES</h3>
+                <div style={{display:"flex",flexDirection:"row",justifyContent:"flex-start",alignItems:"center",flexWrap:"wrap",gap:"1rem",paddingBottom:'1rem',}}>
+                    {Object.values(parteners).map(p=>{return ptnrs.includes(p.nom) && <PartenerCard imgLink={"logos_partenaires/"+p.logo} name={p.nom}/>})}
+                </div>
+            <hr/>
+            <Karousel 
+                ints={ints}
+                titre="QUELQUES IMAGES DE LA CAMPAGNE 2024"
+                sTitre="TN - Campagne TOUS A L'ECOLE 2024 - éco-kits"
+                imgFolderRoot="img-campagnes/campagne-2022/img2022"
+            />
+        </div>
 
 }
 

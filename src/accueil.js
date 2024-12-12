@@ -2,7 +2,7 @@ import React from 'react'
 import {NousContacter} from './nousContacter.js';
 import {nos_actions, teamEnChiffres } from './iterables.js';
 import Mur from './mur.js'
-import Actu from './actu.js';
+// import Actu from './actu.js';
 import {Cards} from './cards.js';
 import { Partnaires } from './campagnes-tn/items.js';
 import { Titre } from './components/titres.js';
