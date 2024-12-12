@@ -18,7 +18,7 @@ export default function Mur() {
     <br/>
     Bénévoles de la citoyenneté active
     <br/><br/>
-    <span style={{fontFamily:"sans-serif",letterSpacing:"0.2rem",textAlign:"center",fontSize:"1rem",color:"rgba(255,255,255,1)",maxWidth:"300px",}}>" {notre_mission.p1} <br/>{notre_mission.p2}"</span>
+    <span style={{fontFamily:"sans-serif",letterSpacing:"0.2rem",textAlign:"center",fontSize:"1rem",color:"rgba(255,255,255,1)",maxWidth:"300px",}}><i class="bi bi-quote" style={{fontSize:"2.5rem",}}></i> {notre_mission.p1} <br/><span style={{textDecoration:"underline 5px rgba(255,255,255,0.4)",}}>{notre_mission.p2}</span> "</span>
   </h4>
 </div>
 }
