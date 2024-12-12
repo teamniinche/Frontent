@@ -121,7 +121,7 @@ function Table({Component,render}){
 
 export function PartImgs(){
     const ints=[1,2,3,4,5,6,7,8,9,10,11];
-    const ptnrs=['Sonatel','C.E.F.E','Awn','Distingo','Jeader'];
+    const ptnrs=['Sonatel','C.E.F.E','Senum','Distingo','Awn','Jeader'];
     return <div id="part_imgs" style={{backgroundColor:"#dae0e7",width:"96%",margin:"0px",padding:"2%",}}>
             <h3 style={{textAlign:"center",color:"grey",}}>CAMPAGNE 2024 : LES PARTENAIRES</h3>
                 <div style={{display:"flex",flexDirection:"row",justifyContent:"flex-start",alignItems:"center",flexWrap:"wrap",gap:"1rem",paddingBottom:'1rem',}}>
