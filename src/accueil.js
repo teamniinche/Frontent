@@ -17,7 +17,7 @@ export default function Accueil() {
   return <>
       <Mur/>
       <div className='accueil'>
-          <div className="scrollItems" style={{minWidth:'96%',justifyContent:'center',width:"96%",display:'flex',background:'linear-gradient(to left top, white,rgba(0,90,90,0.8))',flexDirection:'row',gap:'2%',marginTop:'-13rem',padding:'0px 2%',paddingBottom:'2rem',}}>
+          <div className="scrollItems" style={{minWidth:'96%',justifyContent:'center',width:"96%",display:'flex',background:'linear-gradient(to left top, white,rgba(0,90,90,0.8))',flexDirection:'row',gap:'2%',marginTop:'-11rem',padding:'0px 2%',paddingBottom:'2rem',}}>
             {/* <div style={{width:"40%",color:'black',fontWeight:'bold',zIndex:'10',}}>
               testons pour voir si ce sera ce qu'on veux ou bien ce sera autre !
             </div> */}

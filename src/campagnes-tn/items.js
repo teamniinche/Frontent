@@ -142,12 +142,12 @@ export function Karousel({ints,titre,sTitre,imgFolderRoot}){
 
     return <>
     <h3 style={{textAlign:"center",color:"grey",}}>{titre}</h3>
-    <div style={{position:"relative",width:"100%",margin:"5px 0%",}}>
+    <div className="karouselDiv" style={{position:"relative",margin:"5px 0%",}}>
         <Carousel>
       {ints.map((Int,key)=>
         <Carousel.Item>
         <img
-          className="d-block w-100"
+          className="d-block w-100 karouselImg"
           src={imgFolderRoot+Int+".jpg"}
           alt="First slide"
           style={{height:"500px",width:'96%',border:"10px solid rgba(255,255,255,1)",borderRadius:"10px",}}
