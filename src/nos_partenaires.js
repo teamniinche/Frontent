@@ -1,121 +1,14 @@
 import {NousContacter} from './nousContacter.js'
+import { parteners } from './iterables.js';
 import './partenaires.css';
 
 export default function Partenaires() {
-    
-    const parteners = {
-    men: {
-        nom: "M.E.N",
-        logo: "logo_men.png",
-        date: "2024",
-        intervention: ["Réfection école primaire El H. Ogo DIOP - Dakar"],
-        total: "",
-        contacts: "education.com"
-    },
-    cefe: {
-        nom: "S.E.F.E",
-        logo: "logo_cefe.png",
-        date: "2024",
-        intervention: ["Réfection Centre de formation Professionnelle de Bargny"],
-        total: "",
-        contacts: "environnement.gouv.sn"
-    },
-    sonatel: {
-        nom: "Sonatel",
-        logo: "logo_sonatel.png",
-        date: "2022",
-        intervention: [
-            "Campagne TOUS A L'ÉCOLE 2021",
-            "Campagne TOUS A L'ÉCOLE 2023"
-        ],
-        total:10000000,
-        contacts: "sonatel.sn"
-    },
-    auchan: {
-        nom: "Auchan",
-        logo: "logo_auchan.png",
-        date: "2022",
-        intervention: [
-            "Réfection école élémentaire LA LINGUERE de Keur Massar",
-            "Réfection école primaire de Keur Madiabel(Kaolack)"
-        ],
-        total:15000000,
-        contacts: "auchan.sn"
-    },
-    distingo: {
-        nom: "Distingo",
-        logo: "logo_distingo.png",
-        date: "2022",
-        intervention: [
-            "Campagne TOUS A L'ÉCOLE 2022",
-            "Campagne TOUS A L'ÉCOLE 2023"
-        ],
-        total:10000000,
-        contacts: "distingo.com"
-    },
-    humam: {
-        nom: "Hum'am",
-        logo: "logo_humam.png",
-        date: "2022",
-        intervention: ["Réfection école primaire de Fakhane(Bambey)"],
-        total:70000000,
-        contacts: "humam.org"
-    },
-    fabrimetal: {
-        nom: "Fabri Metal",
-        logo: "logo_fabrimetal.png",
-        date: "2022",
-        intervention: ["Réfection école primaire SEBI GARE (Sébikotane)"],
-        total:10000000,
-        contacts: "fabrimetal.com"
-    },
-    mazars: {
-        nom: "Mazars",
-        logo: "logo_mazars.png",
-        date: "2022",
-        intervention: ["Réfection école primaire Ngolar sérère(Notto Diobass)"],
-        total:10000000,
-        contacts: "mazars.org"
-    },
-    senum: {
-        nom: "Senum",
-        logo: "logo_senum.png",
-        date: "2024",
-        intervention: ["Démarches en cours ..."],
-        total: "",
-        contacts: "senum.com"
-    },
-    seter: {
-        nom: "Seter",
-        logo: "logo_seter.png",
-        date: "2024",
-        intervention: ["Démarches en cours ..."],
-        total: "",
-        contacts: "seter.sn"
-    },
-    adl: {
-        nom: "ADL",
-        logo: "logo_adl.png",
-        date: "2024",
-        intervention: ["Démarches en cours ..."],
-        total: "",
-        contacts: "adl.sn"
-    },
-    awn: {
-        nom: "A.W.N",
-        logo: "logo_awn.png",
-        date: "2024",
-        intervention: ["Campagne TOUS A L ECOLE 2024"],
-        total: "",
-        contacts: "awlnafrican.net"
-    }
-}
     
     const fontSize="0.6rem";
     return <>
         <div className='parteners' style={{height:"87vh",margin:"0px",paddingTop:"5rem",}}>
         {/*<img src="/images/teamniintche.png" width="60px" height="50px"/>*/}
-        <h3 style={{color:"rgba(0,0,100,0.3)",padding:"1rem 0px",marginBottom:"0px",marginTop:"0px",textAlign:"center",}}>La TeamNiintche remercie tous ses partenairees et collaborateurs.</h3>
+        <h3 style={{color:"rgba(0,0,100,0.3)",padding:"1rem 0px",marginBottom:"0px",marginTop:"0px",textAlign:"center",}}>La <span style={{color:"rgba(0,0,100,0.7)",}}>Team Niintche</span> remercie tous ses partenairees et collaborateurs.</h3>
         <div style={{padding:"1rem",maxHeight:"100%",overflow:"scroll",scrollbarWidth:"thin",}}>
             <table style={{width:"100%",height:"fit-content",}}>
             <thead>
@@ -126,16 +19,17 @@ export default function Partenaires() {
                 <th style={{backgroundColor:"rgba(0,0,100,0.3)",fontSize:fontSize,textAlign:"center",}}>Contacts</th>
             </thead>
             <tbody>{Object.values(parteners).map(ptner=>{
+                    const url=ptner.logo.replace("-trparent","");
                    return <tr style={{height:"5rem",borderBottom:"1px solid rgba(0,0,100,0.3)",}}>
                         <td style={{lineHeight:"1rem",}}>
-                           <img src={"logos_partenaires/"+ptner.logo} width="70px" height="40px"/>
+                           <img src={"logos_partenaires/"+url} width="70px" height="40px" alt={ptner.nom}/>
                            <br/>
                            <span>{ptner.nom}</span>
                         </td>
                         <td style={{width:"8rem",paddingRight:"1rem",fontSize:fontSize,textAlign:"center",}}>{ptner.date}</td>
                         <td style={{fontSize:fontSize,}}>{ptner.intervention.map(actvt=>(<li>{actvt}</li>))}</td>
                         <td style={{fontSize:fontSize,minWidth:"10rem",fontWeight:"bold",textAlign:"center",}}>{ptner.total.toLocaleString()}</td>
-                        <td style={{fontSize:fontSize,textAlign:"center",}}><a href={"https://www."+ptner.contacts} target="_blank">{ptner.contacts}</a></td>
+                        <td style={{fontSize:fontSize,textAlign:"right",}}><a href={ptner.contacts && "https://www."+ptner.contacts} target="_blank" rel="noreferrer">{ptner.contacts && "https://www."+ptner.contacts}</a></td>
                     </tr>})}
             </tbody>
         </table>

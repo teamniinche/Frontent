@@ -5,7 +5,7 @@ export const parteners = {
         date: "2024",
         intervention: ["Refection de l'école OGO Diop(P.A)"],
         total: 10000000,
-        contacts: "men.sn"
+        contacts: "education.sn"
     },
     cefe: {
         nom: "C.E.F.E",
@@ -13,10 +13,10 @@ export const parteners = {
         date: "2024",
         intervention: ["Campagne TOUS A L'ÉCOLE 2024","Refection du Centre de formation professionnele de Bargny"],
         total: 10000000,
-        contacts: "cefe.sn"
+        contacts: "environnement.gouv.sn"
     },
     sonatel: {
-        nom: "Sonatel",
+        nom: "Fondation Sonatel",
         logo: "logo_sonatel-trparent.png",
         date: "2022",
         intervention: [
@@ -24,7 +24,7 @@ export const parteners = {
             "Campagne TOUS A L'ÉCOLE 2023"
         ],
         total:10000000,
-        contacts: "sonatel.sn"
+        contacts: "fondationsonatel.com"
     },
     auchan: {
         nom: "Auchan",
@@ -46,7 +46,7 @@ export const parteners = {
             "Campagne TOUS A L'ÉCOLE 2023"
         ],
         total:10000000,
-        contacts: "distingo.com"
+        contacts: "lps.sn"
     },
     humam: {
         nom: "Hum'am",
@@ -62,7 +62,7 @@ export const parteners = {
         date: "2022",
         intervention: ["Réfection école primaire SEBI GARE (Sébikotane)"],
         total:10000000,
-        contacts: "fabrimetal.com"
+        contacts: "fabrimetal-senegal.com"
     },
     mazars: {
         nom: "Mazars",
@@ -78,7 +78,7 @@ export const parteners = {
         date: "2024",
         intervention: ["Campagne TOUS A L'ÉCOLE 2024"],
         total: "",
-        contacts: "senum.com"
+        contacts: "adie.sn"
     },
     seter: {
         nom: "Seter",
@@ -102,7 +102,7 @@ export const parteners = {
         date: "2024",
         intervention: ["Campagne TOUS A L'ÉCOLE 2022"],
         total: "",
-        contacts: "awn.sn"
+        contacts: "awlnafrica.net"
     },
     jeader: {
         nom: "Jeader",
@@ -110,7 +110,7 @@ export const parteners = {
         date: "2024",
         intervention: ["Campagne TOUS A L'ÉCOLE 2024"],
         total: "",
-        contacts: "jeader.sn"
+        contacts: null
     }
 }
 
@@ -126,14 +126,14 @@ export const partenaires=[
     ["Ministère de l'Eduction Nationale",'/logos_partenaires/logo_men-trparent.png','https://www.education.sn/','2024'],
     ["Centre d'Education et de Formation Environnementale",'/logos_partenaires/logo_cefe-trparent.png','https://www.environnement.gouv.sn/','2024'],
     ['Fondation Sonatel','/logos_partenaires/logo_sonatel-trparent.png','https://www.fondationsonatel.com/','2023'],
-    ['Auchan Sénégal','/logos_partenaires/logo_auchan-trparent.png','https://www.auchan.com/','2022'],
-    ['Distingo','/logos_partenaires/logo_distingo-trparent.png','https://www.distingo.com/','2023'],
-    ["Hum'am",'/logos_partenaires/logo_humam-trparent.png','https://www.humam.com/','2022'],
+    ['Auchan Sénégal','/logos_partenaires/logo_auchan-trparent.png','https://www.auchan.sn/','2022'],
+    ['Distingo','/logos_partenaires/logo_distingo-trparent.png','https://www.lps.sn/','2023'],
+    ["Hum'am",'/logos_partenaires/logo_humam-trparent.png','https://www.humam.org/','2022'],
     ['Fabri Metal','/logos_partenaires/logo_fabrimetal-trparent.png','https://www.fabrimetal.com/','2022'],
-    ['Mazars','/logos_partenaires/logo_mazars-trparent.png','https://www.mazars.com/','2022'],
-    ['Senum','/logos_partenaires/logo_senum-trparent.png','https://www.senum.com/','2024'],
-    ['Seter','/logos_partenaires/logo_seter-trparent.png','https://www.seter.com/','2024'],
-    ['ADL','/logos_partenaires/logo_adl-trparent.png','https://www.adl.com/','2024'],
+    ['Mazars','/logos_partenaires/logo_mazars-trparent.png','https://www.mazars.org/','2022'],
+    ['Senum','/logos_partenaires/logo_senum-trparent.png','https://www.adie.sn/','2024'],
+    ['Seter','/logos_partenaires/logo_seter-trparent.png','https://www.seter.sn/','2024'],
+    ['ADL','/logos_partenaires/logo_adl-trparent.png','https://www.adl.sn/','2024'],
     ['African Women Network','/logos_partenaires/logo_awn-trparent.png','https://www.awlnafrica.net/','2024'],
     ['JEADER, Be Leader','/logos_partenaires/logo_jeader-trparent.png','','2022']
     
@@ -206,8 +206,8 @@ export const sites=[
         {ID:26,name:"École primaire Kaguitte kassou (Campagne <<Tous à l'école>> 2023) - Kaguitte(Ziguinchor)",travaux:['Distribution de fournitures scolaires'],partner:[{nom:'sonatel',site:'sonatel.sn',apport:4},{nom:'distingo',site:'lps.sn',apport:4}],cout:8000000,lat:12.408594,long:-16.398019},
         {ID:27,name:"École primaire Nyassia (Campagne <<Tous à l'école>> 2023) - Nyassia(Ziguinchor)",travaux:['Distribution de fournitures scolaires'],partner:[{nom:'sonatel',site:'sonatel.sn',apport:4},{nom:'distingo',site:'lps.sn',apport:4}],cout:8000000,lat:12.474034,long:-16.371648},
         {ID:28,name:"École primaire Maguette Codou Sarr ex Taïba- Grand dakar",travaux:['maçonerie','Carrelage','Peinture','Réparation de table-bancs','Nettoyage/Reboisement'],partner:[],cout:10000000,lat:14.7050511,long:-17.4536581},
-        {ID:29,name:"Centre de formation professionnelle de Bargny",travaux:['Carrelage','Peinture','Réparation de table-bancs','Nettoyage/Reboisement'],partner:[{nom:'cefe',site:'environnement.gouv.sn',apport:15}],cout:20000000,lat:14.769608,long:-17.4188987},
-        {ID:30,name:"École primaire El H. Ogo Diop(Dakar)",travaux:['maçonnerie','Carrelage','Peinture','Réparation de table-bancs','Nettoyage/Reboisement'],partner:[{nom:'men',site:'education.sn',apport:10}],cout:10000000,lat:14.6927794,long:-17.2246585}
+        {ID:29,name:"Centre de formation professionnelle de Bargny",travaux:['Carrelage','Peinture','Réparation de table-bancs','Nettoyage/Reboisement'],partner:[{nom:'cefe',site:'environnement.gouv.sn',apport:15}],cout:20000000,lat:14.6927794,long:-17.2246585},
+        {ID:30,name:"École primaire El H. Ogo Diop(Dakar)",travaux:['maçonnerie','Carrelage','Peinture','Réparation de table-bancs','Nettoyage/Reboisement'],partner:[{nom:'men',site:'education.sn',apport:10}],cout:10000000,lat:14.769608,long:-17.4188987}
       ]
 
 export const contacts=[
@@ -219,7 +219,7 @@ export const contacts=[
 
 export const missionActions=[
     "Rénovation d'écoles et de Daaras",
-    "Réparation de de table-bancs",
+    "Réparation de table-bancs",
     "Aides aux parents d'élèves en kits scolaires"
 
 ]
