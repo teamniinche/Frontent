@@ -41,13 +41,14 @@ export default function Map(props) {
     }
     // const initialZoom=window.innerWidth>=1000?7:6.2;
     const handleClick=(site,index)=>{
-      handleActivityClick()
+      window.innerWidth<=1000 && handleActivityClick()
       const map=mapRef.current; //A mapContainer on l'utilise en ref={mapRef} au lieu de whenCreayed() qui ne mar che pas d'ailleurs
                           setCoord([site.lat,site.long]);
-                          // let lt=site.lat-0.120000 //0.12 coefficent de deplacement du centre vers le haut(sur la lattitude) pour l'adapter à la retraction
+                          // let lt=site.lat+0.120000 //0.12 coefficent de deplacement du centre vers le haut(sur la lattitude) pour l'adapter à la retraction
                           setCenter([site.lat,site.long]);
                           let zoom=index===0?7:14;
-                          if(map) map.flyTo([site.lat,site.long],zoom);
+                          let lt_offset=window.innerWidth>=1000?site.lat:(site.lat+0.011000);
+                          if(map) map.flyTo([lt_offset,site.long],zoom);
                           const marker=listMarkerRef.current[index]
                           targetLi.current.setAttribute('class','selected');
                           // marker.icon.iconSize=[80,100]

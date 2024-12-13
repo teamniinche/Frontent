@@ -60,7 +60,7 @@
             height: 79vw;
             margin-right: 1em;
             }
-        iframe,.mapContainer{
+        iframe{
             z-index:0;
             float: left;
             width:95vw;
@@ -68,7 +68,7 @@
             margin:2vw;
             } 
 @media screen and (max-width:1000px){
-          iframe,.mapContainer{
+          iframe{
             width:95vw;
             height:95vw;
           } }

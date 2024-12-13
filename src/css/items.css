@@ -12,6 +12,12 @@
     color:blue;
     font-weight:bold;
 }
+
+/* .karouselDiv,.carousel{
+    --ref-width:100px;
+    width:100% !important;
+    height:calc(var(--ref-width*0.75)) !important;
+} */
 @media screen and (max-width:1200px){
     .itemsCampagnes{
         width:76% !important;
