@@ -8,11 +8,6 @@ export default function Mur() {
   return <div className="header">
   {/* <img className="imageDeFont" src="/photoDeMur.jpg" alt="murale"/> */}
   <Caroussel propStyle={{cl:"imageDeFont",style:{border:"",borderRadius:"0px",}}} roof="img-illustratives/" images={imagesMur} bool/>
-  <div className="divInsConnect">
-      <Link className="insConnect" to="/connexion">Se connecter</Link>
-      {/* <span id="barDeSix"> | </span>
-      <Link className="insConnect" to="/connexion/inscription">S'inscrire</Link> */}
-  </div>
   <h4 style={{lineHeight:"1rem",display:"inline-block",width:"100%",color:"rgba(255,255,255,0.7",fontFamily:"sans-serif",fontSize:"1rem",position:"absolute",top:"22%",textAlign:"center",}}>
     <span id="team-sur-mur" style={{fontFamily:"'Sofia', sans-serif",fontSize:"3rem",color:"rgba(255,255,255,0.9",}}>TeamNiintche</span>
     <br/>
