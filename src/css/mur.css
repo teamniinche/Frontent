@@ -22,3 +22,8 @@
         font-size:2.5rem;
     }
 }
+/* @media screen and (max-width:750px){
+.header{
+    height:30vh !important;
+}
+} */
