@@ -1,5 +1,5 @@
 import {Carousel } from 'react-bootstrap';
-export default function Caroussel({propStyle,titre,roof,images}){
+export default function Caroussel({propStyle,titre,roof,images,bool}){
     return <>
     {titre && <h3 style={{textAlign:"center",color:"grey",}}>{titre}</h3>}
     <div className={propStyle.cl} style={{position:"relative",width:"100%",margin:"0px",zIndex:'0', }}>
@@ -13,8 +13,8 @@ export default function Caroussel({propStyle,titre,roof,images}){
               style={{height:"500px",filter: image.brightness,...propStyle.style}}
             />
             <Carousel.Caption>
-              <h3>{image.title}</h3>
-              <p>{image.text}</p>
+              <h3>{!bool && image.title}</h3>
+              <p>{!bool && image.text}</p>
             </Carousel.Caption>
           </Carousel.Item>
     

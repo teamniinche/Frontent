@@ -7,7 +7,7 @@ import { imagesMur,notre_mission } from './iterables';
 export default function Mur() {
   return <div className="header">
   {/* <img className="imageDeFont" src="/photoDeMur.jpg" alt="murale"/> */}
-  <Caroussel propStyle={{cl:"imageDeFont",style:{border:"",borderRadius:"0px",}}} roof="img-illustratives/" images={imagesMur}/>
+  <Caroussel propStyle={{cl:"imageDeFont",style:{border:"",borderRadius:"0px",}}} roof="img-illustratives/" images={imagesMur} bool/>
   <div className="divInsConnect">
       <Link className="insConnect" to="/connexion">Se connecter</Link>
       {/* <span id="barDeSix"> | </span>
@@ -18,7 +18,7 @@ export default function Mur() {
     <br/>
     Bénévoles de la citoyenneté active
     <br/><br/>
-    <span style={{fontFamily:"sans-serif",letterSpacing:"0.2rem",textAlign:"center",fontSize:"1rem",color:"rgba(255,255,255,1)",maxWidth:"300px",}}><i class="bi bi-quote" style={{fontSize:"1.4rem",}}></i> {notre_mission.p1} <br/><span style={{textDecoration:"underline 5px rgba(255,255,255,0.4)",}}>{notre_mission.p2}</span> <i class="bi bi-quote" style={{fontSize:"1rem",}}></i></span>
+    <span style={{fontFamily:"sans-serif",letterSpacing:"0.2rem",textAlign:"center",fontSize:"1rem",color:"rgba(255,255,255,1)",maxWidth:"300px",}}><i class="bi bi-quote" style={{fontSize:"1.8rem",}}></i> {notre_mission.p1} <br/><span style={{textDecoration:"underline 5px rgba(255,255,255,0.4)",}}>{notre_mission.p2}</span><i class="bi bi-quote" style={{fontSize:"1.2rem",display:"inline-block",transform:"rotate(-180deg)",}}></i></span>
   </h4>
 </div>
 }
