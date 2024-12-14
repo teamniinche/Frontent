@@ -5,6 +5,10 @@
     display:"none";
     margin-top:"20px"
 }
+.forConnexion{ 
+    /* pour forcer un truc bizare: le height du meme css de l'id (=allways) change selon seulement qu'on ait changé de page alors qu'il  n'y a aucun autre css aui intervient */
+    height:23.7px !important;
+}
 .connexionContainer{
     width:40%;
     margin:15% 30%;
@@ -64,6 +68,11 @@
     padding:5px 0px;
     background-color:red;
     display:none;
+    }
+ @media screen and (max-aspect-ratio:8/9){
+        #div-connexion{
+            padding-top:4rem !important;
+        }
     }
 @media screen and (max-width:600px){
         .connexionContainer{

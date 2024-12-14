@@ -6,7 +6,7 @@ export default function Partenaires() {
     
     const fontSize="0.6rem";
     return <>
-        <div className='parteners' style={{height:"87vh",margin:"0px",paddingTop:"5rem",}}>
+        <div className='parteners' style={{height:"87vh",margin:"0px",paddingTop:"120px",}}>
         {/*<img src="/images/teamniintche.png" width="60px" height="50px"/>*/}
         <h3 style={{color:"rgba(0,0,100,0.3)",padding:"1rem 0px",marginBottom:"0px",marginTop:"0px",textAlign:"center",}}>La <span style={{color:"rgba(0,0,100,0.7)",}}>Team Niintche</span> remercie tous ses partenairees et collaborateurs.</h3>
         <div style={{padding:"1rem",maxHeight:"100%",overflow:"scroll",scrollbarWidth:"thin",}}>
