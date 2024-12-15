@@ -43,11 +43,12 @@ export default class Heade extends React.Component{
     // {/* // <div className="header"> */}
           <div className="top-bar" id='topbaar' style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",}}>
               <div id="allways" className="forConnexion">
-                <Link to="" className="selfLeft">Nous soutenir</Link>
+              {/* <div id="topLeft"><Link to="" className="selfLeft left">Nous soutenir</Link></div> */}
+                <Link to="" className="selfLeft left">Nous soutenir</Link>
                 <Link to="https://x.com/TeamNiintche/" target="_blank"><i className="bi bi-twitter-x"></i></Link>
                 <Link to="https://facebook.com/teamniintche/" target='_blank'><i className="bi bi-facebook"></i></Link>
                 <Link to="https://youtube.com/@teamniintche2097/" target='_blank'><i className="bi bi-youtube"></i></Link>
-                <Link to="/connexion">Se connecter</Link>
+                <Link className="selfLeft right"to="/connexion">Se connecter</Link>
               </div>
               <div className="contient">
                 <div id="right">

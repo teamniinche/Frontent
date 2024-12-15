@@ -113,7 +113,6 @@ function Table({Component,render}){
     
     return <>
         <Component render={(clor)=>render(clor)}/>
-        <hr/>
         <Modal bool={bool} entity={str}/>
     </>
 

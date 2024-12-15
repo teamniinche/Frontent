@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import './css/mur.css'
 import Caroussel from './components/carousel';
 import { imagesMur,notre_mission } from './iterables';
