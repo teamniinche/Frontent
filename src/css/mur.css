@@ -10,7 +10,13 @@
     min-width:250px;
     max-height:800px;/*400px*/
     height:60vh;
+    .imageDeFont{
+        .carousel-control-next,.carousel-control-prev{
+            display:none !important;
+        }
     }
+    }
+
     #mur{
         position:relative;
     }

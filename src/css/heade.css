@@ -25,7 +25,8 @@
             }
             a{
                 text-decoration:none;
-                color:rgba(0,0,0,0.5);
+                /* color:rgba(0,0,0,0.5); */
+                color:white;
                 font-family:'Times New Roman', Times, serif;
             }
             a:hover{
@@ -36,31 +37,44 @@
             @media screen and (max-width:500px){
                 gap:1.1rem
             }
-            .bi-twitter-x:hover{
+            .bi-twitter-x{
                 color:rgba(0,0,150,0.4);
+            }
+            .bi-twitter-x:hover{
                 border:1px solid rgba(0,0,150,0.4);
+            }
+            .bi-facebook{
+                color:blue;
             }
             .bi-facebook:hover{
                 color:blue;
                 border:1px solid blue;
             }
-            .bi-youtube:hover{
+            .bi-youtube{
                 color:red;
+            }
+            .bi-youtube:hover{
                 border:1px solid red;
             }
             @media screen and (max-width:345px){
-                .selfLeft{position:initial;}
+                .left{position:initial;}
                 
             }
         }
-        .selfLeft{
+        .left{
             position:absolute;
             left:4%;
+            background-color:transparent !important;
+            color:rgba(0,0,100,0.6) !important;
+        }
+        .selfLeft{
             height:1rem;
+            background-color:black;
             padding:0.15rem 0.6rem;
-            border:1px solid rgba(0,0,0,0.2);
-            border-radius: 15px;
-            color:rgba(0,0,100,0.6);
+            border:1px solid rgba(0,0,100,0.6);
+            border-radius: 10px;
+            padding:0.25rem 0.7rem;
+            color:white;
         }
     .top-bar{
         /* nouveau */
