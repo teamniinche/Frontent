@@ -147,10 +147,10 @@ export function Karousel({ints,titre,sTitre,imgFolderRoot}){
       {ints.map((Int,key)=>
         <Carousel.Item>
         <img
-          className="d-block w-100 karouselImg"
+          className="d-block w-100"
           src={imgFolderRoot+Int+".jpg"}
           alt="First slide"
-          style={{height:"500px",width:'96%',border:"10px solid rgba(255,255,255,1)",borderRadius:"10px",}}
+          style={{height:"500px",width:'100%',border:"2px solid rgba(255,255,255,1)",borderRadius:"10px",}}
         />
         <Carousel.Caption>
           <h3>{'Image '+(key+1)}</h3>
@@ -159,6 +159,7 @@ export function Karousel({ints,titre,sTitre,imgFolderRoot}){
       </Carousel.Item>
       )}
     </Carousel>
+    {/* {if(!bool){document.getElementsByClassName('carousel-control-next').style.display='none'}} */}
     </div>
     </>
 }

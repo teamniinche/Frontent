@@ -84,6 +84,10 @@ li:hover{
         background:linear-gradient(to left bottom, white,rgba(0,90,90,0.8));
         padding:1rem 15%;
       }
+      /* .carousel-item{
+        margin-right:0px !important;
+      } */
+      
       #filigrane{
         display:none !important;
       }
@@ -177,9 +181,9 @@ li:hover{
       float:left;
       z-index:0;
   }
-  /* .mapContainer{
-    margin-top:0px;
-  } */
+  .carousel-item img{
+          height:250px !important;
+        }
     #div-avec-map{
       display:none;
       width:90%;
@@ -198,8 +202,9 @@ li:hover{
       overflow:scroll;
     }
     .carousel-container{
-      padding:1rem 2vw;
-      height:96vw;
+      /* position:relative; */
+      padding:1rem 2%;
+      height:46%;
     }
     #map{
       height:60vh;
