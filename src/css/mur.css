@@ -11,26 +11,57 @@
     max-height:800px;/*400px*/
     height:60vh;
     .imageDeFont{
-        .carousel-control-next,.carousel-control-prev{
+        position:relative;
+        height:100%;
+        .carousel-control-next{
+            display:none !important;
+        }
+        .carousel-control-prev{
             display:none !important;
         }
     }
+    .carousel{
+        height:100%;
+    }
+    .carousel-inner{
+        height:100%;
+    }
+    .carousel-item{
+        height:100%;
+    }
+    img{
+        height:100% !important;
+    }
+    /* .carousel-inner{
+        height:100% !important;
+    } */
+    /* .carousel-item{
+        img{
+            height:100% !important;
+        }
+        
+    } */
+    }
+
+    /* .imageDeFont{
+        width:100%;
+        height:100%;
     }
 
     #mur{
         position:relative;
-    }
-@media screen and (min-width:750px){
-        /* 60px vs 80vh */
+    } */
+/* @media screen and (min-width:750px){
+        60px vs 80vh
     .header{
         min-height: 60px;
     }
     #team-sur-mur{
         font-size:2.5rem;
     }
-}
-/* @media screen and (max-width:750px){
-.header{
-    height:30vh !important;
-}
 } */
+@media screen and (max-width:1000px){
+.header{
+    height:40vh;
+}
+}
