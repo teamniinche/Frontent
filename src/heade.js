@@ -7,15 +7,18 @@ import Menu from './menu.js';
 // const imageMurale=require('./images/patriarkat.jpg')
 
 export default class Heade extends React.Component{
+  constructor(props) {
+    super(props);
+    this.handleClick=this.handleClick.bind(this);
+    this.active = this.active.bind(this);
+  }
 
   // componentDidMount() {
   //   window.addEventListener('scroll', this.handleScroll);
   // }
-
   // componentWillUnmount() {
   //   window.removeEventListener('scroll', this.handleScroll);
   // }
-
   // handleScroll = () => {
   //   const scrollTop = window.scrollY;
   //   if (scrollTop!==0){
@@ -34,12 +37,12 @@ export default class Heade extends React.Component{
         const activeStyle=urlcourante.includes(page)?target:{};
         return activeStyle;
   }
+
     
   render(){
   return (
     // <div style={{display:'flex',flexDirection:'column',alignItems:'center',height:'fit-content',}}>
     // <div style={{backgroundColor:'white',height:'60px',width:'1000px',position:'sticky',top:'0px',zIndex:'10',}}>test</div>
-    
     // {/* // <div className="header"> */}
           <div className="top-bar" id='topbaar' style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",}}>
               <div id="allways" className="forConnexion">
@@ -56,7 +59,7 @@ export default class Heade extends React.Component{
                 </div>
                 <div id="left">
                   <div className="nav-items">
-                      <Link to="/" style={this.active("ccueil")}>Accueil</Link>
+                      <Link to="/" style={this.active('ccueil')}>Accueil</Link>
                       <Link to="/nos_realisations" style={this.active("alisations")}>Réalisations</Link>
                       <Link to="/campagnes" style={this.active("ampagnes")}>Campagnes</Link>
                       <Link to="/nos_partenaires" style={this.active("partenaires")}>Nos partenaires</Link>

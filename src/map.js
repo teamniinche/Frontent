@@ -39,7 +39,7 @@ export default function Map(props) {
       const listActivities=document.getElementById("div-avec-map");
       if(listActivities)listActivities.style.display="none";
     }
-    // const initialZoom=window.innerWidth>=1000?7:6.2;
+    const initialZoom=window.innerWidth>=500?7:6.2;
     const handleClick=(site,index)=>{
       window.innerWidth<=1000 && handleActivityClick()
       const map=mapRef.current; //A mapContainer on l'utilise en ref={mapRef} au lieu de whenCreayed() qui ne mar che pas d'ailleurs
@@ -57,7 +57,7 @@ export default function Map(props) {
                           setKZoom(Zoom)
                       }
   return <><div id="map">
-    <MapContainer ref={mapRef} center={center} zoom={6.2} scrollWheelZoom={false} className='mapContainer'>
+    <MapContainer ref={mapRef} center={center} zoom={initialZoom/*6.2*/} scrollWheelZoom={false} className='mapContainer'>
         <TileLayer
           attribution='SénégaL 🇸🇳 Activités @TeamNiintche & Partenaires & Collaborateurs'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
