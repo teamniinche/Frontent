@@ -301,11 +301,11 @@ export const membresBureauAdministration={
         rs:{
             x:'https//:www.x.com/leprofane/',
             f:'https//:www.facebook.com/gueyetaffa/',
-            l:'https//:www.linkedin.com/'
+            l:'https//:www.linkedin.com/in/'
         }
     },
     sg:{
-        nom:"Nabou Fall DIOP",
+        nom:"Seynabou Fall DIOP",
         travail:"Assistante administrative CM",
         poste:"Sécretaire administrative",
         alias:'Nabou',
@@ -313,7 +313,7 @@ export const membresBureauAdministration={
         rs:{
             x:'https//:www.x.com/nafall01/',
             f:'https//:www.facebook.com/nabouja.fall.9/',
-            l:'https//:www.linkedin.com/'
+            l:'https//:www.linkedin.com/in/seynabou-fall-27460a38'
         }
     },
     drh:{
@@ -325,23 +325,23 @@ export const membresBureauAdministration={
         rs:{
            x:'https//:www.x.com/ngonei_diaba/',
             f:'https//:www.facebook.com/',
-            l:'https//:www.linkedin.com/'
+            l:'https//:www.linkedin.com/in/ngone-sene-12581a200'
         }
     },
     rap:{
         nom:"Djibril DIALLO",
         travail:"Juriste, Greffier",
         poste:"Sécurité au tavail & Environnement",
-        alias:'Djiby',
+        alias:'Tonton Djiby',
         img:'img-mbresBAT/sen.jpg',
         rs:{
             x:'https//:www.x.com/djibreeldiallo/',
             f:'https//:www.facebook.com/djibinho/',
-            l:'https//:www.linkedin.com/'
+            l:'https//:www.linkedin.com/in/me-djibril-diallo-0a4671332'
         }
     },
     re:{
-        nom:"Mouhamadou DIENE",
+        nom:"Mouhamadou Guèye DIENE",
         travail:"Comptable",
         poste:"Comptable & Relations extérieures",
         alias:'Diène',
@@ -349,19 +349,19 @@ export const membresBureauAdministration={
         rs:{
             x:'https//:www.x.com/mgdiene/',
             f:'https//:www.facebook.com/MOUKHLYS/',
-            l:'https//:www.linkedin.com/'
+            l:'https//:www.linkedin.com/in/mouhamadu-gueye-diene'
         }
     },
     com:{
         nom:"Assane TOURE",
         travail:"Chargé Communication à GAYDEL",
         poste:"Responsable Communication",
-        alias:'Sass',
+        alias:'Tonton Assane',
         img:'img-mbresBAT/respo_com.jpg',
         rs:{
             x:'https//:www.x.com/sass_gaydel/',
             f:'https//:www.facebook.com/alhassangaydel.toure/',
-            l:'https//:www.linkedin.com/'
+            l:'https//:www.linkedin.com/in/'
         }
     },
     ad:{
@@ -373,7 +373,7 @@ export const membresBureauAdministration={
         rs:{
             x:'https//:www.x.com/maamourgaye/',
             f:'https//:www.facebook.com/mamour.gaye.3705/',
-            l:'https//:www.linkedin.com/'
+            l:'https//:www.linkedin.com/in/mamourgaye'
         }
     }
 
