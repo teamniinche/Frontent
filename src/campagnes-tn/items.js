@@ -120,7 +120,7 @@ function Table({Component,render}){
 
 export function PartImgs(){
     const ints=[1,2,3,4,5,6,7,8,9,10,11];
-    const ptnrs=['Sonatel','C.E.F.E','Senum','Distingo','Awn','Jeader'];
+    const ptnrs=['Sonatel','C.E.F.E','Senum','Distingo','A.W.N','Jeader'];
     return <div id="part_imgs" style={{backgroundColor:"#dae0e7",width:"96%",margin:"0px",padding:"2%",}}>
             <h3 style={{textAlign:"center",color:"grey",}}>CAMPAGNE 2024 : LES PARTENAIRES</h3>
                 <div style={{display:"flex",flexDirection:"row",justifyContent:"flex-start",alignItems:"center",flexWrap:"wrap",gap:"1rem",paddingBottom:'1rem',}}>
@@ -137,23 +137,23 @@ export function PartImgs(){
 
 }
 
-export function Karousel({ints,titre,sTitre,imgFolderRoot}){
-
+export function Karousel({ints,titre,sTitre,imgFolderRoot,id}){
+    const fSize=Window.innerWidth>='700'?{fontSize:'1rem',}:{fontSize:'0.8rem',};
     return <>
     <h3 style={{textAlign:"center",color:"grey",}}>{titre}</h3>
-    <div className="karouselDiv" style={{position:"relative",margin:"5px 0%",}}>
+    <div className="karouselDiv" id={""+(id && id)} style={{margin:"5px 0%",}}>
         <Carousel>
       {ints.map((Int,key)=>
         <Carousel.Item>
         <img
           className="d-block w-100"
           src={imgFolderRoot+Int+".jpg"}
-          alt="First slide"
-          style={{height:"500px",width:'100%',border:"2px solid rgba(255,255,255,1)",borderRadius:"10px",}}
+          alt={"slide "+key}
+          style={{width:'100%',border:"2px solid rgba(255,255,255,1)",borderRadius:"10px",}}
         />
         <Carousel.Caption>
-          <h3>{'Image '+(key+1)}</h3>
-          <p style={{fontFamily:'serif',textShadow:'1px 1px 2px blue',}}>{sTitre}</p>
+          <h3>{null}</h3>
+          <p style={{fontFamily:'serif',textShadow:'1px 1px 2px blue',...fSize}}>{sTitre}</p>
         </Carousel.Caption>
       </Carousel.Item>
       )}

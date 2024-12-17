@@ -15,12 +15,45 @@
     color:blue;
     font-weight:bold;
 }
+#carousel-map{
+    --ref-width:60vw;
+    @media screen and (max-width:1000px){
+        --ref-width:96vw;
+    }
+    position:relative;
+    width:var(--ref-width) !important;
+    margin:1rem auto !important;
+    height:calc(var(--ref-width)*0.7) !important;
+}
 
-/* .karouselDiv,.carousel{
-    --ref-width:100px;
-    width:100% !important;
-    height:calc(var(--ref-width*0.75)) !important;
-} */
+.karouselDiv{
+    --ref-width:40vw;
+    @media screen and (max-width:1200px){
+        --ref-width:66vw;
+    }
+    @media screen and (max-width:850px){
+        --ref-width:96vw;
+    }
+
+    position:relative;
+    width:var(--ref-width) !important;
+    margin:1rem auto !important;
+    height:calc(var(--ref-width)*0.7) !important;
+    .carousel,.carousel-inner{
+        height:100%;
+    }
+    /* .carousel-inner{
+        height:100%;
+    } */
+    .carousel-item{
+        width:98% !important;
+        height:100%;
+    }
+    .carousel-item img{
+        height:98% !important;
+    }
+}
+
 @media screen and (max-width:1200px){
     .itemsCampagnes{
         width:76% !important;

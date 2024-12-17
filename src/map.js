@@ -44,9 +44,9 @@ export default function Map(props) {
       window.innerWidth<=1000 && handleActivityClick()
       const map=mapRef.current; //A mapContainer on l'utilise en ref={mapRef} au lieu de whenCreayed() qui ne mar che pas d'ailleurs
                           setCoord([site.lat,site.long]);
-                          // let lt=site.lat+0.120000 //0.12 coefficent de deplacement du centre vers le haut(sur la lattitude) pour l'adapter à la retraction
+                          // let lt=site.lat+0.120000 //0.12 coefficent de deplacement du ***centre*** vers le haut(sur la lattitude) pour l'adapter à la retraction
                           setCenter([site.lat,site.long]);
-                          let zoom=index===0?7:14;
+                          let zoom=index===0?initialZoom:14;
                           let lt_offset=window.innerWidth>=1000?site.lat:(site.lat+0.011000);
                           if(map) map.flyTo([lt_offset,site.long],zoom);
                           const marker=listMarkerRef.current[index]
@@ -111,6 +111,7 @@ export default function Map(props) {
       titre="QUELQUES IMAGES DE REFECTION 2024"
       sTitre="TN - Réfection Ecoles & Daahras 2024"
       imgFolderRoot="img-refection/imageRef2024"
+      id="carousel-map"
     />
   </div>
   </>
