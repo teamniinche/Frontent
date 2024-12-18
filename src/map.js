@@ -41,7 +41,7 @@ export default function Map(props) {
       const listActivities=document.getElementById("div-avec-map");
       if(listActivities)listActivities.style.display="none";
     }
-    const initialZoom=window.innerWidth>=500?7:6.2;
+    const initialZoom=window.innerWidth>=500?7.2:6.29;
     const handleClick=(site,index)=>{
       window.innerWidth<=1000 && handleActivityClick()
       const map=mapRef.current; //A mapContainer on l'utilise en ref={mapRef} au lieu de whenCreayed() qui ne mar che pas d'ailleurs
@@ -65,6 +65,8 @@ export default function Map(props) {
         dragging={false}
         touchZoom={true}
         zoom={initialZoom/*6.2*/} 
+        zoomSnap={0}
+        zoomDelta={0.01}
         scrollWheelZoom={false} 
         className='mapContainer'
     >
