@@ -140,7 +140,7 @@ export function PartImgs(){
 export function Karousel({ints,titre,sTitre,imgFolderRoot,id}){
     const fSize=Window.innerWidth>='700'?{fontSize:'1rem',}:{fontSize:'0.8rem',};
     return <>
-    <h3 style={{textAlign:"center",color:"grey",}}>{titre}</h3>
+    <h4 style={{textAlign:"center",color:"grey",}}>{titre}</h4>
     <div className="karouselDiv" id={""+(id && id)} style={{margin:"5px 0%",}}>
         <Carousel>
       {ints.map((Int,key)=>
