@@ -1,15 +1,15 @@
+// import {Link} from 'react-router-dom';
+// import { loader} from './toast.js';
 import React,{useEffect,useState} from 'react';
-import {Link} from 'react-router-dom';
 import Tronc from './tronc.js';
 import {useDispatch} from 'react-redux' ;
-import {chantiersCounter,localisation,setIndex} from './stoore.js';
-import { loader} from './toast.js';
+import {chantiersCounter /*,localisation,setIndex*/} from './stoore.js';
 import './css/sideBar.css';
 import {Error} from './nous.js'
 import {serverUrl} from './root.js'
 
 const hostUrl=serverUrl
-class Chantier extends React.Component{
+/*class Chantier extends React.Component{
     constructor(props){
         super(props);
         this.onClick=this.onClick.bind(this);
@@ -57,7 +57,7 @@ class Chantier extends React.Component{
           </Link>
         </div>
      }
-  }
+  }*/
     
 
   export default function SideBar(props){
@@ -89,32 +89,32 @@ class Chantier extends React.Component{
       const [state,setState] = useState({chantier:defaultChantier});
       const [chantiers, setChantiers] = useState({chantiers:[],nombre:''});
       const [error, setError] = useState('');
-      let Chantiers=chantiers.chantiers
+      // let Chantiers=chantiers.chantiers
       let nombre=chantiers.nombre
-      function chantierChange(chantier,index){
-        setState({chantier:chantier})
-        dispatch(localisation({pos:[chantier.lat,chantier.long],index:index}))
-        dispatch(setIndex(index))
-        document.getElementsByClassName('containerOnly')[0].style.display='block';
-        // document.getElementsByClassName('mapContainer')[0].style.display='none'; //getElementsByTagName('iframe')[0]
-        document.querySelector('#map').style.display='none';
-        // <span style={{color:"blue",fontWeight:"bold"}}>{' >>>'}</span> {props.ChFocus}
-        }
-      function inputChange(val){
-          if (val===""){
-            fetch(hostUrl+'api/chantiers/allchantiers')
-          .then(response => response.json())
-          .then(chantiers => {setChantiers({...chantiers,chantiers:chantiers})})
-          .catch(error => setError(error.message)); // Stocke uniquement le message de l'erreur
-          if (error) {return <Error error={error}/>}
-          }else{
-          fetch(hostUrl+'api/chantiers/allchantiers/'+val)
-            .then(response => response.json())
-            .then(chantiers => setChantiers({...chantiers,chantiers:chantiers}))
-            .catch(error => setError(error.message)); // Stocke uniquement le message de l'erreur
-            if (error) {return <Error error={error}/>}
-          }
-          }
+      // function chantierChange(chantier,index){
+      //   setState({chantier:chantier})
+      //   dispatch(localisation({pos:[chantier.lat,chantier.long],index:index}))
+      //   dispatch(setIndex(index))
+      //   document.getElementsByClassName('containerOnly')[0].style.display='block';
+      //   // document.getElementsByClassName('mapContainer')[0].style.display='none'; //getElementsByTagName('iframe')[0]
+      //   document.querySelector('#map').style.display='none';
+      //   // <span style={{color:"blue",fontWeight:"bold"}}>{' >>>'}</span> {props.ChFocus}
+      //   }
+      // function inputChange(val){
+      //     if (val===""){
+      //       fetch(hostUrl+'api/chantiers/allchantiers')
+      //     .then(response => response.json())
+      //     .then(chantiers => {setChantiers({...chantiers,chantiers:chantiers})})
+      //     .catch(error => setError(error.message)); // Stocke uniquement le message de l'erreur
+      //     if (error) {return <Error error={error}/>}
+      //     }else{
+      //     fetch(hostUrl+'api/chantiers/allchantiers/'+val)
+      //       .then(response => response.json())
+      //       .then(chantiers => setChantiers({...chantiers,chantiers:chantiers}))
+      //       .catch(error => setError(error.message)); // Stocke uniquement le message de l'erreur
+      //       if (error) {return <Error error={error}/>}
+      //     }
+      //     }
 
       useEffect(() => {
         fetch(hostUrl+'api/chantiers/allchantiers')
@@ -154,7 +154,7 @@ export class ResearchBar extends React.Component{
   }
   handleChange=(e) =>{this.props.render(e.target.value);}
   render(){
-    let number=this.props.number===0?'AUCUN ':this.props.number;
+    /* let number=this.props.number===0?'AUCUN ':this.props.number;
     let style1={boxShadow:"none",border:"none",
               margin:"10px",
               height:"fit-content",
@@ -168,11 +168,11 @@ export class ResearchBar extends React.Component{
               fontWeight:"bold",
               padding:"2%",
               paddingBottom:"3%"
-              }
+              }*/
   return (
-    <div className="chantiers_bloc" style={style1}>
-      <input type="search" style={{width:"98.5%",minHeight:"40%",marginLeft:"1%",padding:"3%",border:"0px",borderRadius:"10px"}} placeholder={"RECHERCHER "+this.props.typ} value={this.props.termOfResearch} onChange={this.handleChange} />
-      <label style={style2} >{number+' ' +this.props.typ+'.S TROUVE.S'} </label>
+    <div className="chantiers_bloc" style={{/*style1*/}}>
+      {/* <input type="search" style={{width:"98.5%",minHeight:"40%",marginLeft:"1%",padding:"3%",border:"0px",borderRadius:"10px"}} placeholder={"RECHERCHER "+this.props.typ} value={this.props.termOfResearch} onChange={this.handleChange} />
+      <label style={style2} >{number+' ' +this.props.typ+'.S TROUVE.S'} </label> */}
     </div>
   ) }
 }

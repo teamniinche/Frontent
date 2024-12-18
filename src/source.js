@@ -1,14 +1,9 @@
 import React from "react";
 import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
-// import { PersistGate } from 'redux-persist/integration/react';
-// import { persistor } from './store';
-// import Loader from './loaderHtml.js'
 import Heade from "./heade.js";
-// import NewChantier from "./newChantier.js";
 import Sections from './sections.js';
 import {Nous,SecondeBar} from './nous.js';
 import LaTeam from './lateam.js';
-// import Discussion from './discussion.js';
 import {NousSoutenir,CopyRight} from './nousContacter.js';
 import Forms from './forms.js'
 import Connexion from './connexion.js'
@@ -21,6 +16,11 @@ import Contacts from "./contacts.js";
 import Accueil from "./accueil.js";
 import Items from "./campagnes-tn/items.js";
 import Partenaires from "./nos_partenaires.js";
+// import { PersistGate } from 'redux-persist/integration/react';
+// import { persistor } from './store';
+// import Loader from './loaderHtml.js'
+// import NewChantier from "./newChantier.js";
+// import Discussion from './discussion.js';
 
 
 export default function Teamniintche() {

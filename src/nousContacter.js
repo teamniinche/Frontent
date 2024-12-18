@@ -2,14 +2,12 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import './css/nousContacter.css';
 import './css/nsContacter-rs.css';
-// import {InputString} from './forms.js';
-// import { identifiant,mail } from './icons';
 import Footer from './footer.js';
 
 export function NousContacter(){
     return <>
-            <NousSuivre/>
             <Footer/>
+            <NousSuivre/>
         </>
         }
 
@@ -90,13 +88,14 @@ export default function MetaData(){
 
 export function CopyRight() {
   return <div className="copyright">
-  CopyRight © 2023 TeamNiintche Tous droits réservés ®
+  CopyRight © 2023 Team Niintche Tous droits réservés ®
 </div>
 }
 
 export function NousSoutenir(){
   return (
-    <a className="noussoutenir" href='https://fr.diapci.sn/campaign/406/les-repas-de-la-solidarite'>
+    // https://fr.diapci.sn/campaign/406/les-repas-de-la-solidarite
+    <a className="noussoutenir" href="#">
         Nous soutenir
     </a>
   )
