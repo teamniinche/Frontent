@@ -1,9 +1,10 @@
 import React,{useLayoutEffect,useState,createContext,useContext} from 'react';
 import { Dropdown,Carousel } from 'react-bootstrap';
 import Modal from './new-item.js';
+import { NousContacter } from '../nousContacter.js';
 import {serverApiUrl} from '../root.js';
 import '../css/items.css';
-import {missionActions,parteners,partenaires,activities,contacts,rs,annees} from '../iterables.js'
+import {parteners,partenaires,annees} from '../iterables.js'
 import Partenaires,{PartenerCard} from '../components/partenaires.js';
 import { AlertPoped } from './poputs.js';
 import DataTable from 'datatables.net-dt';
@@ -70,7 +71,7 @@ export default function Items(){
         return entites;
     }
     
-    return <DisplayAlertContext.Provider value={{str,DisplayTChange,id,obj,configModal}}>
+ return <DisplayAlertContext.Provider value={{str,DisplayTChange,id,obj,configModal}}>
     <div id="items-mere" style={{display:'flex',flexDirection:'column',}}>
         {/* <AlertPoped message="Utilisateur enregistré avec succés" color="green"/> */}
         {str.st==='alert'?<AlertPoped message={str.data.message} color={str.data.code}/>:<Alertoped/>}
@@ -92,15 +93,7 @@ export default function Items(){
         <Parteners/>
         </div>
     </div>
-    <FooterItemContainer>
-            <div >
-                <FooterItem tilte='Nous Contacter' jsArray={contacts}/>
-                <FooterItem tilte='Nos Mission & Actions' jsArray={missionActions}/>
-            </div>
-            <FooterItem tilte='Nos Partenaires' jsArray={partenaires}/>
-            <FooterItem tilte='Nos Réalisations' jsArray={activities}/>
-            <FooterItem tilte='Nos Réseaux sociaux' jsArray={rs}/>
-    </FooterItemContainer>
+    <NousContacter/>
     </div>
 
     </DisplayAlertContext.Provider>
@@ -137,7 +130,15 @@ export function PartImgs(){
 
 }
 
-export function Karousel({ints,titre,sTitre,imgFolderRoot,id}){
+export function Karousel(
+    {
+        ints, //Tableau d'entiers pour iterer sur les images
+        titre, // Titre du carousel
+        sTitre,
+        imgFolderRoot, // Racine du chemin d'accès du dossier des images
+        id // Karousel étant réutilisé en +sieurs endroits, l'id permet d'identifier une instance du carousel pour un traitement spécial
+    }
+){
     const fSize=Window.innerWidth>='700'?{fontSize:'1rem',}:{fontSize:'0.8rem',};
     return <>
     <h4 style={{textAlign:"center",color:"grey",}}>{titre}</h4>
@@ -158,7 +159,6 @@ export function Karousel({ints,titre,sTitre,imgFolderRoot,id}){
       </Carousel.Item>
       )}
     </Carousel>
-    {/* {if(!bool){document.getElementsByClassName('carousel-control-next').style.display='none'}} */}
     </div>
     </>
 }
@@ -505,35 +505,9 @@ export function Parteners(){
 
 }
 
-
 export function Partnaires(){
     return <div style={{backgroundColor:'rgba(255,255,255,0.4)',padding:'2rem',display:'flex',flexDirection:'row',alignItems:'center',justifyContent:'center',flexWrap:'wrap',gap:'5rem',}}>
         {partenaires.map((ptner,key)=><Partenaires obj={{src:ptner[1],alt:"",name:ptner[0],url:ptner[2],an:ptner[3]}}/>)}
-    </div>
-}
-
-function FooterItemContainer({children}){
-    return <div id="footer-item-container">
-        {children}
-    </div>
-}
-
-function FooterItem({tilte,jsArray}){
-        
-        return <div className="item-container">
-        <h3 style={{letterSpacing:'3px',color:'grey',margin:'0px',borderRight:'5px solid rgba(200,0,0,0.7)',borderBottom:'1px solid grey',}}>{tilte}</h3>
-        <ul className="footer-items">
-            {jsArray[0][0].length>1?jsArray.map((el,key)=>
-                <li key={key}>
-                    <a href={el[2]} style={{display:'flex',textDecoration:'none',flexDirection:'row',justifyContent:'space-between',alignItems:'center',gap:'0.5rem',}}>
-                        <img src={el[1]} alt={el[0]} width="30px" height="30px"/>
-                        {el[0]}
-                    </a>
-                </li>)
-            :jsArray.map((el,key)=><li key={key} style={{marginBottom:'0.5rem',}}><span>{key+1}</span>{el}</li>)
-            }
-            
-        </ul>
     </div>
 }
 

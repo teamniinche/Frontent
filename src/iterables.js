@@ -3,7 +3,7 @@ export const parteners = {
         nom: "M.E.N.",
         logo: "logo_men-trparent.png",
         date: "2024",
-        intervention: ["Refection de l'école OGO Diop(P.A)"],
+        intervention: ["Refection de l'école El. H OGO Diop(Dakar)"],
         total: 10000000,
         contacts: "education.sn"
     },
@@ -11,7 +11,7 @@ export const parteners = {
         nom: "C.E.F.E",
         logo: "logo_cefe-trparent.png",
         date: "2024",
-        intervention: ["Campagne TOUS A L'ÉCOLE 2024","Refection du Centre de formation professionnele de Bargny"],
+        intervention: ["Campagne TOUS A L'ÉCOLE 2024","Refection du Centre de formation professionnelle de Bargny"],
         total: 10000000,
         contacts: "environnement.gouv.sn"
     },
@@ -100,7 +100,7 @@ export const parteners = {
         nom: "Awn",
         logo: "logo_awn-trparent.png",
         date: "2024",
-        intervention: ["Campagne TOUS A L'ÉCOLE 2022"],
+        intervention: ["Campagne TOUS A L'ÉCOLE 2024"],
         total: "",
         contacts: "awlnafrica.net"
     },

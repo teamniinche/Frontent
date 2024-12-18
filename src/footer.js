@@ -3,10 +3,7 @@ import './css/footer.css';
 import { partenaires,missionActions,rs,activities,contacts} from './iterables.js';
 // let table = new DataTable('.table');
 export default function Footer(){
-    
-    
-
-
+   
 return <div style={{display:'flex',flexDirection:'column',width:'100%',}}>
 
 <FooterItemContainer>

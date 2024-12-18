@@ -28,7 +28,7 @@ export default function Partenaires() {
                         </td>
                         <td style={{width:"8rem",paddingRight:"1rem",fontSize:fontSize,textAlign:"center",}}>{ptner.date}</td>
                         <td style={{fontSize:fontSize,}}>{ptner.intervention.map(actvt=>(<li>{actvt}</li>))}</td>
-                        <td style={{fontSize:fontSize,minWidth:"10rem",fontWeight:"bold",textAlign:"center",}}>{ptner.total.toLocaleString()}</td>
+                        <td style={{fontSize:fontSize,minWidth:"10rem",fontWeight:"bold",textAlign:"center",}}>{'- - -'/*ptner.total.toLocaleString()*/}</td>
                         <td style={{fontSize:fontSize,textAlign:"right",}}><a href={ptner.contacts && "https://www."+ptner.contacts} target="_blank" rel="noreferrer">{ptner.contacts && "https://www."+ptner.contacts}</a></td>
                     </tr>})}
             </tbody>
