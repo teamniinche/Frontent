@@ -3,10 +3,12 @@ import {useState,useRef} from 'react';
 import {Link} from 'react-router-dom';
 import { useSelector} from 'react-redux'
 import { MapContainer, TileLayer,Marker,Popup} from 'react-leaflet'
-import {Icon} from 'leaflet';
+import {Icon} from 'leaflet';import "leaflet/dist/leaflet.css";
+
 import { Karousel } from './campagnes-tn/items';
 import { sites } from './iterables';
 import './css/leafletCss.css'
+
 
 export default function Map(props) {
     const ints=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24];
@@ -57,9 +59,17 @@ export default function Map(props) {
                           setKZoom(Zoom)
                       }
   return <><div id="map">
-    <MapContainer ref={mapRef} center={center} zoom={initialZoom/*6.2*/} scrollWheelZoom={false} className='mapContainer'>
+    <MapContainer 
+        ref={mapRef} 
+        center={center}
+        dragging={false}
+        touchZoom={true}
+        zoom={initialZoom/*6.2*/} 
+        scrollWheelZoom={false} 
+        className='mapContainer'
+    >
         <TileLayer
-          attribution='SénégaL 🇸🇳 Activités @TeamNiintche & Partenaires & Collaborateurs'
+          attribution='SénégaL 🇸🇳  | Activités <strong>Team Niintche</strong> & Partenaires'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         {sites.map((site,index)=>{

@@ -5,6 +5,9 @@
   display:flex;
   flex-direction:column;
 }
+.leaflet-control a,.leaflet-control span{
+  display:none;
+}
 .team-on-bg{
     background-position:center;
     background-size: 50%;
