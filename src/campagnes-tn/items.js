@@ -71,7 +71,7 @@ export default function Items(){
         return entites;
     }
     
-    return <DisplayAlertContext.Provider value={{str,DisplayTChange,id,obj,configModal}}>
+ return <DisplayAlertContext.Provider value={{str,DisplayTChange,id,obj,configModal}}>
     <div id="items-mere" style={{display:'flex',flexDirection:'column',}}>
         {/* <AlertPoped message="Utilisateur enregistré avec succés" color="green"/> */}
         {str.st==='alert'?<AlertPoped message={str.data.message} color={str.data.code}/>:<Alertoped/>}
@@ -113,7 +113,7 @@ function Table({Component,render}){
 
 export function PartImgs(){
     const ints=[1,2,3,4,5,6,7,8,9,10,11];
-    const ptnrs=['Sonatel','C.E.F.E','Senum','Distingo','A.W.N','Jeader'];
+    const ptnrs=['Fondation Sonatel','C.E.F.E','Senum','Distingo','A.W.N','Jeader'];
     return <div id="part_imgs" style={{backgroundColor:"#dae0e7",width:"96%",margin:"0px",padding:"2%",}}>
             <h3 style={{textAlign:"center",color:"grey",}}>CAMPAGNE 2024 : LES PARTENAIRES</h3>
                 <div style={{display:"flex",flexDirection:"row",justifyContent:"flex-start",alignItems:"center",flexWrap:"wrap",gap:"1rem",paddingBottom:'1rem',}}>
