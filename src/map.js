@@ -71,7 +71,7 @@ export default function Map(props) {
         className='mapContainer'
     >
         <TileLayer
-          attribution='SénégaL 🇸🇳  | Activités <strong>Team Niintche</strong> & Partenaires'
+          attribution='SénégaL 🇸🇳  | Activités de <strong>Team Niintche</strong> & Partenaires'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         {sites.map((site,index)=>{
@@ -87,13 +87,13 @@ export default function Map(props) {
                                        ptner=>{return <a className="partnerLink" href={'https://www.'+ptner.site} target="_blank" rel="noreferrer" style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",width:"fit-content",padding:"5px",textDecoration:"none",backgroundColor:"whitesmoke",height:"fit-content",marginRight:"5px",}}>
                                                 <span>{' '+ptner.nom[0].toUpperCase()+ptner.nom.slice(1)}</span>
                                                 <img src={'/logos_partenaires/logo_'+ptner.nom+'.png'} alt={'logo_'+ptner.nom} width="45px" height="30px" />
-                                                <span style={{color:"rgb(0,150,0)",}}>{ptner.apport.toLocaleString()+'M fcfa'}</span>
+                                                <span style={{color:"rgb(0,150,0)",}}>{/*ptner.apport.toLocaleString()+*/'...M fcfa'}</span>
                                            </a>}
                                     )}
                                     </div>
                             </div>:null}
                             {site.name.includes('SénégaL')?null:<div>
-                                <span style={{display:"inline-block",backgroundColor:"green",color:"white",fontWeight:"bold",padding:"4px 1rem",margin:"0.5rem 0px",borderTopRightRadius:"10px",borderBottomLeftRadius:"10px",}}>Coût moyen:<b>{site.cout}</b> Fcfa</span><br/>
+                                <span style={{display:"inline-block",backgroundColor:"green",color:"white",fontWeight:"bold",padding:"4px 1rem",margin:"0.5rem 0px",borderTopRightRadius:"10px",borderBottomLeftRadius:"10px",}}>Coût moyen:<b>{/*site.cout*/}</b> Fcfa</span><br/>
                                 <VoirDet site={site.name}/>
                             </div>}
                       </Popup> 
